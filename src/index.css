@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #FAFAF8;
+  --color-surface: #FFFFFF;
+  --color-foreground: #1A1A1A;
+  --color-muted: #64748B;
+  --color-primary: #EC4899;
+  --color-on-primary: #FFFFFF;
+  --color-secondary: #F59E0B;
+  --color-accent: #2563EB;
+  --color-destructive: #DC2626;
+  --color-border: #E2E8F0;
+  --color-tape: #FDE68A;
+  --color-sticker-pink: #FF71CE;
+  --color-sticker-teal: #86CCCA;
+  --color-paper-shadow: rgba(0, 0, 0, 0.08);
+
+  --font-sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --shadow-card: 0 2px 0 #1A1A1A;
+  --shadow-button: 0 3px 0 #1A1A1A;
+  --shadow-sheet: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  --shadow-modal: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle paper grain overlay on the background only */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  #root {
+    padding: 24px 0;
+  }
+}
+
+/* Type scale helpers */
+.text-hero {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 900;
+}
+
+.text-title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.text-subtitle {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+}
+
+.text-body {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.text-label {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.text-caption {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+/* Interactive focus ring */
+.focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+/* Master component classes */
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: var(--shadow-button);
+  transition: transform var(--duration-fast) var(--easing-default),
+    box-shadow var(--duration-fast) var(--easing-default);
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--color-foreground);
+}
+
+.choice-button {
+  background: var(--color-surface);
+  color: var(--color-foreground);
+  border: 2px solid var(--color-foreground);
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--duration-fast) var(--easing-default),
+    box-shadow var(--duration-fast) var(--easing-default),
+    border-color var(--duration-fast) var(--easing-default);
+  cursor: pointer;
+}
+
+.choice-button:hover,
+.choice-button:focus-visible {
+  border-color: var(--color-primary);
+}
+
+.choice-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 var(--color-foreground);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

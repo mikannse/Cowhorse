@@ -1,0 +1,66 @@
+[
+  {
+    "id": "lie_intro",
+    "stage": "gap",
+    "text": "你退了三个求职群，把简历从\\u201c求捞\\u201d改成了\\u201c活着\\u201d。房租还有两个月，存款还能撑四个月。你想：\\u201c够了。\\u201d",
+    "choices": [
+      {
+        "text": "做兼职，半躺不躺",
+        "effects": [
+          { "target": "money", "value": 10, "label": "兼职收入" },
+          { "target": "mentalHealth", "value": 10, "label": "自由" },
+          { "target": "connections", "value": 5, "label": "新圈子" }
+        ],
+        "nextEventId": "lie_freelance"
+      },
+      {
+        "text": "彻底躺平，不工作",
+        "effects": [
+          { "target": "mentalHealth", "value": 20, "label": "完全放松" },
+          { "target": "money", "value": -20, "label": "坐吃山空" },
+          { "target": "connections", "value": -10, "label": "社交脱节" }
+        ],
+        "nextEventId": "lie_full_flat"
+      }
+    ]
+  },
+  {
+    "id": "lie_freelance",
+    "stage": "work",
+    "text": "你在二手平台接单，给淘宝店写文案。\\u201c亲，这款面膜真的绝绝子\\u201d——你打下这行字，笑了整整一分钟。",
+    "moment": {
+      "templateId": "lie_freelance_moment",
+      "text": "自由职业第 30 天：收入不稳定，但时间是我的。",
+      "replyPool": [
+        "羡慕自由",
+        "社保怎么办？",
+        "我也想做副业"
+      ]
+    },
+    "choices": [
+      {
+        "text": "继续接单",
+        "effects": [
+          { "target": "money", "value": 15, "label": "接单" },
+          { "target": "skill", "value": 10, "label": "技能杂学" }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "lie_full_flat",
+    "stage": "work",
+    "text": "你已经能准确说出菜市场每种蔬菜的价格。父母从\\u201c催你找工作\\u201d变成了\\u201c你开心就好\\u201d。",
+    "choices": [
+      {
+        "text": "就这样吧",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "自洽" },
+          { "target": "money", "value": -10, "label": "继续低消费" }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "job_intro",
+    "stage": "graduation",
+    "text": "你打开招聘软件，\\u201c已读不回\\u201d四个字成了你最熟悉的问候语。面试通知终于来的时候，你紧张得像在等高考成绩。",
+    "choices": [
+      {
+        "text": "海投，扩大分母",
+        "effects": [
+          { "target": "connections", "value": 5, "label": "曝光+1" },
+          { "target": "energy", "value": -10, "label": "投简历到眼花" }
+        ],
+        "nextEventId": "job_interview"
+      },
+      {
+        "text": "精准投递，少而精",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "针对性准备" },
+          { "target": "mentalHealth", "value": -5, "label": "等待焦虑" }
+        ],
+        "nextEventId": "job_interview"
+      }
+    ]
+  },
+  {
+    "id": "job_interview",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "群面现场，八个人抢一个转正名额。HR 问：\\u201c你为什么选择我们公司？\\u201d你心里说：\\u201c因为我投了五十家只有你们理我。\\u201d",
+    "choices": [
+      {
+        "text": "秀出准备",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "connections", "value": 10, "label": "面试官好感" },
+          { "target": "mentalHealth", "value": 10, "label": "自信恢复" }
+        ],
+        "nextEventId": "job_offer"
+      },
+      {
+        "text": "发挥失常",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": -15, "label": "挫败" },
+          { "target": "energy", "value": -10, "label": "面试消耗" }
+        ],
+        "nextEventId": "job_reject"
+      }
+    ]
+  },
+  {
+    "id": "job_offer",
+    "stage": "firstJob",
+    "text": "\\u201c明天来入职。\\u201d你盯着这条消息，发了五秒钟呆。工资不高，但终于有人要你了。",
+    "moment": {
+      "templateId": "job_offer_moment",
+      "text": "终于拿到 offer 了，虽然工资只够房租和泡面。",
+      "replyPool": [
+        "恭喜！",
+        "什么岗位？",
+        "记住，入职只是开始"
+      ]
+    },
+    "choices": [
+      {
+        "text": "努力工作，争取转正",
+        "effects": [
+          { "target": "money", "value": 20, "label": "工资" },
+          { "target": "energy", "value": -20, "label": "加班" },
+          { "target": "mentalHealth", "value": -10, "label": "内卷" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "摸鱼养生，拒绝内卷",
+        "effects": [
+          { "target": "money", "value": 10, "label": "工资" },
+          { "target": "mentalHealth", "value": 15, "label": "自我保护" },
+          { "target": "skill", "value": -5, "label": "成长放缓" }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "job_reject",
+    "stage": "gap",
+    "text": "\\u201c我们很遗憾\\u201d——你看到这五个字的时候，外卖刚好送到。炸鸡凉了，但你吃得比平时还多。",
+    "choices": [
+      {
+        "text": "继续投，不信找不到",
+        "effects": [
+          { "target": "mentalHealth", "value": -5, "label": "麻木" },
+          { "target": "connections", "value": 5, "label": "越投越勇" }
+        ],
+        "nextEventId": "job_interview"
+      },
+      {
+        "text": "考公去吧",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "转方向" }
+        ],
+        "nextEventId": "civil_intro"
+      }
+    ]
+  }
+]

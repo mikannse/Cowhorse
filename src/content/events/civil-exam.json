@@ -1,0 +1,97 @@
+[
+  {
+    "id": "civil_intro",
+    "stage": "graduation",
+    "text": "行测的图形推理让你怀疑自己的智商，申论让你怀疑自己的母语。但爸妈说：\\u201c考上就一辈子不愁了。\\u201d",
+    "choices": [
+      {
+        "text": "报班，系统学习",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "系统课" },
+          { "target": "money", "value": -15, "label": "报班费" }
+        ],
+        "nextEventId": "civil_exam"
+      },
+      {
+        "text": "自学，省钱",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "自学" },
+          { "target": "mentalHealth", "value": -5, "label": "自律压力" }
+        ],
+        "nextEventId": "civil_exam"
+      }
+    ]
+  },
+  {
+    "id": "civil_exam",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "考场上你旁边的同学带了三个橡皮，说是幸运符。你只带了准考证和一颗悬着的心。",
+    "choices": [
+      {
+        "text": "正常发挥",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "skill", "value": 10, "label": "进面" },
+          { "target": "mentalHealth", "value": 10, "label": "安心" }
+        ],
+        "nextEventId": "civil_pass"
+      },
+      {
+        "text": "题目好难",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": -15, "label": "绝望" },
+          { "target": "energy", "value": -10, "label": " exhaustion" }
+        ],
+        "nextEventId": "civil_fail"
+      }
+    ]
+  },
+  {
+    "id": "civil_pass",
+    "stage": "firstJob",
+    "text": "公示名单出来的那天，妈妈把截图发到了家族群。你看着自己名字，忽然觉得它不属于你。",
+    "moment": {
+      "templateId": "civil_pass_moment",
+      "text": "上岸了。妈妈说稳定最重要。",
+      "replyPool": [
+        "恭喜铁饭碗！",
+        "体制内也没那么轻松",
+        "以后记得关照我"
+      ]
+    },
+    "choices": [
+      {
+        "text": "去上班",
+        "effects": [
+          { "target": "money", "value": 15, "label": "工资" },
+          { "target": "connections", "value": -5, "label": "告别朋友" }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "civil_fail",
+    "stage": "gap",
+    "text": "\\u201c竞争激烈\\u201d——公告用四个字解释了你半年的努力。你删除了所有考公群，但留下了那本翻烂的书。",
+    "choices": [
+      {
+        "text": "明年再来",
+        "effects": [
+          { "target": "mentalHealth", "value": -10, "label": "执念" },
+          { "target": "skill", "value": 5, "label": "经验" }
+        ],
+        "nextEventId": "civil_intro"
+      },
+      {
+        "text": "找工作",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "换赛道" }
+        ],
+        "nextEventId": "job_intro"
+      }
+    ]
+  }
+]

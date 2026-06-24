@@ -1,0 +1,23 @@
+{
+  "attributeRanges": {
+    "min": 0,
+    "max": 100
+  },
+  "dice": {
+    "successThreshold": 4,
+    "modifierCap": {
+      "min": -3,
+      "max": 3
+    }
+  },
+  "typewriter": {
+    "charDelayMs": 25,
+    "punctuationPauseMs": 200
+  },
+  "moments": {
+    "repliesPerPost": {
+      "min": 1,
+      "max": 3
+    }
+  }
+}

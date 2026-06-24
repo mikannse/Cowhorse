@@ -1,0 +1,14 @@
+[
+  {
+    "id": "ending_reached",
+    "stage": "ending",
+    "text": "你的人生简历到此暂告一个段落。无论结局如何，至少你走到了这里。",
+    "choices": [
+      {
+        "text": "查看人生简历",
+        "effects": [],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  }
+]

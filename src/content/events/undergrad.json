@@ -1,0 +1,73 @@
+[
+  {
+    "id": "undergrad_start",
+    "stage": "undergrad",
+    "text": "大四开学，辅导员在群里发了三条消息：\\u201c秋招开始\\u201d、\\u201c考研报名\\u201d、\\u201c考公公告\\u201d。你躺在床上，感觉人生像一道多选题，但正确答案被折叠了。",
+    "choices": [
+      {
+        "text": "考研，再读三年",
+        "effects": [
+          { "target": "energy", "value": -10, "label": "查资料" },
+          { "target": "skill", "value": 5, "label": "提前复习" }
+        ],
+        "nextEventId": "exam_intro"
+      },
+      {
+        "text": "找工作，先养活自己",
+        "effects": [
+          { "target": "connections", "value": 5, "label": "更新简历" },
+          { "target": "mentalHealth", "value": -5, "label": "焦虑+1" }
+        ],
+        "nextEventId": "job_intro"
+      },
+      {
+        "text": "考公，求个稳定",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "看行测" },
+          { "target": "money", "value": -5, "label": "买资料" }
+        ],
+        "nextEventId": "civil_intro"
+      },
+      {
+        "text": "躺平，人生不是赛道",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "内心平静" },
+          { "target": "money", "value": -10, "label": "无收入" }
+        ],
+        "nextEventId": "lie_intro"
+      }
+    ]
+  },
+  {
+    "id": "lonely_night",
+    "stage": "undergrad",
+    "condition": {
+      "type": "and",
+      "conditions": [
+        { "type": "attribute", "attr": "mentalHealth", "operator": "lt", "value": 40 },
+        { "type": "attribute", "attr": "connections", "operator": "lt", "value": 30 }
+      ]
+    },
+    "text": "宿舍只剩你一个。外卖盒堆在角落，手机屏幕亮了又暗。",
+    "lonelyMoment": "原来孤独不是没有人陪，而是你发现\\u201c明天\\u201d和\\u201c今天\\u201d长得一模一样。",
+    "choices": [
+      {
+        "text": "关灯睡觉",
+        "effects": [{ "target": "energy", "value": 10 }],
+        "nextEventId": "undergrad_start"
+      }
+    ]
+  },
+  {
+    "id": "event_not_found",
+    "stage": "undergrad",
+    "text": "（系统提示：这段剧情被甲方砍了。你获得了一个珍贵的\\u201c404 成就\\u201d。）",
+    "choices": [
+      {
+        "text": "从头再来",
+        "effects": [],
+        "nextEventId": "undergrad_start"
+      }
+    ]
+  }
+]

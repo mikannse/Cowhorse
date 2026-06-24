@@ -1,0 +1,146 @@
+[
+  {
+    "id": "exam_intro",
+    "stage": "undergrad",
+    "text": "你打开研招网，985、211、双非，选项像相亲 market。室友问你报哪所，你说：\\u201c能上岸就行。\\u201d",
+    "choices": [
+      {
+        "text": "冲 985，卷死自己",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "高难度目标" },
+          { "target": "energy", "value": -15, "label": "熬夜" },
+          { "target": "mentalHealth", "value": -10, "label": "压力" }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "求稳，本校也行",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "稳复习" },
+          { "target": "energy", "value": -5, "label": "摸鱼复习" }
+        ],
+        "nextEventId": "exam_study_normal"
+      }
+    ]
+  },
+  {
+    "id": "exam_study_hard",
+    "stage": "undergrad",
+    "diceRoll": true,
+    "text": "考试那天你带了咖啡和红牛。试卷翻开的瞬间，你感觉命运骰子已经掷出。",
+    "choices": [
+      {
+        "text": "继续答题",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "skill", "value": 10, "label": "高分" },
+          { "target": "mentalHealth", "value": 10, "label": "上岸预感" }
+        ],
+        "nextEventId": "exam_pass"
+      },
+      {
+        "text": "硬着头皮写下去",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": -15, "label": "落榜阴影" },
+          { "target": "energy", "value": -10, "label": "心力交瘁" }
+        ],
+        "nextEventId": "exam_retake"
+      }
+    ]
+  },
+  {
+    "id": "exam_study_normal",
+    "stage": "undergrad",
+    "diceRoll": true,
+    "text": "你复习得中规中矩，考场上甚至想起昨晚没吃完的麻辣烫。",
+    "choices": [
+      {
+        "text": "就这样吧",
+        "condition": { "type": "dice", "min": 3, "max": 6 },
+        "effects": [
+          { "target": "skill", "value": 5, "label": "上岸" },
+          { "target": "mentalHealth", "value": 5, "label": "小确幸" }
+        ],
+        "nextEventId": "exam_pass"
+      },
+      {
+        "text": "沉默收卷",
+        "condition": { "type": "dice", "min": 1, "max": 2 },
+        "effects": [
+          { "target": "mentalHealth", "value": -10, "label": "凉凉" }
+        ],
+        "nextEventId": "exam_retake"
+      }
+    ]
+  },
+  {
+    "id": "exam_pass",
+    "stage": "graduation",
+    "text": "拟录取名单上有你的名字。你截了图，发了朋友圈，配文是 \\u201c轻舟已过万重山\\u201d。其实你知道，山后面还是山。",
+    "moment": {
+      "templateId": "exam_pass_moment",
+      "text": "轻舟已过万重山（其实山后面还有山）。",
+      "replyPool": [
+        "恭喜上岸！",
+        "二战的我酸了",
+        "研究生也卷，别高兴太早"
+      ]
+    },
+    "choices": [
+      {
+        "text": "开始读研",
+        "effects": [
+          { "target": "connections", "value": 5, "label": "新同学" },
+          { "target": "money", "value": -10, "label": "学费" }
+        ],
+        "nextEventId": "postgrad_start"
+      }
+    ]
+  },
+  {
+    "id": "exam_retake",
+    "stage": "gap",
+    "text": "成绩出来的那天晚上，你把书收进了箱子。爸妈没说什么，但饭桌上多了三道你喜欢的菜。",
+    "choices": [
+      {
+        "text": "二战",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "再来一次" },
+          { "target": "mentalHealth", "value": -10, "label": "重复焦虑" }
+        ],
+        "nextEventId": "exam_intro"
+      },
+      {
+        "text": "算了，去工作",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "解脱" }
+        ],
+        "nextEventId": "job_intro"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_start",
+    "stage": "postgrad",
+    "text": "导师在组会上说：\\u201c你们这届学生质量不行。\\u201d你低头看文献，假装在记笔记，其实是在算还要熬几年。",
+    "choices": [
+      {
+        "text": "发 paper，卷教职",
+        "effects": [
+          { "target": "skill", "value": 15, "label": "科研" },
+          { "target": "energy", "value": -20, "label": "实验" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "混毕业，找工作",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "放过自己" },
+          { "target": "skill", "value": -5, "label": "划水" }
+        ],
+        "nextEventId": "job_intro"
+      }
+    ]
+  }
+]
