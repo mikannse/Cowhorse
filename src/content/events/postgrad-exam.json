@@ -2,22 +2,70 @@
   {
     "id": "exam_intro",
     "stage": "undergrad",
-    "text": "你打开研招网，985、211、双非，选项像相亲 market。室友问你报哪所，你说：\\u201c能上岸就行。\\u201d",
+    "text": "你打开研招网，985、211、双非，选项像相亲 market。室友问你报哪所，你说：\"能上岸就行。\"",
     "choices": [
       {
         "text": "冲 985，卷死自己",
         "effects": [
           { "target": "skill", "value": 10, "label": "高难度目标" },
-          { "target": "energy", "value": -15, "label": "熬夜" },
+          { "target": "energy", "value": -15, "label": "熬夜复习" },
           { "target": "mentalHealth", "value": -10, "label": "压力" }
         ],
-        "nextEventId": "exam_study_hard"
+        "nextEventId": "exam_prep_hard"
       },
       {
         "text": "求稳，本校也行",
         "effects": [
           { "target": "skill", "value": 5, "label": "稳复习" },
           { "target": "energy", "value": -5, "label": "摸鱼复习" }
+        ],
+        "nextEventId": "exam_prep_normal"
+      }
+    ]
+  },
+  {
+    "id": "exam_prep_hard",
+    "stage": "undergrad",
+    "text": "你买了八本参考书，加入了三个打卡群，每天六点起床。朋友圈变成了\"今天的图书馆，明天的录取通知书\"。",
+    "choices": [
+      {
+        "text": "坚持，不疯魔不成活",
+        "effects": [
+          { "target": "skill", "value": 15, "label": "刷题" },
+          { "target": "energy", "value": -20, "label": "熬夜" },
+          { "target": "mentalHealth", "value": -5, "label": "紧绷" }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "适当放松一下",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "休息" },
+          { "target": "energy", "value": 5, "label": "回血" },
+          { "target": "skill", "value": 5, "label": "继续复习" }
+        ],
+        "nextEventId": "exam_study_normal"
+      }
+    ]
+  },
+  {
+    "id": "exam_prep_normal",
+    "stage": "undergrad",
+    "text": "你按部就班地复习，偶尔刷到考研失败贴就陷入焦虑。某天深夜你算了算报录比，沉默了。",
+    "choices": [
+      {
+        "text": "加强复习强度",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "加量" },
+          { "target": "energy", "value": -15, "label": "熬夜" }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "保持节奏，稳扎稳打",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "稳" },
+          { "target": "mentalHealth", "value": 5, "label": "心态好" }
         ],
         "nextEventId": "exam_study_normal"
       }
@@ -27,23 +75,23 @@
     "id": "exam_study_hard",
     "stage": "undergrad",
     "diceRoll": true,
-    "text": "考试那天你带了咖啡和红牛。试卷翻开的瞬间，你感觉命运骰子已经掷出。",
+    "text": "考试那天你带了咖啡和红牛，前一晚只睡了四小时。试卷翻开的瞬间，你感觉命运骰子已经掷出。",
     "choices": [
       {
-        "text": "继续答题",
+        "text": "全力答题",
         "condition": { "type": "dice", "min": 4, "max": 6 },
         "effects": [
-          { "target": "skill", "value": 10, "label": "高分" },
+          { "target": "skill", "value": 15, "label": "超常发挥" },
           { "target": "mentalHealth", "value": 10, "label": "上岸预感" }
         ],
         "nextEventId": "exam_pass"
       },
       {
-        "text": "硬着头皮写下去",
+        "text": "尽力而为",
         "condition": { "type": "dice", "min": 1, "max": 3 },
         "effects": [
-          { "target": "mentalHealth", "value": -15, "label": "落榜阴影" },
-          { "target": "energy", "value": -10, "label": "心力交瘁" }
+          { "target": "mentalHealth", "value": -20, "label": "发挥失常" },
+          { "target": "energy", "value": -15, "label": "心力交瘁" }
         ],
         "nextEventId": "exam_retake"
       }
@@ -53,22 +101,23 @@
     "id": "exam_study_normal",
     "stage": "undergrad",
     "diceRoll": true,
-    "text": "你复习得中规中矩，考场上甚至想起昨晚没吃完的麻辣烫。",
+    "text": "你复习得中规中矩，考场上甚至想起昨晚没吃完的麻辣烫。写完最后一个字，你长出一口气。",
     "choices": [
       {
-        "text": "就这样吧",
+        "text": "检查一遍交卷",
         "condition": { "type": "dice", "min": 3, "max": 6 },
         "effects": [
-          { "target": "skill", "value": 5, "label": "上岸" },
-          { "target": "mentalHealth", "value": 5, "label": "小确幸" }
+          { "target": "skill", "value": 5, "label": "稳妥" },
+          { "target": "mentalHealth", "value": 5, "label": "心里有底" }
         ],
         "nextEventId": "exam_pass"
       },
       {
-        "text": "沉默收卷",
+        "text": "发呆到最后一秒",
         "condition": { "type": "dice", "min": 1, "max": 2 },
         "effects": [
-          { "target": "mentalHealth", "value": -10, "label": "凉凉" }
+          { "target": "mentalHealth", "value": -10, "label": "不确定" },
+          { "target": "energy", "value": 5, "label": "休息" }
         ],
         "nextEventId": "exam_retake"
       }
@@ -77,69 +126,229 @@
   {
     "id": "exam_pass",
     "stage": "graduation",
-    "text": "拟录取名单上有你的名字。你截了图，发了朋友圈，配文是 \\u201c轻舟已过万重山\\u201d。其实你知道，山后面还是山。",
+    "text": "拟录取名单上有你的名字。你截了图，发了朋友圈，配文是 \"轻舟已过万重山\"。其实你知道，山后面还是山。",
     "moment": {
       "templateId": "exam_pass_moment",
-      "text": "轻舟已过万重山（其实山后面还有山）。",
+      "text": "轻舟已过万重山（原来山后面还是山）",
       "replyPool": [
         "恭喜上岸！",
         "二战的我酸了",
-        "研究生也卷，别高兴太早"
+        "研究生也卷，别高兴太早",
+        "大佬带带我"
       ]
     },
     "choices": [
       {
-        "text": "开始读研",
+        "text": "满怀期待开始读研",
         "effects": [
           { "target": "connections", "value": 5, "label": "新同学" },
           { "target": "money", "value": -10, "label": "学费" }
         ],
-        "nextEventId": "postgrad_start"
+        "nextEventId": "postgrad_welcome"
+      },
+      {
+        "text": "心里有点打鼓",
+        "effects": [
+          { "target": "mentalHealth", "value": -5, "label": "不安" },
+          { "target": "skill", "value": 5, "label": "预习" }
+        ],
+        "nextEventId": "postgrad_welcome"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_welcome",
+    "stage": "postgrad",
+    "text": "开学第一天，导师在组会上说：\"你们这届质量不行。\"你低头假装记笔记，其实在算还要熬几年。师兄拍了拍你：\"习惯就好。\"",
+    "choices": [
+      {
+        "text": "主动社交，抱大腿",
+        "effects": [
+          { "target": "connections", "value": 15, "label": "师兄师姐" },
+          { "target": "energy", "value": -5, "label": "社交累" }
+        ],
+        "nextEventId": "postgrad_life"
+      },
+      {
+        "text": "闷头搞学术",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "看文献" },
+          { "target": "mentalHealth", "value": -5, "label": "孤独" }
+        ],
+        "nextEventId": "postgrad_life"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_life",
+    "stage": "postgrad",
+    "diceRoll": true,
+    "text": "学期过了一半，你发现研究生生活跟想象中完全不同：跑数据、帮导师做项目、写没完没了的报告。深夜实验室只剩你一个人。",
+    "choices": [
+      {
+        "text": "冲论文，卷 TA",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "skill", "value": 20, "label": "论文进展" },
+          { "target": "energy", "value": -20, "label": "通宵" },
+          { "target": "mentalHealth", "value": -10, "label": "高压" }
+        ],
+        "nextEventId": "postgrad_publish"
+      },
+      {
+        "text": "摆烂一段时间",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "放空" },
+          { "target": "skill", "value": -10, "label": "进度落后" }
+        ],
+        "nextEventId": "postgrad_lag"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_publish",
+    "stage": "postgrad",
+    "text": "你的论文被录用了！虽然只是 B 会，但这是你人生第一篇 paper。导师难得露出了笑容。但你知道，距离毕业还差一篇核心。",
+    "moment": {
+      "templateId": "postgrad_pub_moment",
+      "text": "第一篇论文录了，虽然只是 B 会，但至少没延毕（吧）。",
+      "replyPool": [
+        "牛逼！",
+        "求带名字",
+        "做学术的都是勇士",
+        "我还在写 literature review"
+      ]
+    },
+    "choices": [
+      {
+        "text": "继续冲刺核心期刊",
+        "effects": [
+          { "target": "skill", "value": 15, "label": "核心论文" },
+          { "target": "energy", "value": -15, "label": "继续肝" },
+          { "target": "connections", "value": 5, "label": "学术界人脉" }
+        ],
+        "nextEventId": "postgrad_end"
+      },
+      {
+        "text": "够了，开始找工作吧",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "解脱" },
+          { "target": "connections", "value": 5, "label": "投简历" }
+        ],
+        "nextEventId": "postgrad_job"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_lag",
+    "stage": "postgrad",
+    "text": "你摸鱼摸到导师开始找你谈话了。师兄暗示你：\"上一届有个师兄也是你这样，后来延毕了两年。\"",
+    "choices": [
+      {
+        "text": "痛改前非，开始赶进度",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "补救" },
+          { "target": "energy", "value": -15, "label": "熬夜赶工" }
+        ],
+        "nextEventId": "postgrad_publish"
+      },
+      {
+        "text": "退学算了，去工作",
+        "effects": [
+          { "target": "mentalHealth", "value": 20, "label": "解脱" },
+          { "target": "skill", "value": -15, "label": "学位没了" },
+          { "target": "connections", "value": -5, "label": "导师失望" }
+        ],
+        "nextEventId": "grad_job_search"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_end",
+    "stage": "postgrad",
+    "text": "答辩通过了！你穿着不合身的学位服拍了照。爸妈发了朋友圈，配文：\"知识改变命运\"。你知道真正改变命运的不是学位，是接下来的选择。",
+    "choices": [
+      {
+        "text": "读博，学术之路",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "继续深造" },
+          { "target": "money", "value": -20, "label": "低收入" },
+          { "target": "mentalHealth", "value": -5, "label": "未知" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "拿着学历去卷职场",
+        "effects": [
+          { "target": "connections", "value": 10, "label": "校友资源" },
+          { "target": "money", "value": 10, "label": "起薪" },
+          { "target": "mentalHealth", "value": 5, "label": "新开始" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "躺平休息半年",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "休息" },
+          { "target": "money", "value": -10, "label": "无收入" }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_job",
+    "stage": "graduation",
+    "text": "你改好简历开始找工作。研究生学历确实让你多了一些面试机会，但也让你期望更高、失望更大。",
+    "choices": [
+      {
+        "text": "投大厂，高薪高压力",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "面试准备" },
+          { "target": "mentalHealth", "value": -5, "label": "面试焦虑" }
+        ],
+        "nextEventId": "job_interview"
+      },
+      {
+        "text": "找个轻松的工作，躺平养生",
+        "effects": [
+          { "target": "money", "value": 5, "label": "普通薪资" },
+          { "target": "mentalHealth", "value": 10, "label": "轻松" }
+        ],
+        "nextEventId": "ending_reached"
       }
     ]
   },
   {
     "id": "exam_retake",
     "stage": "gap",
-    "text": "成绩出来的那天晚上，你把书收进了箱子。爸妈没说什么，但饭桌上多了三道你喜欢的菜。",
+    "text": "成绩出来的那天晚上，你把书收进了箱子。爸妈没说什么，但饭桌上多了三道你喜欢的菜。你盯着碗里的饭发呆。",
     "choices": [
       {
-        "text": "二战",
+        "text": "二战，再来一次",
         "effects": [
-          { "target": "skill", "value": 5, "label": "再来一次" },
-          { "target": "mentalHealth", "value": -10, "label": "重复焦虑" }
+          { "target": "skill", "value": 5, "label": "经验" },
+          { "target": "mentalHealth", "value": -10, "label": "重复焦虑" },
+          { "target": "connections", "value": -5, "label": "同学都走了" }
         ],
-        "nextEventId": "exam_intro"
+        "nextEventId": "exam_prep_hard"
       },
       {
-        "text": "算了，去工作",
+        "text": "找工作吧，不考了",
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "解脱" }
+          { "target": "mentalHealth", "value": 10, "label": "解脱" },
+          { "target": "skill", "value": -5, "label": "白复习了" }
         ],
         "nextEventId": "job_intro"
-      }
-    ]
-  },
-  {
-    "id": "postgrad_start",
-    "stage": "postgrad",
-    "text": "导师在组会上说：\\u201c你们这届学生质量不行。\\u201d你低头看文献，假装在记笔记，其实是在算还要熬几年。",
-    "choices": [
-      {
-        "text": "发 paper，卷教职",
-        "effects": [
-          { "target": "skill", "value": 15, "label": "科研" },
-          { "target": "energy", "value": -20, "label": "实验" }
-        ],
-        "nextEventId": "ending_reached"
       },
       {
-        "text": "混毕业，找工作",
+        "text": "考公？试试看",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "放过自己" },
-          { "target": "skill", "value": -5, "label": "划水" }
+          { "target": "skill", "value": 5, "label": "转方向" },
+          { "target": "energy", "value": -5, "label": "从头学" }
         ],
-        "nextEventId": "job_intro"
+        "nextEventId": "civil_intro"
       }
     ]
   }

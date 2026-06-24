@@ -2,7 +2,7 @@
   {
     "id": "mental_breakdown",
     "title": "精神崩溃",
-    "description": "你把自己逼得太紧了。凌晨三点，你盯着天花板，终于明白：有些游戏，退出也是一种结局。",
+    "description": "你把自己逼得太紧了。凌晨三点，你盯着天花板，终于明白：有些游戏，退出也是一种结局。或许休息一下，世界不会塌。",
     "rarity": "common",
     "condition": {
       "type": "attribute",
@@ -12,62 +12,52 @@
     }
   },
   {
-    "id": "burned_out",
-    "title": "燃尽的社畜",
-    "description": "你拥有了体面的薪水和体检报告上的八项异常。地铁门打开的时候，你忽然忘了自己要出站还是继续坐下去。",
-    "rarity": "route",
-    "condition": {
-      "type": "and",
-      "conditions": [
-        { "type": "stage", "stage": "ending" },
-        { "type": "attribute", "attr": "mentalHealth", "operator": "lte", "value": 30 }
-      ]
-    }
-  },
-  {
     "id": "internet_myth",
     "title": "互联网神话",
-    "description": "你一边搬砖一边做副业，没想到一条吐槽视频爆了。粉丝破万那天，你收到了前司的面试邀请。",
+    "description": "你一边搬砖一边做副业，没想到一条吐槽视频爆了。粉丝破万那天，你收到了前东家老板的面试邀请。命运就是这么荒诞。",
     "rarity": "hidden",
     "condition": {
       "type": "and",
       "conditions": [
         { "type": "stage", "stage": "ending" },
-        { "type": "attribute", "attr": "connections", "operator": "gte", "value": 70 },
-        { "type": "attribute", "attr": "skill", "operator": "gte", "value": 60 }
+        { "type": "attribute", "attr": "connections", "operator": "gte", "value": 65 },
+        { "type": "attribute", "attr": "skill", "operator": "gte", "value": 60 },
+        { "type": "attribute", "attr": "mentalHealth", "operator": "gte", "value": 30 }
       ]
     }
   },
   {
     "id": "academic_success",
-    "title": "学术上岸",
-    "description": "三年后你终于穿着不合身的学位服拍照。爸妈发了朋友圈，配文：\\u201c知识改变命运\\u201d。你只关心下个月的房租。",
+    "title": "学术大佬",
+    "description": "你终于成为了别人口中的“学霸”。发表了顶会 paper，拿了国奖，导师说你很有前途。只有你知道，那些通宵的夜晚，眼泪滴在键盘上的声音。",
     "rarity": "route",
     "condition": {
       "type": "and",
       "conditions": [
         { "type": "stage", "stage": "ending" },
-        { "type": "visited", "eventId": "postgrad_start" }
+        { "type": "visited", "eventId": "postgrad_publish" },
+        { "type": "attribute", "attr": "skill", "operator": "gte", "value": 60 }
       ]
     }
   },
   {
     "id": "civil_servant",
     "title": "编制护身符",
-    "description": "你考上了。亲戚们都说稳定，只有你知道稳定的意思是：未来三十年，你都要在这个格子间里吃午饭。",
+    "description": "你考上了。亲戚们都说稳定，只有你知道稳定的意思是：未来三十年，你都要在这个格子间里吃午饭。不过，至少午饭是稳定的。",
     "rarity": "route",
     "condition": {
       "type": "and",
       "conditions": [
         { "type": "stage", "stage": "ending" },
-        { "type": "visited", "eventId": "civil_pass" }
+        { "type": "visited", "eventId": "civil_pass" },
+        { "type": "attribute", "attr": "mentalHealth", "operator": "gte", "value": 25 }
       ]
     }
   },
   {
     "id": "lie_flat_freedom",
     "title": "低欲望自由",
-    "description": "你拒绝了所有 \\u201c应该\\u201d。存款不多，睡眠很好。窗外下雨了，你翻了个身，觉得这就是人生巅峰。",
+    "description": "你拒绝了所有“应该”。存款不多，睡眠很好。窗外下雨了，你翻了个身，觉得这就是人生巅峰。没有人能定义你的成功，除了你自己。",
     "rarity": "route",
     "condition": {
       "type": "and",
@@ -79,16 +69,45 @@
     }
   },
   {
+    "id": "achiever",
+    "title": "功成名就",
+    "description": "你在大城市站稳了脚，薪水可观，简历光鲜。同学聚会上你是那个“混得不错”的人。只有你自己知道，你付出了什么代价。",
+    "rarity": "route",
+    "condition": {
+      "type": "and",
+      "conditions": [
+        { "type": "stage", "stage": "ending" },
+        { "type": "attribute", "attr": "skill", "operator": "gte", "value": 55 },
+        { "type": "attribute", "attr": "money", "operator": "gte", "value": 60 },
+        { "type": "attribute", "attr": "mentalHealth", "operator": "gte", "value": 25 }
+      ]
+    }
+  },
+  {
+    "id": "burned_out",
+    "title": "燃尽的社畜",
+    "description": "你拥有了体面的薪水和体检报告上的八项异常。地铁门打开的时候，你忽然忘了自己要出站还是继续坐下去。你停在那里，直到门再次关上。",
+    "rarity": "route",
+    "condition": {
+      "type": "and",
+      "conditions": [
+        { "type": "stage", "stage": "ending" },
+        { "type": "attribute", "attr": "mentalHealth", "operator": "lte", "value": 30 },
+        { "type": "attribute", "attr": "money", "operator": "gte", "value": 20 }
+      ]
+    }
+  },
+  {
     "id": "stable_retirement",
     "title": "平稳退休",
-    "description": "你没有大富大贵，但也没有被生活碾碎。六十岁那年，你给自己买了张去海边的火车票。",
+    "description": "你没有大富大贵，但也没有被生活碾碎。六十岁那年，你给自己买了张去海边的火车票。你坐在窗边，看着风景后退，觉得这样也挺好。",
     "rarity": "route",
     "condition": {
       "type": "and",
       "conditions": [
         { "type": "stage", "stage": "ending" },
         { "type": "attribute", "attr": "mentalHealth", "operator": "gt", "value": 30 },
-        { "type": "attribute", "attr": "money", "operator": "gte", "value": 40 }
+        { "type": "attribute", "attr": "money", "operator": "gte", "value": 30 }
       ]
     }
   }

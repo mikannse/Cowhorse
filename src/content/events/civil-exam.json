@@ -2,21 +2,48 @@
   {
     "id": "civil_intro",
     "stage": "graduation",
-    "text": "行测的图形推理让你怀疑自己的智商，申论让你怀疑自己的母语。但爸妈说：\\u201c考上就一辈子不愁了。\\u201d",
+    "text": "行测的图形推理让你怀疑自己的智商，申论让你怀疑自己的母语。爸妈在电话里说：“考上公务员就一辈子不用愁了。”你盯着天花板，不知道这是安慰还是压力。",
     "choices": [
       {
         "text": "报班，系统学习",
         "effects": [
           { "target": "skill", "value": 10, "label": "系统课" },
-          { "target": "money", "value": -15, "label": "报班费" }
+          { "target": "money", "value": -15, "label": "报班费" },
+          { "target": "connections", "value": 5, "label": "考公群" }
         ],
-        "nextEventId": "civil_exam"
+        "nextEventId": "civil_study"
       },
       {
         "text": "自学，省钱",
         "effects": [
-          { "target": "skill", "value": 5, "label": "自学" },
+          { "target": "skill", "value": 5, "label": "b站白嫖课" },
           { "target": "mentalHealth", "value": -5, "label": "自律压力" }
+        ],
+        "nextEventId": "civil_study"
+      }
+    ]
+  },
+  {
+    "id": "civil_study",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你刷了三个月行测，正确率像过山车。某天你梦见自己进了面试，然后被考官问：“你有什么缺点？”你答：“我太想考上了。”",
+    "choices": [
+      {
+        "text": "行测突破，信心大增",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "skill", "value": 15, "label": "行测提升" },
+          { "target": "mentalHealth", "value": 10, "label": "信心" }
+        ],
+        "nextEventId": "civil_exam"
+      },
+      {
+        "text": "申论卡壳，怀疑人生",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": -15, "label": "焦虑" },
+          { "target": "skill", "value": 5, "label": "硬着头皮学" }
         ],
         "nextEventId": "civil_exam"
       }
@@ -26,23 +53,24 @@
     "id": "civil_exam",
     "stage": "graduation",
     "diceRoll": true,
-    "text": "考场上你旁边的同学带了三个橡皮，说是幸运符。你只带了准考证和一颗悬着的心。",
+    "text": "考场上你旁边的同学带了三个橡皮，说是幸运符。你只带了准考证和一颗悬着的心。铃声响起，你翻开试卷。",
     "choices": [
       {
-        "text": "正常发挥",
+        "text": "正常发挥，题目顺手",
         "condition": { "type": "dice", "min": 4, "max": 6 },
         "effects": [
           { "target": "skill", "value": 10, "label": "进面" },
-          { "target": "mentalHealth", "value": 10, "label": "安心" }
+          { "target": "mentalHealth", "value": 10, "label": "安心" },
+          { "target": "connections", "value": 5, "label": "面试班" }
         ],
         "nextEventId": "civil_pass"
       },
       {
-        "text": "题目好难",
+        "text": "题目太难心态崩了",
         "condition": { "type": "dice", "min": 1, "max": 3 },
         "effects": [
-          { "target": "mentalHealth", "value": -15, "label": "绝望" },
-          { "target": "energy", "value": -10, "label": " exhaustion" }
+          { "target": "mentalHealth", "value": -20, "label": "绝望" },
+          { "target": "energy", "value": -10, "label": "耗尽" }
         ],
         "nextEventId": "civil_fail"
       }
@@ -51,22 +79,81 @@
   {
     "id": "civil_pass",
     "stage": "firstJob",
-    "text": "公示名单出来的那天，妈妈把截图发到了家族群。你看着自己名字，忽然觉得它不属于你。",
+    "text": "公示名单出来那天，妈妈把截图发到了家族群，亲戚们开始叫你“某局”。你看着镜子里穿正装的自己，觉得像在演一场别人的戏。",
     "moment": {
       "templateId": "civil_pass_moment",
-      "text": "上岸了。妈妈说稳定最重要。",
+      "text": "上岸了。妈妈说稳定最重要，但我的心跳一点也不稳定。",
       "replyPool": [
         "恭喜铁饭碗！",
-        "体制内也没那么轻松",
-        "以后记得关照我"
+        "体制内也没那么轻松，别高兴太早",
+        "以后记得关照我",
+        "我也想考，求经验"
       ]
     },
     "choices": [
       {
-        "text": "去上班",
+        "text": "好好干，争取晋升",
         "effects": [
           { "target": "money", "value": 15, "label": "工资" },
-          { "target": "connections", "value": -5, "label": "告别朋友" }
+          { "target": "connections", "value": 5, "label": "单位人脉" },
+          { "target": "skill", "value": 5, "label": "业务熟悉" }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "躺平，稳定就是一切",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "安心" },
+          { "target": "money", "value": 5, "label": "死工资" },
+          { "target": "skill", "value": -5, "label": "不思进取" }
+        ],
+        "nextEventId": "civil_routine"
+      }
+    ]
+  },
+  {
+    "id": "civil_routine",
+    "stage": "firstJob",
+    "text": "上班半年，你发现体制内的日常是：开会、写材料、帮领导取快递、等下班。大学同学在互联网大厂晒年终奖，你默默关了朋友圈。",
+    "choices": [
+      {
+        "text": "搞副业，不能废了",
+        "effects": [
+          { "target": "money", "value": 10, "label": "副业收入" },
+          { "target": "skill", "value": 10, "label": "技能保持" },
+          { "target": "energy", "value": -15, "label": "下班后加班" }
+        ],
+        "nextEventId": "civil_one_year"
+      },
+      {
+        "text": "知足常乐，享受稳定",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "知足" },
+          { "target": "connections", "value": 5, "label": "同事聚餐" }
+        ],
+        "nextEventId": "civil_one_year"
+      }
+    ]
+  },
+  {
+    "id": "civil_one_year",
+    "stage": "firstJob",
+    "text": "一年了，你越来越熟悉体制内的生存法则。哪个领导喜欢什么茶，哪个科室不能得罪，你都一清二楚。只是偶尔加班到深夜，你看着空荡荡的走廊，不知道这是你要的生活吗。",
+    "choices": [
+      {
+        "text": "继续干，铁饭碗不能丢",
+        "effects": [
+          { "target": "money", "value": 10, "label": "稳定收入" },
+          { "target": "connections", "value": 5, "label": "体制内人脉" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "辞职出来闯一闯",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "自由" },
+          { "target": "skill", "value": 10, "label": "新技能" },
+          { "target": "money", "value": -20, "label": "断收入" }
         ],
         "nextEventId": "ending_reached"
       }
@@ -75,22 +162,29 @@
   {
     "id": "civil_fail",
     "stage": "gap",
-    "text": "\\u201c竞争激烈\\u201d——公告用四个字解释了你半年的努力。你删除了所有考公群，但留下了那本翻烂的书。",
+    "text": "“竞争激烈，未能进入面试范围”——公告用四个字解释了你半年的努力。你删了所有考公群，但留下了那本翻烂的行测题。",
     "choices": [
       {
-        "text": "明年再来",
+        "text": "明年再来，不信上不了",
         "effects": [
           { "target": "mentalHealth", "value": -10, "label": "执念" },
           { "target": "skill", "value": 5, "label": "经验" }
         ],
-        "nextEventId": "civil_intro"
+        "nextEventId": "civil_study"
       },
       {
-        "text": "找工作",
+        "text": "找工作去",
         "effects": [
           { "target": "mentalHealth", "value": 5, "label": "换赛道" }
         ],
         "nextEventId": "job_intro"
+      },
+      {
+        "text": "考研吧，换个活法",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "转方向" }
+        ],
+        "nextEventId": "exam_intro"
       }
     ]
   }

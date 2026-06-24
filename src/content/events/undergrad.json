@@ -2,7 +2,7 @@
   {
     "id": "undergrad_start",
     "stage": "undergrad",
-    "text": "大四开学，辅导员在群里发了三条消息：\\u201c秋招开始\\u201d、\\u201c考研报名\\u201d、\\u201c考公公告\\u201d。你躺在床上，感觉人生像一道多选题，但正确答案被折叠了。",
+    "text": "大四开学，辅导员在群里发了三条消息：“秋招开始”、“考研报名”、“考公公告”。你躺在床上，感觉人生像一道多选题，但正确答案被折叠了。宿舍里四个人，三个已经决定了方向。",
     "choices": [
       {
         "text": "考研，再读三年",
@@ -35,6 +35,14 @@
           { "target": "money", "value": -10, "label": "无收入" }
         ],
         "nextEventId": "lie_intro"
+      },
+      {
+        "text": "等等，还有个考编",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "编制" },
+          { "target": "energy", "value": -5, "label": "了解" }
+        ],
+        "nextEventId": "civil_intro"
       }
     ]
   },
@@ -48,20 +56,35 @@
         { "type": "attribute", "attr": "connections", "operator": "lt", "value": 30 }
       ]
     },
-    "text": "宿舍只剩你一个。外卖盒堆在角落，手机屏幕亮了又暗。",
-    "lonelyMoment": "原来孤独不是没有人陪，而是你发现\\u201c明天\\u201d和\\u201c今天\\u201d长得一模一样。",
+    "text": "宿舍只剩你一个。外卖盒堆在角落。朋友圈里大家都在晒offer、晒录取、晒毕业旅行。手机屏幕亮了又暗。",
+    "lonelyMoment": "原来孤独不是没有人陪，而是你发现“明天”和“今天”长得一模一样。",
     "choices": [
       {
-        "text": "关灯睡觉",
-        "effects": [{ "target": "energy", "value": 10 }],
+        "text": "关灯睡觉，明天再说",
+        "effects": [{ "target": "energy", "value": 10, "label": "休息" }],
         "nextEventId": "undergrad_start"
+      }
+    ]
+  },
+  {
+    "id": "grad_job_search",
+    "stage": "graduation",
+    "text": "你开始找工作了，虽然心里没底，但迈出第一步总是好的。你在招聘软件上完善了资料，开始浏览岗位。",
+    "choices": [
+      {
+        "text": "浏览热门岗位",
+        "effects": [
+          { "target": "connections", "value": 5, "label": "投简历" },
+          { "target": "energy", "value": -5, "label": "累" }
+        ],
+        "nextEventId": "job_intro"
       }
     ]
   },
   {
     "id": "event_not_found",
     "stage": "undergrad",
-    "text": "（系统提示：这段剧情被甲方砍了。你获得了一个珍贵的\\u201c404 成就\\u201d。）",
+    "text": "（系统提示：这段剧情被甲方砍了。你获得了一个珍贵的“404 成就”。）",
     "choices": [
       {
         "text": "从头再来",

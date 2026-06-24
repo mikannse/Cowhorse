@@ -35,7 +35,7 @@ export default function ChoicePanel({ choices, onChoose, disabled }: ChoicePanel
       {choices.map((choice, index) => {
         const pills = choice.effects.map((effect, i) => {
           const sign = effect.value > 0 ? '+' : '';
-          const label = effect.label ?? TARGET_LABELS[effect.target];
+          const attrLabel = TARGET_LABELS[effect.target];
           return (
             <span
               key={i}
@@ -45,7 +45,7 @@ export default function ChoicePanel({ choices, onChoose, disabled }: ChoicePanel
                   : 'bg-destructive/10 text-destructive'
               }`}
             >
-              {`${sign}${effect.value} ${label}`}
+              {`${sign}${effect.value} ${attrLabel}`}
             </span>
           );
         });

@@ -39,17 +39,6 @@ export default function TitleScreen() {
       </motion.p>
 
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.25 }}
-        className="mt-3"
-      >
-        <span className="inline-block bg-tape/40 text-foreground text-caption font-bold px-3 py-1 rounded rotate-[2deg]">
-          15-20 分钟一局
-        </span>
-      </motion.div>
-
-      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.35, duration: 0.25 }}
@@ -98,7 +87,7 @@ export default function TitleScreen() {
                 <li>每个选择会影响金钱、体力、能力、人脉和心态五项属性。</li>
                 <li>心态归零会立即触发结局。</li>
                 <li>某些重要事件需要掷命运骰子，结果决定可选路线。</li>
-                <li>一局约 15-20 分钟，结局可保存为人生简历海报。</li>
+                <li>结局可保存为人生简历海报。</li>
               </ul>
               <button
                 type="button"

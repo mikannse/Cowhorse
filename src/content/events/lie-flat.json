@@ -2,7 +2,7 @@
   {
     "id": "lie_intro",
     "stage": "gap",
-    "text": "你退了三个求职群，把简历从\\u201c求捞\\u201d改成了\\u201c活着\\u201d。房租还有两个月，存款还能撑四个月。你想：\\u201c够了。\\u201d",
+    "text": "你退了三个求职群，把简历从“求捞”改成了“活着”。房租还有两个月，存款还能撑四个月。朋友问你找到工作了吗，你说：“在找。”然后关掉了手机。",
     "choices": [
       {
         "text": "做兼职，半躺不躺",
@@ -14,7 +14,7 @@
         "nextEventId": "lie_freelance"
       },
       {
-        "text": "彻底躺平，不工作",
+        "text": "彻底躺平，什么都不做",
         "effects": [
           { "target": "mentalHealth", "value": 20, "label": "完全放松" },
           { "target": "money", "value": -20, "label": "坐吃山空" },
@@ -27,22 +27,56 @@
   {
     "id": "lie_freelance",
     "stage": "work",
-    "text": "你在二手平台接单，给淘宝店写文案。\\u201c亲，这款面膜真的绝绝子\\u201d——你打下这行字，笑了整整一分钟。",
+    "text": "你在二手平台接单，给淘宝店写文案、做设计、甚至帮人写论文。虽然不稳定，但时间是你的。睡到自然醒的感觉太好了。",
     "moment": {
       "templateId": "lie_freelance_moment",
-      "text": "自由职业第 30 天：收入不稳定，但时间是我的。",
+      "text": "自由职业第 30 天：收入不稳定，但闹钟终于被我删了。",
       "replyPool": [
         "羡慕自由",
         "社保怎么办？",
-        "我也想做副业"
+        "我也想做副业但没勇气",
+        "自由职业三个月后还是很爽"
       ]
     },
     "choices": [
       {
-        "text": "继续接单",
+        "text": "扩大客源，当个自由人",
         "effects": [
           { "target": "money", "value": 15, "label": "接单" },
-          { "target": "skill", "value": 10, "label": "技能杂学" }
+          { "target": "skill", "value": 10, "label": "技能杂学" },
+          { "target": "connections", "value": 10, "label": "客户" }
+        ],
+        "nextEventId": "lie_freelance_peak"
+      },
+      {
+        "text": "有点累，还是找份稳定工作吧",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "务实" }
+        ],
+        "nextEventId": "job_intro"
+      }
+    ]
+  },
+  {
+    "id": "lie_freelance_peak",
+    "stage": "work",
+    "text": "半年过去了，你的自由职业做得风生水起。老客户介绍新客户，收入终于赶上了上班的同学。但你知道这行说不准——下个月可能颗粒无收。",
+    "choices": [
+      {
+        "text": "继续自由，相信市场",
+        "effects": [
+          { "target": "money", "value": 20, "label": "高收入月份" },
+          { "target": "skill", "value": 10, "label": "积累口碑" },
+          { "target": "mentalHealth", "value": 10, "label": "充实" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "趁有积蓄去学点新东西",
+        "effects": [
+          { "target": "skill", "value": 15, "label": "新技能" },
+          { "target": "money", "value": -15, "label": "学费" },
+          { "target": "connections", "value": 5, "label": "同学" }
         ],
         "nextEventId": "ending_reached"
       }
@@ -50,14 +84,54 @@
   },
   {
     "id": "lie_full_flat",
-    "stage": "work",
-    "text": "你已经能准确说出菜市场每种蔬菜的价格。父母从\\u201c催你找工作\\u201d变成了\\u201c你开心就好\\u201d。",
+    "stage": "gap",
+    "text": "你已经能准确说出菜市场每种蔬菜的价格。老板认识你，会留最甜的西瓜给你。父母从“催你找工作”变成了“你开心就好”。你知道他们担心，但你真的不想动。",
     "choices": [
       {
-        "text": "就这样吧",
+        "text": "继续躺，低消费低欲望",
         "effects": [
           { "target": "mentalHealth", "value": 15, "label": "自洽" },
-          { "target": "money", "value": -10, "label": "继续低消费" }
+          { "target": "money", "value": -15, "label": "存款告急" },
+          { "target": "connections", "value": -5, "label": "社交归零" }
+        ],
+        "nextEventId": "lie_bottom"
+      },
+      {
+        "text": "躺够了，该起来了",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "准备好了" },
+          { "target": "energy", "value": 10, "label": "重新出发" }
+        ],
+        "nextEventId": "job_intro"
+      }
+    ]
+  },
+  {
+    "id": "lie_bottom",
+    "stage": "gap",
+    "text": "存款只剩一个月的房租了。你躺在出租屋的床上，天花板有一块水渍，你看了它三个月，形状像一头奶牛。",
+    "choices": [
+      {
+        "text": "再躺一下，明天一定动",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "再躺一天" },
+          { "target": "money", "value": -10, "label": "又花了一天" }
+        ],
+        "nextEventId": "lie_bottom"
+      },
+      {
+        "text": "不行了，必须找工作了",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "清醒" }
+        ],
+        "nextEventId": "job_intro"
+      },
+      {
+        "text": "回家啃老（不是长久之计）",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "安全感" },
+          { "target": "connections", "value": -5, "label": "社交死亡" },
+          { "target": "money", "value": 10, "label": "家里支援" }
         ],
         "nextEventId": "ending_reached"
       }

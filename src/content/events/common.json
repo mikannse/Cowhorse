@@ -2,12 +2,149 @@
   {
     "id": "ending_reached",
     "stage": "ending",
-    "text": "你的人生简历到此暂告一个段落。无论结局如何，至少你走到了这里。",
+    "text": "你的人生简历到此暂告一个段落。无论结局如何，至少你走到了这里。现在，看看你走过了怎样的一生吧。",
     "choices": [
       {
         "text": "查看人生简历",
         "effects": [],
         "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "encounter_fortune",
+    "stage": "undergrad",
+    "condition": {
+      "type": "attribute",
+      "attr": "connections",
+      "operator": "gte",
+      "value": 35
+    },
+    "text": "你偶然遇到一个学长，他说他们公司在招人，问你要不要试试内推。你跟他加了好友，觉得运气没那么差了。",
+    "choices": [
+      {
+        "text": "太好了！试试内推",
+        "effects": [
+          { "target": "connections", "value": 10, "label": "内推" },
+          { "target": "mentalHealth", "value": 10, "label": "好运" }
+        ],
+        "nextEventId": "job_interview"
+      },
+      {
+        "text": "加个好友，以后再说",
+        "effects": [
+          { "target": "connections", "value": 5, "label": "人脉" }
+        ],
+        "nextEventId": "job_intro"
+      }
+    ]
+  },
+  {
+    "id": "encounter_sick",
+    "stage": "undergrad",
+    "text": "连续熬夜终于让你的身体抗议了。你发烧到 38.5 度，一个人去校医院挂水。旁边的阿姨问你怎么没有家人陪，你说：“没事，习惯了。”",
+    "choices": [
+      {
+        "text": "好好休息，身体第一",
+        "effects": [
+          { "target": "energy", "value": -20, "label": "病倒" },
+          { "target": "mentalHealth", "value": -10, "label": "脆弱" },
+          { "target": "money", "value": -5, "label": "医药费" }
+        ],
+        "nextEventId": "undergrad_start"
+      }
+    ]
+  },
+  {
+    "id": "encounter_friend",
+    "stage": "undergrad",
+    "condition": {
+      "type": "and",
+      "conditions": [
+        { "type": "attribute", "attr": "connections", "operator": "gte", "value": 40 },
+        { "type": "attribute", "attr": "mentalHealth", "operator": "lt", "value": 50 }
+      ]
+    },
+    "text": "一个很久没联系的朋友突然发消息：“最近怎么样？”你盯着屏幕看了五分钟，不知道该从何说起。最后你回了三个字：“还活着。”",
+    "lonelyMoment": "原来还有人记得你。你才发现，你也不是完全一个人。",
+    "choices": [
+      {
+        "text": "约出来聊聊",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "倾诉" },
+          { "target": "connections", "value": 5, "label": "友情回温" }
+        ],
+        "nextEventId": "undergrad_start"
+      }
+    ]
+  },
+  {
+    "id": "encounter_side_hustle",
+    "stage": "undergrad",
+    "diceRoll": true,
+    "text": "你在闲鱼挂了闲置，结果有人私信问你能不能接个外包。你算了一下，做完够一个月生活费。",
+    "choices": [
+      {
+        "text": "接，有钱不赚是傻子",
+        "condition": { "type": "dice", "min": 3, "max": 6 },
+        "effects": [
+          { "target": "money", "value": 20, "label": "外快" },
+          { "target": "energy", "value": -15, "label": "熬夜做单" },
+          { "target": "skill", "value": 5, "label": "实战经验" }
+        ],
+        "nextEventId": "undergrad_start"
+      },
+      {
+        "text": "算了，太累了",
+        "condition": { "type": "dice", "min": 1, "max": 2 },
+        "effects": [
+          { "target": "energy", "value": 5, "label": "休息" },
+          { "target": "money", "value": -5, "label": "错失机会" }
+        ],
+        "nextEventId": "undergrad_start"
+      }
+    ]
+  },
+  {
+    "id": "encounter_family_pressure",
+    "stage": "undergrad",
+    "text": "妈妈打电话来了。“隔壁小王考上公务员了”、“你表姐今年年终奖发了十万”、“你到底打算怎么办？”你嗯嗯啊啊应付着，挂了电话后发了很久的呆。",
+    "choices": [
+      {
+        "text": "烦躁，不想接电话了",
+        "effects": [
+          { "target": "mentalHealth", "value": -10, "label": "压力" },
+          { "target": "connections", "value": -5, "label": "疏远家人" }
+        ],
+        "nextEventId": "undergrad_start"
+      },
+      {
+        "text": "耐心解释自己的计划",
+        "effects": [
+          { "target": "mentalHealth", "value": -5, "label": "解释" },
+          { "target": "connections", "value": 5, "label": "家人理解" }
+        ],
+        "nextEventId": "undergrad_start"
+      }
+    ]
+  },
+  {
+    "id": "encounter_lucky_day",
+    "stage": "undergrad",
+    "condition": {
+      "type": "dice",
+      "min": 5,
+      "max": 6
+    },
+    "text": "今天运气不错。你在地铁上捡到了五十块钱，中午食堂阿姨多给你打了一块肉。你忽然觉得，生活好像也没有那么糟糕。",
+    "choices": [
+      {
+        "text": "心情愉快地继续今天",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "好心情" },
+          { "target": "money", "value": 5, "label": "意外之财" }
+        ],
+        "nextEventId": "undergrad_start"
       }
     ]
   }
