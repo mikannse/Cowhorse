@@ -6,7 +6,8 @@ vi.mock('html2canvas', () => ({
   default: vi.fn(() =>
     Promise.resolve({
       toDataURL: () => 'data:image/png;base64,mock',
-    })),
+    }),
+  ),
 }));
 
 describe('CowHorse game flow', () => {
@@ -22,14 +23,14 @@ describe('CowHorse game flow', () => {
       () => {
         expect(screen.getByText(/大四开学/)).toBeInTheDocument();
       },
-      { timeout: 5000 }
+      { timeout: 5000 },
     );
 
     await waitFor(
       () => {
         expect(screen.getByRole('button', { name: /找工作/ })).toBeInTheDocument();
       },
-      { timeout: 5000 }
+      { timeout: 5000 },
     );
     fireEvent.click(screen.getByRole('button', { name: /找工作/ }));
 
@@ -37,22 +38,15 @@ describe('CowHorse game flow', () => {
       () => {
         expect(screen.getByRole('button', { name: /海投/ })).toBeInTheDocument();
       },
-      { timeout: 5000 }
+      { timeout: 5000 },
     );
     fireEvent.click(screen.getByRole('button', { name: /海投/ }));
 
     await waitFor(
       () => {
-        expect(screen.getByText(/命运骰子/)).toBeInTheDocument();
-      },
-      { timeout: 5000 }
-    );
-
-    await waitFor(
-      () => {
         expect(screen.getByRole('button', { name: /秀出准备/ })).toBeInTheDocument();
       },
-      { timeout: 5000 }
+      { timeout: 5000 },
     );
     fireEvent.click(screen.getByRole('button', { name: /秀出准备/ }));
 
@@ -60,15 +54,16 @@ describe('CowHorse game flow', () => {
       () => {
         expect(screen.getByRole('button', { name: /努力工作/ })).toBeInTheDocument();
       },
-      { timeout: 5000 }
+      { timeout: 5000 },
     );
     fireEvent.click(screen.getByRole('button', { name: /努力工作/ }));
 
+    // Ending screen — "平稳退休" appears in both the header and the poster
     await waitFor(
       () => {
-        expect(screen.getByText(/退休|社畜|结局/)).toBeInTheDocument();
+        expect(screen.getAllByText(/(退休)|(社畜)/).length).toBeGreaterThanOrEqual(1);
       },
-      { timeout: 5000 }
+      { timeout: 5000 },
     );
   }, 30000);
 });

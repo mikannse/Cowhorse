@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Choice, GameEvent } from '../types';
 import { eventsById } from '../content/events';
@@ -10,10 +10,6 @@ import { getVisibleChoices } from '../engine/eventEvaluator';
 export interface UseNarrativeResult {
   currentEvent: GameEvent;
   visibleChoices: Choice[];
-  diceActive: boolean;
-  setDiceActive: (value: boolean) => void;
-  diceRolled: boolean;
-  completeDiceRoll: () => void;
   handleChoice: (index: number) => void;
   memeReaction: string | null;
   setMemeReaction: (value: string | null) => void;
@@ -24,40 +20,24 @@ const ENDING_EVENT_ID = 'ending_reached';
 export function useNarrative(): UseNarrativeResult {
   const navigate = useNavigate();
   const currentEventId = useGameStore((s) => s.currentEventId);
+  const storeDiceResult = useGameStore((s) => s.diceResult);
+  const memeReactionRef = useRef<string | null>(null);
 
   const currentEvent = useMemo(() => {
     if (!currentEventId) return eventsById.get('event_not_found')!;
     return eventsById.get(currentEventId) ?? eventsById.get('event_not_found')!;
   }, [currentEventId]);
 
-  const [diceActive, setDiceActive] = useState(false);
-  const [diceRolled, setDiceRolled] = useState(false);
-  const [memeReaction, setMemeReaction] = useState<string | null>(null);
-
-  useEffect(() => {
-    setDiceRolled(false);
-    setDiceActive(false);
-    setMemeReaction(null);
-
-    if (currentEvent.lonelyMoment) {
-      useGameStore.getState().setLonelyMoment(currentEvent.lonelyMoment);
-    }
-  }, [currentEvent]);
-
   const visibleChoices = useMemo(() => {
-    if (currentEvent.diceRoll && !diceRolled) return [];
     const snapshot = selectSnapshot(useGameStore.getState());
     return getVisibleChoices(currentEvent, snapshot);
-  }, [currentEvent, diceRolled]);
-
-  const completeDiceRoll = useCallback(() => {
-    setDiceRolled(true);
-  }, []);
+  }, [currentEvent, storeDiceResult]);
 
   const handleChoice = useCallback(
     (index: number) => {
       const store = useGameStore.getState();
-      const choice = visibleChoices[index];
+      const choices = getVisibleChoices(currentEvent, selectSnapshot(store));
+      const choice = choices[index];
       if (!choice) return;
 
       store.applyEffect(choice.effects);
@@ -69,9 +49,8 @@ export function useNarrative(): UseNarrativeResult {
           store.applyEffect([
             { target: 'mentalHealth', value: meme.value, label: '梗力' },
           ]);
-          setMemeReaction(
-            meme.outcome === 'correct' ? '😎 接住了！' : '😬 冷场了…'
-          );
+          memeReactionRef.current =
+            meme.outcome === 'correct' ? '😎 接住了！' : '😬 冷场了…';
         }
       }
 
@@ -101,18 +80,18 @@ export function useNarrative(): UseNarrativeResult {
 
       store.navigateTo(choice.nextEventId);
     },
-    [currentEvent, navigate, visibleChoices]
+    [currentEvent, navigate]
   );
+
+  const memeReaction = memeReactionRef.current;
 
   return {
     currentEvent,
     visibleChoices,
-    diceActive,
-    setDiceActive,
-    diceRolled,
-    completeDiceRoll,
     handleChoice,
     memeReaction,
-    setMemeReaction,
+    setMemeReaction: (v) => {
+      memeReactionRef.current = v;
+    },
   };
 }
