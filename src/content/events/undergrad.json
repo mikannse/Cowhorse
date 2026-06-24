@@ -1,8 +1,69 @@
 [
   {
+    "id": "choose_major",
+    "stage": "undergrad",
+    "text": "高考填志愿那天，你在网吧对着志愿表发呆。爸妈在旁边各说各话——爸爸说计算机好就业，妈妈说学医稳定，你只想打游戏。最后你填了一个让全家都不太满意但也都勉强接受的专业。四年后你发现，这张志愿表无意中决定了你接下来十年的人生底色。",
+    "choices": [
+      {
+        "text": "🖥️ 计算机/软件",
+        "effects": [
+          { "target": "skill", "value": 15, "label": "硬核技能" },
+          { "target": "energy", "value": -5, "label": "熬夜coding" },
+          { "target": "connections", "value": 5, "label": "Geek圈" }
+        ],
+        "nextEventId": "major_cs"
+      },
+      {
+        "text": "💰 金融/经济",
+        "effects": [
+          { "target": "money", "value": 10, "label": "家境殷实" },
+          { "target": "connections", "value": 10, "label": "人脉优先" },
+          { "target": "mentalHealth", "value": -5, "label": "竞争意识" }
+        ],
+        "nextEventId": "major_finance"
+      },
+      {
+        "text": "⚕️ 医学/药学",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "专业壁垒" },
+          { "target": "energy", "value": -10, "label": "学制漫长" },
+          { "target": "mentalHealth", "value": 5, "label": "救人初心" }
+        ],
+        "nextEventId": "major_med"
+      },
+      {
+        "text": "🏗️ 土木/建筑",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "工程能力" },
+          { "target": "energy", "value": 10, "label": "跑工地" },
+          { "target": "money", "value": -5, "label": "行业下行" }
+        ],
+        "nextEventId": "major_eng"
+      },
+      {
+        "text": "⚖️ 法学",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "逻辑训练" },
+          { "target": "connections", "value": 10, "label": "校友网络" },
+          { "target": "mentalHealth", "value": -5, "label": "法考压力" }
+        ],
+        "nextEventId": "major_law"
+      },
+      {
+        "text": "🎨 文史哲/艺术",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "精神世界丰富" },
+          { "target": "skill", "value": 5, "label": "通识教育" },
+          { "target": "money", "value": -10, "label": "就业面窄" }
+        ],
+        "nextEventId": "major_art"
+      }
+    ]
+  },
+  {
     "id": "undergrad_start",
     "stage": "undergrad",
-    "text": "大四开学，辅导员在群里发了三条消息：“秋招开始”、“考研报名”、“考公公告”。你躺在床上，感觉人生像一道多选题，但正确答案被折叠了。宿舍里四个人，三个已经决定了方向。",
+    "text": "大四开学，辅导员在群里发了三条消息：[秋招开始]、[考研报名]、[考公公告]。你躺在床上，感觉人生像一道多选题，但正确答案被折叠了。宿舍里四个人，三个已经决定了方向。",
     "choices": [
       {
         "text": "考研，再读三年",
@@ -47,6 +108,59 @@
     ]
   },
   {
+    "id": "undergrad_deadline",
+    "stage": "undergrad",
+    "text": "辅导员又发消息了：!毕业论文选题deadline就在下周!! 你看了眼日历——考研还剩两个月，秋招已过半，开题报告一个字没写。室友说了句：*总有人会延毕的，别怕。*",
+    "choices": [
+      {
+        "text": "硬着头皮开写",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "论文启动" },
+          { "target": "energy", "value": -10, "label": "熬夜写" },
+          { "target": "mentalHealth", "value": -5, "label": "压力" }
+        ],
+        "nextEventId": "undergrad_start"
+      },
+      {
+        "text": "先别想，搞完手头的事再说",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "不管了" },
+          { "target": "skill", "value": -5, "label": "拖延" }
+        ],
+        "nextEventId": "undergrad_start"
+      }
+    ]
+  },
+  {
+    "id": "undergrad_reunion",
+    "stage": "undergrad",
+    "condition": {
+      "type": "attribute",
+      "attr": "connections",
+      "operator": "gte",
+      "value": 25
+    },
+    "text": "宿舍卧谈会。四个人关了灯，各自躺在各自的床上看手机。不知谁先说了一句：*你说十年后我们在干嘛？* 沉默了很久，然后大家都笑了。没人知道答案，但有人问了，这就够了。",
+    "choices": [
+      {
+        "text": "认真畅想未来",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "温暖" },
+          { "target": "connections", "value": 10, "label": "室友羁绊" }
+        ],
+        "nextEventId": "undergrad_start"
+      },
+      {
+        "text": "岔开话题，不想谈",
+        "effects": [
+          { "target": "mentalHealth", "value": -5, "label": "逃避" },
+          { "target": "connections", "value": -5, "label": "疏离" }
+        ],
+        "nextEventId": "undergrad_start"
+      }
+    ]
+  },
+  {
     "id": "lonely_night",
     "stage": "undergrad",
     "condition": {
@@ -57,11 +171,40 @@
       ]
     },
     "text": "宿舍只剩你一个。外卖盒堆在角落。朋友圈里大家都在晒offer、晒录取、晒毕业旅行。手机屏幕亮了又暗。",
-    "lonelyMoment": "原来孤独不是没有人陪，而是你发现“明天”和“今天”长得一模一样。",
+    "lonelyMoment": "原来孤独不是没有人陪，而是你发现\"明天\"和\"今天\"长得一模一样。",
     "choices": [
       {
         "text": "关灯睡觉，明天再说",
         "effects": [{ "target": "energy", "value": 10, "label": "休息" }],
+        "nextEventId": "undergrad_start"
+      }
+    ]
+  },
+  {
+    "id": "undergrad_last_exam",
+    "stage": "undergrad",
+    "condition": {
+      "type": "attribute",
+      "attr": "skill",
+      "operator": "gte",
+      "value": 35
+    },
+    "text": "大学最后一门考试。你在答题纸上写完最后一个句号，忽然觉得这个句号不只属于这门课——它属于过去四年所有赶过的早八、抄过的作业、临时抱过的佛脚。老师收了卷子，你说：*这就完了？*",
+    "choices": [
+      {
+        "text": "感慨万千，想珍惜最后时光",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "怀念" },
+          { "target": "connections", "value": 5, "label": "抓紧相聚" }
+        ],
+        "nextEventId": "undergrad_start"
+      },
+      {
+        "text": "赶紧走，未来更重要",
+        "effects": [
+          { "target": "energy", "value": 5, "label": "向前看" },
+          { "target": "mentalHealth", "value": 5, "label": "兴奋" }
+        ],
         "nextEventId": "undergrad_start"
       }
     ]
@@ -82,9 +225,45 @@
     ]
   },
   {
+    "id": "major_cs",
+    "stage": "undergrad",
+    "text": "你选了计算机。开学第一天室友就在讨论[哪个语言最好]，你默默打开 VS Code，写下第一行 `console.log('hello world')`。后来你才明白，计算机系的四年就是和编译器、GitHub、以及凌晨三点的 bug 较劲。但你也发现——*会写代码的人在哪都饿不死。*",
+    "choices": [{ "text": "开始大学生活", "effects": [], "nextEventId": "undergrad_start" }]
+  },
+  {
+    "id": "major_finance",
+    "stage": "undergrad",
+    "text": "你选了金融。大一就有同学穿着西装去面试实习，你在宿舍研究 K 线图。有人告诉你这个行业的核心竞争力是：让别人的钱变成你的业绩。你半信半疑，但默默把 Bloomberg 终端的使用教程加入了收藏夹。",
+    "choices": [{ "text": "开始大学生活", "effects": [], "nextEventId": "undergrad_start" }]
+  },
+  {
+    "id": "major_med",
+    "stage": "undergrad",
+    "text": "你选了医学。开学典礼上院长说：!你们要比别人多读三年，但你们救的是命。! 大一的系统解剖学让你第一次怀疑自己的选择，但穿上白大褂站在镜子前的那一刻，你觉得——*也许这就是天命。*",
+    "choices": [{ "text": "开始大学生活", "effects": [], "nextEventId": "undergrad_start" }]
+  },
+  {
+    "id": "major_eng",
+    "stage": "undergrad",
+    "text": "你选了土木工程。大二去工地实习，安全帽被风吹跑了三次。项目经理看着图纸说：*这行以前叫基建狂魔，现在叫存量博弈。* 你不太懂，但你记住了工地上盒饭的味道——十五块钱，两荤一素。",
+    "choices": [{ "text": "开始大学生活", "effects": [], "nextEventId": "undergrad_start" }]
+  },
+  {
+    "id": "major_law",
+    "stage": "undergrad",
+    "text": "你选了法学。刑法课上老师讲了一个案子，你听得热血沸腾，觉得自己将来要匡扶正义。后来你发现法学生的日常是：法考、法考、还是法考。自习室凌晨两点的灯光像是某种宗教仪式。",
+    "choices": [{ "text": "开始大学生活", "effects": [], "nextEventId": "undergrad_start" }]
+  },
+  {
+    "id": "major_art",
+    "stage": "undergrad",
+    "text": "你选了文史哲/艺术。亲戚问：!这个专业以后干什么？! 你说不清楚。但你在图书馆看了一下午的《庄子》，觉得比任何职业规划课都有用。你知道这条路不好走，但你更知道——*不做自己喜欢的事，走什么路都累。*",
+    "choices": [{ "text": "开始大学生活", "effects": [], "nextEventId": "undergrad_start" }]
+  },
+  {
     "id": "event_not_found",
     "stage": "undergrad",
-    "text": "（系统提示：这段剧情被甲方砍了。你获得了一个珍贵的“404 成就”。）",
+    "text": "（系统提示：这段剧情被甲方砍了。你获得了一个珍贵的[404 成就]。）",
     "choices": [
       {
         "text": "从头再来",

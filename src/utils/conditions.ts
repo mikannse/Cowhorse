@@ -31,54 +31,33 @@ function evaluateAttributeCondition(
   }
 }
 
-function evaluateStageCondition(
-  state: GameStateSnapshot,
-  condition: StageCondition
-): boolean {
+function evaluateStageCondition(state: GameStateSnapshot, condition: StageCondition): boolean {
   return state.currentStage === condition.stage;
 }
 
-function evaluateDiceCondition(
-  state: GameStateSnapshot,
-  condition: DiceCondition
-): boolean {
+function evaluateDiceCondition(state: GameStateSnapshot, condition: DiceCondition): boolean {
   if (!state.diceResult) return false;
   const value = state.diceResult.value;
   return value >= condition.min && value <= condition.max;
 }
 
-function evaluateVisitedCondition(
-  state: GameStateSnapshot,
-  condition: VisitedCondition
-): boolean {
+function evaluateVisitedCondition(state: GameStateSnapshot, condition: VisitedCondition): boolean {
   return state.visitedEvents.has(condition.eventId);
 }
 
-function evaluateAndCondition(
-  state: GameStateSnapshot,
-  condition: AndCondition
-): boolean {
+function evaluateAndCondition(state: GameStateSnapshot, condition: AndCondition): boolean {
   return condition.conditions.every((c) => evaluateCondition(state, c));
 }
 
-function evaluateOrCondition(
-  state: GameStateSnapshot,
-  condition: OrCondition
-): boolean {
+function evaluateOrCondition(state: GameStateSnapshot, condition: OrCondition): boolean {
   return condition.conditions.some((c) => evaluateCondition(state, c));
 }
 
-function evaluateNotCondition(
-  state: GameStateSnapshot,
-  condition: NotCondition
-): boolean {
+function evaluateNotCondition(state: GameStateSnapshot, condition: NotCondition): boolean {
   return !evaluateCondition(state, condition.condition);
 }
 
-export function evaluateCondition(
-  state: GameStateSnapshot,
-  condition: Condition
-): boolean {
+export function evaluateCondition(state: GameStateSnapshot, condition: Condition): boolean {
   switch (condition.type) {
     case 'attribute':
       return evaluateAttributeCondition(state, condition);

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import type { AttributeKey } from '../types';
 import { useGameStore } from '../engine/useGameStore';
+import type { AttributeKey } from '../types';
 import { getEndingById } from '../utils/endings';
 
 const ATTRIBUTE_ICONS: Record<AttributeKey, string> = {
@@ -69,10 +69,7 @@ export default function LifeResume({ onRenderComplete }: LifeResumeProps) {
         ) : (
           <ul className="space-y-2">
             {milestones.map((label, index) => (
-              <li
-                key={index}
-                className="flex items-center gap-2 text-body text-foreground"
-              >
+              <li key={index} className="flex items-center gap-2 text-body text-foreground">
                 <span className="h-1.5 w-6 bg-tape rotate-[-2deg]" />
                 {label}
               </li>
@@ -97,9 +94,7 @@ export default function LifeResume({ onRenderComplete }: LifeResumeProps) {
                   style={{ width: `${attributes[key]}%` }}
                 />
               </div>
-              <span className="text-caption font-mono w-8 text-right">
-                {attributes[key]}
-              </span>
+              <span className="text-caption font-mono w-8 text-right">{attributes[key]}</span>
             </div>
           ))}
         </div>
@@ -109,7 +104,11 @@ export default function LifeResume({ onRenderComplete }: LifeResumeProps) {
         <section className="relative z-10 mt-auto">
           <div className="inline-block bg-surface border-2 border-foreground px-4 py-3 rounded-xl shadow-card rotate-[-2deg]">
             <p className="text-caption text-muted uppercase tracking-wide">
-              {ending.rarity === 'hidden' ? '隐藏结局' : ending.rarity === 'route' ? '路线结局' : '普通结局'}
+              {ending.rarity === 'hidden'
+                ? '隐藏结局'
+                : ending.rarity === 'route'
+                  ? '路线结局'
+                  : '普通结局'}
             </p>
             <h3 className="text-hero text-foreground mt-1">{ending.title}</h3>
           </div>
@@ -117,7 +116,9 @@ export default function LifeResume({ onRenderComplete }: LifeResumeProps) {
       )}
 
       <footer className="relative z-10 pt-2">
-        <p className="text-caption text-muted text-center">CowHorse 社畜模拟器 · cowhorse.pages.dev</p>
+        <p className="text-caption text-muted text-center">
+          CowHorse 社畜模拟器 · cowhorse.pages.dev
+        </p>
       </footer>
     </div>
   );

@@ -2,7 +2,7 @@
   {
     "id": "lie_intro",
     "stage": "gap",
-    "text": "你退了三个求职群，把简历从“求捞”改成了“活着”。房租还有两个月，存款还能撑四个月。朋友问你找到工作了吗，你说：“在找。”然后关掉了手机。",
+    "text": "你退了三个求职群，把简历从[求捞]改成了[活着]。房租还有两个月，存款还能撑四个月。朋友问你找到工作了吗，你说：*在找。* 然后关掉了手机。",
     "choices": [
       {
         "text": "做兼职，半躺不躺",
@@ -16,7 +16,7 @@
       {
         "text": "彻底躺平，什么都不做",
         "effects": [
-          { "target": "mentalHealth", "value": 20, "label": "完全放松" },
+          { "target": "mentalHealth", "value": 12, "label": "完全放松" },
           { "target": "money", "value": -20, "label": "坐吃山空" },
           { "target": "connections", "value": -10, "label": "社交脱节" }
         ],
@@ -31,12 +31,7 @@
     "moment": {
       "templateId": "lie_freelance_moment",
       "text": "自由职业第 30 天：收入不稳定，但闹钟终于被我删了。",
-      "replyPool": [
-        "羡慕自由",
-        "社保怎么办？",
-        "我也想做副业但没勇气",
-        "自由职业三个月后还是很爽"
-      ]
+      "replyPool": ["羡慕自由", "社保怎么办？", "我也想做副业但没勇气", "自由职业三个月后还是很爽"]
     },
     "choices": [
       {
@@ -50,10 +45,8 @@
       },
       {
         "text": "有点累，还是找份稳定工作吧",
-        "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "务实" }
-        ],
-        "nextEventId": "job_intro"
+        "effects": [{ "target": "mentalHealth", "value": 5, "label": "务实" }],
+        "nextEventId": "job_interview"
       }
     ]
   },
@@ -63,13 +56,13 @@
     "text": "半年过去了，你的自由职业做得风生水起。老客户介绍新客户，收入终于赶上了上班的同学。但你知道这行说不准——下个月可能颗粒无收。",
     "choices": [
       {
-        "text": "继续自由，相信市场",
+        "text": "继续自由，拓展更多业务",
         "effects": [
           { "target": "money", "value": 20, "label": "高收入月份" },
           { "target": "skill", "value": 10, "label": "积累口碑" },
           { "target": "mentalHealth", "value": 10, "label": "充实" }
         ],
-        "nextEventId": "ending_reached"
+        "nextEventId": "lie_digital_nomad"
       },
       {
         "text": "趁有积蓄去学点新东西",
@@ -78,14 +71,79 @@
           { "target": "money", "value": -15, "label": "学费" },
           { "target": "connections", "value": 5, "label": "同学" }
         ],
-        "nextEventId": "ending_reached"
+        "nextEventId": "lie_digital_nomad"
+      }
+    ]
+  },
+  {
+    "id": "lie_digital_nomad",
+    "stage": "work",
+    "text": "你变成了传说中的[数字游民]。今天在大理、下个月去清迈、再下个月不知道在哪。朋友圈的画风从\"深夜加班\"变成了\"苍山脚下的咖啡和 MacBook\"。有人评论：!你不焦虑吗？! 你说：*焦虑，但不在格子间焦虑。*",
+    "moment": {
+      "templateId": "digital_nomad_life_moment",
+      "text": "数字游民半年记：换了四个城市，收入波动像心跳，但爽是真的爽。",
+      "replyPool": ["真·自由", "你不考虑以后吗？", "我为什么还在上班……", "需要队友吗"]
+    },
+    "choices": [
+      {
+        "text": "坚持数字游民生活",
+        "effects": [
+          { "target": "mentalHealth", "value": 12, "label": "自由的快乐" },
+          { "target": "money", "value": 12, "label": "接单稳定" },
+          { "target": "connections", "value": 10, "label": "游民社群" }
+        ],
+        "nextEventId": "lie_midlife_awakening"
+      },
+      {
+        "text": "赚钱不够，回去上班吧",
+        "effects": [
+          { "target": "money", "value": 10, "label": "稳定收入" },
+          { "target": "mentalHealth", "value": -10, "label": "自由没了" }
+        ],
+        "nextEventId": "job_offer"
+      },
+      {
+        "text": "做内容创业，打造个人 IP",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "内容创作" },
+          { "target": "connections", "value": 15, "label": "粉丝群" }
+        ],
+        "nextEventId": "lie_content_creator"
+      }
+    ]
+  },
+  {
+    "id": "lie_content_creator",
+    "stage": "work",
+    "text": "你开始做短视频/写公众号/做播客。第一条内容只有三个赞，其中两个是你自己的小号。但你坚持下来了。半年后，你的一条吐槽职场的视频爆了，私信里全是[求带]。",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "持续爆款，成了小 V",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "money", "value": 15, "label": "恰饭收入" },
+          { "target": "connections", "value": 15, "label": "粉丝" },
+          { "target": "skill", "value": 10, "label": "内容力" }
+        ],
+        "nextEventId": "lie_midlife_awakening"
+      },
+      {
+        "text": "流量不稳定，勉强糊口",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "money", "value": 5, "label": "微薄收入" },
+          { "target": "mentalHealth", "value": -10, "label": "数据焦虑" },
+          { "target": "skill", "value": 5, "label": "坚持创作" }
+        ],
+        "nextEventId": "lie_midlife_awakening"
       }
     ]
   },
   {
     "id": "lie_full_flat",
     "stage": "gap",
-    "text": "你已经能准确说出菜市场每种蔬菜的价格。老板认识你，会留最甜的西瓜给你。父母从“催你找工作”变成了“你开心就好”。你知道他们担心，但你真的不想动。",
+    "text": "你已经能准确说出菜市场每种蔬菜的价格。老板认识你，会留最甜的西瓜给你。父母从!催你找工作!变成了!你开心就好!。你知道他们担心，但你真的不想动。",
     "choices": [
       {
         "text": "继续躺，低消费低欲望",
@@ -121,9 +179,7 @@
       },
       {
         "text": "不行了，必须找工作了",
-        "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "清醒" }
-        ],
+        "effects": [{ "target": "mentalHealth", "value": 5, "label": "清醒" }],
         "nextEventId": "job_intro"
       },
       {
@@ -132,6 +188,151 @@
           { "target": "mentalHealth", "value": 10, "label": "安全感" },
           { "target": "connections", "value": -5, "label": "社交死亡" },
           { "target": "money", "value": 10, "label": "家里支援" }
+        ],
+        "nextEventId": "lie_parents_visit"
+      }
+    ]
+  },
+  {
+    "id": "lie_parents_visit",
+    "stage": "gap",
+    "text": "妈妈突然来看你。她扫了一眼房间，沉默了很久，然后开始帮你收拾。一边收一边说：*我不是催你……我就是怕你以后后悔。* 你坐在床上，发现妈妈的白头发比上次见多了好多。",
+    "lonelyMoment": "你想说'对不起'，但张了张嘴，什么都没说出来。她也没再说什么，只是把脏衣服放进洗衣机。洗衣机的声音填满了所有沉默。",
+    "choices": [
+      {
+        "text": "跟妈妈好好谈谈自己的打算",
+        "effects": [
+          { "target": "connections", "value": 15, "label": "家人理解" },
+          { "target": "mentalHealth", "value": 15, "label": "释然" }
+        ],
+        "nextEventId": "lie_reinvent"
+      },
+      {
+        "text": "什么都不说，继续逃避",
+        "effects": [
+          { "target": "mentalHealth", "value": -15, "label": "愧疚" },
+          { "target": "connections", "value": -10, "label": "隔阂" }
+        ],
+        "nextEventId": "lie_reinvent"
+      }
+    ]
+  },
+  {
+    "id": "lie_reinvent",
+    "stage": "gap",
+    "text": "你开始思考一个严肃的问题：*躺平是为了逃避，还是为了找到自己想做的事？* 如果是后者，那你找到了吗？窗外下雨了，你打开了很久没打开的电脑。",
+    "choices": [
+      {
+        "text": "学门新手艺，重新出发",
+        "effects": [
+          { "target": "skill", "value": 15, "label": "新技能" },
+          { "target": "mentalHealth", "value": 10, "label": "有方向了" },
+          { "target": "money", "value": -10, "label": "学习投入" }
+        ],
+        "nextEventId": "lie_content_creator"
+      },
+      {
+        "text": "接受现实，找个普通工作",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "务实" },
+          { "target": "money", "value": 10, "label": "稳定收入" }
+        ],
+        "nextEventId": "job_intro"
+      },
+      {
+        "text": "考研，换个赛道",
+        "effects": [{ "target": "skill", "value": 10, "label": "备考" }],
+        "nextEventId": "exam_intro"
+      }
+    ]
+  },
+  {
+    "id": "lie_old_classmate",
+    "stage": "gap",
+    "condition": {
+      "type": "attribute",
+      "attr": "mentalHealth",
+      "operator": "lt",
+      "value": 55
+    },
+    "text": "在超市遇到了大学同学。她穿着西装、踩着高跟鞋，推车里是速冻食品和能量饮料。你穿着一件皱 T 恤、趿着拖鞋，推车里是鸡蛋和泡面。你们对视了三秒，然后同时笑了。",
+    "choices": [
+      {
+        "text": "坦诚聊聊近况",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "共鸣" },
+          { "target": "connections", "value": 10, "label": "老同学" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "寒暄几句赶紧走人",
+        "effects": [
+          { "target": "mentalHealth", "value": -5, "label": "自卑" },
+          { "target": "connections", "value": 5, "label": "保持联系" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "lie_remote_work",
+    "stage": "gap",
+    "condition": {
+      "type": "attribute",
+      "attr": "skill",
+      "operator": "gte",
+      "value": 40
+    },
+    "text": "你在一个远程工作平台上找到了长期客户。一个美国的 startup、一个新加坡的电商、还有一个国内的内容团队。你发现原来不用坐在办公室也能养活自己——只是社保要自己交了。",
+    "choices": [
+      {
+        "text": "全职远程，永远不回去坐班",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "远程万岁" },
+          { "target": "money", "value": 12, "label": "多客户" },
+          { "target": "connections", "value": 10, "label": "国际人脉" }
+        ],
+        "nextEventId": "lie_digital_nomad"
+      },
+      {
+        "text": "远程久了有点孤独",
+        "effects": [
+          { "target": "mentalHealth", "value": -5, "label": "孤独" },
+          { "target": "connections", "value": -5, "label": "与人脱节" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "lie_midlife_awakening",
+    "stage": "work",
+    "text": "你站在出租屋的小阳台上看着夕阳。楼下有人在遛狗，隔壁在炒菜，远处写字楼的灯还亮着。你第一次不问自己*接下来该做什么*，而是问：*我想要什么样的人生？*",
+    "lonelyMoment": "你突然意识到：所有的焦虑，都来自你一直在用别人的尺子量自己的人生。也许躺平从来不是终点——它是终于有时间听自己说话。",
+    "choices": [
+      {
+        "text": "继续自由自在的生活",
+        "effects": [
+          { "target": "mentalHealth", "value": 12, "label": "自洽" },
+          { "target": "skill", "value": 10, "label": "成长" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "找到自己的热爱，去奋斗",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "有方向" },
+          { "target": "skill", "value": 12, "label": "新起点" },
+          { "target": "connections", "value": 10, "label": "志同道合" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "回归主流，但用我的方式",
+        "effects": [
+          { "target": "money", "value": 15, "label": "平衡收入" },
+          { "target": "mentalHealth", "value": 10, "label": "平衡" }
         ],
         "nextEventId": "ending_reached"
       }

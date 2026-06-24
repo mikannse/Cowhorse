@@ -5,10 +5,7 @@ export interface EffectResult {
   changes: { target: keyof Attributes; delta: number; label?: string }[];
 }
 
-export function applyEffects(
-  current: Attributes,
-  effects: GameEffect[]
-): EffectResult {
+export function applyEffects(current: Attributes, effects: GameEffect[]): EffectResult {
   const next: Attributes = { ...current };
   const changes: EffectResult['changes'] = [];
 

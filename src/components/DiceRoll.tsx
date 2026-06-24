@@ -1,7 +1,7 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import type { DiceResult } from '../types';
 import { useDiceAnimation } from '../hooks/useDiceAnimation';
+import type { DiceResult } from '../types';
 
 interface DiceRollProps {
   active: boolean;
@@ -47,9 +47,7 @@ export default function DiceRoll({ active, result, onDismiss }: DiceRollProps) {
             </div>
             {phase === 'settled' && result && (
               <div className="text-center">
-                <p className="text-title text-on-primary font-bold">
-                  命运骰子：{result.value}
-                </p>
+                <p className="text-title text-on-primary font-bold">命运骰子：{result.value}</p>
                 <p
                   className={`text-body font-medium ${
                     result.success ? 'text-accent' : 'text-destructive'

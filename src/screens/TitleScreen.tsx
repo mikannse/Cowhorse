@@ -1,6 +1,6 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useGameStore } from '../engine/useGameStore';
 
 export default function TitleScreen() {
@@ -24,9 +24,7 @@ export default function TitleScreen() {
         {/* Tape accent */}
         <div className="absolute -top-2 -left-4 w-16 h-1.5 bg-tape rotate-[5deg]" />
         <h1 className="text-hero text-foreground tracking-tight">社畜模拟器</h1>
-        <p className="text-title text-primary font-bold tracking-tight text-center">
-          COWHORSE
-        </p>
+        <p className="text-title text-primary font-bold tracking-tight text-center">COWHORSE</p>
       </motion.div>
 
       <motion.p
@@ -44,11 +42,7 @@ export default function TitleScreen() {
         transition={{ delay: 0.35, duration: 0.25 }}
         className="w-full max-w-xs mt-12"
       >
-        <button
-          type="button"
-          onClick={handleStart}
-          className="btn-primary"
-        >
+        <button type="button" onClick={handleStart} className="btn-primary">
           开始游戏
         </button>
       </motion.div>

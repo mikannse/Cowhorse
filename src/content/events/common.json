@@ -11,6 +11,7 @@
       }
     ]
   },
+
   {
     "id": "encounter_fortune",
     "stage": "undergrad",
@@ -20,7 +21,7 @@
       "operator": "gte",
       "value": 35
     },
-    "text": "你偶然遇到一个学长，他说他们公司在招人，问你要不要试试内推。你跟他加了好友，觉得运气没那么差了。",
+    "text": "你偶然遇到一个学长，他说他们在公司招人，问你要不要试试内推。你跟他加了好友，觉得运气没那么差了。",
     "choices": [
       {
         "text": "太好了！试试内推",
@@ -32,9 +33,7 @@
       },
       {
         "text": "加个好友，以后再说",
-        "effects": [
-          { "target": "connections", "value": 5, "label": "人脉" }
-        ],
+        "effects": [{ "target": "connections", "value": 5, "label": "人脉" }],
         "nextEventId": "job_intro"
       }
     ]
@@ -42,7 +41,7 @@
   {
     "id": "encounter_sick",
     "stage": "undergrad",
-    "text": "连续熬夜终于让你的身体抗议了。你发烧到 38.5 度，一个人去校医院挂水。旁边的阿姨问你怎么没有家人陪，你说：“没事，习惯了。”",
+    "text": "连续熬夜终于让你的身体抗议了。你发烧到 38.5 度，一个人去校医院挂水。旁边的阿姨问你怎么没有家人陪，你说：*没事，习惯了。*",
     "choices": [
       {
         "text": "好好休息，身体第一",
@@ -51,7 +50,7 @@
           { "target": "mentalHealth", "value": -10, "label": "脆弱" },
           { "target": "money", "value": -5, "label": "医药费" }
         ],
-        "nextEventId": "undergrad_start"
+        "nextEventId": "__return_to_story__"
       }
     ]
   },
@@ -65,7 +64,7 @@
         { "type": "attribute", "attr": "mentalHealth", "operator": "lt", "value": 50 }
       ]
     },
-    "text": "一个很久没联系的朋友突然发消息：“最近怎么样？”你盯着屏幕看了五分钟，不知道该从何说起。最后你回了三个字：“还活着。”",
+    "text": "一个很久没联系的朋友突然发消息：!最近怎么样？! 你盯着屏幕看了五分钟，不知道该从何说起。最后你回了三个字：*还活着。*",
     "lonelyMoment": "原来还有人记得你。你才发现，你也不是完全一个人。",
     "choices": [
       {
@@ -74,7 +73,7 @@
           { "target": "mentalHealth", "value": 15, "label": "倾诉" },
           { "target": "connections", "value": 5, "label": "友情回温" }
         ],
-        "nextEventId": "undergrad_start"
+        "nextEventId": "__return_to_story__"
       }
     ]
   },
@@ -92,7 +91,7 @@
           { "target": "energy", "value": -15, "label": "熬夜做单" },
           { "target": "skill", "value": 5, "label": "实战经验" }
         ],
-        "nextEventId": "undergrad_start"
+        "nextEventId": "__return_to_story__"
       },
       {
         "text": "算了，太累了",
@@ -101,14 +100,14 @@
           { "target": "energy", "value": 5, "label": "休息" },
           { "target": "money", "value": -5, "label": "错失机会" }
         ],
-        "nextEventId": "undergrad_start"
+        "nextEventId": "__return_to_story__"
       }
     ]
   },
   {
     "id": "encounter_family_pressure",
     "stage": "undergrad",
-    "text": "妈妈打电话来了。“隔壁小王考上公务员了”、“你表姐今年年终奖发了十万”、“你到底打算怎么办？”你嗯嗯啊啊应付着，挂了电话后发了很久的呆。",
+    "text": "妈妈打电话来了。!隔壁小王考上公务员了!、!你表姐今年年终奖发了十万!、!你到底打算怎么办？! 你嗯嗯啊啊应付着，挂了电话后发了很久的呆。",
     "choices": [
       {
         "text": "烦躁，不想接电话了",
@@ -116,7 +115,7 @@
           { "target": "mentalHealth", "value": -10, "label": "压力" },
           { "target": "connections", "value": -5, "label": "疏远家人" }
         ],
-        "nextEventId": "undergrad_start"
+        "nextEventId": "__return_to_story__"
       },
       {
         "text": "耐心解释自己的计划",
@@ -124,7 +123,7 @@
           { "target": "mentalHealth", "value": -5, "label": "解释" },
           { "target": "connections", "value": 5, "label": "家人理解" }
         ],
-        "nextEventId": "undergrad_start"
+        "nextEventId": "__return_to_story__"
       }
     ]
   },
@@ -141,10 +140,674 @@
       {
         "text": "心情愉快地继续今天",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "好心情" },
+          { "target": "mentalHealth", "value": 5, "label": "好心情" },
           { "target": "money", "value": 5, "label": "意外之财" }
         ],
-        "nextEventId": "undergrad_start"
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+
+  {
+    "id": "encounter_graduation_trip",
+    "stage": "graduation",
+    "condition": {
+      "type": "attribute",
+      "attr": "money",
+      "operator": "gte",
+      "value": 20
+    },
+    "text": "室友提议毕业旅行。!最后一次了，以后各奔东西! 你看了看银行卡余额，又看了看他们期待的脸。",
+    "choices": [
+      {
+        "text": "去！青春不留遗憾",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "美好回忆" },
+          { "target": "money", "value": -15, "label": "旅费" },
+          { "target": "connections", "value": 10, "label": "最后的情谊" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "算了，省点钱吧",
+        "effects": [
+          { "target": "money", "value": 5, "label": "省钱" },
+          { "target": "mentalHealth", "value": -5, "label": "遗憾" },
+          { "target": "connections", "value": -5, "label": "疏远" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_roommate_goodbye",
+    "stage": "graduation",
+    "text": "宿舍清空了。四年堆满的角落现在只剩灰尘。最后一个室友拖着箱子走了，在门口回头说：*走了啊。* 你点点头。门关上的声音比想象中大。",
+    "lonelyMoment": "你突然意识到，有些人这辈子可能不会再见了。不是不想见，而是没有理由见了。",
+    "choices": [
+      {
+        "text": "发个朋友圈留念",
+        "effects": [
+          { "target": "connections", "value": 5, "label": "保持联系" },
+          { "target": "mentalHealth", "value": 5, "label": "仪式感" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+
+  {
+    "id": "encounter_first_salary",
+    "stage": "firstJob",
+    "condition": {
+      "type": "attribute",
+      "attr": "money",
+      "operator": "gte",
+      "value": 25
+    },
+    "text": "发工资了！你盯着到账短信看了三遍，确认不是诈骗。扣除房租还剩的钱，够吃一个月不重样的外卖。你给爸妈转了五百块，妈妈回了六个字：!省着点花，存钱。!",
+    "choices": [
+      {
+        "text": "存一半，花一半",
+        "effects": [
+          { "target": "money", "value": 5, "label": "理财意识" },
+          { "target": "mentalHealth", "value": 5, "label": "踏实" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "犒劳自己一顿好的",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "奖励自己" },
+          { "target": "money", "value": -10, "label": "消费" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_overtime_health",
+    "stage": "work",
+    "condition": {
+      "type": "attribute",
+      "attr": "energy",
+      "operator": "lt",
+      "value": 40
+    },
+    "text": "年度体检报告出来了。脂肪肝、颈椎曲度变直、心律不齐——你才二十多岁，体检报告看着像四十岁。同事说：*996 的福报。*",
+    "choices": [
+      {
+        "text": "开始锻炼，命重要",
+        "effects": [
+          { "target": "energy", "value": 15, "label": "开始运动" },
+          { "target": "mentalHealth", "value": 10, "label": "重视健康" },
+          { "target": "money", "value": -5, "label": "健身卡" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "没时间，以后再说",
+        "effects": [
+          { "target": "energy", "value": -15, "label": "继续消耗" },
+          { "target": "mentalHealth", "value": -10, "label": "忽视健康" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_class_reunion",
+    "stage": "work",
+    "condition": {
+      "type": "attribute",
+      "attr": "connections",
+      "operator": "gte",
+      "value": 40
+    },
+    "text": "大学同学聚会。有人带了老公，有人带了娃，有人带了融资 BP。你带了加班留下来的黑眼圈。班长说：!来，说说你现在在干嘛？! 你端起酒杯笑了笑。",
+    "choices": [
+      {
+        "text": "大方分享，真诚交流",
+        "effects": [
+          { "target": "connections", "value": 10, "label": "人脉维系" },
+          { "target": "mentalHealth", "value": 5, "label": "社交能量" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "低调敷衍，不想攀比",
+        "effects": [
+          { "target": "mentalHealth", "value": -5, "label": "社交压力" },
+          { "target": "connections", "value": -5, "label": "渐行渐远" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_parents_aging",
+    "stage": "work",
+    "condition": {
+      "type": "attribute",
+      "attr": "mentalHealth",
+      "operator": "lt",
+      "value": 60
+    },
+    "text": "爸爸发来一张照片，是他给你收拾的旧房间，桌上还放着你的高考准考证。他说：*没事，就是发给你看看。* 你放大照片，发现他头发白了好多。多久没回去了？",
+    "lonelyMoment": "你拼命追的未来，是以错过他们的现在为代价的。但你还停不下来。",
+    "choices": [
+      {
+        "text": "周末回家一趟",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "家的温暖" },
+          { "target": "connections", "value": 10, "label": "亲情" },
+          { "target": "money", "value": -10, "label": "路费" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "打个视频电话",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "联系" },
+          { "target": "connections", "value": 5, "label": "维系" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_investment_fomo",
+    "stage": "gap",
+    "condition": {
+      "type": "attribute",
+      "attr": "money",
+      "operator": "gte",
+      "value": 30
+    },
+    "text": "同事在茶水间讨论股票和基金，说上个月赚了一个月工资。另一个人掏出手机给你看他的币圈收益。你开始怀疑：*打工是不是最慢的赚钱方式？*",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "拿点闲钱试试投资",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "money", "value": 15, "label": "投资收益" },
+          { "target": "skill", "value": 5, "label": "理财技能" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "试试投资",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "money", "value": -20, "label": "投资亏损" },
+          { "target": "mentalHealth", "value": -10, "label": "被割韭菜" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "不碰这些，踏实攒钱",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "定力" },
+          { "target": "money", "value": 5, "label": "稳健" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_bad_date",
+    "stage": "gap",
+    "condition": {
+      "type": "attribute",
+      "attr": "mentalHealth",
+      "operator": "lt",
+      "value": 55
+    },
+    "text": "朋友给你介绍了一个对象。饭桌上对方问：!你有房吗？有车吗？什么户口？! 你说：*我是无产阶级革命战士。* 对方起身就走了。你默默把两碗米饭都吃了。",
+    "choices": [
+      {
+        "text": "算了，继续单身吧",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "躺平" },
+          { "target": "connections", "value": -5, "label": "回避" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "继续相亲，不信没合适的",
+        "effects": [
+          { "target": "energy", "value": -10, "label": "社交消耗" },
+          { "target": "mentalHealth", "value": -5, "label": "疲惫" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_lottery",
+    "stage": "gap",
+    "text": "路过彩票店，老板说今天奖池特别大。你掏出两块钱，觉得这可能是这辈子最划算的希望消费。你知道不会中，但刮开那层涂层的三秒钟，你是自由的。",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "中了！虽然不是大奖",
+        "condition": { "type": "dice", "min": 6, "max": 6 },
+        "effects": [
+          { "target": "money", "value": 30, "label": "小奖" },
+          { "target": "mentalHealth", "value": 15, "label": "意外之喜" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "果然没中",
+        "condition": { "type": "dice", "min": 1, "max": 5 },
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "买了个梦" },
+          { "target": "money", "value": -2, "label": "两块钱" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+
+  {
+    "id": "encounter_lab_accident",
+    "stage": "postgrad",
+    "text": "实验室的服务器在你跑了三天三夜的实验结束前五分钟崩了。你盯着蓝屏，想起了师兄说的那句话：*做科研，心态比智商重要。*",
+    "choices": [
+      {
+        "text": "重新来，数据总会有的",
+        "effects": [
+          { "target": "mentalHealth", "value": -10, "label": "崩溃" },
+          { "target": "energy", "value": -15, "label": "重跑" },
+          { "target": "skill", "value": 5, "label": "抗压能力" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "今天不干了，明天再说",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "放空" },
+          { "target": "energy", "value": 10, "label": "休息" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_conference_luck",
+    "stage": "postgrad",
+    "condition": {
+      "type": "attribute",
+      "attr": "skill",
+      "operator": "gte",
+      "value": 45
+    },
+    "text": "学术会议上你鼓起勇气跟大佬搭话，结果大佬对你做的方向很感兴趣，还留了联系方式。导师在旁边用眼神告诉你：*小子，可以啊。*",
+    "choices": [
+      {
+        "text": "趁机多交流，拓展人脉",
+        "effects": [
+          { "target": "connections", "value": 15, "label": "学术界人脉" },
+          { "target": "skill", "value": 5, "label": "学术视野" },
+          { "target": "energy", "value": -5, "label": "社交消耗" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+
+  {
+    "id": "encounter_bureaucracy_humor",
+    "stage": "firstJob",
+    "condition": {
+      "type": "visited",
+      "eventId": "civil_pass"
+    },
+    "text": "你帮领导写了份三千字的汇报材料，最后他只改了一个标点：把你的逗号改成了句号。然后他说：*嗯，这样好多了。*",
+    "choices": [
+      {
+        "text": "习惯了，体制内就这样",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "淡然" },
+          { "target": "skill", "value": -5, "label": "磨平" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+
+  {
+    "id": "encounter_midnight_epiphany",
+    "stage": "work",
+    "condition": {
+      "type": "attribute",
+      "attr": "mentalHealth",
+      "operator": "lt",
+      "value": 40
+    },
+    "text": "凌晨两点，你完成了一个根本不紧急但 deadline 是今晚的需求。窗外有鸟叫了，天快亮了。你突然问自己：*我到底在干嘛？* 但没有人回答。",
+    "lonelyMoment": "你翻了翻手机相册，照片越来越少。上一次发自内心地笑是什么时候？你想不起来了。",
+    "choices": [
+      {
+        "text": "想想人生到底要什么……",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "反思" },
+          { "target": "energy", "value": -5, "label": "失眠" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+
+  {
+    "id": "encounter_tech_leetcode",
+    "stage": "work",
+    "condition": {
+      "type": "visited",
+      "eventId": "major_cs"
+    },
+    "text": "大厂面试前的 LeetCode 地狱。你已经刷了 300 题，但 Medium 难度的 DP 还是让你怀疑智商。室友说：*刷题是程序员的基本素养。* 你盯着第 301 题的题目描述，发现它在用一种你完全看不懂的方式描述一个你根本想象不出的场景。",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "刷通了！拿到大厂面试",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "skill", "value": 15, "label": "算法提升" },
+          { "target": "mentalHealth", "value": 10, "label": "信心" },
+          { "target": "connections", "value": 5, "label": "内推" }
+        ],
+        "nextEventId": "job_interview"
+      },
+      {
+        "text": "继续刷题之路",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": -10, "label": "刷题焦虑" },
+          { "target": "skill", "value": 5, "label": "略有提升" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_tech_github_star",
+    "stage": "work",
+    "condition": {
+      "type": "visited",
+      "eventId": "major_cs"
+    },
+    "text": "你周末写的开源项目突然被人 Star 了 500 次，还上了 GitHub Trending。私信里有猎头、有投资人、有奇怪的人问你愿不愿意帮他们做毕设。你盯着屏幕上的 star 数，第一次觉得：*原来我写的东西对别人有用。*",
+    "moment": {
+      "templateId": "github_star_moment",
+      "text": "开源项目 500 star 了！感觉离独立开发者更近了一步。",
+      "replyPool": [
+        "大佬！求带！",
+        "准备辞职全职搞开源吗",
+        "star 再多也不能当饭吃",
+        "牛逼！下一步融资"
+      ]
+    },
+    "choices": [
+      {
+        "text": "趁热打铁，继续维护项目",
+        "effects": [
+          { "target": "skill", "value": 12, "label": "技术影响力" },
+          { "target": "connections", "value": 10, "label": "开源社区" },
+          { "target": "energy", "value": -10, "label": "维护很累" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "看看有没有商业化的机会",
+        "effects": [
+          { "target": "money", "value": 15, "label": "创业想法" },
+          { "target": "mentalHealth", "value": 10, "label": "兴奋" }
+        ],
+        "nextEventId": "job_entrepreneur"
+      }
+    ]
+  },
+  {
+    "id": "encounter_finance_bonus_season",
+    "stage": "work",
+    "condition": {
+      "type": "visited",
+      "eventId": "major_finance"
+    },
+    "text": "年终奖季。茶水间里每个人都在假装不在乎，但所有人的手机屏幕都亮着同一个银行 App。你的数字出来了——比去年多一点，比隔壁组少一点。MD 说：!知足吧，外面行情不好。! 你算了算自己的时薪，发现还没楼下外卖小哥高。",
+    "choices": [
+      {
+        "text": "满意，继续深耕金融圈",
+        "effects": [
+          { "target": "money", "value": 20, "label": "年终奖" },
+          { "target": "mentalHealth", "value": 5, "label": "还行" },
+          { "target": "connections", "value": 5, "label": "行业积累" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "开始怀疑金融的意义",
+        "effects": [
+          { "target": "mentalHealth", "value": -10, "label": "意义危机" },
+          { "target": "money", "value": 10, "label": "奖金" }
+        ],
+        "nextEventId": "job_health_wakeup"
+      }
+    ]
+  },
+  {
+    "id": "encounter_med_first_surgery",
+    "stage": "work",
+    "condition": {
+      "type": "visited",
+      "eventId": "major_med"
+    },
+    "text": "你第一次参与手术。站在手术台旁边，你紧张得手套里全是汗。主刀医生说：*别怕，习惯就好。我第一次也差点晕倒。* 手术成功了，家属在外面哭，你在更衣室里也哭了——但不知道为什么。",
+    "lonelyMoment": "白大褂口袋里装着病人的感谢信。你坐在值班室里，闻着消毒水的味道，忽然不知道该为自己骄傲还是为这种生活叹气。",
+    "choices": [
+      {
+        "text": "坚定行医，救死扶伤",
+        "effects": [
+          { "target": "skill", "value": 15, "label": "临床经验" },
+          { "target": "mentalHealth", "value": 10, "label": "使命感" },
+          { "target": "energy", "value": -20, "label": "36小时值班" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "太累了，考虑转行",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "放过自己" },
+          { "target": "skill", "value": -10, "label": "多年白学" }
+        ],
+        "nextEventId": "job_career_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "encounter_eng_site_crisis",
+    "stage": "work",
+    "condition": {
+      "type": "visited",
+      "eventId": "major_eng"
+    },
+    "text": "工地上出了一点小事故——塔吊的吊臂擦过脚手架，工人都在骂，监理在吼，你拿着对讲机不知道该说什么。甲方代表说：!这个月不把进度抢回来，罚款。! 你站在钢筋水泥之间，觉得这些混凝土柱比你更有前途。",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "冷静处理，展现专业能力",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "skill", "value": 15, "label": "工程管理" },
+          { "target": "connections", "value": 10, "label": "甲方信任" },
+          { "target": "mentalHealth", "value": -5, "label": "高压" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "算了，这行真的不行了",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": -15, "label": "行业绝望" },
+          { "target": "energy", "value": -10, "label": "心累" }
+        ],
+        "nextEventId": "job_career_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "encounter_law_bar_exam",
+    "stage": "graduation",
+    "condition": {
+      "type": "visited",
+      "eventId": "major_law"
+    },
+    "text": "法考倒计时 30 天。你的桌上堆着半人高的书，咖啡杯像考古地层一样叠了三层。网上说通过率只有 10%，你安慰自己：*法考而已，大不了明年再考。* 然后继续翻下一页。",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "法考通过！",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "skill", "value": 15, "label": "法律职业资格" },
+          { "target": "mentalHealth", "value": 12, "label": "终于解放" },
+          { "target": "connections", "value": 5, "label": "律所 offer" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "差几分没过",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": -15, "label": "法考失利" },
+          { "target": "energy", "value": -10, "label": "再来一年" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_art_breakthrough",
+    "stage": "work",
+    "condition": {
+      "type": "visited",
+      "eventId": "major_art"
+    },
+    "text": "你的作品被一个大 V 转发了。点赞从 100 涨到 10000，私信里有人说想买你的画、想请你写文案、想跟你合作。还有人说：!你这样的才华不应该被埋没。!你盯着那条评论看了很久。",
+    "moment": {
+      "templateId": "art_breakthrough_moment",
+      "text": "作品被大V转发了，一觉醒来涨了 10000 粉。艺术的价值终于被看见了一点。",
+      "replyPool": [
+        "早就说你适合走这条路",
+        "趁热度赶紧变现",
+        "艺术不能当饭吃（但热度可以）",
+        "求合作！"
+      ]
+    },
+    "choices": [
+      {
+        "text": "抓住机会，把创作当事业",
+        "effects": [
+          { "target": "money", "value": 10, "label": "变现" },
+          { "target": "mentalHealth", "value": 12, "label": "被认可" },
+          { "target": "connections", "value": 12, "label": "粉丝圈" }
+        ],
+        "nextEventId": "lie_content_creator"
+      },
+      {
+        "text": "继续当成爱好就好",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "纯粹热爱" },
+          { "target": "skill", "value": 10, "label": "持续创作" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_salary_compare",
+    "stage": "firstJob",
+    "condition": {
+      "type": "attribute",
+      "attr": "mentalHealth",
+      "operator": "lt",
+      "value": 60
+    },
+    "text": "你在脉脉上看到了同行的薪资帖。同样的工作年限，人家的 package 是你的两倍。你怀疑自己是不是要少了、进错了公司、选错了行业。你又打开了招聘软件——然后关上。*比较是偷走快乐的小偷，但你忍不住。*",
+    "choices": [
+      {
+        "text": "准备跳槽，争取更高薪资",
+        "effects": [
+          { "target": "energy", "value": -10, "label": "面试准备" },
+          { "target": "connections", "value": 5, "label": "猎头联系" },
+          { "target": "mentalHealth", "value": -5, "label": "攀比焦虑" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "算了，比不完的",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "佛了" },
+          { "target": "money", "value": -5, "label": "安于现状" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_cross_industry_offer",
+    "stage": "work",
+    "condition": {
+      "type": "attribute",
+      "attr": "skill",
+      "operator": "gte",
+      "value": 50
+    },
+    "text": "猎头给你推了一个完全跨行业的机会——你的可迁移技能在新行业意外地值钱。薪资涨幅 30%，但你要从头学起。家人都说：!你现在挺好的，别折腾了。! 但你心里有只猫在挠。",
+    "choices": [
+      {
+        "text": "跳！趁年轻多试试",
+        "effects": [
+          { "target": "money", "value": 12, "label": "涨薪" },
+          { "target": "skill", "value": 10, "label": "新技能" },
+          { "target": "mentalHealth", "value": 10, "label": "新鲜感" },
+          { "target": "energy", "value": -10, "label": "适应新环境" }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "稳一点，留在熟悉领域",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "安稳" },
+          { "target": "money", "value": 5, "label": "稳定涨薪" }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_industry_crisis",
+    "stage": "work",
+    "condition": {
+      "type": "attribute",
+      "attr": "energy",
+      "operator": "lt",
+      "value": 45
+    },
+    "text": "行业寒冬。公司群里有小道消息说这轮裁员比例 30%，你算了一下自己在组里的排名——不上不下。你开始认真思考：*如果明天被裁，你的 Plan B 是什么？* 想了很久，你发现自己没有 Plan B。",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "主动找后路，准备转型",
+        "condition": { "type": "dice", "min": 1, "max": 6 },
+        "effects": [
+          { "target": "connections", "value": 10, "label": "积极 networking" },
+          { "target": "skill", "value": 5, "label": "学新东西" }
+        ],
+        "nextEventId": "job_career_crossroads"
       }
     ]
   }

@@ -2,49 +2,41 @@
   {
     "id": "undergrad",
     "label": "本科阶段",
-    "order": 1,
-    "nextStage": "graduation"
+    "order": 1
   },
   {
     "id": "graduation",
     "label": "毕业季",
-    "order": 2,
-    "nextStage": "postgrad"
-  },
-  {
-    "id": "postgrad",
-    "label": "读研/工作",
-    "order": 3,
-    "nextStage": "work"
-  },
-  {
-    "id": "work",
-    "label": "职场沉浮",
-    "order": 4,
-    "nextStage": "firstJob"
-  },
-  {
-    "id": "gap",
-    "label": "空窗期",
-    "order": 4,
-    "nextStage": "firstJob"
+    "order": 2
   },
   {
     "id": "firstJob",
     "label": "第一份工作",
-    "order": 5,
-    "nextStage": "retirement"
+    "order": 3
+  },
+  {
+    "id": "postgrad",
+    "label": "读研",
+    "order": 3
+  },
+  {
+    "id": "gap",
+    "label": "空窗期",
+    "order": 3
+  },
+  {
+    "id": "work",
+    "label": "职场沉浮",
+    "order": 4
   },
   {
     "id": "retirement",
     "label": "退休",
-    "order": 6,
-    "nextStage": "ending"
+    "order": 5
   },
   {
     "id": "ending",
     "label": "结局",
-    "order": 7,
-    "nextStage": null
+    "order": 6
   }
 ]

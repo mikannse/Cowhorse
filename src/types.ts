@@ -137,6 +137,7 @@ export interface GameStateSnapshot {
   eventHistory: EventLog[];
   diceResult?: DiceResult;
   currentRoute?: string;
+  storyReturnEventId?: EventId;
 }
 
 export interface GameStoreState extends GameStateSnapshot {
@@ -158,6 +159,7 @@ export type GameStoreActions = {
   setEnding: (endingId: string | null) => void;
   setStage: (stage: Stage) => void;
   setCurrentRoute: (route: string) => void;
+  setStoryReturnEventId: (eventId: EventId) => void;
   resetGame: () => void;
 };
 

@@ -1,7 +1,7 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useGameStore } from '../engine/useGameStore';
 import constants from '../content/constants.json';
+import { useGameStore } from '../engine/useGameStore';
 
 function formatTimestamp(date = new Date()): string {
   const h = date.getHours().toString().padStart(2, '0');
@@ -70,11 +70,7 @@ export default function MomentsFeed() {
               </div>
             )}
 
-            <button
-              type="button"
-              onClick={() => clearMoments()}
-              className="btn-primary mt-2"
-            >
+            <button type="button" onClick={() => clearMoments()} className="btn-primary mt-2">
               继续
             </button>
           </div>

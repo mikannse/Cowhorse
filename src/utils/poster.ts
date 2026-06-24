@@ -40,9 +40,7 @@ export async function sharePoster(dataUrl: string): Promise<void> {
 
   // Fallback: copy to clipboard if supported
   if (navigator.clipboard && window.ClipboardItem) {
-    await navigator.clipboard.write([
-      new ClipboardItem({ 'image/png': blob }),
-    ]);
+    await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
     return;
   }
 

@@ -25,6 +25,7 @@ function createInitialState(): GameStoreState {
     momentsFeed: [],
     lonelyMoment: null,
     endingId: null,
+    storyReturnEventId: '',
   };
 }
 
@@ -33,10 +34,10 @@ export const useGameStore = create<GameStore>((set) => ({
 
   startGame: () => {
     const fresh = createInitialState();
-    fresh.currentEventId = 'undergrad_start';
-    fresh.visitedEvents.add('undergrad_start');
+    fresh.currentEventId = 'choose_major';
+    fresh.visitedEvents.add('choose_major');
     fresh.eventHistory.push({
-      eventId: 'undergrad_start',
+      eventId: 'choose_major',
       stage: fresh.currentStage,
       timestamp: Date.now(),
     });
@@ -102,6 +103,10 @@ export const useGameStore = create<GameStore>((set) => ({
     set({ currentRoute: route });
   },
 
+  setStoryReturnEventId: (eventId) => {
+    set({ storyReturnEventId: eventId });
+  },
+
   resetGame: () => {
     set(createInitialState());
   },
@@ -116,5 +121,6 @@ export function selectSnapshot(state: GameStore): import('../types').GameStateSn
     eventHistory: state.eventHistory,
     diceResult: state.diceResult,
     currentRoute: state.currentRoute,
+    storyReturnEventId: state.storyReturnEventId,
   };
 }

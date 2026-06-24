@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;900&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -134,7 +134,8 @@ body::before {
   font-weight: 700;
   font-size: 16px;
   box-shadow: var(--shadow-button);
-  transition: transform var(--duration-fast) var(--easing-default),
+  transition:
+    transform var(--duration-fast) var(--easing-default),
     box-shadow var(--duration-fast) var(--easing-default);
   cursor: pointer;
   width: 100%;
@@ -156,7 +157,8 @@ body::before {
   line-height: 1.6;
   text-align: left;
   box-shadow: var(--shadow-card);
-  transition: transform var(--duration-fast) var(--easing-default),
+  transition:
+    transform var(--duration-fast) var(--easing-default),
     box-shadow var(--duration-fast) var(--easing-default),
     border-color var(--duration-fast) var(--easing-default);
   cursor: pointer;

@@ -1,7 +1,7 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import type { AttributeKey } from '../types';
 import { useGameStore } from '../engine/useGameStore';
+import type { AttributeKey } from '../types';
 
 const ATTRIBUTE_LABELS: Record<AttributeKey, string> = {
   money: '金',
@@ -37,13 +37,8 @@ export default function AttributeBar() {
           const isMental = attrKey === 'mentalHealth';
           const mentalWarning = isMental && value <= 30;
           return (
-            <div
-              key={key}
-              className="flex flex-col items-center gap-0.5 min-w-[44px]"
-            >
-              <span className="text-caption text-muted font-sans">
-                {ATTRIBUTE_LABELS[attrKey]}
-              </span>
+            <div key={key} className="flex flex-col items-center gap-0.5 min-w-[44px]">
+              <span className="text-caption text-muted font-sans">{ATTRIBUTE_LABELS[attrKey]}</span>
               <span
                 className={`text-label font-mono font-medium ${
                   mentalWarning ? 'text-destructive' : 'text-foreground'
@@ -69,9 +64,8 @@ export default function AttributeBar() {
               {Object.entries(attributes).map(([key, value]) => {
                 const attrKey = key as AttributeKey;
                 const isMental = attrKey === 'mentalHealth';
-                const fillColor = isMental && value <= 30
-                  ? 'bg-destructive'
-                  : ATTRIBUTE_COLORS[attrKey];
+                const fillColor =
+                  isMental && value <= 30 ? 'bg-destructive' : ATTRIBUTE_COLORS[attrKey];
                 return (
                   <div key={key} className="flex items-center gap-3">
                     <span className="text-caption text-muted w-6 text-center">
@@ -85,9 +79,7 @@ export default function AttributeBar() {
                         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                       />
                     </div>
-                    <span className="text-caption font-mono w-8 text-right">
-                      {value}
-                    </span>
+                    <span className="text-caption font-mono w-8 text-right">{value}</span>
                   </div>
                 );
               })}

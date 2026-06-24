@@ -1,5 +1,5 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useGameStore } from '../engine/useGameStore';
 
 export default function LonelyMoment() {
@@ -26,9 +26,7 @@ export default function LonelyMoment() {
           aria-modal="true"
           aria-live="polite"
         >
-          <p className="text-title text-center text-surface leading-relaxed max-w-xs">
-            {text}
-          </p>
+          <p className="text-title text-center text-surface leading-relaxed max-w-xs">{text}</p>
         </motion.div>
       )}
     </AnimatePresence>

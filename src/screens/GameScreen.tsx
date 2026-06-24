@@ -1,15 +1,15 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import AttributeBar from '../components/AttributeBar';
-import NarrativeBox from '../components/NarrativeBox';
 import ChoicePanel from '../components/ChoicePanel';
 import DiceRoll from '../components/DiceRoll';
-import MomentsFeed from '../components/MomentsFeed';
 import LonelyMoment from '../components/LonelyMoment';
-import { useNarrative } from '../hooks/useNarrative';
-import { useGameStore } from '../engine/useGameStore';
-import { rollDice } from '../engine/diceRoller';
+import MomentsFeed from '../components/MomentsFeed';
+import NarrativeBox from '../components/NarrativeBox';
 import stages from '../content/stages.json';
+import { rollDice } from '../engine/diceRoller';
+import { useGameStore } from '../engine/useGameStore';
+import { useNarrative } from '../hooks/useNarrative';
 import type { Stage } from '../types';
 
 function StageDots({ currentStage }: { currentStage: Stage }) {
@@ -25,11 +25,7 @@ function StageDots({ currentStage }: { currentStage: Stage }) {
             key={stage.id}
             title={stage.label}
             className={`w-2 h-2 rounded-full ${
-              state === 'past'
-                ? 'bg-muted'
-                : state === 'current'
-                ? 'bg-primary'
-                : 'bg-border'
+              state === 'past' ? 'bg-muted' : state === 'current' ? 'bg-primary' : 'bg-border'
             }`}
           />
         );
@@ -39,13 +35,8 @@ function StageDots({ currentStage }: { currentStage: Stage }) {
 }
 
 export default function GameScreen() {
-  const {
-    currentEvent,
-    visibleChoices,
-    handleChoice,
-    memeReaction,
-    setMemeReaction,
-  } = useNarrative();
+  const { currentEvent, visibleChoices, handleChoice, memeReaction, setMemeReaction } =
+    useNarrative();
 
   const diceResult = useGameStore((s) => s.diceResult);
   const currentStage = currentEvent.stage;
@@ -110,11 +101,7 @@ export default function GameScreen() {
         )}
       </div>
 
-      <DiceRoll
-        active={diceActive}
-        result={diceResult}
-        onDismiss={handleDiceDismiss}
-      />
+      <DiceRoll active={diceActive} result={diceResult} onDismiss={handleDiceDismiss} />
       <MomentsFeed />
       <LonelyMoment />
     </div>

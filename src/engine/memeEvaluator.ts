@@ -8,10 +8,7 @@ export interface MemeEvaluation {
   value: number;
 }
 
-export function evaluateMeme(
-  state: GameStateSnapshot,
-  memeCheck: MemeCheck
-): MemeEvaluation {
+export function evaluateMeme(state: GameStateSnapshot, memeCheck: MemeCheck): MemeEvaluation {
   if (evaluateCondition(state, memeCheck.correctTiming)) {
     return { outcome: 'correct', value: memeCheck.buff };
   }

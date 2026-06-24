@@ -2,7 +2,7 @@
   {
     "id": "civil_intro",
     "stage": "graduation",
-    "text": "行测的图形推理让你怀疑自己的智商，申论让你怀疑自己的母语。爸妈在电话里说：“考上公务员就一辈子不用愁了。”你盯着天花板，不知道这是安慰还是压力。",
+    "text": "行测的图形推理让你怀疑自己的智商，申论让你怀疑自己的母语。爸妈在电话里说：!考上公务员就一辈子不用愁了。! 你盯着天花板，不知道这是安慰还是压力。",
     "choices": [
       {
         "text": "报班，系统学习",
@@ -27,7 +27,7 @@
     "id": "civil_study",
     "stage": "graduation",
     "diceRoll": true,
-    "text": "你刷了三个月行测，正确率像过山车。某天你梦见自己进了面试，然后被考官问：“你有什么缺点？”你答：“我太想考上了。”",
+    "text": "你刷了三个月行测，正确率像过山车。某天你梦见自己进了面试，然后被考官问：!你有什么缺点？! 你答：*我太想考上了。*",
     "choices": [
       {
         "text": "行测突破，信心大增",
@@ -79,7 +79,7 @@
   {
     "id": "civil_pass",
     "stage": "firstJob",
-    "text": "公示名单出来那天，妈妈把截图发到了家族群，亲戚们开始叫你“某局”。你看着镜子里穿正装的自己，觉得像在演一场别人的戏。",
+    "text": "公示名单出来那天，妈妈把截图发到了家族群，亲戚们开始叫你\"某局\"。你看着镜子里穿正装的自己，觉得像在演一场别人的戏。",
     "moment": {
       "templateId": "civil_pass_moment",
       "text": "上岸了。妈妈说稳定最重要，但我的心跳一点也不稳定。",
@@ -94,11 +94,11 @@
       {
         "text": "好好干，争取晋升",
         "effects": [
-          { "target": "money", "value": 15, "label": "工资" },
+          { "target": "money", "value": 10, "label": "工资" },
           { "target": "connections", "value": 5, "label": "单位人脉" },
           { "target": "skill", "value": 5, "label": "业务熟悉" }
         ],
-        "nextEventId": "civil_routine"
+        "nextEventId": "civil_first_month"
       },
       {
         "text": "躺平，稳定就是一切",
@@ -106,6 +106,31 @@
           { "target": "mentalHealth", "value": 15, "label": "安心" },
           { "target": "money", "value": 5, "label": "死工资" },
           { "target": "skill", "value": -5, "label": "不思进取" }
+        ],
+        "nextEventId": "civil_first_month"
+      }
+    ]
+  },
+  {
+    "id": "civil_first_month",
+    "stage": "firstJob",
+    "text": "上班第一个月，你最大的成就是学会了泡出科长满意的茶。你发现体制内的规矩比法律还多：谁坐在哪、谁先走、给谁敬酒——这不是工作，这是一门微表情管理学。",
+    "choices": [
+      {
+        "text": "认真学习潜规则",
+        "effects": [
+          { "target": "connections", "value": 10, "label": "懂事了" },
+          { "target": "skill", "value": 5, "label": "人情练达" },
+          { "target": "mentalHealth", "value": -5, "label": "压抑" }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "做好本职工作就行",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "保持自我" },
+          { "target": "skill", "value": 10, "label": "业务突出" },
+          { "target": "connections", "value": -5, "label": "不懂事" }
         ],
         "nextEventId": "civil_routine"
       }
@@ -146,23 +171,187 @@
           { "target": "money", "value": 10, "label": "稳定收入" },
           { "target": "connections", "value": 5, "label": "体制内人脉" }
         ],
-        "nextEventId": "ending_reached"
+        "nextEventId": "civil_transfer"
+      },
+      {
+        "text": "搞点副业找找刺激",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "技能保鲜" },
+          { "target": "money", "value": 5, "label": "副业补贴" }
+        ],
+        "nextEventId": "civil_side_hustle"
+      }
+    ]
+  },
+  {
+    "id": "civil_transfer",
+    "stage": "firstJob",
+    "text": "单位有调动机会——去基层挂职两年，回来大概率提副科。老同事说：*下去就是镀金，但基层是真的苦。* 你的行李还没收拾，犹豫已经先打包好了。",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "主动申请，搏一把",
+        "condition": { "type": "dice", "min": 3, "max": 6 },
+        "effects": [
+          { "target": "connections", "value": 15, "label": "基层人脉" },
+          { "target": "skill", "value": 10, "label": "真本事" },
+          { "target": "energy", "value": -15, "label": "基层辛苦" }
+        ],
+        "nextEventId": "civil_promotion_chance"
+      },
+      {
+        "text": "留在原单位安逸",
+        "condition": { "type": "dice", "min": 1, "max": 2 },
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "安稳" },
+          { "target": "money", "value": 5, "label": "无变动" }
+        ],
+        "nextEventId": "civil_three_years"
+      }
+    ]
+  },
+  {
+    "id": "civil_promotion_chance",
+    "stage": "work",
+    "text": "基层回来后你果然提了副科。饭局多了，材料多了，责任也多了。妈妈在电话里高兴得不行，说总算熬出来了。你挂了电话，发现不知不觉学会了在饭局上说场面话。",
+    "moment": {
+      "templateId": "civil_promotion_moment",
+      "text": "提副科了。亲戚们更积极了，我自己更迷茫了。",
+      "replyPool": [
+        "恭喜科长！",
+        "提了就是提了，别矫情",
+        "下一步正科，加油",
+        "体制内每一步都是用时间换的"
+      ]
+    },
+    "choices": [
+      {
+        "text": "努力再爬，争取正科",
+        "effects": [
+          { "target": "connections", "value": 10, "label": "站队" },
+          { "target": "money", "value": 10, "label": "待遇提升" },
+          { "target": "mentalHealth", "value": -5, "label": "继续熬" }
+        ],
+        "nextEventId": "civil_ethics_test"
+      },
+      {
+        "text": "到这就够了，享受稳定",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "满足" },
+          { "target": "skill", "value": -5, "label": "不再上进" }
+        ],
+        "nextEventId": "civil_three_years"
+      }
+    ]
+  },
+  {
+    "id": "civil_ethics_test",
+    "stage": "work",
+    "text": "有人悄悄找到你，暗示某个项目审批给点方便，事后有\"感谢费\"。金额不小，相当于你半年工资。你看着信封，手心出汗，脑子里闪过所有的纪律教育片。",
+    "choices": [
+      {
+        "text": "拒绝，这钱不能拿",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "清白" },
+          { "target": "connections", "value": -5, "label": "得罪人" }
+        ],
+        "nextEventId": "civil_three_years"
+      },
+      {
+        "text": "动摇了，但没拿",
+        "effects": [
+          { "target": "mentalHealth", "value": -10, "label": "道德挣扎" },
+          { "target": "connections", "value": 5, "label": "模棱两可" }
+        ],
+        "nextEventId": "civil_three_years"
+      }
+    ]
+  },
+  {
+    "id": "civil_side_hustle",
+    "stage": "firstJob",
+    "text": "你偷偷在周末做起了副业。虽然体制内不许经商，但你的副业收入已经达到了主业的水平。每次看到办公室的打卡机，你都在盘算：*还要不要在这里打卡二十年？*",
+    "choices": [
+      {
+        "text": "辞职，全职做自己的事",
+        "effects": [
+          { "target": "mentalHealth", "value": 12, "label": "自由" },
+          { "target": "money", "value": -15, "label": "失去铁饭碗" },
+          { "target": "skill", "value": 15, "label": "新赛道" }
+        ],
+        "nextEventId": "lie_freelance"
+      },
+      {
+        "text": "继续两线作战",
+        "effects": [
+          { "target": "energy", "value": -15, "label": "累" },
+          { "target": "money", "value": 15, "label": "双收入" },
+          { "target": "mentalHealth", "value": -5, "label": "精神分裂" }
+        ],
+        "nextEventId": "civil_three_years"
+      }
+    ]
+  },
+  {
+    "id": "civil_three_years",
+    "stage": "work",
+    "text": "三年了。你看着同期入职的人，有的升了、有的调了、有的辞职了。你卡在中间，不上不下。办公室的绿萝长得比你更有活力，至少它每天都在长新叶子。",
+    "choices": [
+      {
+        "text": "继续在体制内熬",
+        "effects": [
+          { "target": "money", "value": 10, "label": "积蓄" },
+          { "target": "mentalHealth", "value": -10, "label": "倦怠" }
+        ],
+        "nextEventId": "civil_five_years"
       },
       {
         "text": "辞职出来闯一闯",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "自由" },
-          { "target": "skill", "value": 10, "label": "新技能" },
-          { "target": "money", "value": -20, "label": "断收入" }
+          { "target": "mentalHealth", "value": 15, "label": "新生" },
+          { "target": "money", "value": -20, "label": "断保" },
+          { "target": "skill", "value": 10, "label": "重新学" }
+        ],
+        "nextEventId": "job_intro"
+      },
+      {
+        "text": "彻底躺平，混到退休",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "看开" },
+          { "target": "energy", "value": 10, "label": "养生" }
+        ],
+        "nextEventId": "civil_five_years"
+      }
+    ]
+  },
+  {
+    "id": "civil_five_years",
+    "stage": "work",
+    "text": "五年了。你的办公桌上多了一个保温杯和一张体检报告。退休还有三十年——你算了一下，觉得这个数字大得有点荒谬。你知道退休那天你会在同一个格子间里，可能连桌上的绿萝都换了三盆。",
+    "lonelyMoment": "窗外的云在动，你在屋里坐着。你想起了很久以前的一个夏天，那时候你觉得未来有无限可能。现在你发现可能只有一种。",
+    "choices": [
+      {
+        "text": "认命，干到退休",
+        "effects": [
+          { "target": "money", "value": 10, "label": "稳定" },
+          { "target": "mentalHealth", "value": 5, "label": "接受" }
         ],
         "nextEventId": "ending_reached"
+      },
+      {
+        "text": "不认命，辞职重塑人生",
+        "effects": [
+          { "target": "mentalHealth", "value": 12, "label": "重生" },
+          { "target": "money", "value": -15, "label": "无保障" }
+        ],
+        "nextEventId": "lie_intro"
       }
     ]
   },
   {
     "id": "civil_fail",
     "stage": "gap",
-    "text": "“竞争激烈，未能进入面试范围”——公告用四个字解释了你半年的努力。你删了所有考公群，但留下了那本翻烂的行测题。",
+    "text": "!竞争激烈，未能进入面试范围!——公告用四个字解释了你半年的努力。你删了所有考公群，但留下了那本翻烂的行测题。",
     "choices": [
       {
         "text": "明年再来，不信上不了",
@@ -174,16 +363,12 @@
       },
       {
         "text": "找工作去",
-        "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "换赛道" }
-        ],
+        "effects": [{ "target": "mentalHealth", "value": 5, "label": "换赛道" }],
         "nextEventId": "job_intro"
       },
       {
         "text": "考研吧，换个活法",
-        "effects": [
-          { "target": "skill", "value": 5, "label": "转方向" }
-        ],
+        "effects": [{ "target": "skill", "value": 5, "label": "转方向" }],
         "nextEventId": "exam_intro"
       }
     ]

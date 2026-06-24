@@ -26,12 +26,7 @@ export default function ChoicePanel({ choices, onChoose, disabled }: ChoicePanel
   }, [choices]);
 
   return (
-    <div
-      ref={containerRef}
-      className="flex flex-col gap-3"
-      role="group"
-      aria-label="选择"
-    >
+    <div ref={containerRef} className="flex flex-col gap-3" role="group" aria-label="选择">
       {choices.map((choice, index) => {
         const pills = choice.effects.map((effect, i) => {
           const sign = effect.value > 0 ? '+' : '';

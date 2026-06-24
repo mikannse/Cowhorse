@@ -1,8 +1,8 @@
 [
   {
     "id": "exam_intro",
-    "stage": "undergrad",
-    "text": "你打开研招网，985、211、双非，选项像相亲 market。室友问你报哪所，你说：\"能上岸就行。\"",
+    "stage": "graduation",
+    "text": "你打开研招网，985、211、双非，选项像相亲 market。室友问你报哪所，你说：*能上岸就行。*",
     "choices": [
       {
         "text": "冲 985，卷死自己",
@@ -25,8 +25,8 @@
   },
   {
     "id": "exam_prep_hard",
-    "stage": "undergrad",
-    "text": "你买了八本参考书，加入了三个打卡群，每天六点起床。朋友圈变成了\"今天的图书馆，明天的录取通知书\"。",
+    "stage": "graduation",
+    "text": "你买了八本参考书，加入了三个打卡群，每天六点起床。朋友圈变成了[今天的图书馆，明天的录取通知书]。",
     "choices": [
       {
         "text": "坚持，不疯魔不成活",
@@ -50,7 +50,7 @@
   },
   {
     "id": "exam_prep_normal",
-    "stage": "undergrad",
+    "stage": "graduation",
     "text": "你按部就班地复习，偶尔刷到考研失败贴就陷入焦虑。某天深夜你算了算报录比，沉默了。",
     "choices": [
       {
@@ -73,7 +73,7 @@
   },
   {
     "id": "exam_study_hard",
-    "stage": "undergrad",
+    "stage": "graduation",
     "diceRoll": true,
     "text": "考试那天你带了咖啡和红牛，前一晚只睡了四小时。试卷翻开的瞬间，你感觉命运骰子已经掷出。",
     "choices": [
@@ -99,7 +99,7 @@
   },
   {
     "id": "exam_study_normal",
-    "stage": "undergrad",
+    "stage": "graduation",
     "diceRoll": true,
     "text": "你复习得中规中矩，考场上甚至想起昨晚没吃完的麻辣烫。写完最后一个字，你长出一口气。",
     "choices": [
@@ -126,16 +126,11 @@
   {
     "id": "exam_pass",
     "stage": "graduation",
-    "text": "拟录取名单上有你的名字。你截了图，发了朋友圈，配文是 \"轻舟已过万重山\"。其实你知道，山后面还是山。",
+    "text": "拟录取名单上有你的名字。你截了图，发了朋友圈，配文是[轻舟已过万重山]。其实你知道，山后面还是山。",
     "moment": {
       "templateId": "exam_pass_moment",
       "text": "轻舟已过万重山（原来山后面还是山）",
-      "replyPool": [
-        "恭喜上岸！",
-        "二战的我酸了",
-        "研究生也卷，别高兴太早",
-        "大佬带带我"
-      ]
+      "replyPool": ["恭喜上岸！", "二战的我酸了", "研究生也卷，别高兴太早", "大佬带带我"]
     },
     "choices": [
       {
@@ -159,12 +154,12 @@
   {
     "id": "postgrad_welcome",
     "stage": "postgrad",
-    "text": "开学第一天，导师在组会上说：\"你们这届质量不行。\"你低头假装记笔记，其实在算还要熬几年。师兄拍了拍你：\"习惯就好。\"",
+    "text": "开学第一天，导师在组会上说：!你们这届质量不行。! 你低头假装记笔记，其实在算还要熬几年。师兄拍了拍你：*习惯就好。*",
     "choices": [
       {
         "text": "主动社交，抱大腿",
         "effects": [
-          { "target": "connections", "value": 15, "label": "师兄师姐" },
+          { "target": "connections", "value": 10, "label": "师兄师姐" },
           { "target": "energy", "value": -5, "label": "社交累" }
         ],
         "nextEventId": "postgrad_life"
@@ -213,12 +208,7 @@
     "moment": {
       "templateId": "postgrad_pub_moment",
       "text": "第一篇论文录了，虽然只是 B 会，但至少没延毕（吧）。",
-      "replyPool": [
-        "牛逼！",
-        "求带名字",
-        "做学术的都是勇士",
-        "我还在写 literature review"
-      ]
+      "replyPool": ["牛逼！", "求带名字", "做学术的都是勇士", "我还在写 literature review"]
     },
     "choices": [
       {
@@ -228,7 +218,7 @@
           { "target": "energy", "value": -15, "label": "继续肝" },
           { "target": "connections", "value": 5, "label": "学术界人脉" }
         ],
-        "nextEventId": "postgrad_end"
+        "nextEventId": "postgrad_conference"
       },
       {
         "text": "够了，开始找工作吧",
@@ -243,7 +233,7 @@
   {
     "id": "postgrad_lag",
     "stage": "postgrad",
-    "text": "你摸鱼摸到导师开始找你谈话了。师兄暗示你：\"上一届有个师兄也是你这样，后来延毕了两年。\"",
+    "text": "你摸鱼摸到导师开始找你谈话了。师兄暗示你：*上一届有个师兄也是你这样，后来延毕了两年。*",
     "choices": [
       {
         "text": "痛改前非，开始赶进度",
@@ -260,14 +250,222 @@
           { "target": "skill", "value": -15, "label": "学位没了" },
           { "target": "connections", "value": -5, "label": "导师失望" }
         ],
-        "nextEventId": "grad_job_search"
+        "nextEventId": "postgrad_job"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_conference",
+    "stage": "postgrad",
+    "text": "导师带你去了领域顶会。茶歇时你鼓起勇气跟几个大佬搭话，发现[学术圈]的本质是：互相引用、一起申基金、在茶歇时吐槽审稿人。你开始觉得学术也没那么神秘。",
+    "choices": [
+      {
+        "text": "疯狂 networking，拓展人脉",
+        "effects": [
+          { "target": "connections", "value": 12, "label": "学术人脉" },
+          { "target": "skill", "value": 5, "label": "视野开阔" },
+          { "target": "energy", "value": -10, "label": "社交消耗" }
+        ],
+        "nextEventId": "postgrad_supervisor"
+      },
+      {
+        "text": "专注听报告，学习为主",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "新 idea" },
+          { "target": "mentalHealth", "value": 5, "label": "充实" }
+        ],
+        "nextEventId": "postgrad_supervisor"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_supervisor",
+    "stage": "postgrad",
+    "text": "导师让你帮他写基金申请书，deadline 是这周五——而你自己还有两篇论文的修改意见没处理。师兄说：*这个圈子就这样，你不帮导师干杂活，他怎么帮你推论文？*",
+    "choices": [
+      {
+        "text": "答应，导师的事优先",
+        "effects": [
+          { "target": "connections", "value": 10, "label": "导师好感" },
+          { "target": "energy", "value": -20, "label": "双线作战" },
+          { "target": "skill", "value": 5, "label": "写基金经验" }
+        ],
+        "nextEventId": "postgrad_thesis"
+      },
+      {
+        "text": "委婉拒绝，保护自己的时间",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "边界感" },
+          { "target": "connections", "value": -10, "label": "得罪导师" },
+          { "target": "skill", "value": 10, "label": "专注自己" }
+        ],
+        "nextEventId": "postgrad_thesis"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_thesis",
+    "stage": "postgrad",
+    "diceRoll": true,
+    "text": "硕士论文答辩日。你穿了最正式的一件衬衫，虽然袖口上还沾着昨晚泡面的汤汁。答辩委员会的老教授翻着你的论文，表情像在品鉴一道不熟的菜。",
+    "choices": [
+      {
+        "text": "答辩顺利通过！",
+        "condition": { "type": "dice", "min": 3, "max": 6 },
+        "effects": [
+          { "target": "skill", "value": 15, "label": "硕士到手" },
+          { "target": "mentalHealth", "value": 12, "label": "终于解放" }
+        ],
+        "nextEventId": "postgrad_graduation"
+      },
+      {
+        "text": "需要修改后重审",
+        "condition": { "type": "dice", "min": 1, "max": 2 },
+        "effects": [
+          { "target": "mentalHealth", "value": -15, "label": "延期" },
+          { "target": "energy", "value": -20, "label": "继续改论文" },
+          { "target": "money", "value": -10, "label": "多交一学期费" }
+        ],
+        "nextEventId": "postgrad_graduation"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_graduation",
+    "stage": "postgrad",
+    "text": "你穿着蓝色学位袍站在校门口，爸妈帮你拍了三百张照片。他们把其中一张发到家族群，配文：!硕士毕业！! 你看着手机笑了，但心里在一遍遍问自己：*然后呢？*",
+    "moment": {
+      "templateId": "postgrad_grad_moment",
+      "text": "硕士毕业。学历+1，存款-3年，头发-30%。",
+      "replyPool": [
+        "恭喜硕士！下一步博士？",
+        "学历贬值了，但你还是值得的",
+        "出来找工作还是继续读？",
+        "恭喜恭喜！"
+      ]
+    },
+    "choices": [
+      {
+        "text": "读博，踏上学术苦旅",
+        "effects": [
+          { "target": "skill", "value": 15, "label": "博士起点" },
+          { "target": "money", "value": -15, "label": "补贴微薄" },
+          { "target": "mentalHealth", "value": -5, "label": "前路漫漫" }
+        ],
+        "nextEventId": "postgrad_phd_life"
+      },
+      {
+        "text": "够了，去工业界赚钱",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "新阶段" },
+          { "target": "connections", "value": 5, "label": "校友推荐" }
+        ],
+        "nextEventId": "postgrad_job"
+      },
+      {
+        "text": "先 gap 一阵想想",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "休息" },
+          { "target": "money", "value": -10, "label": "无收入" }
+        ],
+        "nextEventId": "lie_intro"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_phd_life",
+    "stage": "postgrad",
+    "text": "读博第一年你就明白了什么叫[学术内卷]：导师的横向课题、自己的小论文、助教、审稿，还有同门的暗中较劲。实验室的咖啡机比你的室友还了解你的作息。",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "顶会论文中稿",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "skill", "value": 20, "label": "顶会" },
+          { "target": "connections", "value": 15, "label": "学术圈" }
+        ],
+        "nextEventId": "postgrad_academia_crossroads"
+      },
+      {
+        "text": "论文被拒，怀疑人生",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": -20, "label": "拒稿打击" },
+          { "target": "energy", "value": -15, "label": "心累" }
+        ],
+        "nextEventId": "postgrad_burnout"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_academia_crossroads",
+    "stage": "postgrad",
+    "text": "博士读到第三年，你已经看透了学术圈的 pros and cons。发论文像买彩票，申基金像写小说，教学生像演单口喜剧。青年教师跟你说：*进高校就是换个地方 996，工资还减半。*",
+    "choices": [
+      {
+        "text": "继续学术，进高校",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "教职准备" },
+          { "target": "money", "value": -20, "label": "青椒清贫" },
+          { "target": "connections", "value": 10, "label": "学术圈" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "退学去工业界",
+        "effects": [
+          { "target": "money", "value": 20, "label": "高薪" },
+          { "target": "mentalHealth", "value": 15, "label": "解脱" },
+          { "target": "skill", "value": -15, "label": "放弃学位" }
+        ],
+        "nextEventId": "job_interview"
+      },
+      {
+        "text": "转行，不搞了",
+        "effects": [{ "target": "mentalHealth", "value": 20, "label": "重生" }],
+        "nextEventId": "postgrad_job"
+      }
+    ]
+  },
+  {
+    "id": "postgrad_burnout",
+    "stage": "postgrad",
+    "text": "你在实验室连续待了第四十八个小时，不是为了 deadline，是因为回去面对着空白墙壁更难受。导师的消息你没回，不是不想回，是不知道怎么解释*我好像不行了*。",
+    "lonelyMoment": "你想起当初为什么选择读博。是对学术的热爱吗？也许只是不想面对找工作。现在你连这个理由也丢了。",
+    "choices": [
+      {
+        "text": "休学一段时间",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "终于停下来" },
+          { "target": "money", "value": -10, "label": "无收入" },
+          { "target": "skill", "value": -10, "label": "中断研究" }
+        ],
+        "nextEventId": "lie_intro"
+      },
+      {
+        "text": "咬咬牙读完",
+        "effects": [
+          { "target": "mentalHealth", "value": -15, "label": "硬撑" },
+          { "target": "energy", "value": -10, "label": "耗尽" },
+          { "target": "skill", "value": 10, "label": "熬出来了" }
+        ],
+        "nextEventId": "postgrad_academia_crossroads"
+      },
+      {
+        "text": "退学找工作",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "放下" },
+          { "target": "skill", "value": -10, "label": "学位无了" }
+        ],
+        "nextEventId": "postgrad_job"
       }
     ]
   },
   {
     "id": "postgrad_end",
     "stage": "postgrad",
-    "text": "答辩通过了！你穿着不合身的学位服拍了照。爸妈发了朋友圈，配文：\"知识改变命运\"。你知道真正改变命运的不是学位，是接下来的选择。",
+    "text": "答辩通过了！你穿着不合身的学位服拍了照。爸妈发了朋友圈，配文：!知识改变命运!。你知道真正改变命运的不是学位，是接下来的选择。",
     "choices": [
       {
         "text": "读博，学术之路",
@@ -276,7 +474,7 @@
           { "target": "money", "value": -20, "label": "低收入" },
           { "target": "mentalHealth", "value": -5, "label": "未知" }
         ],
-        "nextEventId": "ending_reached"
+        "nextEventId": "postgrad_phd_life"
       },
       {
         "text": "拿着学历去卷职场",
@@ -285,7 +483,7 @@
           { "target": "money", "value": 10, "label": "起薪" },
           { "target": "mentalHealth", "value": 5, "label": "新开始" }
         ],
-        "nextEventId": "ending_reached"
+        "nextEventId": "job_interview"
       },
       {
         "text": "躺平休息半年",
@@ -293,7 +491,7 @@
           { "target": "mentalHealth", "value": 15, "label": "休息" },
           { "target": "money", "value": -10, "label": "无收入" }
         ],
-        "nextEventId": "ending_reached"
+        "nextEventId": "lie_intro"
       }
     ]
   },
@@ -316,13 +514,18 @@
           { "target": "money", "value": 5, "label": "普通薪资" },
           { "target": "mentalHealth", "value": 10, "label": "轻松" }
         ],
-        "nextEventId": "ending_reached"
+        "nextEventId": "job_offer"
+      },
+      {
+        "text": "考公，体制内更稳",
+        "effects": [{ "target": "skill", "value": 5, "label": "新方向" }],
+        "nextEventId": "civil_intro"
       }
     ]
   },
   {
     "id": "exam_retake",
-    "stage": "gap",
+    "stage": "graduation",
     "text": "成绩出来的那天晚上，你把书收进了箱子。爸妈没说什么，但饭桌上多了三道你喜欢的菜。你盯着碗里的饭发呆。",
     "choices": [
       {

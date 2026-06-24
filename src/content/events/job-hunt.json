@@ -2,7 +2,7 @@
   {
     "id": "job_intro",
     "stage": "graduation",
-    "text": "你打开招聘软件，“已读不回”四个字成了你最熟悉的问候语。室友已经拿了三个 offer，你还没收到一个面试通知。",
+    "text": "你打开招聘软件，[已读不回] 四个字成了你最熟悉的问候语。室友已经拿了三个 offer，你还没收到一个面试通知。",
     "choices": [
       {
         "text": "海投，扩大分母",
@@ -71,9 +71,7 @@
       },
       {
         "text": "要不……考公吧",
-        "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "新方向" }
-        ],
+        "effects": [{ "target": "mentalHealth", "value": 5, "label": "新方向" }],
         "nextEventId": "civil_intro"
       }
     ]
@@ -82,7 +80,7 @@
     "id": "job_interview",
     "stage": "graduation",
     "diceRoll": true,
-    "text": "群面现场，八个人抢一个转正名额。HR 问：“你为什么选择我们公司？”你心里说：“因为我投了八十家只有你们理我。”",
+    "text": "群面现场，八个人抢一个转正名额。HR 问：!你为什么选择我们公司？! 你心里说：*因为我投了八十家只有你们理我。*",
     "choices": [
       {
         "text": "超常发挥，对答如流",
@@ -107,7 +105,7 @@
   {
     "id": "job_offer",
     "stage": "firstJob",
-    "text": "“明天来入职。”你盯着这条消息，发了五秒钟呆。工资不高，但终于有人要你了。你第一次觉得：也许我没那么差。",
+    "text": "!明天来入职。! 你盯着这条消息，发了五秒钟呆。工资不高，但终于有人要你了。你第一次觉得：*也许我没那么差。*",
     "moment": {
       "templateId": "job_offer_moment",
       "text": "拿到人生第一个 offer 了！虽然工资只够房租和泡面。",
@@ -122,7 +120,7 @@
       {
         "text": "直接接受，赶紧上班",
         "effects": [
-          { "target": "money", "value": 15, "label": "工资" },
+          { "target": "money", "value": 10, "label": "工资" },
           { "target": "energy", "value": -10, "label": "准备入职" }
         ],
         "nextEventId": "job_first_day"
@@ -140,12 +138,12 @@
   {
     "id": "job_first_day",
     "stage": "firstJob",
-    "text": "入职第一天，HR 带你转了一圈，你记住了茶水间的位置和厕所在哪。工位上有前同事留下的便签：“快逃。”你笑了笑，把便签扔了。",
+    "text": "入职第一天，HR 带你转了一圈，你记住了茶水间的位置和厕所在哪。工位上有前同事留下的便签：[快逃]。你笑了笑，把便签扔了。",
     "choices": [
       {
         "text": "主动跟同事社交",
         "effects": [
-          { "target": "connections", "value": 15, "label": "新同事" },
+          { "target": "connections", "value": 10, "label": "新同事" },
           { "target": "energy", "value": -5, "label": "社交消耗" }
         ],
         "nextEventId": "job_three_months"
@@ -188,9 +186,10 @@
         "text": "转正成功，表现优异",
         "condition": { "type": "dice", "min": 4, "max": 6 },
         "effects": [
-          { "target": "money", "value": 15, "label": "加薪" },
-          { "target": "mentalHealth", "value": 10, "label": "成就感" },
-          { "target": "skill", "value": 5, "label": "业务提升" }
+          { "target": "money", "value": 10, "label": "加薪" },
+          { "target": "mentalHealth", "value": 5, "label": "成就感" },
+          { "target": "skill", "value": 5, "label": "业务提升" },
+          { "target": "energy", "value": 5, "label": "步入正轨" }
         ],
         "nextEventId": "job_one_year"
       },
@@ -208,7 +207,7 @@
         "text": "转正失败",
         "condition": { "type": "dice", "min": 1, "max": 1 },
         "effects": [
-          { "target": "mentalHealth", "value": -25, "label": "被辞退" },
+          { "target": "mentalHealth", "value": -15, "label": "被辞退" },
           { "target": "money", "value": -10, "label": "失业" }
         ],
         "nextEventId": "job_reject"
@@ -218,32 +217,353 @@
   {
     "id": "job_one_year",
     "stage": "firstJob",
-    "text": "工作一年了。你从当初的职场小白变成了能独立带项目的社畜。工资涨了一点，发际线退了一点。年终总结你写了三个字：“活着呢。”",
+    "text": "工作一年了。你从当初的职场小白变成了能独立带项目的社畜。工资涨了一点，发际线退了一点。年终总结你写了三个字：*活着呢。*",
     "choices": [
       {
         "text": "努力奋斗，争取升职",
         "effects": [
           { "target": "skill", "value": 10, "label": "升职加薪" },
-          { "target": "money", "value": 20, "label": "涨薪" },
-          { "target": "energy", "value": -20, "label": "996" },
-          { "target": "mentalHealth", "value": -10, "label": "内卷" }
+          { "target": "money", "value": 12, "label": "涨薪" },
+          { "target": "energy", "value": -15, "label": "996" },
+          { "target": "mentalHealth", "value": -8, "label": "内卷" }
         ],
-        "nextEventId": "ending_reached"
+        "nextEventId": "job_two_years"
       },
       {
         "text": "摸鱼养生，拒绝内卷",
         "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "平衡生活" },
+          { "target": "mentalHealth", "value": 10, "label": "平衡生活" },
           { "target": "money", "value": 5, "label": "够用" },
           { "target": "skill", "value": -5, "label": "成长停滞" }
         ],
-        "nextEventId": "ending_reached"
+        "nextEventId": "job_two_years"
       },
       {
         "text": "跳槽，寻找新机会",
         "effects": [
           { "target": "connections", "value": 10, "label": "猎头联系" },
           { "target": "mentalHealth", "value": -5, "label": "不确定" }
+        ],
+        "nextEventId": "job_two_years"
+      }
+    ]
+  },
+  {
+    "id": "job_two_years",
+    "stage": "work",
+    "text": "两年了。你已经能闭着眼睛走到工位，对 PM 的需求变更从愤怒变成了麻木。新来的应届生叫你\"前辈\"，你忽然意识到自己已经成了当初看不懂的那种大人。",
+    "choices": [
+      {
+        "text": "继续深耕，积累核心竞争力",
+        "effects": [
+          { "target": "skill", "value": 12, "label": "专业深耕" },
+          { "target": "money", "value": 8, "label": "调薪" },
+          { "target": "energy", "value": -10, "label": "持续输出" }
+        ],
+        "nextEventId": "job_crisis"
+      },
+      {
+        "text": "摸鱼同时搞点副业",
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "心态轻松" },
+          { "target": "money", "value": 5, "label": "副业小收入" },
+          { "target": "skill", "value": 5, "label": "新技能探索" }
+        ],
+        "nextEventId": "job_crisis"
+      }
+    ]
+  },
+  {
+    "id": "job_crisis",
+    "stage": "work",
+    "diceRoll": true,
+    "text": "公司开全员大会，CEO 说：!我们要拥抱变化，降本增效。! 散会后同事群炸了，大家都在猜谁会被\"优化\"。你的手心开始出汗。",
+    "choices": [
+      {
+        "text": "裁员风波中幸存了下来",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "mentalHealth", "value": 10, "label": "虚惊一场" },
+          { "target": "skill", "value": 10, "label": "危机中成长" }
+        ],
+        "nextEventId": "job_promoted"
+      },
+      {
+        "text": "被列入\"优化\"名单",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": -15, "label": "被裁" },
+          { "target": "money", "value": -15, "label": "收入中断" },
+          { "target": "connections", "value": -5, "label": "同事疏远" }
+        ],
+        "nextEventId": "job_layoff_scare"
+      }
+    ]
+  },
+  {
+    "id": "job_promoted",
+    "stage": "work",
+    "text": "你不仅没被裁，还升了小组长。工资涨了，管的人多了，开会的时间从 30% 变成了 70%。你终于明白了那句话：*升职就是让你做更高级的牛马。*",
+    "moment": {
+      "templateId": "job_promoted_moment",
+      "text": "升职了！从写代码变成了管写代码的人（和开不完的会）。",
+      "replyPool": [
+        "恭喜组长！请客！",
+        "升职不加薪的多了去了，你是哪一种",
+        "管理岗就是离业务越来越远",
+        "下一步总监，加油"
+      ]
+    },
+    "choices": [
+      {
+        "text": "好好干管理，往上爬",
+        "effects": [
+          { "target": "connections", "value": 10, "label": "管理层人脉" },
+          { "target": "money", "value": 8, "label": "管理津贴" },
+          { "target": "skill", "value": 5, "label": "管理技能" }
+        ],
+        "nextEventId": "job_health_wakeup"
+      },
+      {
+        "text": "更想回去写代码",
+        "effects": [
+          { "target": "mentalHealth", "value": -5, "label": "不适" },
+          { "target": "skill", "value": 10, "label": "回归技术" }
+        ],
+        "nextEventId": "job_health_wakeup"
+      }
+    ]
+  },
+  {
+    "id": "job_layoff_scare",
+    "stage": "gap",
+    "text": "被裁后你开始了\"灵活就业\"——灵活地在出租屋里投简历。N+1 赔偿够撑几个月，但每次看到银行卡余额减少，你的胃就会收紧。*也许该换条路了？*",
+    "choices": [
+      {
+        "text": "继续找同行业工作",
+        "effects": [
+          { "target": "energy", "value": -10, "label": "海投" },
+          { "target": "mentalHealth", "value": -5, "label": "焦虑" }
+        ],
+        "nextEventId": "job_health_wakeup"
+      },
+      {
+        "text": "趁这个机会考研",
+        "effects": [{ "target": "skill", "value": 10, "label": "新方向" }],
+        "nextEventId": "exam_intro"
+      },
+      {
+        "text": "考公求稳",
+        "effects": [{ "target": "mentalHealth", "value": 5, "label": "务实" }],
+        "nextEventId": "civil_intro"
+      },
+      {
+        "text": "先躺一下",
+        "effects": [{ "target": "mentalHealth", "value": 15, "label": "休息" }],
+        "nextEventId": "lie_intro"
+      }
+    ]
+  },
+  {
+    "id": "job_health_wakeup",
+    "stage": "work",
+    "text": "某天加班到十一点，你站起来的时候一阵眩晕，扶住墙才没摔倒。同事问你怎么了，你说*没事，低血糖。* 其实你知道不只是低血糖。你已经很久没见过周末的太阳了。",
+    "lonelyMoment": "你打开外卖软件，又关上了。打开朋友圈，又关上了。你发现你已经不太会\"生活\"了——你只会\"活着\"和\"工作\"。",
+    "choices": [
+      {
+        "text": "该做选择了：以后怎么走？",
+        "effects": [],
+        "nextEventId": "job_career_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "job_career_crossroads",
+    "stage": "work",
+    "text": "站在职场第三年，你回头看了一眼。加过的班、熬过的夜、改过的需求、挨过的骂。前面有几条路，每条都不确定，但你知道：*不能再什么都不想了。*",
+    "choices": [
+      {
+        "text": "继续奋斗，升职加薪",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "坚定方向" },
+          { "target": "mentalHealth", "value": 5, "label": "看清了" }
+        ],
+        "nextEventId": "job_five_years"
+      },
+      {
+        "text": "搞副业，准备自由职业",
+        "effects": [
+          { "target": "money", "value": 5, "label": "副业启动" },
+          { "target": "skill", "value": 5, "label": "多线发展" },
+          { "target": "connections", "value": 10, "label": "副业圈子" }
+        ],
+        "nextEventId": "job_side_hustle"
+      },
+      {
+        "text": "辞职考研，提升学历",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "备考" },
+          { "target": "money", "value": -10, "label": "无收入" }
+        ],
+        "nextEventId": "exam_intro"
+      },
+      {
+        "text": "考公，追求稳定",
+        "effects": [{ "target": "mentalHealth", "value": 10, "label": "安全需求" }],
+        "nextEventId": "civil_intro"
+      },
+      {
+        "text": "躺平休息一段时间",
+        "effects": [{ "target": "mentalHealth", "value": 15, "label": "放下" }],
+        "nextEventId": "lie_intro"
+      }
+    ]
+  },
+  {
+    "id": "job_side_hustle",
+    "stage": "work",
+    "text": "你开始在业余时间接外包、写公众号、做知识付费。主业摸鱼、副业拼命，睡眠时间被压缩到五个小时。但看到副业收入第一次超过工资的时候，你心动了。",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "副业起飞，可以考虑全职了",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "money", "value": 15, "label": "副业收入翻倍" },
+          { "target": "skill", "value": 10, "label": "多面手" },
+          { "target": "energy", "value": -15, "label": "累但充实" }
+        ],
+        "nextEventId": "job_digital_nomad"
+      },
+      {
+        "text": "副业不稳定，还是安心打工",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "money", "value": 5, "label": "小额副业" },
+          { "target": "mentalHealth", "value": -5, "label": "不甘" }
+        ],
+        "nextEventId": "job_five_years"
+      }
+    ]
+  },
+  {
+    "id": "job_digital_nomad",
+    "stage": "work",
+    "text": "你辞掉了工作，搬到了大理。每天在咖啡馆对着苍山写代码，朋友圈变成了[数字游民生活]。有人问你社保怎么办，你说：*自由比社保重要。* 但自由的价格是每个月的收入都不确定。",
+    "moment": {
+      "templateId": "digital_nomad_moment",
+      "text": "数字游民第一天：苍山洱海，远程办公，收入比上班少 30%，但快乐翻倍。",
+      "replyPool": ["羡慕，但不敢", "社保怎么办？？", "我也想，求经验", "下个月吃饭怎么办"]
+    },
+    "choices": [
+      {
+        "text": "坚持自由职业，扩大客户",
+        "effects": [
+          { "target": "mentalHealth", "value": 12, "label": "自由真香" },
+          { "target": "money", "value": 12, "label": "接单稳定" },
+          { "target": "connections", "value": 10, "label": "自由职业圈" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "钱不稳定，还是回公司吧",
+        "effects": [
+          { "target": "money", "value": 15, "label": "稳定薪资" },
+          { "target": "mentalHealth", "value": -10, "label": "自由的代价" }
+        ],
+        "nextEventId": "job_five_years"
+      }
+    ]
+  },
+  {
+    "id": "job_five_years",
+    "stage": "work",
+    "text": "五年了。你已经从\"新人\"变成了\"老人\"。公司的代码库里有你留下的各种 dirty hack，新人会对着你的注释骂娘。你翻出五年前的入职照片——那时你还有梦想。现在你只想要一个完整的周末。",
+    "choices": [
+      {
+        "text": "继续，已经习惯了",
+        "effects": [
+          { "target": "money", "value": 12, "label": "五年积蓄" },
+          { "target": "skill", "value": 10, "label": "资深" },
+          { "target": "mentalHealth", "value": -10, "label": "麻木" }
+        ],
+        "nextEventId": "job_late_career"
+      },
+      {
+        "text": "该换一种活法了",
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "醒悟" },
+          { "target": "connections", "value": 10, "label": "新圈子" }
+        ],
+        "nextEventId": "lie_intro"
+      },
+      {
+        "text": "创业，自己做老板",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "创业准备" },
+          { "target": "money", "value": -20, "label": "启动资金" },
+          { "target": "mentalHealth", "value": 10, "label": "激动" }
+        ],
+        "nextEventId": "job_entrepreneur"
+      }
+    ]
+  },
+  {
+    "id": "job_entrepreneur",
+    "stage": "work",
+    "text": "你拉了几个前同事，租了个共享办公室，开始做自己的产品。名片印了[CEO]，但前三个月你最主要的工作是讨好每一个潜在客户。创业导师说：*前三年别想赚钱。* 你摸了摸银行卡余额。",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "拿到天使轮，公司上正轨",
+        "condition": { "type": "dice", "min": 5, "max": 6 },
+        "effects": [
+          { "target": "money", "value": 20, "label": "融资" },
+          { "target": "skill", "value": 15, "label": "创业者" },
+          { "target": "connections", "value": 12, "label": "商业人脉" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "创业维艰，勉强活着",
+        "condition": { "type": "dice", "min": 3, "max": 4 },
+        "effects": [
+          { "target": "money", "value": -10, "label": "烧钱" },
+          { "target": "mentalHealth", "value": -10, "label": "焦虑" },
+          { "target": "skill", "value": 10, "label": "学了很多" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "创业失败，公司关门",
+        "condition": { "type": "dice", "min": 1, "max": 2 },
+        "effects": [
+          { "target": "money", "value": -20, "label": "血本无归" },
+          { "target": "mentalHealth", "value": -15, "label": "失败打击" },
+          { "target": "connections", "value": 10, "label": "虽然失败了但认识了人" }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "job_late_career",
+    "stage": "work",
+    "text": "你在工位上已经坐了快十年。办公室装修了好几轮，同事换了好几批，只有你还在。公司给你发了个\"十年服务奖\"——一个水晶奖杯和五百块购物卡。你抱着奖杯坐地铁回家，旁边的人在看招聘软件。",
+    "choices": [
+      {
+        "text": "够了，规划退休吧",
+        "effects": [
+          { "target": "money", "value": 10, "label": "退休规划" },
+          { "target": "mentalHealth", "value": 20, "label": "看开了" }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "还想再拼一把",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "转型学习" },
+          { "target": "energy", "value": -15, "label": "中年拼搏" }
         ],
         "nextEventId": "ending_reached"
       }
@@ -252,7 +572,7 @@
   {
     "id": "job_reject",
     "stage": "gap",
-    "text": "“我们很遗憾”——这五个字你已经收到过很多次了。这次尤其痛，因为你觉得已经尽了全力。外卖到了，炸鸡凉了，但你吃得比平时多。",
+    "text": "!我们很遗憾!——这五个字你已经收到过很多次了。这次尤其痛，因为你觉得已经尽了全力。外卖到了，炸鸡凉了，但你吃得比平时多。",
     "choices": [
       {
         "text": "继续投，不信找不到",
@@ -264,16 +584,12 @@
       },
       {
         "text": "回去考研吧",
-        "effects": [
-          { "target": "skill", "value": 5, "label": "转方向" }
-        ],
+        "effects": [{ "target": "skill", "value": 5, "label": "转方向" }],
         "nextEventId": "exam_intro"
       },
       {
         "text": "考公，稳定才是真理",
-        "effects": [
-          { "target": "skill", "value": 5, "label": "转方向" }
-        ],
+        "effects": [{ "target": "skill", "value": 5, "label": "转方向" }],
         "nextEventId": "civil_intro"
       }
     ]

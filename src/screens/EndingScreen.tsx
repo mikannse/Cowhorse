@@ -61,11 +61,13 @@ export default function EndingScreen() {
       <header className="text-center mb-4">
         <h1 className="text-hero text-foreground">{ending.title}</h1>
         <span className="inline-block mt-2 bg-tape text-foreground text-caption font-bold px-3 py-1 rounded rotate-[2deg]">
-          {ending.rarity === 'hidden' ? '隐藏结局' : ending.rarity === 'route' ? '路线结局' : '普通结局'}
+          {ending.rarity === 'hidden'
+            ? '隐藏结局'
+            : ending.rarity === 'route'
+              ? '路线结局'
+              : '普通结局'}
         </span>
-        <p className="text-body text-foreground mt-4 max-w-xs mx-auto">
-          {ending.description}
-        </p>
+        <p className="text-body text-foreground mt-4 max-w-xs mx-auto">{ending.description}</p>
       </header>
 
       <div className="w-full max-w-xs mx-auto mb-4">
@@ -95,11 +97,7 @@ export default function EndingScreen() {
         </button>
       </div>
 
-      <button
-        type="button"
-        onClick={handleReplay}
-        className="btn-primary max-w-xs mx-auto"
-      >
+      <button type="button" onClick={handleReplay} className="btn-primary max-w-xs mx-auto">
         再玩一次
       </button>
     </div>

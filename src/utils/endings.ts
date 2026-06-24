@@ -3,6 +3,7 @@ import type { Ending, GameStateSnapshot } from '../types';
 import { evaluateCondition } from './conditions';
 
 const endings = endingsJson as unknown as Ending[];
+const endingsById = new Map(endings.map((e) => [e.id, e]));
 
 export interface ResolvedEnding {
   id: string;
@@ -40,7 +41,7 @@ export function evaluateEnding(state: GameStateSnapshot): ResolvedEnding {
 }
 
 export function getEndingById(id: string): ResolvedEnding | undefined {
-  const found = endings.find((e) => e.id === id);
+  const found = endingsById.get(id);
   if (!found) return undefined;
   return {
     id: found.id,

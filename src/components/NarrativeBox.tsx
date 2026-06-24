@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import constants from '../content/constants.json';
 import useReducedMotion from '../hooks/useReducedMotion';
 import { parseNarrative } from '../utils/narrativeParser';
@@ -12,6 +12,7 @@ interface NarrativeBoxProps {
 export default function NarrativeBox({ text, children, onComplete }: NarrativeBoxProps) {
   const reducedMotion = useReducedMotion();
   const segments = useMemo(() => parseNarrative(text), [text]);
+  const plainText = useMemo(() => segments.map((s) => s.text).join(''), [segments]);
   const totalLength = useMemo(
     () => segments.reduce((sum, s) => sum + s.text.length, 0),
     [segments]
@@ -47,7 +48,7 @@ export default function NarrativeBox({ text, children, onComplete }: NarrativeBo
     }
 
     const { charDelayMs, punctuationPauseMs } = constants.typewriter;
-    const currentChar = text[visible] ?? '';
+    const currentChar = plainText[visible] ?? '';
     const isPunctuation = /[。！？，、；：!?,;:.]/.test(currentChar);
     const delay = isPunctuation ? punctuationPauseMs : charDelayMs;
 
@@ -80,10 +81,7 @@ export default function NarrativeBox({ text, children, onComplete }: NarrativeBo
               );
             case 'social':
               return (
-                <span
-                  key={key}
-                  className="font-bold bg-[#FDF4F8] px-2 py-0.5 rounded inline-block"
-                >
+                <span key={key} className="font-bold bg-[#FDF4F8] px-2 py-0.5 rounded inline-block">
                   {shown}
                 </span>
               );

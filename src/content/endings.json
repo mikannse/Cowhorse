@@ -27,9 +27,23 @@
     }
   },
   {
+    "id": "digital_nomad_free",
+    "title": "数字游民自由",
+    "description": "你没有办公室、没有工位、没有打卡机。你的办公室是咖啡馆、是洱海边、是清迈的共享空间。自由是有代价的，但你觉得值。没有人能定义你的成功，除了你的银行余额和你的快乐指数。",
+    "rarity": "route",
+    "condition": {
+      "type": "and",
+      "conditions": [
+        { "type": "stage", "stage": "ending" },
+        { "type": "visited", "eventId": "lie_digital_nomad" },
+        { "type": "attribute", "attr": "mentalHealth", "operator": "gte", "value": 45 }
+      ]
+    }
+  },
+  {
     "id": "academic_success",
     "title": "学术大佬",
-    "description": "你终于成为了别人口中的“学霸”。发表了顶会 paper，拿了国奖，导师说你很有前途。只有你知道，那些通宵的夜晚，眼泪滴在键盘上的声音。",
+    "description": "你终于成为了别人口中的\"学霸\"。发表了顶会 paper，拿了国奖，导师说你很有前途。只有你知道，那些通宵的夜晚，眼泪滴在键盘上的声音。",
     "rarity": "route",
     "condition": {
       "type": "and",
@@ -55,9 +69,23 @@
     }
   },
   {
+    "id": "entrepreneur_dream",
+    "title": "创业梦想家",
+    "description": "你走出了格子间，开始为自己打工。名片上印着 CEO，银行卡余额大起大落。创业是一场豪赌，但至少你坐在了赌桌上。有人说你疯了，你说：疯了总比麻木好。",
+    "rarity": "route",
+    "condition": {
+      "type": "and",
+      "conditions": [
+        { "type": "stage", "stage": "ending" },
+        { "type": "visited", "eventId": "job_entrepreneur" },
+        { "type": "attribute", "attr": "mentalHealth", "operator": "gte", "value": 20 }
+      ]
+    }
+  },
+  {
     "id": "lie_flat_freedom",
     "title": "低欲望自由",
-    "description": "你拒绝了所有“应该”。存款不多，睡眠很好。窗外下雨了，你翻了个身，觉得这就是人生巅峰。没有人能定义你的成功，除了你自己。",
+    "description": "你拒绝了所有\"应该\"。存款不多，睡眠很好。窗外下雨了，你翻了个身，觉得这就是人生巅峰。没有人能定义你的成功，除了你自己。",
     "rarity": "route",
     "condition": {
       "type": "and",
@@ -71,7 +99,7 @@
   {
     "id": "achiever",
     "title": "功成名就",
-    "description": "你在大城市站稳了脚，薪水可观，简历光鲜。同学聚会上你是那个“混得不错”的人。只有你自己知道，你付出了什么代价。",
+    "description": "你在大城市站稳了脚，薪水可观，简历光鲜。同学聚会上你是那个\"混得不错\"的人。只有你自己知道，你付出了什么代价。",
     "rarity": "route",
     "condition": {
       "type": "and",

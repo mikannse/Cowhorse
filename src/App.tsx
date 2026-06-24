@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import TitleScreen from './screens/TitleScreen';
-import GameScreen from './screens/GameScreen';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import EndingScreen from './screens/EndingScreen';
+import GameScreen from './screens/GameScreen';
+import TitleScreen from './screens/TitleScreen';
 
 export default function App() {
   return (
