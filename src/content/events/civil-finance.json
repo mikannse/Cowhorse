@@ -1,0 +1,122 @@
+[
+  {
+    "id": "finance_civil_intro",
+    "stage": "graduation",
+    "text": "金融专业考公有一个公认的最佳路径：财政局 > 发改委 > 审计局 > 税务局。你选了财政局——管钱的部门，专业对口，而且大家都知道财政系统的人走路都带风。你的竞争对手是两财一贸和本省 985 金融硕士。爸妈在电话里说：!财政局好，稳定又有地位。! 你没说的是——你的同学已经在券商拿了 30w 的 offer，而你还在为行测的图形推理发愁。*你开始怀疑：到底是稳定重要，还是钱重要？*",
+    "choices": [
+      {
+        "text": "冲财政局，专业优势最大化",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "财政系统"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "考公圈子"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "放弃高薪"
+          }
+        ],
+        "nextEventId": "civil_study"
+      },
+      {
+        "text": "考人行/金融监管局，更高平台",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "金融监管"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "更高平台"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "竞争激烈"
+          }
+        ],
+        "nextEventId": "civil_study"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "finance_civil_work",
+    "stage": "firstJob",
+    "text": "你坐在财政局的办公室里，面前是一摞预算审批表。你发现你学的那些金融模型在这里毫无用处——这里不需要 CAPM、不需要 DCF、不需要 Black-Scholes。你需要的是：算清楚一栋办公楼的装修预算是 500 万还是 300 万，以及怎么在合规的前提下让各部门都满意。处长说：!财政工作最重要的不是专业知识——是心里有杆秤。! 你觉得这个秤就是：别出错、别背锅、别让领导加班。",
+    "choices": [
+      {
+        "text": "认真学业务，练就火眼金睛",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "预算审核"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "处室信任"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "踏实感"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "心思不在单位，想想副业",
+        "effects": [
+          {
+            "target": "money",
+            "value": 5,
+            "label": "理财收入"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "金融圈朋友"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "两头顾不上"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "预算审批会议上，你发现关系好的部门报的预算有点'水分'——但只要你不说，他们明年也会照顾你（有风险）",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "人情交换"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "明知有问题"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "公共资金流失"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      }
+    ]
+  }
+]

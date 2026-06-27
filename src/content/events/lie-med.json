@@ -1,0 +1,143 @@
+[
+  {
+    "id": "med_lie_intro",
+    "stage": "gap",
+    "text": "医学生想躺平的瞬间太多了：值完 36 小时班走出医院看到日出的时候、被病人骂的时候、发现工资还没外卖小哥高的时候。但你真的躺下来，发现自己根本躺不平——不是不想，是不敢。你手里攥着执业医师证和五年本科三年规培的八年青春，这是你全部的身家。同学在互联网大厂年薪百万的时候，你还在值班室吃泡面。你妈说：*要不……转行吧？* 但她语气里的不确定，比你的还多。",
+    "choices": [
+      {
+        "text": "半躺，做兼职医生/线上问诊",
+        "effects": [
+          {
+            "target": "money",
+            "value": 8,
+            "label": "线上问诊收入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "灵活"
+          },
+          {
+            "target": "skill",
+            "value": -3,
+            "label": "临床保持"
+          }
+        ],
+        "nextEventId": "lie_freelance"
+      },
+      {
+        "text": "彻底躺，什么都不管了",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "终于休息了"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "零收入"
+          },
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "医术生疏"
+          }
+        ],
+        "nextEventId": "lie_full_flat"
+      },
+      {
+        "text": "一个熟人开的私人诊所找到你，说想挂你的名字作为'坐诊医生'——你不需要真的去上班，只需要每年签几份文件。他说这是行业惯例。你知道这是什么：出了医疗事故，背锅的是你这个挂名的医生。但他开的价你很难拒绝。（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": 10,
+            "label": "挂名费"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "背锅风险"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "专业荒废"
+          }
+        ],
+        "nextEventId": "med_lie_awakening"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "med_lie_awakening",
+    "stage": "gap",
+    "text": "你停下来的这段日子，第一次有时间去看医生——不是穿着白大褂的那种，是作为病人。你挂了一个号，坐在候诊区，看着来来往往的病人和忙碌的医护人员。你发现自己还是会被那些白色的身影触动。你想起大一的誓言：*健康所系，性命相托。* 八个字。你花了八年去理解它的重量。也许你不是不想当医生——你只是需要证明，这个职业值得你付出的一切。",
+    "choices": [
+      {
+        "text": "回到临床，但换一种节奏",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "低强度临床"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "重拾初心"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "稳定收入"
+          }
+        ],
+        "nextEventId": "med_two_years"
+      },
+      {
+        "text": "去药企做医学顾问",
+        "effects": [
+          {
+            "target": "money",
+            "value": 15,
+            "label": "药企高薪"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "新赛道"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "告别临床"
+          }
+        ],
+        "nextEventId": "med_two_years"
+      },
+      {
+        "text": "彻底转行，用医学背景做医疗科普",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "科普能力"
+          },
+          {
+            "target": "connections",
+            "value": 12,
+            "label": "粉丝"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "初期收入低"
+          }
+        ],
+        "nextEventId": "lie_content_creator"
+      }
+    ]
+  }
+]

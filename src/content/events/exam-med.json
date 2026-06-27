@@ -1,0 +1,335 @@
+[
+  {
+    "id": "med_exam_intro",
+    "stage": "graduation",
+    "text": "对于医学生来说，考研不是「选做题」，是「必答题」。三甲医院的主治门槛已经提到了硕士起步，规培基地的名额比病人还紧张。你翻开西医综合 306 的大纲——生理、病理、生化、内科、外科——每一科都够一个学期的量。同学说：*学医就是一场无限游戏——高考、考研、规培、执医、主治、副高……通关？不存在的。* 你躺在解剖室的台子旁边（反正也没人），盯着天花板想：*如果我不考研，我这五年是不是白读了？*",
+    "choices": [
+      {
+        "text": "考！专硕并轨规培，一步到位",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "专硕+规培"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "双重强度"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "高压"
+          }
+        ],
+        "nextEventId": "med_exam_prep"
+      },
+      {
+        "text": "考学硕，为未来读博铺路",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "科研方向"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "收入更低"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "科研压力"
+          }
+        ],
+        "nextEventId": "med_exam_prep"
+      },
+      {
+        "text": "不考研了，去基层医院先干着",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "先就业"
+          },
+          {
+            "target": "skill",
+            "value": -8,
+            "label": "平台限制"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "规培工资"
+          }
+        ],
+        "nextEventId": "med_job_waiting"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "med_exam_prep",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "医学生的备考和别人不一样——别人考研是坐在图书馆里看书，医学生考研是在实习间隙偷书看。白天在科室收病人、写病历、跟手术；晚上回到宿舍翻开西综，眼皮已经开始打架。你发现西综最难的从来不是内容——而是你刚背完的病理分型，一个急诊 call 就把你的记忆冲走了。手机里全是解剖图谱和药理的截图，相册像一本电子版教材。",
+    "choices": [
+      {
+        "text": "咬牙坚持，西综模拟考不错",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "西综突破"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "还能撑"
+          },
+          {
+            "target": "energy",
+            "value": -20,
+            "label": "体力透支"
+          }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "实习太累了，复习没跟上",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 3,
+            "label": "复习不足"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "焦虑"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "身心俱疲"
+          }
+        ],
+        "nextEventId": "exam_prep_normal"
+      },
+      {
+        "text": "走捷径...（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": -10,
+            "label": "花钱打点"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "作弊压力"
+          }
+        ],
+        "nextEventId": "med_exam_cheat"
+      }
+    ]
+  },
+  {
+    "id": "med_postgrad_life",
+    "stage": "postgrad",
+    "diceRoll": true,
+    "text": "你开始了专业硕士并轨规培的生活——白天在科室当住院医，晚上和周末上课。你的手机 24 小时开机，值班的时候一晚上被叫起来七八次。带教老师说：*规培就是把你打碎了再拼起来。* 你碎了好几次——有一次是因为抢救没成功，有一次是因为病人说'医生谢谢你'。值完夜班走出医院，天刚亮，你看到早餐摊的包子冒着热气。你忽然觉得，活着真好。",
+    "choices": [
+      {
+        "text": "临床表现优秀，被带教看重",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "临床能力"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "带教推荐"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "持续高压"
+          }
+        ],
+        "nextEventId": "exam_pass"
+      },
+      {
+        "text": "规培太苦了，有点撑不住",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "职业倦怠"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "持续消耗"
+          }
+        ],
+        "nextEventId": "exam_pass"
+      }
+    ]
+  },
+  {
+    "id": "med_postgrad_outcome",
+    "stage": "postgrad",
+    "text": "硕士毕业了。你拿到了执业医师证和规培证。站在医院门口，你忽然意识到：从学医到现在已经八年了。八年够读一个本科加一个硕士再加一年。你的高中同学已经在互联网做到了 manager，你刚刚达到「合法行医」的门槛。有猎头在丁香园上给你发消息：私立医院高薪招聘、药企医学顾问月薪三万。你看着住院部大楼，有点恍惚。",
+    "lonelyMoment": "值班室的窗外有人在放烟花。你才想起今天是除夕。你打开手机，家族群里在@你问什么时候回家。你打了三个字：'值完班。'然后删掉了，改成了：'明天回。'",
+    "choices": [
+      {
+        "text": "留在公立医院，走主治副高之路",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "本院留用"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "科室人脉"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "公立低薪"
+          }
+        ],
+        "nextEventId": "med_two_years"
+      },
+      {
+        "text": "去私立医院，高薪但累",
+        "effects": [
+          {
+            "target": "money",
+            "value": 20,
+            "label": "私立高薪"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "专科方向"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "多点自由"
+          }
+        ],
+        "nextEventId": "med_two_years"
+      },
+      {
+        "text": "去药企做医学顾问，告别临床",
+        "effects": [
+          {
+            "target": "money",
+            "value": 15,
+            "label": "药企薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "告别夜班"
+          },
+          {
+            "target": "skill",
+            "value": -8,
+            "label": "脱离临床"
+          }
+        ],
+        "nextEventId": "med_two_years"
+      }
+    ]
+  },
+  {
+    "id": "med_exam_cheat",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你在实习的医院里无意中看到了一台无人看管的电脑，屏幕上正是今年西综的命题讨论会纪要。你站在电脑前，四下无人。走廊尽头传来护士站的对讲机声音。你有足够的时间拍下屏幕上的内容——也有人会在系统里留下操作记录。你的手指悬在快门键上方，心跳快到像是刚从抢救室出来。",
+    "choices": [
+      {
+        "text": "没被发现——但你背负了一个秘密",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "作弊得手"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "良心债"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "圈子知道"
+          }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "出事了...",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "没复习也没作弊"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -20,
+            "label": "崩溃"
+          },
+          {
+            "target": "connections",
+            "value": -10,
+            "label": "名声毁了"
+          }
+        ],
+        "nextEventId": "exam_prep_normal"
+      }
+    ]
+  }
+]

@@ -1,0 +1,533 @@
+[
+  {
+    "id": "finance_job_waiting",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "CFA 一级刚考完，你对完答案就知道悬了。金融求职群每天刷几百条消息——有人拿了 BB 行面试，有人直接进了 PE。你翻着朋友圈里的 offer 截图，每一个都配文：!感谢一路帮助过我的人。! 你默默把简历又改了一版。",
+    "choices": [
+      {
+        "text": "收到券商面试通知！",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "校友推荐"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "终于有戏了"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "西装皮鞋"
+          }
+        ],
+        "nextEventId": "finance_job_interview"
+      },
+      {
+        "text": "只收到几家小私募的回复",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "不及预期"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "小机构联系"
+          }
+        ],
+        "nextEventId": "finance_job_interview"
+      }
+    ]
+  },
+  {
+    "id": "finance_job_interview",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "群面现场——一群穿着黑色正装的年轻人在会议室外等叫名字。轮到你了。MD 扫了眼简历：!你对最近的A股行情怎么看？用三句话说清楚。! 你感受到那种金融人特有的压力——信息压迫，简洁精确，错了就没下次。",
+    "choices": [
+      {
+        "text": "条理清晰，数据支撑，一针见血",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "金融素养"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "MD赏识"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "精英感"
+          }
+        ],
+        "nextEventId": "finance_job_offer"
+      },
+      {
+        "text": "答得中规中矩，不出彩也不出错",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "平庸"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "面试成本"
+          }
+        ],
+        "nextEventId": "finance_job_reject"
+      }
+    ]
+  },
+  {
+    "id": "finance_job_reject",
+    "stage": "graduation",
+    "text": "!非常遗憾地通知您……! 你盯着这行字。来面试的人里一半是海归硕士、两个是清北的、还有一个爸爸是某副总。你忽然理解了金融圈的那句话——*你来拼努力的，别人来拼游戏规则的。* 你关掉邮件，打开下一家公司的网申页面。",
+    "choices": [
+      {
+        "text": "继续投，金融这行不进不行",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "硬撑"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "关系网"
+          }
+        ],
+        "nextEventId": "finance_job_interview"
+      },
+      {
+        "text": "去商业银行或保险，先进圈子",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "务实"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "零售金融"
+          }
+        ],
+        "nextEventId": "finance_job_offer"
+      },
+      {
+        "text": "考公，换个方向",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "新方向"
+          }
+        ],
+        "nextEventId": "civil_intro"
+      }
+    ]
+  },
+  {
+    "id": "finance_job_offer",
+    "stage": "firstJob",
+    "text": "拿到 offer 了。一家中型券商的投行部。HR 在电话里说：!base 不高，但奖金弹性大——好年景翻几倍，差年景不要失望。! 你听出了这句话里的潜台词，但你没得选。你知道金融这行就是——用不确定性换高回报。",
+    "moment": {
+      "templateId": "finance_offer_moment",
+      "text": "拿到券商offer了！投行部，base不高但奖金弹性大。",
+      "replyPool": [
+        "投行！太强了！",
+        "注意身体，投行是卖命",
+        "奖金弹性大 = 基本工资不够花",
+        "恭喜，以后IPO找你"
+      ]
+    },
+    "choices": [
+      {
+        "text": "干！投行就是拼",
+        "effects": [
+          {
+            "target": "money",
+            "value": 5,
+            "label": "高波动收入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "赌徒心态"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "圈子入场"
+          }
+        ],
+        "nextEventId": "finance_job_first_day"
+      },
+      {
+        "text": "接受但保持观望",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "理性克制"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "实习积累"
+          }
+        ],
+        "nextEventId": "finance_job_first_day"
+      }
+    ]
+  },
+  {
+    "id": "finance_job_first_day",
+    "stage": "firstJob",
+    "text": "上班第一天。你的办公桌上放着一台Bloomberg终端和一份某公司 IPO 项目的尽调清单——厚得像一本黄页。VP 走过来说：!先学学怎么用 Wind，然后帮我把这份招股书的行业分析部分改一版。周五之前交。! 你看了看日历：今天是周三。",
+    "choices": [
+      {
+        "text": "埋头学，硬啃下来",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "硬核学习"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "连轴转"
+          }
+        ],
+        "nextEventId": "finance_first_deal"
+      },
+      {
+        "text": "找同事请教，团队作战",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "团队信任"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "借力学"
+          }
+        ],
+        "nextEventId": "finance_first_deal"
+      }
+    ]
+  },
+  {
+    "id": "finance_first_deal",
+    "stage": "firstJob",
+    "diceRoll": true,
+    "text": "你参与的第一个 IPO 项目启动了。客户是一家新能源电池公司，Pre-money 估值 50 亿。你负责行业分析部分——熬夜看了无数份研报，Excel 里拉了几十个可比公司。交稿的那天早上，你把 60 页 PPT 转成 PDF，邮件点了「发送」，感觉这封邮件不止是发给客户——也是发给「可以留下来的你」。",
+    "choices": [
+      {
+        "text": "尽调报告获得客户认可，项目过会",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "IPO经验"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "项目奖金"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "项目组信任"
+          }
+        ],
+        "nextEventId": "finance_three_months"
+      },
+      {
+        "text": "报告被打回来重做了三遍",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "改了又改"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "自我怀疑"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "又通宵了"
+          }
+        ],
+        "nextEventId": "finance_three_months"
+      }
+    ]
+  },
+  {
+    "id": "finance_three_months",
+    "stage": "firstJob",
+    "text": "三个月了。你适应了这种节奏：周一跟项目，周二改材料，周三路演排练，周四出差去企业尽调，周五回来开会。你喜欢凌晨下了高铁拖着行李箱回家的时候——整座城市都很安静，只有你的手机还在震动。微信消息永远 99+。",
+    "lonelyMoment": "凌晨一点，出差回来的高铁上。窗外的城市在倒退，你想起三个月前第一天上班时记在笔记本上的那句话：!金融的本质是把别人的钱变成自己的业绩。! 你现在终于懂了——但不只是钱。你的时间、你的生活、你的周末，都是\"别人的\"。",
+    "choices": [
+      {
+        "text": "继续拼，金融人的字典里没有'休息'",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "高阶能力"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "燃烧殆尽"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "高负荷"
+          }
+        ],
+        "nextEventId": "finance_market_crossroads"
+      },
+      {
+        "text": "开始思考work-life balance",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "自我觉察"
+          },
+          {
+            "target": "skill",
+            "value": -3,
+            "label": "慢下来"
+          }
+        ],
+        "nextEventId": "finance_market_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "finance_market_crossroads",
+    "stage": "work",
+    "text": "市场变天了。新规收紧 IPO 审核，你手上的两个项目都被叫停了。办公室里气氛微妙，大家都在私下讨论\"优化\"的事。MD 说：!金融永远是个周期的行业——好年景要多存粮，差年景要活下来。! 你看了看自己的银行卡余额。",
+    "choices": [
+      {
+        "text": "趁低谷转买方，去PE/VC",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "投资视角"
+          },
+          {
+            "target": "connections",
+            "value": 12,
+            "label": "买方圈子"
+          },
+          {
+            "target": "money",
+            "value": 15,
+            "label": "买方薪资"
+          }
+        ],
+        "nextEventId": "finance_career_crossroads"
+      },
+      {
+        "text": "坚守卖方，熬过周期",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "焦虑等待"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "患难见真情"
+          }
+        ],
+        "nextEventId": "finance_career_crossroads"
+      },
+      {
+        "text": "去商业银行做对公，稳一些",
+        "effects": [
+          {
+            "target": "money",
+            "value": 8,
+            "label": "稳定薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "踏实感"
+          }
+        ],
+        "nextEventId": "finance_career_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "finance_career_crossroads",
+    "stage": "work",
+    "text": "又一个年报季结束了。你在凌晨三点走出写字楼，看到陆家嘴的天际线一如既往地亮着。你已经分不清那些灯光是来自还在加班的人，还是只是装饰。你回头看了眼还在亮着的办公室窗户——里面有你的工位、你的 Excel 模型、和你的青春。*值吗？* 你不知道。",
+    "choices": [
+      {
+        "text": "继续，争取做MD",
+        "effects": [
+          {
+            "target": "money",
+            "value": 15,
+            "label": "MD目标"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "投行精英"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "代价"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "做自己的基金，创业",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 15,
+            "label": "LP关系"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "自有资金投入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "自己的事业"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "找个节奏慢的生活",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 20,
+            "label": "健康第一"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "财务自由"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "encounter_finance_insider",
+    "stage": "work",
+    "text": "你在系统中看到了一份尚未公布的重组方案。如果在公告前买入相关期权，能翻三倍。这就是内幕交易——查到是三年起步。你盯着屏幕，鼠标悬停在交易系统上。办公室里没人注意你。金融圈每天都有无数个这样的瞬间——不是每个人都经得起考验。",
+    "choices": [
+      {
+        "text": "赌一把——没人会发现",
+        "effects": [
+          {
+            "target": "money",
+            "value": 20,
+            "label": "内幕收益"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "知道了不该知道的"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "随时可能被查"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "关掉页面，当没看见",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "睡得着觉"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "职业操守加分"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ],
+    "condition": {
+      "type": "major",
+      "major": "finance"
+    }
+  }
+]

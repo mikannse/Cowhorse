@@ -1,0 +1,365 @@
+[
+  {
+    "id": "eng_exam_intro",
+    "stage": "graduation",
+    "text": "土木考研。你的同学一半在准备考结构力学，另一半在准备转行。辅导员说今年土木考研报名人数降了 30%，你说不上这是个好消息还是坏消息——人少了，但意味着行业真的冷了。你在图书馆翻开结构力学的书，第一页就是力法、位移法，大二的时候你就觉得这些公式长得像甲骨文。旁边坐着一个准备跨考计算机的同学，他在刷 LeetCode。你看了他的屏幕一眼，又看了看自己的结构力学。*你想转行的第一个念头，就是这么来的。*",
+    "choices": [
+      {
+        "text": "考本专业，深耕土木",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "专业深造"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "考研准备"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "行业焦虑"
+          }
+        ],
+        "nextEventId": "eng_exam_prep"
+      },
+      {
+        "text": "跨考计算机，换个赛道",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "转行学习"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "转行圈"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "看到希望"
+          }
+        ],
+        "nextEventId": "eng_exam_prep"
+      },
+      {
+        "text": "不考了，直接去工地攒经验",
+        "effects": [
+          {
+            "target": "money",
+            "value": 5,
+            "label": "开始赚钱"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "不纠结了"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "学历劣势"
+          }
+        ],
+        "nextEventId": "eng_job_waiting"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "eng_exam_prep",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你的考研复习在朋友们的质疑声中进行——'土木考研出来不还是去工地？''现在甲方都要求名校硕士了，普通学校出来没区别'。你关掉手机，翻开结构力学的习题集。下午去材料力学，晚上背政治。你发现土木考研有一个好处：竞争确实比 CS 小。但你也知道原因——不是大家不想考，是大家不想继续干这行了。你也不知道自己是在坚持还是在逃避。",
+    "choices": [
+      {
+        "text": "复习扎实，专业课有把握",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "结构力学突破"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有了底"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "累了但值得"
+          }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "复习不顺，开始怀疑选择",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "基础不牢"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "天天想转行"
+          }
+        ],
+        "nextEventId": "exam_prep_normal"
+      },
+      {
+        "text": "走捷径...（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": -10,
+            "label": "花钱打点"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "作弊压力"
+          }
+        ],
+        "nextEventId": "eng_exam_cheat"
+      }
+    ]
+  },
+  {
+    "id": "eng_postgrad_life",
+    "stage": "postgrad",
+    "diceRoll": true,
+    "text": "研究生的日常：跟导师做课题、去项目现场、写报告、画图纸。你以为读研就不用跑工地了——结果发现研究生跑的是更大的工地。导师说：*硕士生要有解决实际问题的能力。* 你理解的实际问题是：替甲方改第七版方案、替监理写整改报告、替施工方算工程量。你觉得土木研究生本质上就是一个——能画图、能算量、能写报告、还能在施工现场跟工人一起搬砖的全能工具人。",
+    "choices": [
+      {
+        "text": "积累项目经验，考下一建",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "项目实战"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "行业人脉"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "工地+学业"
+          }
+        ],
+        "nextEventId": "exam_pass"
+      },
+      {
+        "text": "偷偷学别的，准备彻底转行",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "转行储备"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有退路"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "本专业荒废"
+          }
+        ],
+        "nextEventId": "exam_pass"
+      }
+    ]
+  },
+  {
+    "id": "eng_postgrad_outcome",
+    "stage": "postgrad",
+    "text": "硕士毕业了。你手里有一建证和两年项目经验——如果留在行业，你可以去甲方做管理或者去大院做设计。但你也在招聘软件上投了不同行业的岗位。你发现土木硕士的简历在建筑行外没那么值钱——三大力学在互联网面试里毫无用处。但你的抗压能力和吃苦精神，在任何一个行业都是硬通货。你站在十字路口：继续干土木，还是趁着年轻彻底换一条路？",
+    "moment": {
+      "templateId": "eng_grad_moment",
+      "text": "土木硕士毕业。有一建证、有项目经验——但不知道这个行业还能干多久。",
+      "replyPool": [
+        "考公吧，土木考公有优势",
+        "去甲方，别去施工",
+        "转新能源基建吧，有风口",
+        "要不……考个消防工程师？"
+      ]
+    },
+    "choices": [
+      {
+        "text": "去甲方，做项目管理",
+        "effects": [
+          {
+            "target": "money",
+            "value": 10,
+            "label": "甲方薪资"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "甲方资源"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "比施工强"
+          }
+        ],
+        "nextEventId": "eng_career_crossroads"
+      },
+      {
+        "text": "转新能源/基建新赛道",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "新技能"
+          },
+          {
+            "target": "money",
+            "value": 12,
+            "label": "风口薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "看到希望"
+          }
+        ],
+        "nextEventId": "eng_career_crossroads"
+      },
+      {
+        "text": "考公，发挥土木专业优势",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "稳定"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "体制内"
+          },
+          {
+            "target": "money",
+            "value": 8,
+            "label": "稳定收入"
+          }
+        ],
+        "nextEventId": "civil_intro"
+      },
+      {
+        "text": "彻底转行，从头开始",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "新开始"
+          },
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "七年白学"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "脱离圈子"
+          }
+        ],
+        "nextEventId": "lie_intro"
+      }
+    ]
+  },
+  {
+    "id": "eng_exam_cheat",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你的学长说他上一届考研的结构力学答案他还留着，可以低价卖给你——2000 块。还说可以帮你传答案，他在同一个考场。你坐在图书馆翻开结构力学，看了三遍力法还是搞不懂。你又看了学长的消息。手机屏幕的光照在你脸上，你觉得自己正在变成立体几何里的一个阴暗面。",
+    "choices": [
+      {
+        "text": "没被发现——但你背负了一个秘密",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "作弊得手"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "良心债"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "圈子知道"
+          }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "出事了...",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "没复习也没作弊"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -20,
+            "label": "崩溃"
+          },
+          {
+            "target": "connections",
+            "value": -10,
+            "label": "名声毁了"
+          }
+        ],
+        "nextEventId": "exam_prep_normal"
+      }
+    ]
+  }
+]

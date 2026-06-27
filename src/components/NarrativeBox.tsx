@@ -20,6 +20,8 @@ export default function NarrativeBox({ text, children, onComplete }: NarrativeBo
   const [visible, setVisible] = useState(0);
   const [complete, setComplete] = useState(false);
   const completedRef = useRef(false);
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
 
   useEffect(() => {
     setVisible(0);
@@ -33,7 +35,7 @@ export default function NarrativeBox({ text, children, onComplete }: NarrativeBo
       setComplete(true);
       if (!completedRef.current) {
         completedRef.current = true;
-        onComplete?.();
+        onCompleteRef.current?.();
       }
       return;
     }
@@ -42,7 +44,7 @@ export default function NarrativeBox({ text, children, onComplete }: NarrativeBo
       setComplete(true);
       if (!completedRef.current) {
         completedRef.current = true;
-        onComplete?.();
+        onCompleteRef.current?.();
       }
       return;
     }
@@ -57,7 +59,7 @@ export default function NarrativeBox({ text, children, onComplete }: NarrativeBo
     }, delay);
 
     return () => clearTimeout(timer);
-  }, [visible, totalLength, text, reducedMotion, onComplete]);
+  }, [visible, totalLength, text, reducedMotion]);
 
   return (
     <section

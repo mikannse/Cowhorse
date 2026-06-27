@@ -1,0 +1,107 @@
+[
+  {
+    "id": "cs_civil_intro",
+    "stage": "graduation",
+    "text": "CS 考公——在程序员圈子里这是个有争议的话题。你刷了三天行测后，发现这东西和刷 LeetCode 完全不是一回事：图形推理考的是直觉，不是算法；申论考的是文字组织能力，不是代码规范。你报的岗位是政务数字化——大数据局、电子政务、网信办。朋友说：!你一个写代码的，去体制内修电脑吗？! 你没理他，继续刷题。*你不知道考公是不是对的，但你知道 35 岁危机肯定不是编内要考虑的事。*",
+    "choices": [
+      {
+        "text": "报大数据局/网信办，专业对口",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "专业优势"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有方向"
+          }
+        ],
+        "nextEventId": "civil_study"
+      },
+      {
+        "text": "不限专业的岗位，竞争小一点",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "避其锋芒"
+          },
+          {
+            "target": "skill",
+            "value": -3,
+            "label": "专业浪费"
+          }
+        ],
+        "nextEventId": "civil_study"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "cs_civil_work",
+    "stage": "firstJob",
+    "text": "你入职了市大数据局，发现这里的 IT 环境和互联网公司完全是两个世界。服务器是五年前采购的，代码还是 ASP.NET，办公系统早上启动要五分钟。同事们用 Excel 管理全市的数据接口。你的到来像是石器时代来了一个 iPhone——你是全局唯一一个能写 Python 的人。主任说：!年轻人，帮我们搞一个自动化报表系统。! 你看着手头的需求和全单位唯一一台配置还行的电脑，觉得自己不是公务员——是免费外包。",
+    "choices": [
+      {
+        "text": "好好干，用技术改变政务效率",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "政务数字化"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "局里认可"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "从零搭建"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "摸鱼，别太突出",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "躺平真香"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "技术荒废"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "一个同乡找到你，说能不能帮他查一下某个企业的备案数据——'不干什么，就是看看竞争对手的情况'（有风险）",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "人情"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "违反数据安全法"
+          },
+          {
+            "target": "skill",
+            "value": -3,
+            "label": "对职业道德装糊涂"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      }
+    ]
+  }
+]

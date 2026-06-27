@@ -4,6 +4,7 @@ import type {
   Condition,
   DiceCondition,
   GameStateSnapshot,
+  MajorCondition,
   NotCondition,
   OrCondition,
   StageCondition,
@@ -45,6 +46,13 @@ function evaluateVisitedCondition(state: GameStateSnapshot, condition: VisitedCo
   return state.visitedEvents.has(condition.eventId);
 }
 
+function evaluateMajorCondition(state: GameStateSnapshot, condition: MajorCondition): boolean {
+  if (state.major === null) return false;
+  return Array.isArray(condition.major)
+    ? condition.major.includes(state.major)
+    : state.major === condition.major;
+}
+
 function evaluateAndCondition(state: GameStateSnapshot, condition: AndCondition): boolean {
   return condition.conditions.every((c) => evaluateCondition(state, c));
 }
@@ -67,6 +75,8 @@ export function evaluateCondition(state: GameStateSnapshot, condition: Condition
       return evaluateDiceCondition(state, condition);
     case 'visited':
       return evaluateVisitedCondition(state, condition);
+    case 'major':
+      return evaluateMajorCondition(state, condition);
     case 'and':
       return evaluateAndCondition(state, condition);
     case 'or':

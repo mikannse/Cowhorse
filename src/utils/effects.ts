@@ -10,6 +10,10 @@ export function applyEffects(current: Attributes, effects: GameEffect[]): Effect
   const changes: EffectResult['changes'] = [];
 
   for (const effect of effects) {
+    if (!(effect.target in next)) {
+      console.warn(`[CowHorse] Invalid effect target: "${effect.target}" — skipping`);
+      continue;
+    }
     next[effect.target] += effect.value;
     changes.push({
       target: effect.target,

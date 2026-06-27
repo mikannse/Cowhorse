@@ -1,0 +1,477 @@
+[
+  {
+    "id": "eng_job_waiting",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你打开招聘软件搜\"土木工程\"——出来的岗位一半是\"工程监理\"，另一半是\"不限专业\"的销售。室友说：*咱们这个专业，十年前抢着要，现在叫存量博弈。* 你看了看爸爸当年在工地上拍的意气风发的照片，发现自己这代面对的是完全不同的一张试卷。",
+    "choices": [
+      {
+        "text": "拿到中字头央企的面试通知！",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "央企光环"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "体系入场"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "外派准备"
+          }
+        ],
+        "nextEventId": "eng_job_interview"
+      },
+      {
+        "text": "只有几家地方工程公司在招人",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "行业寒意"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "小公司"
+          }
+        ],
+        "nextEventId": "eng_job_interview"
+      }
+    ]
+  },
+  {
+    "id": "eng_job_interview",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "面试官是个四十来岁的项目经理，皮肤黝黑，一看就知道常年在工地上。他翻了翻你的简历：!你会看图纸吗？能接受外派去项目现场吗？工期紧的时候能连续干多久不休息？! 每个问题都像一把尺子，在量你的体力、耐力和服从性。",
+    "choices": [
+      {
+        "text": "回答扎实，展现专业和吃苦精神",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "工程素养"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "项目经理好感"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "承诺吃苦"
+          }
+        ],
+        "nextEventId": "eng_job_offer"
+      },
+      {
+        "text": "紧张，支支吾吾",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "面试失利"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "自惭"
+          }
+        ],
+        "nextEventId": "eng_job_offer"
+      }
+    ]
+  },
+  {
+    "id": "eng_job_offer",
+    "stage": "firstJob",
+    "text": "拿到 offer 了。某工程局的项目部技术员。基本工资不高，但外派有补贴——项目在哪你就得去哪。HR 说：!年轻人要下沉到一线，项目现场就是最好的课堂。! 你爸妈挺高兴的：\"央企，稳定。\" 但你看着合同上的\"工作地点：随项目安排\"，心里有点没底。",
+    "moment": {
+      "templateId": "eng_offer_moment",
+      "text": "工程局offer到手！技术员，外派补贴不错，但跟着项目全国跑。",
+      "replyPool": [
+        "中字头！稳了",
+        "工地很苦的，做好准备",
+        "啥项目？在哪个城市？",
+        "土木人加油，行业会好起来的"
+      ]
+    },
+    "choices": [
+      {
+        "text": "签了，先上工地再说",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "一线起点"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "外派补贴"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有方向了"
+          }
+        ],
+        "nextEventId": "eng_job_first_day"
+      }
+    ]
+  },
+  {
+    "id": "eng_job_first_day",
+    "stage": "firstJob",
+    "text": "第一天上工地。安全帽发下来了，你戴了三次才戴对。项目经理带你走了一圈：!这是拌合站、那边是预制梁场、基坑在下面。图纸每天都要看，不懂就问，但别问太简单的问题。! 中午在工地食堂吃的——十五块，两荤一素，米饭管够。你吃得很香，因为真的累了。",
+    "choices": [
+      {
+        "text": "埋头学，跟老师傅学技术",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "工地实战"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "工人师傅"
+          }
+        ],
+        "nextEventId": "eng_first_project"
+      },
+      {
+        "text": "多看图纸和合同，学管理",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "项目管理"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "管理层接触"
+          }
+        ],
+        "nextEventId": "eng_first_project"
+      }
+    ]
+  },
+  {
+    "id": "eng_first_project",
+    "stage": "firstJob",
+    "diceRoll": true,
+    "text": "你参与的第一个项目是一座跨江大桥。你负责测桩基混凝土的塌落度和强度。每天早上五点起床，跟着监理跑现场。有一天下雨，基坑积水，你跟工人一起跳下去抽水。上来的时候全身泥浆，但项目经理拍了拍你肩膀：!不错。!",
+    "choices": [
+      {
+        "text": "项目顺利推进，你被列入后备培养",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "技术成长"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "项目组认可"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "项目奖金"
+          }
+        ],
+        "nextEventId": "eng_three_months"
+      },
+      {
+        "text": "出了个小事故，被扣了安全分",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "教训"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "自责"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "扣款"
+          }
+        ],
+        "nextEventId": "eng_three_months"
+      }
+    ]
+  },
+  {
+    "id": "eng_three_months",
+    "stage": "firstJob",
+    "text": "三个月了。你晒黑了不少，手掌上磨出了茧。你已经能一眼看出混凝土的标号，听声音就知道打桩机有没有问题。但每天回到集装箱宿舍，脱下安全帽，你躺在床上刷手机——朋友圈里大学同学在写字楼吹空调，你在工地吹江风。*谁的选择更对？*",
+    "lonelyMoment": "项目部的夜晚很安静，只有远处打桩机的闷响。你坐在集装箱宿舍的门口，看着满天星星。在城市里从来看不到这么多星星。你想：*也许人生也像工程——没有完美的图纸，只有不停修正的施工方案。*",
+    "choices": [
+      {
+        "text": "坚持，工程人就是这样成长的",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "工地经验"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "工地孤独"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "体力消耗"
+          }
+        ],
+        "nextEventId": "eng_certificate_crossroads"
+      },
+      {
+        "text": "想回城市了",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "思乡"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "中断积累"
+          }
+        ],
+        "nextEventId": "eng_certificate_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "eng_certificate_crossroads",
+    "stage": "firstJob",
+    "text": "项目部的老工长跟你说：!干工程这行，没证就是没前途。一建、造价、监理——你要考，必须考。! 你看着那摞复习资料，比大学教材还厚。但你知道他没说错。工地上每一个人都在考证——白天管项目，晚上刷题。考过的人工资涨一大截，没考过的人永远干技术员。",
+    "choices": [
+      {
+        "text": "全力考一建，拿下硬通货",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "备考一建"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "晚上刷题"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "备考焦虑"
+          }
+        ],
+        "nextEventId": "eng_career_crossroads"
+      },
+      {
+        "text": "不考证了，往管理层走",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "行政路线"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "管理技能"
+          }
+        ],
+        "nextEventId": "eng_career_crossroads"
+      },
+      {
+        "text": "转行，行业太冷了",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "接受现实"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "过渡期"
+          }
+        ],
+        "nextEventId": "lie_intro"
+      }
+    ]
+  },
+  {
+    "id": "eng_career_crossroads",
+    "stage": "work",
+    "text": "一建证到手了，但行业的寒冬还没结束。新开的项目越来越少，公司的投标价压得越来越低。以前中标的项目还有利润，现在只求不亏。你坐在办公室里看图纸，发现图纸上的那座桥，可能永远不会真的盖起来了。*这个行业，还能干多久？*",
+    "choices": [
+      {
+        "text": "继续深耕，做行业里的专家",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "一建升级"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "项目经理"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "行业焦虑"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "出国干工程，去一带一路",
+        "effects": [
+          {
+            "target": "money",
+            "value": 20,
+            "label": "海外高薪"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "国际经验"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "异国他乡"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "转行新能源基建，找风口",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "新赛道"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "看到希望"
+          },
+          {
+            "target": "money",
+            "value": 12,
+            "label": "新行业机会"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "encounter_eng_bribe",
+    "stage": "work",
+    "text": "你是项目验收负责人。施工方请吃饭时，项目经理在桌下递过来一个牛皮纸袋：!X 工，小小意思，验收通融一下。! 你知道这批材料检测报告有问题——钢筋屈服强度差了一点。按理要打回去重做，但重做意味着工期延期三个月，全项目部扣奖金。纸袋里大概是三个月的工资。",
+    "choices": [
+      {
+        "text": "收了，睁一只眼闭一只眼",
+        "effects": [
+          {
+            "target": "money",
+            "value": 18,
+            "label": "感谢费"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -18,
+            "label": "豆腐渣工程"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "施工方关系"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "职业底线沦陷"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "拒了，坚持按标准验收",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "踏实"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "得罪施工方"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ],
+    "condition": {
+      "type": "major",
+      "major": "eng"
+    }
+  }
+]

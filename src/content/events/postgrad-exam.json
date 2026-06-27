@@ -2,26 +2,21 @@
   {
     "id": "exam_intro",
     "stage": "graduation",
-    "text": "你打开研招网，985、211、双非，选项像相亲 market。室友问你报哪所，你说：*能上岸就行。*",
+    "text": "你打开研招网，想选定方向。但你知道，不同专业的考研，根本就是不同的游戏。你的专业，决定了这场游戏的玩法。",
     "choices": [
       {
-        "text": "冲 985，卷死自己",
+        "text": "看看我这个专业的考研之路",
         "effects": [
-          { "target": "skill", "value": 10, "label": "高难度目标" },
-          { "target": "energy", "value": -15, "label": "熬夜复习" },
-          { "target": "mentalHealth", "value": -10, "label": "压力" }
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "认清方向"
+          }
         ],
-        "nextEventId": "exam_prep_hard"
-      },
-      {
-        "text": "求稳，本校也行",
-        "effects": [
-          { "target": "skill", "value": 5, "label": "稳复习" },
-          { "target": "energy", "value": -5, "label": "摸鱼复习" }
-        ],
-        "nextEventId": "exam_prep_normal"
+        "nextEventId": "__exam_route_by_major__"
       }
-    ]
+    ],
+    "noEncounters": true
   },
   {
     "id": "exam_prep_hard",
@@ -31,18 +26,42 @@
       {
         "text": "坚持，不疯魔不成活",
         "effects": [
-          { "target": "skill", "value": 15, "label": "刷题" },
-          { "target": "energy", "value": -20, "label": "熬夜" },
-          { "target": "mentalHealth", "value": -5, "label": "紧绷" }
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "刷题"
+          },
+          {
+            "target": "energy",
+            "value": -20,
+            "label": "熬夜"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "紧绷"
+          }
         ],
         "nextEventId": "exam_study_hard"
       },
       {
         "text": "适当放松一下",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "休息" },
-          { "target": "energy", "value": 5, "label": "回血" },
-          { "target": "skill", "value": 5, "label": "继续复习" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "休息"
+          },
+          {
+            "target": "energy",
+            "value": 5,
+            "label": "回血"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "继续复习"
+          }
         ],
         "nextEventId": "exam_study_normal"
       }
@@ -56,16 +75,32 @@
       {
         "text": "加强复习强度",
         "effects": [
-          { "target": "skill", "value": 10, "label": "加量" },
-          { "target": "energy", "value": -15, "label": "熬夜" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "加量"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "熬夜"
+          }
         ],
         "nextEventId": "exam_study_hard"
       },
       {
         "text": "保持节奏，稳扎稳打",
         "effects": [
-          { "target": "skill", "value": 5, "label": "稳" },
-          { "target": "mentalHealth", "value": 5, "label": "心态好" }
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "稳"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "心态好"
+          }
         ],
         "nextEventId": "exam_study_normal"
       }
@@ -79,19 +114,43 @@
     "choices": [
       {
         "text": "全力答题",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "skill", "value": 15, "label": "超常发挥" },
-          { "target": "mentalHealth", "value": 10, "label": "上岸预感" }
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "超常发挥"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "上岸预感"
+          }
         ],
         "nextEventId": "exam_pass"
       },
       {
         "text": "尽力而为",
-        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
         "effects": [
-          { "target": "mentalHealth", "value": -20, "label": "发挥失常" },
-          { "target": "energy", "value": -15, "label": "心力交瘁" }
+          {
+            "target": "mentalHealth",
+            "value": -20,
+            "label": "发挥失常"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "心力交瘁"
+          }
         ],
         "nextEventId": "exam_retake"
       }
@@ -105,19 +164,43 @@
     "choices": [
       {
         "text": "检查一遍交卷",
-        "condition": { "type": "dice", "min": 3, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 3,
+          "max": 6
+        },
         "effects": [
-          { "target": "skill", "value": 5, "label": "稳妥" },
-          { "target": "mentalHealth", "value": 5, "label": "心里有底" }
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "稳妥"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "心里有底"
+          }
         ],
         "nextEventId": "exam_pass"
       },
       {
         "text": "发呆到最后一秒",
-        "condition": { "type": "dice", "min": 1, "max": 2 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 2
+        },
         "effects": [
-          { "target": "mentalHealth", "value": -10, "label": "不确定" },
-          { "target": "energy", "value": 5, "label": "休息" }
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "不确定"
+          },
+          {
+            "target": "energy",
+            "value": 5,
+            "label": "休息"
+          }
         ],
         "nextEventId": "exam_retake"
       }
@@ -130,26 +213,48 @@
     "moment": {
       "templateId": "exam_pass_moment",
       "text": "轻舟已过万重山（原来山后面还是山）",
-      "replyPool": ["恭喜上岸！", "二战的我酸了", "研究生也卷，别高兴太早", "大佬带带我"]
+      "replyPool": [
+        "恭喜上岸！",
+        "二战的我酸了",
+        "研究生也卷，别高兴太早",
+        "大佬带带我"
+      ]
     },
     "choices": [
       {
         "text": "满怀期待开始读研",
         "effects": [
-          { "target": "connections", "value": 5, "label": "新同学" },
-          { "target": "money", "value": -10, "label": "学费" }
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "新同学"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "学费"
+          }
         ],
         "nextEventId": "postgrad_welcome"
       },
       {
         "text": "心里有点打鼓",
         "effects": [
-          { "target": "mentalHealth", "value": -5, "label": "不安" },
-          { "target": "skill", "value": 5, "label": "预习" }
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "不安"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "预习"
+          }
         ],
         "nextEventId": "postgrad_welcome"
       }
-    ]
+    ],
+    "noEncounters": true
   },
   {
     "id": "postgrad_welcome",
@@ -159,16 +264,32 @@
       {
         "text": "主动社交，抱大腿",
         "effects": [
-          { "target": "connections", "value": 10, "label": "师兄师姐" },
-          { "target": "energy", "value": -5, "label": "社交累" }
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "师兄师姐"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "社交累"
+          }
         ],
         "nextEventId": "postgrad_life"
       },
       {
         "text": "闷头搞学术",
         "effects": [
-          { "target": "skill", "value": 10, "label": "看文献" },
-          { "target": "mentalHealth", "value": -5, "label": "孤独" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "看文献"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "孤独"
+          }
         ],
         "nextEventId": "postgrad_life"
       }
@@ -182,20 +303,48 @@
     "choices": [
       {
         "text": "冲论文，卷 TA",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "skill", "value": 20, "label": "论文进展" },
-          { "target": "energy", "value": -20, "label": "通宵" },
-          { "target": "mentalHealth", "value": -10, "label": "高压" }
+          {
+            "target": "skill",
+            "value": 20,
+            "label": "论文进展"
+          },
+          {
+            "target": "energy",
+            "value": -20,
+            "label": "通宵"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "高压"
+          }
         ],
         "nextEventId": "postgrad_publish"
       },
       {
         "text": "摆烂一段时间",
-        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
         "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "放空" },
-          { "target": "skill", "value": -10, "label": "进度落后" }
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "放空"
+          },
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "进度落后"
+          }
         ],
         "nextEventId": "postgrad_lag"
       }
@@ -208,23 +357,48 @@
     "moment": {
       "templateId": "postgrad_pub_moment",
       "text": "第一篇论文录了，虽然只是 B 会，但至少没延毕（吧）。",
-      "replyPool": ["牛逼！", "求带名字", "做学术的都是勇士", "我还在写 literature review"]
+      "replyPool": [
+        "牛逼！",
+        "求带名字",
+        "做学术的都是勇士",
+        "我还在写 literature review"
+      ]
     },
     "choices": [
       {
         "text": "继续冲刺核心期刊",
         "effects": [
-          { "target": "skill", "value": 15, "label": "核心论文" },
-          { "target": "energy", "value": -15, "label": "继续肝" },
-          { "target": "connections", "value": 5, "label": "学术界人脉" }
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "核心论文"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "继续肝"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "学术界人脉"
+          }
         ],
         "nextEventId": "postgrad_conference"
       },
       {
         "text": "够了，开始找工作吧",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "解脱" },
-          { "target": "connections", "value": 5, "label": "投简历" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "解脱"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "投简历"
+          }
         ],
         "nextEventId": "postgrad_job"
       }
@@ -238,17 +412,37 @@
       {
         "text": "痛改前非，开始赶进度",
         "effects": [
-          { "target": "skill", "value": 10, "label": "补救" },
-          { "target": "energy", "value": -15, "label": "熬夜赶工" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "补救"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "熬夜赶工"
+          }
         ],
         "nextEventId": "postgrad_publish"
       },
       {
         "text": "退学算了，去工作",
         "effects": [
-          { "target": "mentalHealth", "value": 20, "label": "解脱" },
-          { "target": "skill", "value": -15, "label": "学位没了" },
-          { "target": "connections", "value": -5, "label": "导师失望" }
+          {
+            "target": "mentalHealth",
+            "value": 20,
+            "label": "解脱"
+          },
+          {
+            "target": "skill",
+            "value": -15,
+            "label": "学位没了"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "导师失望"
+          }
         ],
         "nextEventId": "postgrad_job"
       }
@@ -262,17 +456,37 @@
       {
         "text": "疯狂 networking，拓展人脉",
         "effects": [
-          { "target": "connections", "value": 12, "label": "学术人脉" },
-          { "target": "skill", "value": 5, "label": "视野开阔" },
-          { "target": "energy", "value": -10, "label": "社交消耗" }
+          {
+            "target": "connections",
+            "value": 12,
+            "label": "学术人脉"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "视野开阔"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "社交消耗"
+          }
         ],
         "nextEventId": "postgrad_supervisor"
       },
       {
         "text": "专注听报告，学习为主",
         "effects": [
-          { "target": "skill", "value": 10, "label": "新 idea" },
-          { "target": "mentalHealth", "value": 5, "label": "充实" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "新 idea"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "充实"
+          }
         ],
         "nextEventId": "postgrad_supervisor"
       }
@@ -286,18 +500,42 @@
       {
         "text": "答应，导师的事优先",
         "effects": [
-          { "target": "connections", "value": 10, "label": "导师好感" },
-          { "target": "energy", "value": -20, "label": "双线作战" },
-          { "target": "skill", "value": 5, "label": "写基金经验" }
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "导师好感"
+          },
+          {
+            "target": "energy",
+            "value": -20,
+            "label": "双线作战"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "写基金经验"
+          }
         ],
         "nextEventId": "postgrad_thesis"
       },
       {
         "text": "委婉拒绝，保护自己的时间",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "边界感" },
-          { "target": "connections", "value": -10, "label": "得罪导师" },
-          { "target": "skill", "value": 10, "label": "专注自己" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "边界感"
+          },
+          {
+            "target": "connections",
+            "value": -10,
+            "label": "得罪导师"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "专注自己"
+          }
         ],
         "nextEventId": "postgrad_thesis"
       }
@@ -311,20 +549,48 @@
     "choices": [
       {
         "text": "答辩顺利通过！",
-        "condition": { "type": "dice", "min": 3, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 3,
+          "max": 6
+        },
         "effects": [
-          { "target": "skill", "value": 15, "label": "硕士到手" },
-          { "target": "mentalHealth", "value": 12, "label": "终于解放" }
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "硕士到手"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "终于解放"
+          }
         ],
         "nextEventId": "postgrad_graduation"
       },
       {
         "text": "需要修改后重审",
-        "condition": { "type": "dice", "min": 1, "max": 2 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 2
+        },
         "effects": [
-          { "target": "mentalHealth", "value": -15, "label": "延期" },
-          { "target": "energy", "value": -20, "label": "继续改论文" },
-          { "target": "money", "value": -10, "label": "多交一学期费" }
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "延期"
+          },
+          {
+            "target": "energy",
+            "value": -20,
+            "label": "继续改论文"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "多交一学期费"
+          }
         ],
         "nextEventId": "postgrad_graduation"
       }
@@ -346,31 +612,12 @@
     },
     "choices": [
       {
-        "text": "读博，踏上学术苦旅",
-        "effects": [
-          { "target": "skill", "value": 15, "label": "博士起点" },
-          { "target": "money", "value": -15, "label": "补贴微薄" },
-          { "target": "mentalHealth", "value": -5, "label": "前路漫漫" }
-        ],
-        "nextEventId": "postgrad_phd_life"
-      },
-      {
-        "text": "够了，去工业界赚钱",
-        "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "新阶段" },
-          { "target": "connections", "value": 5, "label": "校友推荐" }
-        ],
-        "nextEventId": "postgrad_job"
-      },
-      {
-        "text": "先 gap 一阵想想",
-        "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "休息" },
-          { "target": "money", "value": -10, "label": "无收入" }
-        ],
-        "nextEventId": "lie_intro"
+        "text": "看看我这个专业的出路",
+        "effects": [],
+        "nextEventId": "__exam_postgrad_outcome_by_major__"
       }
-    ]
+    ],
+    "noEncounters": true
   },
   {
     "id": "postgrad_phd_life",
@@ -380,19 +627,43 @@
     "choices": [
       {
         "text": "顶会论文中稿",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "skill", "value": 20, "label": "顶会" },
-          { "target": "connections", "value": 15, "label": "学术圈" }
+          {
+            "target": "skill",
+            "value": 20,
+            "label": "顶会"
+          },
+          {
+            "target": "connections",
+            "value": 15,
+            "label": "学术圈"
+          }
         ],
         "nextEventId": "postgrad_academia_crossroads"
       },
       {
         "text": "论文被拒，怀疑人生",
-        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
         "effects": [
-          { "target": "mentalHealth", "value": -20, "label": "拒稿打击" },
-          { "target": "energy", "value": -15, "label": "心累" }
+          {
+            "target": "mentalHealth",
+            "value": -20,
+            "label": "拒稿打击"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "心累"
+          }
         ],
         "nextEventId": "postgrad_burnout"
       }
@@ -406,24 +677,54 @@
       {
         "text": "继续学术，进高校",
         "effects": [
-          { "target": "skill", "value": 10, "label": "教职准备" },
-          { "target": "money", "value": -20, "label": "青椒清贫" },
-          { "target": "connections", "value": 10, "label": "学术圈" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "教职准备"
+          },
+          {
+            "target": "money",
+            "value": -20,
+            "label": "青椒清贫"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "学术圈"
+          }
         ],
         "nextEventId": "ending_reached"
       },
       {
         "text": "退学去工业界",
         "effects": [
-          { "target": "money", "value": 20, "label": "高薪" },
-          { "target": "mentalHealth", "value": 15, "label": "解脱" },
-          { "target": "skill", "value": -15, "label": "放弃学位" }
+          {
+            "target": "money",
+            "value": 20,
+            "label": "高薪"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "解脱"
+          },
+          {
+            "target": "skill",
+            "value": -15,
+            "label": "放弃学位"
+          }
         ],
         "nextEventId": "job_interview"
       },
       {
         "text": "转行，不搞了",
-        "effects": [{ "target": "mentalHealth", "value": 20, "label": "重生" }],
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 20,
+            "label": "重生"
+          }
+        ],
         "nextEventId": "postgrad_job"
       }
     ]
@@ -437,88 +738,109 @@
       {
         "text": "休学一段时间",
         "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "终于停下来" },
-          { "target": "money", "value": -10, "label": "无收入" },
-          { "target": "skill", "value": -10, "label": "中断研究" }
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "终于停下来"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "无收入"
+          },
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "中断研究"
+          }
         ],
         "nextEventId": "lie_intro"
       },
       {
         "text": "咬咬牙读完",
         "effects": [
-          { "target": "mentalHealth", "value": -15, "label": "硬撑" },
-          { "target": "energy", "value": -10, "label": "耗尽" },
-          { "target": "skill", "value": 10, "label": "熬出来了" }
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "硬撑"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "耗尽"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "熬出来了"
+          }
         ],
         "nextEventId": "postgrad_academia_crossroads"
       },
       {
         "text": "退学找工作",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "放下" },
-          { "target": "skill", "value": -10, "label": "学位无了" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "放下"
+          },
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "学位无了"
+          }
         ],
         "nextEventId": "postgrad_job"
       }
     ]
   },
   {
-    "id": "postgrad_end",
-    "stage": "postgrad",
-    "text": "答辩通过了！你穿着不合身的学位服拍了照。爸妈发了朋友圈，配文：!知识改变命运!。你知道真正改变命运的不是学位，是接下来的选择。",
-    "choices": [
-      {
-        "text": "读博，学术之路",
-        "effects": [
-          { "target": "skill", "value": 10, "label": "继续深造" },
-          { "target": "money", "value": -20, "label": "低收入" },
-          { "target": "mentalHealth", "value": -5, "label": "未知" }
-        ],
-        "nextEventId": "postgrad_phd_life"
-      },
-      {
-        "text": "拿着学历去卷职场",
-        "effects": [
-          { "target": "connections", "value": 10, "label": "校友资源" },
-          { "target": "money", "value": 10, "label": "起薪" },
-          { "target": "mentalHealth", "value": 5, "label": "新开始" }
-        ],
-        "nextEventId": "job_interview"
-      },
-      {
-        "text": "躺平休息半年",
-        "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "休息" },
-          { "target": "money", "value": -10, "label": "无收入" }
-        ],
-        "nextEventId": "lie_intro"
-      }
-    ]
-  },
-  {
     "id": "postgrad_job",
-    "stage": "graduation",
+    "stage": "work",
     "text": "你改好简历开始找工作。研究生学历确实让你多了一些面试机会，但也让你期望更高、失望更大。",
     "choices": [
       {
         "text": "投大厂，高薪高压力",
         "effects": [
-          { "target": "skill", "value": 5, "label": "面试准备" },
-          { "target": "mentalHealth", "value": -5, "label": "面试焦虑" }
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "面试准备"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "面试焦虑"
+          }
         ],
         "nextEventId": "job_interview"
       },
       {
         "text": "找个轻松的工作，躺平养生",
         "effects": [
-          { "target": "money", "value": 5, "label": "普通薪资" },
-          { "target": "mentalHealth", "value": 10, "label": "轻松" }
+          {
+            "target": "money",
+            "value": 5,
+            "label": "普通薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "轻松"
+          }
         ],
-        "nextEventId": "job_offer"
+        "nextEventId": "job_first_day"
       },
       {
         "text": "考公，体制内更稳",
-        "effects": [{ "target": "skill", "value": 5, "label": "新方向" }],
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "新方向"
+          }
+        ],
         "nextEventId": "civil_intro"
       }
     ]
@@ -531,28 +853,57 @@
       {
         "text": "二战，再来一次",
         "effects": [
-          { "target": "skill", "value": 5, "label": "经验" },
-          { "target": "mentalHealth", "value": -10, "label": "重复焦虑" },
-          { "target": "connections", "value": -5, "label": "同学都走了" }
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "经验"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "重复焦虑"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "同学都走了"
+          }
         ],
         "nextEventId": "exam_prep_hard"
       },
       {
         "text": "找工作吧，不考了",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "解脱" },
-          { "target": "skill", "value": -5, "label": "白复习了" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "解脱"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "白复习了"
+          }
         ],
         "nextEventId": "job_intro"
       },
       {
         "text": "考公？试试看",
         "effects": [
-          { "target": "skill", "value": 5, "label": "转方向" },
-          { "target": "energy", "value": -5, "label": "从头学" }
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "转方向"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "从头学"
+          }
         ],
         "nextEventId": "civil_intro"
       }
-    ]
+    ],
+    "noEncounters": true
   }
 ]

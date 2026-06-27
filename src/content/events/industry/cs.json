@@ -1,0 +1,200 @@
+[
+  {
+    "id": "encounter_cs_github_star",
+    "stage": "firstJob",
+    "condition": {
+      "type": "major",
+      "major": "cs"
+    },
+    "text": "你的开源项目在 GitHub 上突然涨了两百个 star。Issue 区有人提了 PR，技术群有人讨论你的设计思路。你在工位上偷偷笑了一下——*原来被人认可代码的感觉是这样的。*",
+    "choices": [
+      {
+        "text": "趁热打铁，更新文档和 Roadmap",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "技术声望"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "开源社区"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "熬夜维护"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "开心就好，不用太拼",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "成就感"
+          },
+          {
+            "target": "skill",
+            "value": 3,
+            "label": "小收获"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_cs_hackathon",
+    "stage": "work",
+    "condition": {
+      "type": "major",
+      "major": "cs"
+    },
+    "text": "同事拉你参加周末的黑客松。你需要 48 小时内从零做出一个产品。你们的 idea 是用 AI 帮打工人自动生成周报。队友说：!这不就是我们自己最需要的吗？!",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "项目拿了第二名，投资人递名片了",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "48h极限coding"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "投资人名片"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "肾上腺素"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "没拿奖，但代码跑通了",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "学到新东西"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "通宵后遗症"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_cs_leetcode_grind",
+    "stage": "graduation",
+    "condition": {
+      "type": "major",
+      "major": "cs"
+    },
+    "text": "面试前夜你刷了 200 道 LeetCode。室友问你是不是中了刷题魔咒，你说：*不是刷题，是刷安全感。* 你看着笔记本上抄下来的红黑树、LRU、动态规划——感觉这些才是真正决定你下个月吃什么的代码。",
+    "choices": [
+      {
+        "text": "继续刷，刷到天亮",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "刷题力"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "凌晨三点"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "刷题焦虑"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "差不多了，休息一下",
+        "effects": [
+          {
+            "target": "energy",
+            "value": 5,
+            "label": "充足睡眠"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "心态放松"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_cs_backstab",
+    "stage": "work",
+    "text": "你的同事提交了一堆代码，里面有个明显的逻辑错误。你在 Code Review 时发现了——你没有告诉他，而是在群里截图那段代码问：!这个是谁写的？建议重写。! 你同事在群里回复：'我的，马上改。' 你看着他打圆场的样子，心里有种说不出的快感。你知道这不光彩，但领导的注意力从你身上移开了。",
+    "choices": [
+      {
+        "text": "继续搞职场政治，向上管理",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "技术话语权"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "你在变成自己讨厌的人"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "算了，好好写自己的代码",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "内心安稳"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "专注技术"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ],
+    "condition": {
+      "type": "major",
+      "major": "cs"
+    }
+  }
+]

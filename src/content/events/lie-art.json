@@ -1,0 +1,138 @@
+[
+  {
+    "id": "art_lie_intro",
+    "stage": "gap",
+    "text": "文史哲的学生躺平是最'不违和'的——至少你的同学们是这么说的。毕竟你已经习惯了跟'这专业出来能干嘛'的问题打交道，躺平不过是把问句变成了陈述句。你退了几个求职群，把微信签名改成了'正在认真生活'。你开始过一种很慢的日子：早上逛菜市场、下午看书、晚上写点东西。同学在群里讨论年终奖、晋升、买房，你发了一张晚霞的照片。有人说：*真羡慕你。* 你不知道这是真心话还是客套——但你确实比他们开心。",
+    "choices": [
+      {
+        "text": "做自由创作，接文案插画单子",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "创作力"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "随缘收入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "精神自由"
+          }
+        ],
+        "nextEventId": "lie_freelance"
+      },
+      {
+        "text": "彻底躺平，过低欲望生活",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "自洽"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "存款渐少"
+          },
+          {
+            "target": "connections",
+            "value": -8,
+            "label": "彻底独处"
+          }
+        ],
+        "nextEventId": "lie_full_flat"
+      },
+      {
+        "text": "一个公众号运营找到你，说长期需要'有深度的稿件'——署名不是你的，稿费还不错。这就是代笔。你大学读的文学写的那些论文、那些思考，最后变成了别人公众号上的爆款文。你看着约稿函里的要求和报价，犹豫了：*这是用你的才华替别人做嫁衣，还是一份体面的收入？*（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": 8,
+            "label": "代笔稿费"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "创作归属感缺失"
+          },
+          {
+            "target": "skill",
+            "value": -3,
+            "label": "永远在替别人表达"
+          }
+        ],
+        "nextEventId": "art_lie_awakening"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "art_lie_awakening",
+    "stage": "gap",
+    "text": "你写了一篇长文，讲你躺平半年来的心路历程。本来只是想发在自己的小号上当记录，没想到被转了好几千次。评论区里有人说'活出了我想要的样子'，也有人说'还不是家里有矿'。你一条条看过去，发现所有的评论本质上都在问同一个问题：*人一定要按社会时钟活着吗？* 你不知道答案。但你在文章的最后写了一句话：*我不是放弃了，我是在用自己的节奏活着。也许这不叫躺平——这叫重新定义出发的位置。*",
+    "choices": [
+      {
+        "text": "继续创作，把输出变成事业",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "内容创作"
+          },
+          {
+            "target": "connections",
+            "value": 12,
+            "label": "读者群"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "变现初期"
+          }
+        ],
+        "nextEventId": "lie_content_creator"
+      },
+      {
+        "text": "开个工作室，做文创/策划",
+        "effects": [
+          {
+            "target": "money",
+            "value": 8,
+            "label": "工作室收入"
+          },
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "策划能力"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "客户"
+          }
+        ],
+        "nextEventId": "art_career_crossroads"
+      },
+      {
+        "text": "继续低欲望生活",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "自洽"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "极简支出"
+          }
+        ],
+        "nextEventId": "lie_midlife_awakening"
+      }
+    ]
+  }
+]

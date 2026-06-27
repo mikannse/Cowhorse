@@ -1,0 +1,339 @@
+[
+  {
+    "id": "finance_exam_intro",
+    "stage": "graduation",
+    "text": "金融考研圈有个鄙视链：清北复交 > 两财一贸 > 其他。你打开研招网看 431 金融学综合的大纲——货银、公司理财、投资学、国际金融——每本书几百页。同学已经在刷 CFA 一级了，他说：*考研和考证，总得有一个在路上。* 你算了算：考研一年、CFA 三级至少两年半——你发现自己还没开始，就已经在追赶了。",
+    "choices": [
+      {
+        "text": "报最贵的班，冲最好的学校",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "系统学习"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "培训班"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "高强度"
+          }
+        ],
+        "nextEventId": "finance_exam_prep"
+      },
+      {
+        "text": "一边考研一边考证，双线作战",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "双线准备"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "考证圈子"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "双倍压力"
+          }
+        ],
+        "nextEventId": "finance_exam_prep"
+      },
+      {
+        "text": "金融更看重实习经历，直接工作吧",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "投简历"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "务实"
+          }
+        ],
+        "nextEventId": "job_intro"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "finance_exam_prep",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你过上了金融考研人的日常：早起看财经新闻、白天背货银公司理财、晚上做投资学习题。手机里关注了十几个金融考研公众号，每个都在推[押题密卷]。你发现金融考研和金融行业一样——信息差就是优势。那个报了 VIP 班的同学拿到的内部资料，你花了三天才在闲鱼上找到二手版。*这就是金融的世界，你第一次亲身体验了信息不对称。*",
+    "choices": [
+      {
+        "text": "复习扎实，模拟卷成绩不错",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "金融素养提升"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "信心"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "持续输出"
+          }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "感觉金融太卷了，学不动",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "卷不动了"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "勉强跟上"
+          }
+        ],
+        "nextEventId": "exam_prep_normal"
+      },
+      {
+        "text": "走捷径...（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": -10,
+            "label": "花钱打点"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "作弊压力"
+          }
+        ],
+        "nextEventId": "finance_exam_cheat"
+      }
+    ]
+  },
+  {
+    "id": "finance_postgrad_life",
+    "stage": "postgrad",
+    "diceRoll": true,
+    "text": "读研第一天，导师说了一句实话：!金融硕士的课堂教不了你赚钱，真正有价值的东西在实习里。! 你明白了——你的研究生学历只是敲门砖，真正的学位论文是实习证明。同学们都在抢头部券商的暑期实习，有人甚至休学一学期去全职实习。你发现金融圈的生存法则是：*学历决定入场，实习决定薪资，人脉决定天花板。*",
+    "choices": [
+      {
+        "text": "刷实习 + 考证，全力卷金融圈",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "实习经验"
+          },
+          {
+            "target": "connections",
+            "value": 12,
+            "label": "金融人脉"
+          },
+          {
+            "target": "energy",
+            "value": -20,
+            "label": "拼命"
+          }
+        ],
+        "nextEventId": "exam_pass"
+      },
+      {
+        "text": "学业为主，不想那么卷",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "学术偏向"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "错过实习季"
+          }
+        ],
+        "nextEventId": "exam_pass"
+      }
+    ]
+  },
+  {
+    "id": "finance_postgrad_outcome",
+    "stage": "postgrad",
+    "text": "毕业季。你的简历上有了三段实习：一段券商行研、一段 PE 风控、一段咨询。面试的时候 MD 问：!你觉得自己最大的优势是什么？! 你想说'我能在你这里干满三年不倒'。但你没说。金融圈不相信承诺，只相信你的上一段实习。你手中的 offer 有高有低——但你知道，真正的游戏才刚刚开始。",
+    "moment": {
+      "templateId": "finance_grad_moment",
+      "text": "金融硕士毕业。三段实习，一个 CFA 一级，和一张写满熬夜痕迹的脸。",
+      "replyPool": [
+        "券商还是基金？",
+        "可以啊，以后 IPO 找你",
+        "金融狗表示：注意身体",
+        "加油，过了前三年就好了"
+      ]
+    },
+    "choices": [
+      {
+        "text": "进头部券商，拼命干",
+        "effects": [
+          {
+            "target": "money",
+            "value": 20,
+            "label": "高起点"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "头部平台"
+          },
+          {
+            "target": "energy",
+            "value": -20,
+            "label": "投行强度"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "高压"
+          }
+        ],
+        "nextEventId": "finance_job_first_day"
+      },
+      {
+        "text": "去买方，做投资研究",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "研究能力"
+          },
+          {
+            "target": "money",
+            "value": 15,
+            "label": "买方薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "节奏稍好"
+          }
+        ],
+        "nextEventId": "finance_job_first_day"
+      },
+      {
+        "text": "去银行总行，稳定发展",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "稳定"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "银行体系"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "体面薪资"
+          }
+        ],
+        "nextEventId": "finance_job_first_day"
+      }
+    ]
+  },
+  {
+    "id": "finance_exam_cheat",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你在闲鱼上找到一个自称是某 TOP 金融院校内部的人，说能搞到 431 金融学综合的真题。价格不便宜——5000 块。他发了截图证明自己身份：一张模糊的校园卡、一张研究生证照片。你把钱转过去之后，收到了一个百度网盘链接。你打开后愣住了——里面的资料全是公开能找到的往年题。你被信息差割了一次韭菜。这就是金融世界的第一次实战教育。",
+    "choices": [
+      {
+        "text": "没被发现——但你背负了一个秘密",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "作弊得手"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "良心债"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "圈子知道"
+          }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "出事了...",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "没复习也没作弊"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -20,
+            "label": "崩溃"
+          },
+          {
+            "target": "connections",
+            "value": -10,
+            "label": "名声毁了"
+          }
+        ],
+        "nextEventId": "exam_prep_normal"
+      }
+    ]
+  }
+]

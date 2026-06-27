@@ -1,0 +1,608 @@
+[
+  {
+    "id": "law_job_waiting",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "法考成绩还没出，你已经投了十几家律所的实习岗。手机上几个法律求职群里，每天都有人在问：!有收到面试通知的吗？! 你刷了一下邮箱——全是订阅的法学期刊推送。",
+    "choices": [
+      {
+        "text": "收到红圈所面试通知！",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "红圈光环"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "校友内推"
+          }
+        ],
+        "nextEventId": "law_job_interview"
+      },
+      {
+        "text": "只有一家小所回复了",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "落差"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "小所联系"
+          }
+        ],
+        "nextEventId": "law_job_interview"
+      }
+    ]
+  },
+  {
+    "id": "law_job_interview",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "合伙人面试。对面坐两个律师，一个在翻你的简历，一个在看手机。合伙人抬头问了第一个问题：!你对《民法典》第580条怎么看？! 你深吸一口气——法学四年就为了这一刻。",
+    "choices": [
+      {
+        "text": "对答如流，引用法条加案例",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "专业功底"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "合伙人赏识"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "自信"
+          }
+        ],
+        "nextEventId": "law_job_offer"
+      },
+      {
+        "text": "紧张，答得磕磕巴巴",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "面试翻车"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "精疲力竭"
+          }
+        ],
+        "nextEventId": "law_job_reject"
+      }
+    ]
+  },
+  {
+    "id": "law_job_reject",
+    "stage": "graduation",
+    "text": "HR 发来邮件：!感谢您的关注，经过慎重考虑……! 你盯着这行字看了十秒钟，然后把手机翻了个面。朋友圈里有同学晒出了红圈所的 offer，你点了个赞。外卖到了，麻辣烫，你发现备注里的\"多放辣椒\"被忽略了。",
+    "choices": [
+      {
+        "text": "继续面，不信进不了这行",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "硬扛"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "广撒网"
+          }
+        ],
+        "nextEventId": "law_job_interview"
+      },
+      {
+        "text": "试试公司法务方向",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "新思路"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "企业合规"
+          }
+        ],
+        "nextEventId": "law_job_offer"
+      },
+      {
+        "text": "考公吧",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "务实"
+          }
+        ],
+        "nextEventId": "civil_intro"
+      }
+    ]
+  },
+  {
+    "id": "law_job_offer",
+    "stage": "firstJob",
+    "text": "拿到了！一家中型律所的实习律师。工资3500，不包吃住，但挂证名额给你了。带教律师在电话里说：!前两年别想赚钱，先把案子跟下来。! 你算了一下：房租2200，交通300，吃饭1500——咦，怎么不够？",
+    "moment": {
+      "templateId": "law_offer_moment",
+      "text": "拿到律所offer了！实习律师，月薪3500，挂证有望。",
+      "replyPool": [
+        "恭喜！实习期忍过去就好了",
+        "3500？在北京？认真的吗",
+        "哪家所？什么方向？",
+        "律所前三年都是亏钱的…"
+      ]
+    },
+    "choices": [
+      {
+        "text": "接受，挂证最重要",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "职业起点"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "实习工资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有方向了"
+          }
+        ],
+        "nextEventId": "law_job_first_day"
+      },
+      {
+        "text": "再找找有没有更好的",
+        "effects": [
+          {
+            "target": "money",
+            "value": -5,
+            "label": "继续烧存款"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "不确定"
+          }
+        ],
+        "nextEventId": "law_job_waiting"
+      }
+    ]
+  },
+  {
+    "id": "law_job_first_day",
+    "stage": "firstJob",
+    "text": "第一天上班。带你的是个执业八年的女律师，你把她的名字写在笔记本上以防叫错。她扔给你一摞卷宗：!这五个案子你先看，下午我要你的法律检索结果。! 你翻了翻——合同纠纷、劳动争议、人身损害赔偿……全是大四课堂上没怎么讲的实务。",
+    "choices": [
+      {
+        "text": "埋头啃卷，不懂就问",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "实务入门"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "烧脑"
+          }
+        ],
+        "nextEventId": "law_first_case"
+      },
+      {
+        "text": "先建立关系，主动社交",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "同事好感"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "业务滞后"
+          }
+        ],
+        "nextEventId": "law_first_case"
+      }
+    ]
+  },
+  {
+    "id": "law_first_case",
+    "stage": "firstJob",
+    "diceRoll": true,
+    "text": "你的第一个案子是一起合同纠纷：甲方给乙方供了货，乙方说质量不行，不付尾款。带教律师让你试着写一份代理词。你熬了两个通宵，查了四十几个判例，改了六版。交上去的时候，手都在抖。",
+    "choices": [
+      {
+        "text": "代理词被采纳，案件胜诉",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "实战成长"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "客户认可"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "成就感"
+          }
+        ],
+        "nextEventId": "law_three_months"
+      },
+      {
+        "text": "写得不够好，被打回来改了五遍",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "改了五遍"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "挫败"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "通宵修改"
+          }
+        ],
+        "nextEventId": "law_three_months"
+      }
+    ]
+  },
+  {
+    "id": "law_three_months",
+    "stage": "firstJob",
+    "text": "入职三个月。你已经习惯了早九晚十一的律所生活。办公桌上堆的卷宗从五本变成二十本。你学会了一项新技能：在出租车上用手机改法律意见书。朋友聚会你总是迟到，后来你开始直接不来。",
+    "lonelyMoment": "凌晨一点，你从律所出来，打车回家。司机放着一首老歌，你忽然想起自己已经三个月没去过电影院了。你在出租车后座闭上眼，觉得\"活着\"和\"生活\"之间隔了一整个开庭季。",
+    "choices": [
+      {
+        "text": "坚持，律师这条路就是这样",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "律师思维养成"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "被掏空"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "超长工时"
+          }
+        ],
+        "nextEventId": "law_bar_crossroads"
+      },
+      {
+        "text": "有点想退出了",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "自我关怀"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "半途而废？"
+          }
+        ],
+        "nextEventId": "law_bar_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "law_bar_crossroads",
+    "stage": "firstJob",
+    "text": "挂证满一年，你可以申请执业了。带教律师找你谈话：!要么继续跟着我干，三年后有机会升合伙人；要么你独立执业，自己找案源。两条路都不好走，但你得选一条。! 律所窗外的城市灯火通明，你忽然意识到——法学的分水岭不在法学院，而在这一刻。",
+    "choices": [
+      {
+        "text": "继续跟带教，深耕专业方向",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "专业深耕"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "师傅资源"
+          }
+        ],
+        "nextEventId": "law_two_years"
+      },
+      {
+        "text": "独立执业，自己闯",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "独立案源"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "自负盈亏"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "为自己干"
+          }
+        ],
+        "nextEventId": "law_two_years"
+      },
+      {
+        "text": "跳公司法务，稳定点",
+        "effects": [
+          {
+            "target": "money",
+            "value": 10,
+            "label": "法务薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "稳定感"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "脱离诉讼"
+          }
+        ],
+        "nextEventId": "law_two_years"
+      }
+    ]
+  },
+  {
+    "id": "law_two_years",
+    "stage": "work",
+    "text": "执业两年了。你的案源从带教给的变成自己谈的。你在法院门口等开庭的时候，旁边新来的实习律师叫你\"前辈\"。你低头看了眼手机——当年的同学群里，有人在公司法务部刚升了总监，有人在体制内拿到了正科。你回了一句：*活着呢。*",
+    "choices": [
+      {
+        "text": "继续深耕诉讼，成为出庭律师",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "庭审经验"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "案件费"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "开庭季"
+          }
+        ],
+        "nextEventId": "law_career_crossroads"
+      },
+      {
+        "text": "转型非诉，做并购或IPO",
+        "effects": [
+          {
+            "target": "money",
+            "value": 15,
+            "label": "非诉起薪"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "新领域"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "从头开始"
+          }
+        ],
+        "nextEventId": "law_career_crossroads"
+      },
+      {
+        "text": "考公，进法检系统",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "体制稳定"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "降薪"
+          }
+        ],
+        "nextEventId": "civil_intro"
+      }
+    ]
+  },
+  {
+    "id": "law_career_crossroads",
+    "stage": "work",
+    "text": "又一个深夜从律所出来。你站在事务所楼下，抬头看那扇还亮着灯的窗户——那是你的工位。你知道那盏灯会一直亮到凌晨。你摸了摸口袋里的执业证。*这条路还要走多久？* 你问自己。但你没有停下脚步。",
+    "choices": [
+      {
+        "text": "继续奋斗，奔着合伙人去",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "合伙人之路"
+          },
+          {
+            "target": "money",
+            "value": 12,
+            "label": "创收增长"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "燃烧"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "自立门户，开所创业",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "自立门户"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "投资开所"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "自主感"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "够了，找一种更平衡的活法",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 20,
+            "label": "放过了自己"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "平稳生活"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "encounter_law_perjury",
+    "stage": "work",
+    "text": "你代理的一个案子，当事人私下要求你帮他在法庭上补充一些细节——其实就是作伪证。他说：!律师不就是帮当事人说话的吗？! 你说伪证是刑事犯罪。他说：!案子赢了我给你双倍代理费。! 双倍代理费够你换辆好车。做伪证被查到，最轻吊销执照。你看着律师执业证号，犹豫了。",
+    "choices": [
+      {
+        "text": "接了——富贵险中求",
+        "effects": [
+          {
+            "target": "money",
+            "value": 20,
+            "label": "代理费翻倍"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "赢了案子"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -20,
+            "label": "律师证悬了"
+          },
+          {
+            "target": "connections",
+            "value": -10,
+            "label": "同行知道了"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "拒绝，职业底线不能丢",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "睡得着"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "法官信任"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "职业操守"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ],
+    "condition": {
+      "type": "major",
+      "major": "law"
+    }
+  }
+]

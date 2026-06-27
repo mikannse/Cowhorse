@@ -1,0 +1,456 @@
+[
+  {
+    "id": "med_job_waiting",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "医学本科五年结束了，你以为终于熬出头了——然后发现还要规培三年。你盯着规培基地的申请表格，一共要填十七页。爸妈打电话问你毕业去哪个医院，你说：*先规培，再定。* 他们沉默了三秒。",
+    "choices": [
+      {
+        "text": "拿到三甲规培名额！",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "三甲平台"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "名医带教"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "三甲强度"
+          }
+        ],
+        "nextEventId": "med_job_offer"
+      },
+      {
+        "text": "只进了二级医院规培",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "基层经验"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "不甘"
+          }
+        ],
+        "nextEventId": "med_job_offer"
+      }
+    ]
+  },
+  {
+    "id": "med_job_offer",
+    "stage": "firstJob",
+    "text": "规培录取通知来了。规培工资1800，住医院宿舍（六人间，比大学还挤）。你妈在电话里说：!没事，熬过规培就好了。! 你已经不知道这是第几次听到\"熬过去就好了\"——高考、考研、规培、主治、副高……医学生的一生就是一场无限续杯的\"熬\"。",
+    "moment": {
+      "templateId": "med_offer_moment",
+      "text": "规培录取了！三甲医院，月薪1800，包住（六人间）。",
+      "replyPool": [
+        "规培是真的苦，但必经之路",
+        "1800？认真的？",
+        "哪家医院？什么科？",
+        "医学狗加油，熬过去就是晴天"
+      ]
+    },
+    "choices": [
+      {
+        "text": "接受规培，踏上从医之路",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "规培起点"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "规培工资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "梦想"
+          }
+        ],
+        "nextEventId": "med_job_first_day"
+      }
+    ]
+  },
+  {
+    "id": "med_job_first_day",
+    "stage": "firstJob",
+    "text": "规培第一天。六点起床，六点半查房，七点跟主治开始了一台阑尾炎手术。你站在手术室里，手不知道该放哪——无菌区、非无菌区、离体区，脑子里飞快转着教科书上的图示。主治看了你一眼：!扶好拉钩，别乱动。!",
+    "choices": [
+      {
+        "text": "高度集中，拼命学习",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "临床入门"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "精神紧张"
+          }
+        ],
+        "nextEventId": "med_night_shift"
+      },
+      {
+        "text": "主动帮护理，建立团队关系",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "医护关系"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "全科视野"
+          }
+        ],
+        "nextEventId": "med_night_shift"
+      }
+    ]
+  },
+  {
+    "id": "med_night_shift",
+    "stage": "firstJob",
+    "diceRoll": true,
+    "text": "第一个夜班。你以为夜班就是\"值班\"——结果从晚上九点到早上五点，急诊来了三个心梗、一个脑梗、两个车祸。你最后在值班室的地铺上睡着的时候，白大褂还穿着。被叫醒时发现只睡了四十分钟。",
+    "choices": [
+      {
+        "text": "顶住了，还参与了一台抢救",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "抢救经验"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "硬核成长"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "累到虚脱"
+          }
+        ],
+        "nextEventId": "med_three_months"
+      },
+      {
+        "text": "撑不住了，在值班室吐了",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "体力透支"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "怀疑人生"
+          }
+        ],
+        "nextEventId": "med_three_months"
+      }
+    ]
+  },
+  {
+    "id": "med_three_months",
+    "stage": "firstJob",
+    "text": "规培三个月。你已经习惯了凌晨被叫起来处理术后发热的患者。手机里最多的聊天记录是\"老师，这个医嘱怎么开\"。你的白大褂口袋里装着听诊器、叩诊锤、手电筒——以及两包速溶咖啡和一板布洛芬。",
+    "lonelyMoment": "你站在病房走廊的尽头，凌晨三点。两边的病房都很安静，只有仪器偶尔发出\"滴——\"的声音。你忽然想不起来上一次和朋友吃饭是什么时候了。你拿出手机，发现朋友圈里同龄人在晒周末露营。你关了手机，继续查房。",
+    "choices": [
+      {
+        "text": "熬下去，医学没有捷径",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "规培积累"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "透支"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "永动模式"
+          }
+        ],
+        "nextEventId": "med_thesis_crossroads"
+      },
+      {
+        "text": "认真考虑转行",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "权衡"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "离开临床？"
+          }
+        ],
+        "nextEventId": "med_thesis_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "med_thesis_crossroads",
+    "stage": "firstJob",
+    "text": "规培第二年，还要写论文。科主任说了：!没有论文，晋职称免谈。! 你白天收病人、上手术，晚上趴在宿舍的折叠桌上对着 SPSS 发呆。数据跑出来 p>0.05，你差点把电脑砸了。同事说：*咱们这行就是——白天治病，晚上治数据。*",
+    "choices": [
+      {
+        "text": "拼了，把论文搞出来",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "学术能力"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "双重压榨"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "焦虑"
+          }
+        ],
+        "nextEventId": "med_attend_crossroads"
+      },
+      {
+        "text": "不卷科研了，专注临床",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "临床深耕"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "放下执念"
+          }
+        ],
+        "nextEventId": "med_attend_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "med_attend_crossroads",
+    "stage": "work",
+    "text": "规培结束，你终于拿到执业医师证。接下来有三条路：继续留在本院做住院医、去下级医院直接做主治、或者彻底转行去药企做医学顾问。你坐在医院的天台上吃盒饭，看着下面排成长队的门诊病人。",
+    "choices": [
+      {
+        "text": "留在本院，往主治方向努力",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "专科方向"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "本院人脉"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "住院医薪资"
+          }
+        ],
+        "nextEventId": "med_two_years"
+      },
+      {
+        "text": "去下级医院，做主治拿编制",
+        "effects": [
+          {
+            "target": "money",
+            "value": 10,
+            "label": "主治薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "降维发展"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "平台下降"
+          }
+        ],
+        "nextEventId": "med_two_years"
+      },
+      {
+        "text": "去药企，告别临床",
+        "effects": [
+          {
+            "target": "money",
+            "value": 20,
+            "label": "药企高薪"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "脱离临床"
+          },
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "告别医术"
+          }
+        ],
+        "nextEventId": "med_two_years"
+      }
+    ]
+  },
+  {
+    "id": "med_two_years",
+    "stage": "work",
+    "text": "行医两年。你终于不用被叫\"同学\"了——现在病人叫你\"医生\"。你管着二十几个住院病人，每天签不完的病历和知情同意书。一位老太太出院的时候握着你的手说\"谢谢\"。你那天晚上值夜班的时候，觉得——*也许这就是学医的意义。*",
+    "choices": [
+      {
+        "text": "继续，医学是终身事业",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "医术精进"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "职称薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "找到了意义"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "够了，该照顾自己的身体了",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "自我关怀"
+          },
+          {
+            "target": "money",
+            "value": 8,
+            "label": "稳定生活"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "去基层医疗，做慢病管理",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "工作平衡"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "社区关系"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "encounter_med_fraud",
+    "stage": "work",
+    "text": "一个病人家属私下找到你，说能不能让病人多住几天——医保额度没用完，不住白不住。他塞给你一个信封，大概是一个月工资。你知道这不对——过度医疗占用公共资源。但这个月房租涨了 500，你妈还在问你要钱修房子。信封在手里有温度。",
+    "choices": [
+      {
+        "text": "收了，开住院单",
+        "effects": [
+          {
+            "target": "money",
+            "value": 15,
+            "label": "信封里的钱"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "医德何在"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "过度医疗伤专业"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "拒绝，按正规流程走",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "良心无愧"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "患者尊重"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ],
+    "condition": {
+      "type": "major",
+      "major": "med"
+    }
+  }
+]

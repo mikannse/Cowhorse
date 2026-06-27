@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import constants from '../content/constants.json';
 import { useGameStore } from '../engine/useGameStore';
 
@@ -15,6 +15,23 @@ export default function MomentsFeed() {
 
   const moment = moments[moments.length - 1];
 
+  const [replyCount, setReplyCount] = useState(0);
+
+  useEffect(() => {
+    if (!moment) {
+      setReplyCount(0);
+      return;
+    }
+    const count = Math.min(
+      moment.replyPool.length,
+      Math.max(
+        constants.moments.repliesPerPost.min,
+        Math.floor(Math.random() * (constants.moments.repliesPerPost.max + 1))
+      )
+    );
+    setReplyCount(count);
+  }, [moment?.templateId]);
+
   useEffect(() => {
     if (!moment) return;
     const timer = setTimeout(() => clearMoments(), 6000);
@@ -23,15 +40,8 @@ export default function MomentsFeed() {
 
   const replies = useMemo(() => {
     if (!moment) return [];
-    const count = Math.min(
-      moment.replyPool.length,
-      Math.max(
-        constants.moments.repliesPerPost.min,
-        Math.floor(Math.random() * (constants.moments.repliesPerPost.max + 1))
-      )
-    );
-    return moment.replyPool.slice(0, count);
-  }, [moment]);
+    return moment.replyPool.slice(0, replyCount);
+  }, [moment, replyCount]);
 
   return (
     <AnimatePresence>

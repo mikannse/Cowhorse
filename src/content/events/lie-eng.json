@@ -1,0 +1,138 @@
+[
+  {
+    "id": "eng_lie_intro",
+    "stage": "gap",
+    "text": "行业寒冬。你在群里看到的消息从'哪个设计院在招人'变成了'兄弟们，有没有非土木的岗位推荐'。你投了三个月简历，土木相关的岗位少得可怜，不限专业的岗位又竞争不过其他专业。你第一次理解了什么叫'存量博弈'——不是不想干，是没活干。你去工地上看了看，塔吊停了，机器生了锈，只有看门大爷还在。大爷说：*这行就跟盖楼一样，有盖就有停。你们年轻人，等等呗。* 你不知道等什么。你只知道：你不想等了。",
+    "choices": [
+      {
+        "text": "做点零工，先混着",
+        "effects": [
+          {
+            "target": "money",
+            "value": 5,
+            "label": "零工收入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有口饭吃"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "专业荒废"
+          }
+        ],
+        "nextEventId": "lie_freelance"
+      },
+      {
+        "text": "彻底躺平，什么都不想",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "不想面对"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "积蓄减少"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "社交归零"
+          }
+        ],
+        "nextEventId": "lie_full_flat"
+      },
+      {
+        "text": "以前认识的一个小施工队老板找到你——他们有批活要验收，但没有资质。他想借用你的工程师执业资格章。一张图纸盖一个章，500 块。你说这不合规，他说：!这个行业不都这样吗？! 你想起大学老师说的第一句话：'土木工程，人命关天。'（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": 10,
+            "label": "盖章费"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "出了事你负责"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "行业内的名声"
+          }
+        ],
+        "nextEventId": "eng_lie_awakening"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "eng_lie_awakening",
+    "stage": "gap",
+    "text": "一个偶然的机会，你帮朋友家的装修做了个简单的结构方案。朋友给了你一笔钱，说比请设计院划算多了。你看着那张你自己画的草图，忽然想起来——你学的不只是混凝土和钢筋，你学的是'怎么把想法变成现实'。这些年工地教会你的不只是吃苦——是解决问题。*工程人的基因是：再难的项目也得开工。现在，是时候给自己打地基了。*",
+    "choices": [
+      {
+        "text": "转新能源基建，跟着风口走",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "新赛道"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "新行业薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "看到希望"
+          }
+        ],
+        "nextEventId": "eng_career_crossroads"
+      },
+      {
+        "text": "考公，发挥土木专业优势",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "稳定路线"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "体制内"
+          }
+        ],
+        "nextEventId": "civil_intro"
+      },
+      {
+        "text": "用工程管理经验转行做项目经理",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "管理能力"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "跨行业人脉"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "新领域收入"
+          }
+        ],
+        "nextEventId": "job_interview"
+      }
+    ]
+  }
+]

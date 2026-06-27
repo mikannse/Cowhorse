@@ -29,14 +29,14 @@ cowhorse/
 │   │
 │   ├── engine/                     # Game state machine & logic
 │   │   ├── useGameStore.ts         # Zustand store (attributes, events, dice, moments, endings)
-│   │   ├── eventEvaluator.ts       # Choice visibility & event availability via conditions
+│   │   ├── eventEvaluator.ts       # Choice filtering, event routing, stage transition validation, encounter selection
 │   │   ├── diceRoller.ts           # 1d6 with [-3,+3] modifier
 │   │   └── memeEvaluator.ts        # Evaluate meme timing (correct/wrong/none)
 │   │
 │   ├── content/                    # JSON-driven game content
 │   │   ├── events/*.json           # Event data per life path
 │   │   ├── events/index.ts         # Loads JSON into Map<EventId, GameEvent>
-│   │   ├── stages.json             # Life stage definitions (order & progression)
+│   │   ├── stages.json             # Stage display labels & ordering (transition rules in eventEvaluator.ts)
 │   │   ├── endings.json            # Ending conditions with rarity tiers
 │   │   └── constants.json          # Game config (typewriter speed, moment reply count)
 │   │
@@ -82,9 +82,11 @@ All game content lives in `src/content/events/*.json` — each JSON file contain
 
 The game loop is driven by `useNarrative`:
 1. Read `currentEvent` from store → display text via `NarrativeBox` (typewriter effect)
-2. Filter choices via `getVisibleChoices()` → evaluate each choice's `condition` against current state
+2. If event has `diceRoll`, trigger dice animation; filter choices via `getVisibleChoices()` → evaluate each choice's `condition` against current state
 3. Player picks a choice → `applyEffect()` mutates attributes, check for meme reactions, stage transitions, or ending
-4. Navigate to `choice.nextEventId` or end game
+4. **Encounter check**: if `currentEvent` is NOT itself an encounter, `getRandomEncounter()` fires (20% chance; stage-filtered; excludes already-visited encounters). If an encounter fires, save `storyReturnEventId` as the return target and navigate to the encounter. The encounter resolves back to the saved story target via `__return_to_story__` sentinel.
+5. **Stage validation**: `isValidStageTransition(from, to)` checks the stage transition table. Invalid transitions silently preserve current stage.
+6. Navigate to next event or end game
 
 ### State Machine (Zustand)
 
@@ -92,7 +94,8 @@ All mutable state lives in `useGameStore`: attributes (5 numbers clamped 0–100
 
 Key transitions:
 - **Attribute → 0**: `mentalHealth <= 0` immediately triggers `mental_breakdown` ending
-- **Stage change**: When `nextEvent.stage !== currentEvent.stage`, the store updates stage and emits a moment
+- **Stage change**: Validated via `isValidStageTransition(from, to)` — engine silently rejects illegal transitions (e.g. `work → undergrad`). Transition table in `eventEvaluator.ts` is the single source of truth.
+- **Encounter injection**: 20% chance per story event (no chaining — encounters don't trigger other encounters). Each encounter fires at most once per game (`visitedEvents` check).
 - **Ending**: Either explicit `ending_reached` event ID, or `nextEvent.stage === 'ending'` triggers `evaluateEnding()` against the condition tree
 
 ### Condition System
@@ -124,3 +127,5 @@ Layout constrained to `max-width: 480px` centered. Paper-themed with shadow-card
 - **JSON content = game logic**: Event conditions, choices, effects, endings — all driven by JSON. TypeScript types validate structure at import time.
 - **Effects describe both target and value**: `GameEffect { target: AttributeKey; value: number; label?: string }` — no side effects in content; `applyEffects()` in `effects.ts` handles clamping and returns deltas.
 - **Ending evaluation is first-match**: `evaluateEnding()` iterates endings in order and returns the first whose condition matches; `stable_retirement` is the fallback.
+- **Encounter events are single-play**: Each `encounter_*` event fires at most once per game (`visitedEvents` check). Encounters do not chain — resolving an encounter always returns to the main storyline.
+- **Stage transitions are validated**: `isValidStageTransition()` enforces the legal transition graph. Invalid jumps (e.g. `work → undergrad`) are silently rejected, preserving the current stage.

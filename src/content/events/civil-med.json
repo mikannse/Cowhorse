@@ -1,0 +1,112 @@
+[
+  {
+    "id": "med_civil_intro",
+    "stage": "graduation",
+    "text": "医学生考公——你的同学群里分成了三派：规培的、考研的、还有两个考了卫健委。你选择了第三条路：卫健委。你受够了夜班、受够了医患纠纷、受写了那么多病历只换来一句'医生了不起啊'。考公行测里的类比推理让你想起病理分型，申论的议论文让你回忆起写论文的日夜。你妈说：!学医去卫健委，不是浪费吗？! 你说：*浪费五年学医，总比浪费一辈子临床强。*",
+    "choices": [
+      {
+        "text": "冲卫健委/医保局，专业强相关",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "医学背景优势"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "医疗系统人脉"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "换条路"
+          }
+        ],
+        "nextEventId": "civil_study"
+      },
+      {
+        "text": "药监局/疾控中心，更加对口",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "专业高度对口"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "专业考试"
+          }
+        ],
+        "nextEventId": "civil_study"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "med_civil_work",
+    "stage": "firstJob",
+    "text": "你进了卫健委，发现这里的工作和你想象的'告别临床'有天壤之别。你的医学背景在这里是稀缺资源——同事看不懂的检查报告你来解读，医院上报的医疗质量数据你来分析，甚至领导讲话里的专业术语都是你帮写的。主任在一次会上说：!这个问题请医科出身的小王回答。! 你忽然发现——穿上白大褂是治病救人，坐在这间办公室里是守护整个医疗系统。虽然成就感不同，但也不是没有。",
+    "choices": [
+      {
+        "text": "发挥医学专长，做政策制定者",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "卫生政策"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "医疗机构关系"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "找到了意义"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "还是怀念临床，考虑回去",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "纠结"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "医术生疏"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "一个医药代表约你'喝咖啡'，暗示只要你在采购目录里加上他们的新药——每季度有'咨询费'（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": 10,
+            "label": "灰色收入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "以权谋私"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "被人抓住了把柄"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      }
+    ]
+  }
+]

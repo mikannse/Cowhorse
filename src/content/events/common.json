@@ -11,7 +11,6 @@
       }
     ]
   },
-
   {
     "id": "encounter_fortune",
     "stage": "undergrad",
@@ -26,14 +25,28 @@
       {
         "text": "太好了！试试内推",
         "effects": [
-          { "target": "connections", "value": 10, "label": "内推" },
-          { "target": "mentalHealth", "value": 10, "label": "好运" }
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "内推"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "好运"
+          }
         ],
         "nextEventId": "job_interview"
       },
       {
         "text": "加个好友，以后再说",
-        "effects": [{ "target": "connections", "value": 5, "label": "人脉" }],
+        "effects": [
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "人脉"
+          }
+        ],
         "nextEventId": "job_intro"
       }
     ]
@@ -46,9 +59,21 @@
       {
         "text": "好好休息，身体第一",
         "effects": [
-          { "target": "energy", "value": -20, "label": "病倒" },
-          { "target": "mentalHealth", "value": -10, "label": "脆弱" },
-          { "target": "money", "value": -5, "label": "医药费" }
+          {
+            "target": "energy",
+            "value": -20,
+            "label": "病倒"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "脆弱"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "医药费"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -60,8 +85,18 @@
     "condition": {
       "type": "and",
       "conditions": [
-        { "type": "attribute", "attr": "connections", "operator": "gte", "value": 40 },
-        { "type": "attribute", "attr": "mentalHealth", "operator": "lt", "value": 50 }
+        {
+          "type": "attribute",
+          "attr": "connections",
+          "operator": "gte",
+          "value": 40
+        },
+        {
+          "type": "attribute",
+          "attr": "mentalHealth",
+          "operator": "lt",
+          "value": 50
+        }
       ]
     },
     "text": "一个很久没联系的朋友突然发消息：!最近怎么样？! 你盯着屏幕看了五分钟，不知道该从何说起。最后你回了三个字：*还活着。*",
@@ -70,8 +105,16 @@
       {
         "text": "约出来聊聊",
         "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "倾诉" },
-          { "target": "connections", "value": 5, "label": "友情回温" }
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "倾诉"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "友情回温"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -85,20 +128,48 @@
     "choices": [
       {
         "text": "接，有钱不赚是傻子",
-        "condition": { "type": "dice", "min": 3, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 3,
+          "max": 6
+        },
         "effects": [
-          { "target": "money", "value": 20, "label": "外快" },
-          { "target": "energy", "value": -15, "label": "熬夜做单" },
-          { "target": "skill", "value": 5, "label": "实战经验" }
+          {
+            "target": "money",
+            "value": 20,
+            "label": "外快"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "熬夜做单"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "实战经验"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "算了，太累了",
-        "condition": { "type": "dice", "min": 1, "max": 2 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 2
+        },
         "effects": [
-          { "target": "energy", "value": 5, "label": "休息" },
-          { "target": "money", "value": -5, "label": "错失机会" }
+          {
+            "target": "energy",
+            "value": 5,
+            "label": "休息"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "错失机会"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -112,16 +183,32 @@
       {
         "text": "烦躁，不想接电话了",
         "effects": [
-          { "target": "mentalHealth", "value": -10, "label": "压力" },
-          { "target": "connections", "value": -5, "label": "疏远家人" }
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "压力"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "疏远家人"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "耐心解释自己的计划",
         "effects": [
-          { "target": "mentalHealth", "value": -5, "label": "解释" },
-          { "target": "connections", "value": 5, "label": "家人理解" }
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "解释"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "家人理解"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -140,14 +227,21 @@
       {
         "text": "心情愉快地继续今天",
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "好心情" },
-          { "target": "money", "value": 5, "label": "意外之财" }
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "好心情"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "意外之财"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
     ]
   },
-
   {
     "id": "encounter_graduation_trip",
     "stage": "graduation",
@@ -162,18 +256,42 @@
       {
         "text": "去！青春不留遗憾",
         "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "美好回忆" },
-          { "target": "money", "value": -15, "label": "旅费" },
-          { "target": "connections", "value": 10, "label": "最后的情谊" }
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "美好回忆"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "旅费"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "最后的情谊"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "算了，省点钱吧",
         "effects": [
-          { "target": "money", "value": 5, "label": "省钱" },
-          { "target": "mentalHealth", "value": -5, "label": "遗憾" },
-          { "target": "connections", "value": -5, "label": "疏远" }
+          {
+            "target": "money",
+            "value": 5,
+            "label": "省钱"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "遗憾"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "疏远"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -188,14 +306,21 @@
       {
         "text": "发个朋友圈留念",
         "effects": [
-          { "target": "connections", "value": 5, "label": "保持联系" },
-          { "target": "mentalHealth", "value": 5, "label": "仪式感" }
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "保持联系"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "仪式感"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
     ]
   },
-
   {
     "id": "encounter_first_salary",
     "stage": "firstJob",
@@ -210,16 +335,32 @@
       {
         "text": "存一半，花一半",
         "effects": [
-          { "target": "money", "value": 5, "label": "理财意识" },
-          { "target": "mentalHealth", "value": 5, "label": "踏实" }
+          {
+            "target": "money",
+            "value": 5,
+            "label": "理财意识"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "踏实"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "犒劳自己一顿好的",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "奖励自己" },
-          { "target": "money", "value": -10, "label": "消费" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "奖励自己"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "消费"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -239,17 +380,37 @@
       {
         "text": "开始锻炼，命重要",
         "effects": [
-          { "target": "energy", "value": 15, "label": "开始运动" },
-          { "target": "mentalHealth", "value": 10, "label": "重视健康" },
-          { "target": "money", "value": -5, "label": "健身卡" }
+          {
+            "target": "energy",
+            "value": 15,
+            "label": "开始运动"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "重视健康"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "健身卡"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "没时间，以后再说",
         "effects": [
-          { "target": "energy", "value": -15, "label": "继续消耗" },
-          { "target": "mentalHealth", "value": -10, "label": "忽视健康" }
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "继续消耗"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "忽视健康"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -269,16 +430,32 @@
       {
         "text": "大方分享，真诚交流",
         "effects": [
-          { "target": "connections", "value": 10, "label": "人脉维系" },
-          { "target": "mentalHealth", "value": 5, "label": "社交能量" }
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "人脉维系"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "社交能量"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "低调敷衍，不想攀比",
         "effects": [
-          { "target": "mentalHealth", "value": -5, "label": "社交压力" },
-          { "target": "connections", "value": -5, "label": "渐行渐远" }
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "社交压力"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "渐行渐远"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -299,17 +476,37 @@
       {
         "text": "周末回家一趟",
         "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "家的温暖" },
-          { "target": "connections", "value": 10, "label": "亲情" },
-          { "target": "money", "value": -10, "label": "路费" }
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "家的温暖"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "亲情"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "路费"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "打个视频电话",
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "联系" },
-          { "target": "connections", "value": 5, "label": "维系" }
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "联系"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "维系"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -329,27 +526,59 @@
     "choices": [
       {
         "text": "拿点闲钱试试投资",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "money", "value": 15, "label": "投资收益" },
-          { "target": "skill", "value": 5, "label": "理财技能" }
+          {
+            "target": "money",
+            "value": 15,
+            "label": "投资收益"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "理财技能"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "试试投资",
-        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
         "effects": [
-          { "target": "money", "value": -20, "label": "投资亏损" },
-          { "target": "mentalHealth", "value": -10, "label": "被割韭菜" }
+          {
+            "target": "money",
+            "value": -20,
+            "label": "投资亏损"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "被割韭菜"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "不碰这些，踏实攒钱",
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "定力" },
-          { "target": "money", "value": 5, "label": "稳健" }
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "定力"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "稳健"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -369,16 +598,32 @@
       {
         "text": "算了，继续单身吧",
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "躺平" },
-          { "target": "connections", "value": -5, "label": "回避" }
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "躺平"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "回避"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "继续相亲，不信没合适的",
         "effects": [
-          { "target": "energy", "value": -10, "label": "社交消耗" },
-          { "target": "mentalHealth", "value": -5, "label": "疲惫" }
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "社交消耗"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "疲惫"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -392,25 +637,48 @@
     "choices": [
       {
         "text": "中了！虽然不是大奖",
-        "condition": { "type": "dice", "min": 6, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 6,
+          "max": 6
+        },
         "effects": [
-          { "target": "money", "value": 30, "label": "小奖" },
-          { "target": "mentalHealth", "value": 15, "label": "意外之喜" }
+          {
+            "target": "money",
+            "value": 30,
+            "label": "小奖"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "意外之喜"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "果然没中",
-        "condition": { "type": "dice", "min": 1, "max": 5 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 5
+        },
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "买了个梦" },
-          { "target": "money", "value": -2, "label": "两块钱" }
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "买了个梦"
+          },
+          {
+            "target": "money",
+            "value": -2,
+            "label": "两块钱"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
     ]
   },
-
   {
     "id": "encounter_lab_accident",
     "stage": "postgrad",
@@ -419,17 +687,37 @@
       {
         "text": "重新来，数据总会有的",
         "effects": [
-          { "target": "mentalHealth", "value": -10, "label": "崩溃" },
-          { "target": "energy", "value": -15, "label": "重跑" },
-          { "target": "skill", "value": 5, "label": "抗压能力" }
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "崩溃"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "重跑"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "抗压能力"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "今天不干了，明天再说",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "放空" },
-          { "target": "energy", "value": 10, "label": "休息" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "放空"
+          },
+          {
+            "target": "energy",
+            "value": 10,
+            "label": "休息"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -449,15 +737,26 @@
       {
         "text": "趁机多交流，拓展人脉",
         "effects": [
-          { "target": "connections", "value": 15, "label": "学术界人脉" },
-          { "target": "skill", "value": 5, "label": "学术视野" },
-          { "target": "energy", "value": -5, "label": "社交消耗" }
+          {
+            "target": "connections",
+            "value": 15,
+            "label": "学术界人脉"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "学术视野"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "社交消耗"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
     ]
   },
-
   {
     "id": "encounter_bureaucracy_humor",
     "stage": "firstJob",
@@ -470,14 +769,21 @@
       {
         "text": "习惯了，体制内就这样",
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "淡然" },
-          { "target": "skill", "value": -5, "label": "磨平" }
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "淡然"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "磨平"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
     ]
   },
-
   {
     "id": "encounter_midnight_epiphany",
     "stage": "work",
@@ -493,14 +799,21 @@
       {
         "text": "想想人生到底要什么……",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "反思" },
-          { "target": "energy", "value": -5, "label": "失眠" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "反思"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "失眠"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
     ]
   },
-
   {
     "id": "encounter_tech_leetcode",
     "stage": "work",
@@ -513,20 +826,48 @@
     "choices": [
       {
         "text": "刷通了！拿到大厂面试",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "skill", "value": 15, "label": "算法提升" },
-          { "target": "mentalHealth", "value": 10, "label": "信心" },
-          { "target": "connections", "value": 5, "label": "内推" }
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "算法提升"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "信心"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "内推"
+          }
         ],
         "nextEventId": "job_interview"
       },
       {
         "text": "继续刷题之路",
-        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
         "effects": [
-          { "target": "mentalHealth", "value": -10, "label": "刷题焦虑" },
-          { "target": "skill", "value": 5, "label": "略有提升" }
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "刷题焦虑"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "略有提升"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -554,17 +895,37 @@
       {
         "text": "趁热打铁，继续维护项目",
         "effects": [
-          { "target": "skill", "value": 12, "label": "技术影响力" },
-          { "target": "connections", "value": 10, "label": "开源社区" },
-          { "target": "energy", "value": -10, "label": "维护很累" }
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "技术影响力"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "开源社区"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "维护很累"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "看看有没有商业化的机会",
         "effects": [
-          { "target": "money", "value": 15, "label": "创业想法" },
-          { "target": "mentalHealth", "value": 10, "label": "兴奋" }
+          {
+            "target": "money",
+            "value": 15,
+            "label": "创业想法"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "兴奋"
+          }
         ],
         "nextEventId": "job_entrepreneur"
       }
@@ -582,17 +943,37 @@
       {
         "text": "满意，继续深耕金融圈",
         "effects": [
-          { "target": "money", "value": 20, "label": "年终奖" },
-          { "target": "mentalHealth", "value": 5, "label": "还行" },
-          { "target": "connections", "value": 5, "label": "行业积累" }
+          {
+            "target": "money",
+            "value": 20,
+            "label": "年终奖"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "还行"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "行业积累"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "开始怀疑金融的意义",
         "effects": [
-          { "target": "mentalHealth", "value": -10, "label": "意义危机" },
-          { "target": "money", "value": 10, "label": "奖金" }
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "意义危机"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "奖金"
+          }
         ],
         "nextEventId": "job_health_wakeup"
       }
@@ -611,17 +992,37 @@
       {
         "text": "坚定行医，救死扶伤",
         "effects": [
-          { "target": "skill", "value": 15, "label": "临床经验" },
-          { "target": "mentalHealth", "value": 10, "label": "使命感" },
-          { "target": "energy", "value": -20, "label": "36小时值班" }
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "临床经验"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "使命感"
+          },
+          {
+            "target": "energy",
+            "value": -20,
+            "label": "36小时值班"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "太累了，考虑转行",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "放过自己" },
-          { "target": "skill", "value": -10, "label": "多年白学" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "放过自己"
+          },
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "多年白学"
+          }
         ],
         "nextEventId": "job_career_crossroads"
       }
@@ -639,20 +1040,48 @@
     "choices": [
       {
         "text": "冷静处理，展现专业能力",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "skill", "value": 15, "label": "工程管理" },
-          { "target": "connections", "value": 10, "label": "甲方信任" },
-          { "target": "mentalHealth", "value": -5, "label": "高压" }
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "工程管理"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "甲方信任"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "高压"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "算了，这行真的不行了",
-        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
         "effects": [
-          { "target": "mentalHealth", "value": -15, "label": "行业绝望" },
-          { "target": "energy", "value": -10, "label": "心累" }
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "行业绝望"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "心累"
+          }
         ],
         "nextEventId": "job_career_crossroads"
       }
@@ -670,20 +1099,48 @@
     "choices": [
       {
         "text": "法考通过！",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "skill", "value": 15, "label": "法律职业资格" },
-          { "target": "mentalHealth", "value": 12, "label": "终于解放" },
-          { "target": "connections", "value": 5, "label": "律所 offer" }
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "法律职业资格"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "终于解放"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "律所 offer"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "差几分没过",
-        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
         "effects": [
-          { "target": "mentalHealth", "value": -15, "label": "法考失利" },
-          { "target": "energy", "value": -10, "label": "再来一年" }
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "法考失利"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "再来一年"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -711,17 +1168,37 @@
       {
         "text": "抓住机会，把创作当事业",
         "effects": [
-          { "target": "money", "value": 10, "label": "变现" },
-          { "target": "mentalHealth", "value": 12, "label": "被认可" },
-          { "target": "connections", "value": 12, "label": "粉丝圈" }
+          {
+            "target": "money",
+            "value": 10,
+            "label": "变现"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "被认可"
+          },
+          {
+            "target": "connections",
+            "value": 12,
+            "label": "粉丝圈"
+          }
         ],
         "nextEventId": "lie_content_creator"
       },
       {
         "text": "继续当成爱好就好",
         "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "纯粹热爱" },
-          { "target": "skill", "value": 10, "label": "持续创作" }
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "纯粹热爱"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "持续创作"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -741,17 +1218,37 @@
       {
         "text": "准备跳槽，争取更高薪资",
         "effects": [
-          { "target": "energy", "value": -10, "label": "面试准备" },
-          { "target": "connections", "value": 5, "label": "猎头联系" },
-          { "target": "mentalHealth", "value": -5, "label": "攀比焦虑" }
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "面试准备"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "猎头联系"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "攀比焦虑"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "算了，比不完的",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "佛了" },
-          { "target": "money", "value": -5, "label": "安于现状" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "佛了"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "安于现状"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -771,18 +1268,42 @@
       {
         "text": "跳！趁年轻多试试",
         "effects": [
-          { "target": "money", "value": 12, "label": "涨薪" },
-          { "target": "skill", "value": 10, "label": "新技能" },
-          { "target": "mentalHealth", "value": 10, "label": "新鲜感" },
-          { "target": "energy", "value": -10, "label": "适应新环境" }
+          {
+            "target": "money",
+            "value": 12,
+            "label": "涨薪"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "新技能"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "新鲜感"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "适应新环境"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "稳一点，留在熟悉领域",
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "安稳" },
-          { "target": "money", "value": 5, "label": "稳定涨薪" }
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "安稳"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "稳定涨薪"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -802,12 +1323,451 @@
     "choices": [
       {
         "text": "主动找后路，准备转型",
-        "condition": { "type": "dice", "min": 1, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 6
+        },
         "effects": [
-          { "target": "connections", "value": 10, "label": "积极 networking" },
-          { "target": "skill", "value": 5, "label": "学新东西" }
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "积极 networking"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "学新东西"
+          }
         ],
         "nextEventId": "job_career_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "encounter_temptation_inside_deal",
+    "stage": "work",
+    "condition": {
+      "type": "attribute",
+      "attr": "connections",
+      "operator": "gte",
+      "value": 35
+    },
+    "text": "一个关系不错的供应商私下找到你，暗示只要在下一轮招标中'适当倾斜'，事成之后给你个人 5 个点。他说：!这个行业都这么做，你不做别人也会做。! 他还说：!你放心，绝对查不出来。! 你看着他真诚的眼神，知道他是真的觉得这很正常。",
+    "choices": [
+      {
+        "text": "答应——人为财死",
+        "effects": [
+          {
+            "target": "money",
+            "value": 18,
+            "label": "回扣"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "供应商关系"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "晚上睡不好"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "腐败也是一种能力退化"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "拒绝——这钱烫手",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "清白"
+          },
+          {
+            "target": "connections",
+            "value": -3,
+            "label": "关系僵了"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_gossip_weapon",
+    "stage": "work",
+    "condition": {
+      "type": "attribute",
+      "attr": "connections",
+      "operator": "gte",
+      "value": 30
+    },
+    "text": "茶水间里，你的同事在讲另一个同事的八卦——据说他在外面接私单被发现了，可能要背处分。你听了之后发现：你手里正好有一个机会可以'不经意'地让领导知道更多细节。你不需要说谎，只需要'不小心'说漏嘴就行了。",
+    "choices": [
+      {
+        "text": "添油加醋传出去——少一个竞争对手",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 6,
+            "label": "领导觉得你可靠"
+          },
+          {
+            "target": "connections",
+            "value": -12,
+            "label": "同事圈传开了"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "你变成了传闲话的人"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "当没听见，不参与",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "中立立场"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "问心无愧"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_steal_idea",
+    "stage": "work",
+    "condition": {
+      "type": "attribute",
+      "attr": "skill",
+      "operator": "gte",
+      "value": 40
+    },
+    "text": "同事在群里分享了他的一个产品方案思路——虽然只是初步想法，但你一眼看出了商业价值。下周正好有个重要的项目提案会。你犹豫了：拿他的思路去讲，你一定能拿下这个项目；但他问起来，你要怎么说？*职场上有一种犯罪不用坐牢——叫偷创意。*",
+    "choices": [
+      {
+        "text": "用他的方案去提案——先赢了再说",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 12,
+            "label": "拿下项目"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "剽窃的阴影"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "方案落地能力"
+          },
+          {
+            "target": "connections",
+            "value": -8,
+            "label": "同事迟早知道"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "跟他合作一起提案",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "合作信任"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "正直"
+          },
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "合作成果"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_expense_fraud",
+    "stage": "work",
+    "text": "你发现公司的报销制度有个漏洞——差旅发票不需要原件，上传截图就行。同事私下教你怎么用 PS 做出看起来和真的一样的发票。他说：!大家都这么干，又不是只有你。! 你看着报销系统的上传按钮，点一下就是半个月房租。",
+    "choices": [
+      {
+        "text": "虚报发票——反正查不到我",
+        "effects": [
+          {
+            "target": "money",
+            "value": 12,
+            "label": "报销款"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "财务部有人知道"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "做贼心虚"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "不贪这种便宜",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "清白"
+          },
+          {
+            "target": "skill",
+            "value": 3,
+            "label": "职业操守"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_blame_game",
+    "stage": "work",
+    "condition": {
+      "type": "attribute",
+      "attr": "mentalHealth",
+      "operator": "lt",
+      "value": 50
+    },
+    "text": "项目出了大问题。领导在群里问：!谁负责的？! 你心里清楚这事儿跟你关系不大——但你旁边的同事才是主要负责人。如果你不说话，锅大概率会落到他头上。如果你站出来说明情况，领导会觉得你在甩锅甩得很漂亮。你有一秒钟的时间决定。",
+    "choices": [
+      {
+        "text": "沉默——让他背锅，我保命",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "领导觉得你可靠"
+          },
+          {
+            "target": "connections",
+            "value": -15,
+            "label": "同事寒心"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "良心的代价"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "澄清事实——是他负责的那部分",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "大家知道你没错"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "得罪了那个同事"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "至少诚实"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_friend_loan",
+    "stage": "gap",
+    "text": "一个很久没联系的老同学突然找你借钱。说他家里出了急事，两万块，一个月就还。你查了一下聊天记录——上次联系是三年前。你想起之前另一个同学借钱至今没还的教训。但万一是真的急事呢？",
+    "choices": [
+      {
+        "text": "借了——万一真的需要呢",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "老同学人情"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "帮了人"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "可能要不回来"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "找借口推掉——不借",
+        "effects": [
+          {
+            "target": "money",
+            "value": 5,
+            "label": "省了两万"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "关系凉了"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "不后悔"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "借了但只借一小部分，不伤筋动骨",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "意思到了"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "小损失"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 3,
+            "label": "折中方案"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_opportunism",
+    "stage": "graduation",
+    "text": "你了解到一个信息：今年行业内有家公司在扩招，但消息还没公开。你知道很多同学还在焦头烂额地投简历。如果你现在开始准备，等消息公布时你已经领先所有人一个月。但你也可以分享这个消息给那些还在焦虑的同学。*有时候，信息本身就是优势。有时候，信息就是权力的来源。*",
+    "choices": [
+      {
+        "text": "闷声准备——领先一个月比什么都重要",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "抢占先机"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "知道没说有点自私"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -3,
+            "label": "小纠结"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "群发消息告诉大家——一起准备",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "大家都感谢你"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "做了好事"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "竞争也多了"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ]
+  },
+  {
+    "id": "encounter_pretend_busy",
+    "stage": "firstJob",
+    "text": "今天办公室里氛围很诡异——领导路过的时候所有人都盯着屏幕，手指在键盘上翻飞。你其实手头的活已经做完了，离下班还有两小时。你在摸鱼和假装加班之间选择了......你发现同事们都在做一件心照不宣的事：把做完了的 PPT 翻来覆去改格式，只为显得有事做。",
+    "choices": [
+      {
+        "text": "装作很忙——合群很重要",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "领导觉得你认真"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "演技消耗"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 0,
+            "label": "浪费时间"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "实在做完了，光明正大下班",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "不假"
+          },
+          {
+            "target": "connections",
+            "value": -3,
+            "label": "走太早引人注目"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
       }
     ]
   }

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "art_civil_intro",
+    "stage": "graduation",
+    "text": "文史哲考公——这是被很多人认为'文科生最好的归宿'的选择。宣传部、文旅局、党校、档案馆、文联——你能报的岗位不少，但这些岗位的竞争也最激烈。因为不限专业的岗位，是所有文科生的'角斗场'。你在图书馆背行测的时候，旁边坐着一个学旅游管理的、一个学英语的、还有一个学社会学的——大家都是'考公文科难民'。你忽然觉得，文史哲的就业问题，不是个人的问题，是一个时代的问题。*但至少，你还在做题，你没有放弃。*",
+    "choices": [
+      {
+        "text": "宣传/文旅系统，发挥文字功底",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "笔杆子优势"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "学以致用"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "文化系统"
+          }
+        ],
+        "nextEventId": "civil_study"
+      },
+      {
+        "text": "党校/档案馆，清闲好发展",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "适合读书人"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "党校关系"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "小众竞争"
+          }
+        ],
+        "nextEventId": "civil_study"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "art_civil_work",
+    "stage": "firstJob",
+    "text": "你进了宣传部的文艺科。每天的工作是：审阅文艺作品、组织文化活动、写领导讲话稿里关于'文化自信'的那一段。你大学四年读的文学理论、哲学思辨、历史脉络，在这里变成了你写材料时的'理论深度'。部长说：!你们年轻人写的东西有温度，但还不够有高度——把高度加上去。! 你不知道什么是高度，但你学会了：高度就是每一段都要引用一句重要论述。你下班后打开自己锁了许久的公众号，写了一篇和公文完全无关的随笔——那是你今天唯一说得上'创作'的东西。",
+    "choices": [
+      {
+        "text": "在体制内发挥文字特长，走材料路线",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "公文写作"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "大笔杆子"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "创作压抑"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "白天上班，晚上坚持创作",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "精神出口"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "副业收入"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "双线作战"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "文化项目评审开始了。你发现朋友的公司也在投标名单里——他暗示你给个高分，回头'分成'（有风险）",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "朋友关系"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "评审舞弊"
+          },
+          {
+            "target": "money",
+            "value": 8,
+            "label": "分成"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      }
+    ]
+  }
+]

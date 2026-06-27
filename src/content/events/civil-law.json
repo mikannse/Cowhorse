@@ -1,0 +1,133 @@
+[
+  {
+    "id": "law_civil_intro",
+    "stage": "graduation",
+    "text": "法学考公——这是法学生最经典的出路之一。法检系统对法学专业的需求量巨大，而且你可以在大三就报名法考，毕业那年同时准备省考。你的师兄说你这条路叫'双保险'：考上了去法院检察院，考不上拿着法考证去律所。你翻开行测题，发现常识判断部分的法律题你几乎全对——法律思维已经刻进你的 DNA 了。你在笔记本上写了一行字：*法律不问出身，但法检要。*",
+    "choices": [
+      {
+        "text": "冲法检系统，专业优势最大化",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "法律专业优势"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "法检人脉"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "信念"
+          }
+        ],
+        "nextEventId": "civil_study"
+      },
+      {
+        "text": "司法局/纪委监委，也是好方向",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "法治政府"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "稳定"
+          }
+        ],
+        "nextEventId": "civil_study"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "law_civil_work",
+    "stage": "firstJob",
+    "text": "你考进了基层法院，被分配到了民事审判庭。你的日常是看卷宗、调解、写判决书。一个离婚案的当事人问你：!法官，你说我该不该离？! 你才发现——法学院从来没教过你怎么回答这个问题。你学会了最核心的技能不是引用法条——是倾听、是控制庭审节奏、是在判决书里用让人信服的语言把冰冷的法条翻译成当事人的生活。带教法官说：*十年后你会发现，你写的每一份判决书，都是一个人人生的句号。*",
+    "choices": [
+      {
+        "text": "在基层法院积累，逐级晋升",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "审判实务"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "法院体系"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "案多人少"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "想办法调到上级院或去纪委监委",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "调动资源"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "不确定性"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "辞职去做律师，换个活法",
+        "effects": [
+          {
+            "target": "money",
+            "value": 15,
+            "label": "律师收入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "自由"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "前同事资源"
+          }
+        ],
+        "nextEventId": "law_first_case"
+      },
+      {
+        "text": "老同学约你吃饭，聊到最后才说——他亲戚的案子在你手上，希望能'从轻'。他走的时候留下了一个信封（有风险）",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "老同学人情"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "枉法"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "职业底线松动"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      }
+    ]
+  }
+]

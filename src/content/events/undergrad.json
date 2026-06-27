@@ -7,58 +7,150 @@
       {
         "text": "🖥️ 计算机/软件",
         "effects": [
-          { "target": "skill", "value": 15, "label": "硬核技能" },
-          { "target": "energy", "value": -5, "label": "熬夜coding" },
-          { "target": "connections", "value": 5, "label": "Geek圈" }
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "硬核技能"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "熬夜coding"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "Geek圈"
+          }
         ],
+        "setMajor": "cs",
         "nextEventId": "major_cs"
       },
       {
         "text": "💰 金融/经济",
         "effects": [
-          { "target": "money", "value": 10, "label": "家境殷实" },
-          { "target": "connections", "value": 10, "label": "人脉优先" },
-          { "target": "mentalHealth", "value": -5, "label": "竞争意识" }
+          {
+            "target": "money",
+            "value": 10,
+            "label": "家境殷实"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "人脉优先"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "竞争意识"
+          }
         ],
+        "setMajor": "finance",
         "nextEventId": "major_finance"
       },
       {
         "text": "⚕️ 医学/药学",
         "effects": [
-          { "target": "skill", "value": 10, "label": "专业壁垒" },
-          { "target": "energy", "value": -10, "label": "学制漫长" },
-          { "target": "mentalHealth", "value": 5, "label": "救人初心" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "专业壁垒"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "学制漫长"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "救人初心"
+          }
         ],
+        "setMajor": "med",
         "nextEventId": "major_med"
       },
       {
         "text": "🏗️ 土木/建筑",
         "effects": [
-          { "target": "skill", "value": 5, "label": "工程能力" },
-          { "target": "energy", "value": 10, "label": "跑工地" },
-          { "target": "money", "value": -5, "label": "行业下行" }
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "工程能力"
+          },
+          {
+            "target": "energy",
+            "value": 10,
+            "label": "跑工地"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "行业下行"
+          }
         ],
+        "setMajor": "eng",
         "nextEventId": "major_eng"
       },
       {
         "text": "⚖️ 法学",
         "effects": [
-          { "target": "skill", "value": 10, "label": "逻辑训练" },
-          { "target": "connections", "value": 10, "label": "校友网络" },
-          { "target": "mentalHealth", "value": -5, "label": "法考压力" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "逻辑训练"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "校友网络"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "法考压力"
+          }
         ],
+        "setMajor": "law",
         "nextEventId": "major_law"
       },
       {
         "text": "🎨 文史哲/艺术",
         "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "精神世界丰富" },
-          { "target": "skill", "value": 5, "label": "通识教育" },
-          { "target": "money", "value": -10, "label": "就业面窄" }
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "精神世界丰富"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "通识教育"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "就业面窄"
+          }
         ],
+        "setMajor": "art",
         "nextEventId": "major_art"
       }
-    ]
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "undergrad_summary",
+    "stage": "undergrad",
+    "text": "大一到大三，你在专业课、社团、通宵赶作业和无数个早八之间穿梭。你认识了几个可以凌晨三点叫出来喝酒的朋友，也挂过一两门课。你学会了摸鱼、卷、和恰到好处的拖延。\n\n然后你发现，已经是大学最后一年了。",
+    "choices": [
+      {
+        "text": "该做决定了",
+        "effects": [],
+        "nextEventId": "undergrad_start"
+      }
+    ],
+    "noEncounters": true
   },
   {
     "id": "undergrad_start",
@@ -68,44 +160,85 @@
       {
         "text": "考研，再读三年",
         "effects": [
-          { "target": "energy", "value": -10, "label": "查资料" },
-          { "target": "skill", "value": 5, "label": "提前复习" }
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "查资料"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "提前复习"
+          }
         ],
         "nextEventId": "exam_intro"
       },
       {
         "text": "找工作，先养活自己",
         "effects": [
-          { "target": "connections", "value": 5, "label": "更新简历" },
-          { "target": "mentalHealth", "value": -5, "label": "焦虑+1" }
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "更新简历"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "焦虑+1"
+          }
         ],
         "nextEventId": "job_intro"
       },
       {
         "text": "考公，求个稳定",
         "effects": [
-          { "target": "skill", "value": 5, "label": "看行测" },
-          { "target": "money", "value": -5, "label": "买资料" }
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "看行测"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "买资料"
+          }
         ],
         "nextEventId": "civil_intro"
       },
       {
         "text": "躺平，人生不是赛道",
         "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "内心平静" },
-          { "target": "money", "value": -10, "label": "无收入" }
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "内心平静"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "无收入"
+          }
         ],
         "nextEventId": "lie_intro"
       },
       {
         "text": "等等，还有个考编",
         "effects": [
-          { "target": "skill", "value": 5, "label": "编制" },
-          { "target": "energy", "value": -5, "label": "了解" }
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "编制"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "了解"
+          }
         ],
         "nextEventId": "civil_intro"
       }
-    ]
+    ],
+    "noEncounters": true
   },
   {
     "id": "undergrad_deadline",
@@ -115,17 +248,37 @@
       {
         "text": "硬着头皮开写",
         "effects": [
-          { "target": "skill", "value": 5, "label": "论文启动" },
-          { "target": "energy", "value": -10, "label": "熬夜写" },
-          { "target": "mentalHealth", "value": -5, "label": "压力" }
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "论文启动"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "熬夜写"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "压力"
+          }
         ],
         "nextEventId": "undergrad_start"
       },
       {
         "text": "先别想，搞完手头的事再说",
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "不管了" },
-          { "target": "skill", "value": -5, "label": "拖延" }
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "不管了"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "拖延"
+          }
         ],
         "nextEventId": "undergrad_start"
       }
@@ -145,16 +298,32 @@
       {
         "text": "认真畅想未来",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "温暖" },
-          { "target": "connections", "value": 10, "label": "室友羁绊" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "温暖"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "室友羁绊"
+          }
         ],
         "nextEventId": "undergrad_start"
       },
       {
         "text": "岔开话题，不想谈",
         "effects": [
-          { "target": "mentalHealth", "value": -5, "label": "逃避" },
-          { "target": "connections", "value": -5, "label": "疏离" }
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "逃避"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "疏离"
+          }
         ],
         "nextEventId": "undergrad_start"
       }
@@ -166,8 +335,18 @@
     "condition": {
       "type": "and",
       "conditions": [
-        { "type": "attribute", "attr": "mentalHealth", "operator": "lt", "value": 40 },
-        { "type": "attribute", "attr": "connections", "operator": "lt", "value": 30 }
+        {
+          "type": "attribute",
+          "attr": "mentalHealth",
+          "operator": "lt",
+          "value": 40
+        },
+        {
+          "type": "attribute",
+          "attr": "connections",
+          "operator": "lt",
+          "value": 30
+        }
       ]
     },
     "text": "宿舍只剩你一个。外卖盒堆在角落。朋友圈里大家都在晒offer、晒录取、晒毕业旅行。手机屏幕亮了又暗。",
@@ -175,7 +354,13 @@
     "choices": [
       {
         "text": "关灯睡觉，明天再说",
-        "effects": [{ "target": "energy", "value": 10, "label": "休息" }],
+        "effects": [
+          {
+            "target": "energy",
+            "value": 10,
+            "label": "休息"
+          }
+        ],
         "nextEventId": "undergrad_start"
       }
     ]
@@ -194,16 +379,32 @@
       {
         "text": "感慨万千，想珍惜最后时光",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "怀念" },
-          { "target": "connections", "value": 5, "label": "抓紧相聚" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "怀念"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "抓紧相聚"
+          }
         ],
         "nextEventId": "undergrad_start"
       },
       {
         "text": "赶紧走，未来更重要",
         "effects": [
-          { "target": "energy", "value": 5, "label": "向前看" },
-          { "target": "mentalHealth", "value": 5, "label": "兴奋" }
+          {
+            "target": "energy",
+            "value": 5,
+            "label": "向前看"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "兴奋"
+          }
         ],
         "nextEventId": "undergrad_start"
       }
@@ -217,8 +418,16 @@
       {
         "text": "浏览热门岗位",
         "effects": [
-          { "target": "connections", "value": 5, "label": "投简历" },
-          { "target": "energy", "value": -5, "label": "累" }
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "投简历"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "累"
+          }
         ],
         "nextEventId": "job_intro"
       }
@@ -228,37 +437,73 @@
     "id": "major_cs",
     "stage": "undergrad",
     "text": "你选了计算机。开学第一天室友就在讨论[哪个语言最好]，你默默打开 VS Code，写下第一行 `console.log('hello world')`。后来你才明白，计算机系的四年就是和编译器、GitHub、以及凌晨三点的 bug 较劲。但你也发现——*会写代码的人在哪都饿不死。*",
-    "choices": [{ "text": "开始大学生活", "effects": [], "nextEventId": "undergrad_start" }]
+    "choices": [
+      {
+        "text": "开始大学生活",
+        "effects": [],
+        "nextEventId": "undergrad_summary"
+      }
+    ]
   },
   {
     "id": "major_finance",
     "stage": "undergrad",
     "text": "你选了金融。大一就有同学穿着西装去面试实习，你在宿舍研究 K 线图。有人告诉你这个行业的核心竞争力是：让别人的钱变成你的业绩。你半信半疑，但默默把 Bloomberg 终端的使用教程加入了收藏夹。",
-    "choices": [{ "text": "开始大学生活", "effects": [], "nextEventId": "undergrad_start" }]
+    "choices": [
+      {
+        "text": "开始大学生活",
+        "effects": [],
+        "nextEventId": "undergrad_summary"
+      }
+    ]
   },
   {
     "id": "major_med",
     "stage": "undergrad",
     "text": "你选了医学。开学典礼上院长说：!你们要比别人多读三年，但你们救的是命。! 大一的系统解剖学让你第一次怀疑自己的选择，但穿上白大褂站在镜子前的那一刻，你觉得——*也许这就是天命。*",
-    "choices": [{ "text": "开始大学生活", "effects": [], "nextEventId": "undergrad_start" }]
+    "choices": [
+      {
+        "text": "开始大学生活",
+        "effects": [],
+        "nextEventId": "undergrad_summary"
+      }
+    ]
   },
   {
     "id": "major_eng",
     "stage": "undergrad",
     "text": "你选了土木工程。大二去工地实习，安全帽被风吹跑了三次。项目经理看着图纸说：*这行以前叫基建狂魔，现在叫存量博弈。* 你不太懂，但你记住了工地上盒饭的味道——十五块钱，两荤一素。",
-    "choices": [{ "text": "开始大学生活", "effects": [], "nextEventId": "undergrad_start" }]
+    "choices": [
+      {
+        "text": "开始大学生活",
+        "effects": [],
+        "nextEventId": "undergrad_summary"
+      }
+    ]
   },
   {
     "id": "major_law",
     "stage": "undergrad",
     "text": "你选了法学。刑法课上老师讲了一个案子，你听得热血沸腾，觉得自己将来要匡扶正义。后来你发现法学生的日常是：法考、法考、还是法考。自习室凌晨两点的灯光像是某种宗教仪式。",
-    "choices": [{ "text": "开始大学生活", "effects": [], "nextEventId": "undergrad_start" }]
+    "choices": [
+      {
+        "text": "开始大学生活",
+        "effects": [],
+        "nextEventId": "undergrad_summary"
+      }
+    ]
   },
   {
     "id": "major_art",
     "stage": "undergrad",
     "text": "你选了文史哲/艺术。亲戚问：!这个专业以后干什么？! 你说不清楚。但你在图书馆看了一下午的《庄子》，觉得比任何职业规划课都有用。你知道这条路不好走，但你更知道——*不做自己喜欢的事，走什么路都累。*",
-    "choices": [{ "text": "开始大学生活", "effects": [], "nextEventId": "undergrad_start" }]
+    "choices": [
+      {
+        "text": "开始大学生活",
+        "effects": [],
+        "nextEventId": "undergrad_summary"
+      }
+    ]
   },
   {
     "id": "event_not_found",

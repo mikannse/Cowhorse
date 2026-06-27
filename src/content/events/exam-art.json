@@ -1,0 +1,351 @@
+[
+  {
+    "id": "art_exam_intro",
+    "stage": "graduation",
+    "text": "文史哲考研。图书馆的暖气不太足，但你觉得正好——冷一点让人清醒。你已经在这里坐了一个月了，从《文学理论》看到《西方哲学史》，从《美学散步》看到《存在与虚无》。同学问你为什么考研，你说'想继续读书'。其实你心里还有后半句——'我还没想好怎么面对外面的世界。'亲戚群里三姨又在转发'文科无用论'的文章，你没点开，继续翻你的书。你知道，对于文史哲的学生来说，考研不只是升学——它是一次关于'我到底要过什么样的人生'的宣誓。",
+    "choices": [
+      {
+        "text": "考名校，追求学术理想",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "学术深造"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "精神富足"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "清贫求学"
+          }
+        ],
+        "nextEventId": "art_exam_prep"
+      },
+      {
+        "text": "考研是为了有更多选择时间",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "延迟选择"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "通识积累"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "学术圈子"
+          }
+        ],
+        "nextEventId": "art_exam_prep"
+      },
+      {
+        "text": "不考了，用创作说话",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "创作开始"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "不稳定"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "自由"
+          }
+        ],
+        "nextEventId": "art_job_waiting"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "art_exam_prep",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你的考研复习是一场漫长的独白。不像理工科有题库可以刷，文史哲的考试没有标准答案。你读福柯、读海德格尔、读王国维、读钱穆——你觉得这些人的思想在你脑子里打架。你写了一篇又一篇的论述题答案，有些让你满意，大部分让你怀疑自己的表达能力。深夜的图书馆里，你在笔记本上写下：*我不是在准备考试，我是在试图证明[无用之学]是有用的。* 然后你划掉了'试图'两个字。",
+    "choices": [
+      {
+        "text": "融会贯通，答题有深度",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "思维深度"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "创作灵感"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "精神消耗"
+          }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "内容太深，找不到重点",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "进度缓慢"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "迷茫"
+          }
+        ],
+        "nextEventId": "exam_prep_normal"
+      },
+      {
+        "text": "走捷径...（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": -10,
+            "label": "花钱打点"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "作弊压力"
+          }
+        ],
+        "nextEventId": "art_exam_cheat"
+      }
+    ]
+  },
+  {
+    "id": "art_postgrad_life",
+    "stage": "postgrad",
+    "diceRoll": true,
+    "text": "研究生生活和你想象的不太一样。你以为的读研：在书房里读经典、写论文、跟导师探讨思想。实际的读研：帮导师整理书稿、给本科生当助教、自己写论文投期刊。但你发现，那些曾经让你头疼的文本，现在读起来有了新的味道——可能是因为你在生活中经历了它们描述的东西。你在论文的致谢里写：*感谢文学让我理解了我无法亲历的人生。* 你导师批注：*这个开头不错——剩下的部分要配得上这个开头。*",
+    "choices": [
+      {
+        "text": "写出了一篇有深度的论文",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "学术写作"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "导师认可"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "表达的快乐"
+          }
+        ],
+        "nextEventId": "exam_pass"
+      },
+      {
+        "text": "被学术规范束缚，灵感枯竭",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "按部就班"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "创作焦虑"
+          }
+        ],
+        "nextEventId": "exam_pass"
+      }
+    ]
+  },
+  {
+    "id": "art_postgrad_outcome",
+    "stage": "postgrad",
+    "text": "你拿着文科硕士学位站在岔路口。读博意味着五年清贫的学术生涯；考公是'文科生的尽头'；去媒体/出版/文化行业是主流选择；你也可以坚持创作，继续做个自由人。你的导师说：*文史哲不教你怎么赚钱，但它教你——当钱不再是问题时，你想要什么。* 但你现在的首要问题就是钱。你看着满书架的书，觉得它们给不了答案——它们只是帮你把问题问得更清楚了一些。",
+    "lonelyMoment": "你翻开研一买的笔记本，扉页上写着一句话：'人充满劳绩，但还诗意地栖居在大地上。' 你看了很久。然后你拿起笔，在下面补了一行小字：'诗意不能当房租。'",
+    "choices": [
+      {
+        "text": "读博，走上学术道路",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "学术深造"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "热爱"
+          },
+          {
+            "target": "money",
+            "value": -20,
+            "label": "博士津贴"
+          }
+        ],
+        "nextEventId": "postgrad_phd_life"
+      },
+      {
+        "text": "去媒体/出版/文创行业",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "文化圈"
+          },
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "笔头功夫"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "够生活"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "考公，追求稳定",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "稳定"
+          },
+          {
+            "target": "money",
+            "value": 8,
+            "label": "稳定收入"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "体制内"
+          }
+        ],
+        "nextEventId": "civil_intro"
+      },
+      {
+        "text": "做内容创作，自由职业",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "创作自由"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "收入波动"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "创作者圈"
+          }
+        ],
+        "nextEventId": "lie_content_creator"
+      }
+    ]
+  },
+  {
+    "id": "art_exam_cheat",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你在闲鱼上看到有人卖考研专业课答案——5000 块包过，不过退款。你盯着那个页面看了十分钟。文史哲考研没有标准答案，'包过'这种话一听就是假的。但你太想考上了。你爸妈在电话里问了第五次复习进度，你说了'还行'。挂了电话你点下了'立即购买'。付款的那一刻你觉得自己像《罪与罚》里的拉斯柯尔尼科夫。",
+    "choices": [
+      {
+        "text": "没被发现——但你背负了一个秘密",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "作弊得手"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "良心债"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "圈子知道"
+          }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "出事了...",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "没复习也没作弊"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -20,
+            "label": "崩溃"
+          },
+          {
+            "target": "connections",
+            "value": -10,
+            "label": "名声毁了"
+          }
+        ],
+        "nextEventId": "exam_prep_normal"
+      }
+    ]
+  }
+]

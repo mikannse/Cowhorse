@@ -1,0 +1,427 @@
+[
+  {
+    "id": "art_job_waiting",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你的作品集改了第九版了。大学四年攒下来的作品——插画、摄影、装置、论文——看起来都不太像\"能换钱\"的东西。亲戚群里三姨转发了条消息：!文科无用论再引热议。! 你没回复，继续改你的求职信。你在信的结尾写道：*我学的是无用之学，但我相信没有什么是真正无用的。*",
+    "choices": [
+      {
+        "text": "拿到了一家文创公司的面试！",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "被看见"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "行业入口"
+          }
+        ],
+        "nextEventId": "art_job_interview"
+      },
+      {
+        "text": "石沉大海，无人问津",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "否定感"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "零收入"
+          }
+        ],
+        "nextEventId": "art_job_interview"
+      }
+    ]
+  },
+  {
+    "id": "art_job_interview",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "面试在一间很文艺的 loft 里。面试官是个三十来岁的创意总监，穿着 oversized 卫衣，旁边趴着一只柴犬。她翻了翻你的作品集：!你的风格很有意思——但我们现在客户需要的是能卖出去的东西。你觉得你的作品能卖吗？! 这句话像一记闷棍。",
+    "choices": [
+      {
+        "text": "阐述自己的艺术理念，坚持风格",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "创作者自信"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "审美共鸣"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "被理解"
+          }
+        ],
+        "nextEventId": "art_job_offer"
+      },
+      {
+        "text": "妥协，说自己什么风格都能做",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "创作妥协"
+          },
+          {
+            "target": "skill",
+            "value": 3,
+            "label": "实用主义"
+          }
+        ],
+        "nextEventId": "art_job_offer"
+      }
+    ]
+  },
+  {
+    "id": "art_job_offer",
+    "stage": "firstJob",
+    "text": "拿到 offer 了。一家新媒体公司的新媒体编辑/视觉设计/视频剪辑（你没看错——这一个岗位同时要做三件事）。薪资不高，但公司在创意园区，楼下有不错的咖啡。你爸说：!这个专业……总归是找到工作了。! 你不知道这句话算不算恭喜。",
+    "moment": {
+      "templateId": "art_offer_moment",
+      "text": "拿到offer了！新媒体编辑+视觉设计+视频剪辑（是的这是一个岗位）。",
+      "replyPool": [
+        "这就是文科生的宿命——三合一岗位",
+        "工资多少？",
+        "有工作就好，以后再发展",
+        "创意园区！环境不错"
+      ]
+    },
+    "choices": [
+      {
+        "text": "先干着，积累行业经验",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "全栈内容"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "低薪"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 3,
+            "label": "先站稳"
+          }
+        ],
+        "nextEventId": "art_job_first_day"
+      },
+      {
+        "text": "拒绝，不想做杂活",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有骨气"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "继续无收入"
+          }
+        ],
+        "nextEventId": "art_job_waiting"
+      }
+    ]
+  },
+  {
+    "id": "art_job_first_day",
+    "stage": "firstJob",
+    "text": "第一天上班。你的工位旁边是一面贴满便利贴的白板，上一个人的工作日志还在上面：!甲方要字大一点、logo 大一点、再大一点。! 你坐下来，打开电脑，发现需要用三个不同的软件——PS、剪映、Canva——因为你不仅要做设计，还要剪视频和运营公众号。",
+    "choices": [
+      {
+        "text": "接受现实，技多不压身",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "多技能"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "全栈压榨"
+          }
+        ],
+        "nextEventId": "art_three_months"
+      },
+      {
+        "text": "跟领导沟通，争取聚焦设计",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "争取边界"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "勇敢表达"
+          }
+        ],
+        "nextEventId": "art_three_months"
+      }
+    ]
+  },
+  {
+    "id": "art_three_months",
+    "stage": "firstJob",
+    "text": "三个月了。你出了一期爆款内容——一个关于[社畜日常]的漫画系列，被好几个大号转了。同事说你\"有流量感\"，你想说*那不是流量感，那是我真实的每一天。* 甲方开始点名要你做项目了。但你也更忙了——经常改稿到半夜，只因为甲方觉得\"感觉不对\"。",
+    "lonelyMoment": "凌晨两点改第11版配色方案。甲方发来语音：\"这个蓝不够蓝，要那种——怎么说呢——有呼吸感的蓝。\" 你盯着屏幕上各种蓝色，忽然想起大学时老师说过：*好的创作需要呼吸。* 但你现在呼吸的都是甲方。",
+    "choices": [
+      {
+        "text": "继续做爆款，商业化创作",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "商业创作力"
+          },
+          {
+            "target": "money",
+            "value": 8,
+            "label": "爆款奖金"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "创作异化"
+          }
+        ],
+        "nextEventId": "art_ai_threat"
+      },
+      {
+        "text": "开始经营个人账号，做自己的IP",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "粉丝积累"
+          },
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "自主创作"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "暂时没收入"
+          }
+        ],
+        "nextEventId": "art_ai_threat"
+      }
+    ]
+  },
+  {
+    "id": "art_ai_threat",
+    "stage": "work",
+    "text": "AI 来了。公司开始要求你用 AI 工具提效——SD 生成初稿、ChatGPT 写文案、Runway 剪视频。你发现你以前花三天做的东西，AI 三分钟就能出一版差不多的。创意总监说：!未来不是 AI 取代创作者，是会用 AI 的创作者取代不会用的。! 你打开 SD，输入 prompt：*一个被 AI 追赶的插画师。*",
+    "choices": [
+      {
+        "text": "拥抱 AI，成为新工具的主人",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "AI+创作"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "学习新工具"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "焦虑"
+          }
+        ],
+        "nextEventId": "art_career_crossroads"
+      },
+      {
+        "text": "坚持手工创作，做差异化",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "创作信仰"
+          },
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "手工质感"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "效率劣势"
+          }
+        ],
+        "nextEventId": "art_career_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "art_career_crossroads",
+    "stage": "work",
+    "text": "你在创意行业摸爬滚打了两年。你出的爆款被别人抄了，你的风格被 AI 拆解成了 prompt 模板。但你也发现——真正触动人的，永远是你经历过的东西。AI 没住过出租屋，没被甲方折磨过，没在凌晨两点改过第 11 版配色。*它的输出是\"正确\"的，但你的创作是\"真实\"的。*",
+    "choices": [
+      {
+        "text": "坚持创作，做自由职业者",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "自由创作"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "收入波动"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "创作者社群"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "做自己的工作室，接商业项目",
+        "effects": [
+          {
+            "target": "money",
+            "value": 15,
+            "label": "商业变现"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "经营能力"
+          },
+          {
+            "target": "connections",
+            "value": 12,
+            "label": "客户资源"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "转行做产品/运营，用创作底子做商业",
+        "effects": [
+          {
+            "target": "money",
+            "value": 12,
+            "label": "产品薪资"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "新赛道"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "现实选择"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "encounter_art_plagiarism",
+    "stage": "work",
+    "text": "你接了一个很急的商业插画单，甲方要求三天出图。你在 Behance 上看到国外插画师的作品——构图、配色、意境都完美契合。原作者在阿根廷，大概率不会发现。你只需要改几个细节、换个色调。但在一线创作圈，抄袭被发现一次就社死了。三天出图，不抄根本来不及。你犹豫了。",
+    "choices": [
+      {
+        "text": "抄了，改改细节——甲方要得急",
+        "effects": [
+          {
+            "target": "money",
+            "value": 15,
+            "label": "快速交稿"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "原创能力萎缩"
+          },
+          {
+            "target": "connections",
+            "value": -8,
+            "label": "被发现就是社死"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "你不配叫创作者"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "自己画，就算延期也不能抄",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "原创力提升"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "对得起自己"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "甲方认可真实力"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ],
+    "condition": {
+      "type": "major",
+      "major": "art"
+    }
+  }
+]

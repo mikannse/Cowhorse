@@ -1,0 +1,344 @@
+[
+  {
+    "id": "law_exam_intro",
+    "stage": "graduation",
+    "text": "法学生的考研问卷永远有一个先决问题：先考研还是先法考？这两个考试的时间只差一个月，内容只重叠 30%。室友选了双线作战——早上法考、晚上考研、凌晨崩溃。你辅导员说：*法学这个专业，学历和证书缺一不可——没有硕士学历简历关都过不了，没有法考过了也不行。* 你打开考研大纲，又打开了法考大纲。两份大纲放在桌上，像两个老死不相往来的亲戚。你忽然想起刑法老师第一节课说的话：*学法律的人，要学会做选择。*",
+    "choices": [
+      {
+        "text": "双线作战，考研+法考一起冲",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "双线备考"
+          },
+          {
+            "target": "energy",
+            "value": -20,
+            "label": "极限挑战"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "巨大压力"
+          }
+        ],
+        "nextEventId": "law_exam_prep"
+      },
+      {
+        "text": "先考研，法考明年再说",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "专注考研"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "压力可控"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "考研圈子"
+          }
+        ],
+        "nextEventId": "law_exam_prep"
+      },
+      {
+        "text": "先法考，用本科学历先执业",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "执业主线"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "务实"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "律所实习"
+          }
+        ],
+        "nextEventId": "law_job_waiting"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "law_exam_prep",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "法学考研有两条路：法硕（法本）和学硕。前者背考试分析，后者看学术专著。你选择了其中一条，开始了没日没夜的背书生涯。你在自习室的座位凝固成了一个固定坐标，桌上的咖啡杯印出深浅不一的年轮。同学路过你的座位说：*你看起来像长在这里了。* 你没抬头，因为你在背正当防卫和紧急避险的第十八个区别。背到后面你发现自己已经分不清法条和废话了。",
+    "choices": [
+      {
+        "text": "背书扎实，模拟题正确率高",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "法硕功底"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有底"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "背到嗓子哑"
+          }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "内容太多背不完，开始焦虑",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "背得一般"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "法学生焦虑"
+          }
+        ],
+        "nextEventId": "exam_prep_normal"
+      },
+      {
+        "text": "走捷径...（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": -10,
+            "label": "花钱打点"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "作弊压力"
+          }
+        ],
+        "nextEventId": "law_exam_cheat"
+      }
+    ]
+  },
+  {
+    "id": "law_postgrad_life",
+    "stage": "postgrad",
+    "diceRoll": true,
+    "text": "法学院的读研生活和其他专业不太一样——你在研一就开始跟导师做案子了。导师开了个律所，他的研究生基本都是半工半读。你白天去法院立案、写代理词、整理证据材料，晚上回学校上课。你发现自己三年研究生最大的收获不是学术水平——而是学会了怎么写一份让人挑不出毛病的法律意见书。同学在群里讨论法考的通过率，你默默把律所的实习证明截图发了出去。",
+    "choices": [
+      {
+        "text": "案子做得好，导师推荐留所",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "实务能力"
+          },
+          {
+            "target": "connections",
+            "value": 12,
+            "label": "导师推荐"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "超负荷"
+          }
+        ],
+        "nextEventId": "exam_pass"
+      },
+      {
+        "text": "学业实务两头顾不上",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "两头不讨好"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "勉强维持"
+          }
+        ],
+        "nextEventId": "exam_pass"
+      }
+    ]
+  },
+  {
+    "id": "law_postgrad_outcome",
+    "stage": "postgrad",
+    "text": "硕士毕业 + 法考通过 = 真正的入场券。你拿到了两样东西：学位证和律师执业证。红圈所的起薪已经涨到了 2w+/月，但你听师兄说工作时间是 996 进阶版——9106。也有精品所给你 offer，工资少一些，但人性化很多。你站在律政大楼下面，玻璃幕墙映出你穿着正装的影子。你想起五年前在刑法课上热血沸腾的自己，和现在这个已经在备忘录里写好辞职信的成年人，好像不是同一个人。",
+    "moment": {
+      "templateId": "law_grad_moment",
+      "text": "法考+硕士毕业。双证到手，头发没了一半。",
+      "replyPool": [
+        "红圈还是精品？",
+        "恭喜！法律人的路终于开始了",
+        "注意身体，律所不是人待的",
+        "求带，我也想转行学法"
+      ]
+    },
+    "choices": [
+      {
+        "text": "进红圈所，卷诉讼",
+        "effects": [
+          {
+            "target": "money",
+            "value": 20,
+            "label": "红圈薪资"
+          },
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "顶级案件"
+          },
+          {
+            "target": "energy",
+            "value": -20,
+            "label": "9106"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "高压"
+          }
+        ],
+        "nextEventId": "law_first_case"
+      },
+      {
+        "text": "去精品所或中型所，找平衡",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "人性化"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "体面薪资"
+          },
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "稳定成长"
+          }
+        ],
+        "nextEventId": "law_first_case"
+      },
+      {
+        "text": "考公检法，体制内稳定",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "稳定"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "体制内"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "降薪"
+          }
+        ],
+        "nextEventId": "civil_first_month"
+      }
+    ]
+  },
+  {
+    "id": "law_exam_cheat",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "考研机构的师兄私下找到你，说他有今年的法学综合押题密卷——不是模拟题，是'有渠道'来的真题方向。他开价 8000。你说没那么多钱，他说可以分期。你签了一张欠条。回宿舍的路上你想起刑法里的'组织考试作弊罪'——入刑的。你搜了一下：情节严重者，三年以上七年以下有期徒刑。你看着那张欠条，觉得自己的未来写满了不确定性。",
+    "choices": [
+      {
+        "text": "没被发现——但你背负了一个秘密",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "作弊得手"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "良心债"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "圈子知道"
+          }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "出事了...",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "没复习也没作弊"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -20,
+            "label": "崩溃"
+          },
+          {
+            "target": "connections",
+            "value": -10,
+            "label": "名声毁了"
+          }
+        ],
+        "nextEventId": "exam_prep_normal"
+      }
+    ]
+  }
+]

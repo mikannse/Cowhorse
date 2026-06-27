@@ -5,24 +5,18 @@
     "text": "你退了三个求职群，把简历从[求捞]改成了[活着]。房租还有两个月，存款还能撑四个月。朋友问你找到工作了吗，你说：*在找。* 然后关掉了手机。",
     "choices": [
       {
-        "text": "做兼职，半躺不躺",
+        "text": "看看我这样的专业怎么躺",
         "effects": [
-          { "target": "money", "value": 10, "label": "兼职收入" },
-          { "target": "mentalHealth", "value": 10, "label": "自由" },
-          { "target": "connections", "value": 5, "label": "新圈子" }
+          {
+            "target": "skill",
+            "value": 3,
+            "label": "自我审视"
+          }
         ],
-        "nextEventId": "lie_freelance"
-      },
-      {
-        "text": "彻底躺平，什么都不做",
-        "effects": [
-          { "target": "mentalHealth", "value": 12, "label": "完全放松" },
-          { "target": "money", "value": -20, "label": "坐吃山空" },
-          { "target": "connections", "value": -10, "label": "社交脱节" }
-        ],
-        "nextEventId": "lie_full_flat"
+        "nextEventId": "__lie_route_by_major__"
       }
-    ]
+    ],
+    "noEncounters": true
   },
   {
     "id": "lie_freelance",
@@ -31,21 +25,44 @@
     "moment": {
       "templateId": "lie_freelance_moment",
       "text": "自由职业第 30 天：收入不稳定，但闹钟终于被我删了。",
-      "replyPool": ["羡慕自由", "社保怎么办？", "我也想做副业但没勇气", "自由职业三个月后还是很爽"]
+      "replyPool": [
+        "羡慕自由",
+        "社保怎么办？",
+        "我也想做副业但没勇气",
+        "自由职业三个月后还是很爽"
+      ]
     },
     "choices": [
       {
         "text": "扩大客源，当个自由人",
         "effects": [
-          { "target": "money", "value": 15, "label": "接单" },
-          { "target": "skill", "value": 10, "label": "技能杂学" },
-          { "target": "connections", "value": 10, "label": "客户" }
+          {
+            "target": "money",
+            "value": 15,
+            "label": "接单"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "技能杂学"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "客户"
+          }
         ],
         "nextEventId": "lie_freelance_peak"
       },
       {
         "text": "有点累，还是找份稳定工作吧",
-        "effects": [{ "target": "mentalHealth", "value": 5, "label": "务实" }],
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "务实"
+          }
+        ],
         "nextEventId": "job_interview"
       }
     ]
@@ -58,18 +75,42 @@
       {
         "text": "继续自由，拓展更多业务",
         "effects": [
-          { "target": "money", "value": 20, "label": "高收入月份" },
-          { "target": "skill", "value": 10, "label": "积累口碑" },
-          { "target": "mentalHealth", "value": 10, "label": "充实" }
+          {
+            "target": "money",
+            "value": 20,
+            "label": "高收入月份"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "积累口碑"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "充实"
+          }
         ],
         "nextEventId": "lie_digital_nomad"
       },
       {
         "text": "趁有积蓄去学点新东西",
         "effects": [
-          { "target": "skill", "value": 15, "label": "新技能" },
-          { "target": "money", "value": -15, "label": "学费" },
-          { "target": "connections", "value": 5, "label": "同学" }
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "新技能"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "学费"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "同学"
+          }
         ],
         "nextEventId": "lie_digital_nomad"
       }
@@ -82,31 +123,64 @@
     "moment": {
       "templateId": "digital_nomad_life_moment",
       "text": "数字游民半年记：换了四个城市，收入波动像心跳，但爽是真的爽。",
-      "replyPool": ["真·自由", "你不考虑以后吗？", "我为什么还在上班……", "需要队友吗"]
+      "replyPool": [
+        "真·自由",
+        "你不考虑以后吗？",
+        "我为什么还在上班……",
+        "需要队友吗"
+      ]
     },
     "choices": [
       {
         "text": "坚持数字游民生活",
         "effects": [
-          { "target": "mentalHealth", "value": 12, "label": "自由的快乐" },
-          { "target": "money", "value": 12, "label": "接单稳定" },
-          { "target": "connections", "value": 10, "label": "游民社群" }
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "自由的快乐"
+          },
+          {
+            "target": "money",
+            "value": 12,
+            "label": "接单稳定"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "游民社群"
+          }
         ],
         "nextEventId": "lie_midlife_awakening"
       },
       {
         "text": "赚钱不够，回去上班吧",
         "effects": [
-          { "target": "money", "value": 10, "label": "稳定收入" },
-          { "target": "mentalHealth", "value": -10, "label": "自由没了" }
+          {
+            "target": "money",
+            "value": 10,
+            "label": "稳定收入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "自由没了"
+          }
         ],
         "nextEventId": "job_offer"
       },
       {
         "text": "做内容创业，打造个人 IP",
         "effects": [
-          { "target": "skill", "value": 10, "label": "内容创作" },
-          { "target": "connections", "value": 15, "label": "粉丝群" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "内容创作"
+          },
+          {
+            "target": "connections",
+            "value": 15,
+            "label": "粉丝群"
+          }
         ],
         "nextEventId": "lie_content_creator"
       }
@@ -120,21 +194,53 @@
     "choices": [
       {
         "text": "持续爆款，成了小 V",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "money", "value": 15, "label": "恰饭收入" },
-          { "target": "connections", "value": 15, "label": "粉丝" },
-          { "target": "skill", "value": 10, "label": "内容力" }
+          {
+            "target": "money",
+            "value": 15,
+            "label": "恰饭收入"
+          },
+          {
+            "target": "connections",
+            "value": 15,
+            "label": "粉丝"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "内容力"
+          }
         ],
         "nextEventId": "lie_midlife_awakening"
       },
       {
         "text": "流量不稳定，勉强糊口",
-        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
         "effects": [
-          { "target": "money", "value": 5, "label": "微薄收入" },
-          { "target": "mentalHealth", "value": -10, "label": "数据焦虑" },
-          { "target": "skill", "value": 5, "label": "坚持创作" }
+          {
+            "target": "money",
+            "value": 5,
+            "label": "微薄收入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "数据焦虑"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "坚持创作"
+          }
         ],
         "nextEventId": "lie_midlife_awakening"
       }
@@ -148,17 +254,58 @@
       {
         "text": "继续躺，低消费低欲望",
         "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "自洽" },
-          { "target": "money", "value": -15, "label": "存款告急" },
-          { "target": "connections", "value": -5, "label": "社交归零" }
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "自洽"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "存款告急"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "社交归零"
+          }
+        ],
+        "nextEventId": "lie_bottom"
+      },
+      {
+        "text": "跟家里说自己在上培训班，骗点生活费",
+        "effects": [
+          {
+            "target": "money",
+            "value": 8,
+            "label": "家里打的钱"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "骗父母的内疚"
+          },
+          {
+            "target": "skill",
+            "value": -3,
+            "label": "说了谎就要圆谎"
+          }
         ],
         "nextEventId": "lie_bottom"
       },
       {
         "text": "躺够了，该起来了",
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "准备好了" },
-          { "target": "energy", "value": 10, "label": "重新出发" }
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "准备好了"
+          },
+          {
+            "target": "energy",
+            "value": 10,
+            "label": "重新出发"
+          }
         ],
         "nextEventId": "job_intro"
       }
@@ -172,22 +319,69 @@
       {
         "text": "再躺一下，明天一定动",
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "再躺一天" },
-          { "target": "money", "value": -10, "label": "又花了一天" }
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "再躺一天"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "又花了一天"
+          }
+        ],
+        "nextEventId": "lie_bottom"
+      },
+      {
+        "text": "在闲鱼上卖点来路不明的货——反正买家找不到你",
+        "effects": [
+          {
+            "target": "money",
+            "value": 10,
+            "label": "灰色收入"
+          },
+          {
+            "target": "connections",
+            "value": -8,
+            "label": "账号被封就没了"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "做亏心事"
+          }
         ],
         "nextEventId": "lie_bottom"
       },
       {
         "text": "不行了，必须找工作了",
-        "effects": [{ "target": "mentalHealth", "value": 5, "label": "清醒" }],
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "清醒"
+          }
+        ],
         "nextEventId": "job_intro"
       },
       {
         "text": "回家啃老（不是长久之计）",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "安全感" },
-          { "target": "connections", "value": -5, "label": "社交死亡" },
-          { "target": "money", "value": 10, "label": "家里支援" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "安全感"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "社交死亡"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "家里支援"
+          }
         ],
         "nextEventId": "lie_parents_visit"
       }
@@ -202,20 +396,37 @@
       {
         "text": "跟妈妈好好谈谈自己的打算",
         "effects": [
-          { "target": "connections", "value": 15, "label": "家人理解" },
-          { "target": "mentalHealth", "value": 15, "label": "释然" }
+          {
+            "target": "connections",
+            "value": 15,
+            "label": "家人理解"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "释然"
+          }
         ],
         "nextEventId": "lie_reinvent"
       },
       {
         "text": "什么都不说，继续逃避",
         "effects": [
-          { "target": "mentalHealth", "value": -15, "label": "愧疚" },
-          { "target": "connections", "value": -10, "label": "隔阂" }
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "愧疚"
+          },
+          {
+            "target": "connections",
+            "value": -10,
+            "label": "隔阂"
+          }
         ],
         "nextEventId": "lie_reinvent"
       }
-    ]
+    ],
+    "noEncounters": true
   },
   {
     "id": "lie_reinvent",
@@ -225,29 +436,55 @@
       {
         "text": "学门新手艺，重新出发",
         "effects": [
-          { "target": "skill", "value": 15, "label": "新技能" },
-          { "target": "mentalHealth", "value": 10, "label": "有方向了" },
-          { "target": "money", "value": -10, "label": "学习投入" }
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "新技能"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "有方向了"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "学习投入"
+          }
         ],
         "nextEventId": "lie_content_creator"
       },
       {
         "text": "接受现实，找个普通工作",
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "务实" },
-          { "target": "money", "value": 10, "label": "稳定收入" }
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "务实"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "稳定收入"
+          }
         ],
         "nextEventId": "job_intro"
       },
       {
         "text": "考研，换个赛道",
-        "effects": [{ "target": "skill", "value": 10, "label": "备考" }],
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "备考"
+          }
+        ],
         "nextEventId": "exam_intro"
       }
     ]
   },
   {
-    "id": "lie_old_classmate",
+    "id": "encounter_old_classmate",
     "stage": "gap",
     "condition": {
       "type": "attribute",
@@ -260,23 +497,39 @@
       {
         "text": "坦诚聊聊近况",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "共鸣" },
-          { "target": "connections", "value": 10, "label": "老同学" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "共鸣"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "老同学"
+          }
         ],
         "nextEventId": "__return_to_story__"
       },
       {
         "text": "寒暄几句赶紧走人",
         "effects": [
-          { "target": "mentalHealth", "value": -5, "label": "自卑" },
-          { "target": "connections", "value": 5, "label": "保持联系" }
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "自卑"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "保持联系"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
     ]
   },
   {
-    "id": "lie_remote_work",
+    "id": "encounter_remote_work",
     "stage": "gap",
     "condition": {
       "type": "attribute",
@@ -289,17 +542,37 @@
       {
         "text": "全职远程，永远不回去坐班",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "远程万岁" },
-          { "target": "money", "value": 12, "label": "多客户" },
-          { "target": "connections", "value": 10, "label": "国际人脉" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "远程万岁"
+          },
+          {
+            "target": "money",
+            "value": 12,
+            "label": "多客户"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "国际人脉"
+          }
         ],
         "nextEventId": "lie_digital_nomad"
       },
       {
         "text": "远程久了有点孤独",
         "effects": [
-          { "target": "mentalHealth", "value": -5, "label": "孤独" },
-          { "target": "connections", "value": -5, "label": "与人脱节" }
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "孤独"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "与人脱节"
+          }
         ],
         "nextEventId": "__return_to_story__"
       }
@@ -314,25 +587,53 @@
       {
         "text": "继续自由自在的生活",
         "effects": [
-          { "target": "mentalHealth", "value": 12, "label": "自洽" },
-          { "target": "skill", "value": 10, "label": "成长" }
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "自洽"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "成长"
+          }
         ],
         "nextEventId": "ending_reached"
       },
       {
         "text": "找到自己的热爱，去奋斗",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "有方向" },
-          { "target": "skill", "value": 12, "label": "新起点" },
-          { "target": "connections", "value": 10, "label": "志同道合" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "有方向"
+          },
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "新起点"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "志同道合"
+          }
         ],
         "nextEventId": "ending_reached"
       },
       {
         "text": "回归主流，但用我的方式",
         "effects": [
-          { "target": "money", "value": 15, "label": "平衡收入" },
-          { "target": "mentalHealth", "value": 10, "label": "平衡" }
+          {
+            "target": "money",
+            "value": 15,
+            "label": "平衡收入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "平衡"
+          }
         ],
         "nextEventId": "ending_reached"
       }

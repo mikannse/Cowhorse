@@ -9,12 +9,12 @@ export const STORY_RETURN = '__return_to_story__';
  * Self-transitions (same → same) are always allowed and not listed here.
  */
 export const VALID_STAGE_TRANSITIONS: Record<Stage, Stage[]> = {
-  undergrad: ['graduation'],
-  graduation: ['firstJob', 'postgrad', 'gap'],
-  firstJob: ['work', 'gap'],
-  postgrad: ['work', 'gap'],
-  gap: ['work', 'firstJob', 'postgrad'],
-  work: ['retirement', 'gap'],
+  undergrad: ['graduation', 'gap'],
+  graduation: ['firstJob', 'postgrad', 'gap', 'undergrad'],
+  firstJob: ['work', 'gap', 'graduation'],
+  postgrad: ['work', 'gap', 'graduation'],
+  gap: ['work', 'firstJob', 'postgrad', 'graduation'],
+  work: ['retirement', 'gap', 'graduation', 'postgrad', 'firstJob'],
   retirement: ['ending'],
   ending: [],
 };
@@ -64,17 +64,25 @@ export function getInitialEvent(
   throw new Error('Missing initial event and fallback');
 }
 
-const ENCOUNTER_FIRE_CHANCE = 0.3;
+const ENCOUNTER_FIRE_CHANCE = 0.2;
+
+/** Minimum events that must pass after an encounter before the next one can fire */
+export const ENCOUNTER_COOLDOWN = 3;
 
 export function getRandomEncounter(
   eventsById: ReadonlyMap<EventId, GameEvent>,
   state: GameStateSnapshot
 ): GameEvent | null {
+  // Respect encounter cooldown — prevent narrative disruption
+  if (state.encounterCooldown > 0) return null;
+  // Skip if main event is a key story beat that shouldn't be interrupted
+  // (checked by the caller via noEncounters)
   const candidates: GameEvent[] = [];
   for (const event of eventsById.values()) {
     if (
       event.id.startsWith('encounter_') &&
       event.stage === state.currentStage &&
+      !state.visitedEvents.has(event.id) &&
       isEventAvailable(event, state)
     ) {
       candidates.push(event);

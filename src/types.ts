@@ -8,6 +8,8 @@ export interface Attributes {
   mentalHealth: number;
 }
 
+export type Major = 'cs' | 'finance' | 'med' | 'eng' | 'law' | 'art';
+
 export type Stage =
   | 'undergrad'
   | 'graduation'
@@ -45,6 +47,11 @@ export interface VisitedCondition {
   eventId: EventId;
 }
 
+export interface MajorCondition {
+  type: 'major';
+  major: Major | Major[];
+}
+
 export interface AndCondition {
   type: 'and';
   conditions: Condition[];
@@ -65,6 +72,7 @@ export type Condition =
   | StageCondition
   | DiceCondition
   | VisitedCondition
+  | MajorCondition
   | AndCondition
   | OrCondition
   | NotCondition;
@@ -80,6 +88,7 @@ export interface Choice {
   effects: GameEffect[];
   nextEventId: EventId;
   condition?: Condition;
+  setMajor?: Major;
 }
 
 export interface MemeCheck {
@@ -106,6 +115,8 @@ export interface GameEvent {
   memeCheck?: MemeCheck;
   moment?: MomentTemplate;
   lonelyMoment?: string;
+  /** If true, random encounters will NOT fire after this event. Use for key story beats. */
+  noEncounters?: boolean;
 }
 
 export interface DiceResult {
@@ -138,6 +149,8 @@ export interface GameStateSnapshot {
   diceResult?: DiceResult;
   currentRoute?: string;
   storyReturnEventId?: EventId;
+  major: Major | null;
+  encounterCooldown: number;
 }
 
 export interface GameStoreState extends GameStateSnapshot {
@@ -160,6 +173,8 @@ export type GameStoreActions = {
   setStage: (stage: Stage) => void;
   setCurrentRoute: (route: string) => void;
   setStoryReturnEventId: (eventId: EventId) => void;
+  setMajor: (major: Major) => void;
+  setEncounterCooldown: (value: number) => void;
   resetGame: () => void;
 };
 

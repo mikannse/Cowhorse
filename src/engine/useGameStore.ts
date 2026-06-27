@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import type { GameStore, GameStoreState, Stage } from '../types';
 import { applyEffects } from '../utils/effects';
+import { isValidStageTransition } from './eventEvaluator';
 
 export const DEFAULT_ATTRIBUTES = {
   money: 50,
@@ -21,11 +22,13 @@ function createInitialState(): GameStoreState {
     eventHistory: [],
     diceResult: undefined,
     currentRoute: undefined,
+    major: null,
     pendingDice: false,
     momentsFeed: [],
     lonelyMoment: null,
     endingId: null,
-    storyReturnEventId: '',
+    storyReturnEventId: undefined,
+    encounterCooldown: 0,
   };
 }
 
@@ -56,6 +59,8 @@ export const useGameStore = create<GameStore>((set) => ({
         currentEventId: eventId,
         visitedEvents: visited,
         eventHistory: history,
+        // Decrement encounter cooldown each time we navigate to a new event
+        encounterCooldown: Math.max(0, state.encounterCooldown - 1),
       };
     });
   },
@@ -96,7 +101,18 @@ export const useGameStore = create<GameStore>((set) => ({
   },
 
   setStage: (stage) => {
-    set({ currentStage: stage });
+    set((state) => {
+      // Enforce validated stage transitions per CLAUDE.md architecture:
+      // "Stage transitions are validated: isValidStageTransition() enforces
+      //  the legal transition graph. Invalid jumps are silently rejected."
+      if (!isValidStageTransition(state.currentStage, stage)) {
+        console.warn(
+          `[CowHorse] Invalid stage transition: ${state.currentStage} → ${stage} (rejected)`
+        );
+        return {};
+      }
+      return { currentStage: stage };
+    });
   },
 
   setCurrentRoute: (route) => {
@@ -107,6 +123,14 @@ export const useGameStore = create<GameStore>((set) => ({
     set({ storyReturnEventId: eventId });
   },
 
+  setMajor: (major) => {
+    set({ major });
+  },
+
+  setEncounterCooldown: (value) => {
+    set({ encounterCooldown: value });
+  },
+
   resetGame: () => {
     set(createInitialState());
   },
@@ -114,13 +138,15 @@ export const useGameStore = create<GameStore>((set) => ({
 
 export function selectSnapshot(state: GameStore): import('../types').GameStateSnapshot {
   return {
-    attributes: state.attributes,
+    attributes: { ...state.attributes },
     currentStage: state.currentStage,
     currentEventId: state.currentEventId,
-    visitedEvents: state.visitedEvents,
-    eventHistory: state.eventHistory,
-    diceResult: state.diceResult,
+    visitedEvents: new Set(state.visitedEvents),
+    eventHistory: [...state.eventHistory],
+    diceResult: state.diceResult ? { ...state.diceResult } : undefined,
     currentRoute: state.currentRoute,
     storyReturnEventId: state.storyReturnEventId,
+    major: state.major,
+    encounterCooldown: state.encounterCooldown,
   };
 }

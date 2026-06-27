@@ -15,7 +15,7 @@ export default function EndingScreen() {
   const [posterError, setPosterError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (posterDataUrl) return;
+    if (posterDataUrl || !endingId) return;
     renderPoster()
       .then((url) => {
         setPosterDataUrl(url);
@@ -24,7 +24,7 @@ export default function EndingScreen() {
       .catch((err) => {
         setPosterError(err instanceof Error ? err.message : '海报生成失败');
       });
-  }, [posterDataUrl]);
+  }, [posterDataUrl, endingId]);
 
   const handleSave = useCallback(() => {
     if (posterDataUrl) downloadPoster(posterDataUrl);

@@ -1,0 +1,143 @@
+[
+  {
+    "id": "finance_lie_intro",
+    "stage": "gap",
+    "text": "你在投行的第三个项目黄了。IPO 收紧，客户撤回申请，你的项目奖金的泡影像那个被终止的上市一样——没了。你算了算自己三年攒下来的钱，够在北京不工作活一年半。你第一次认真地想：*我到底在卷什么？* 同学群里有人在晒新买的保时捷，有人在发新基金的募资材料。你关掉手机，睡了一天一夜。醒来的时候窗外在下雨，你不知道几点，也不知道今天星期几——但你第一次觉得，不用赶早会的感觉真好。",
+    "choices": [
+      {
+        "text": "做点兼职，不躺那么平",
+        "effects": [
+          {
+            "target": "money",
+            "value": 8,
+            "label": "理财+咨询"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "慢下来"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "保持联系"
+          }
+        ],
+        "nextEventId": "lie_freelance"
+      },
+      {
+        "text": "彻底躺平，什么都不想",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "自由"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "消耗积蓄"
+          },
+          {
+            "target": "connections",
+            "value": -8,
+            "label": "社交断裂"
+          }
+        ],
+        "nextEventId": "lie_full_flat"
+      },
+      {
+        "text": "一个做网贷的朋友找你帮忙——不需要你出钱，只需要用你的身份证开个账户，帮他把资金'过一手'。他说这叫'白手套'，一个月给你 5000。你金融直觉告诉你：这绝对不合法。但你的银行存款告诉你：5000 块够活两个月。（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": 15,
+            "label": "白手套费"
+          },
+          {
+            "target": "connections",
+            "value": -10,
+            "label": "真出事了你也跑不了"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "每天都怕警察上门"
+          }
+        ],
+        "nextEventId": "finance_lie_awakening"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "finance_lie_awakening",
+    "stage": "gap",
+    "text": "你躺了半年。没有 KPI、没有 deadline、没有无穷无尽的 pitch book。有一天你在咖啡馆坐着，旁边的人在聊一个消费赛道的项目——你发现自己下意识在心里做着估值模型，然后你笑了。华尔街之狼的基因不是一天能洗掉的。你开始重新思考：也许你不是不想工作，你只是不想为别人的 KPI 工作。*金融教你的不只是怎么赚钱——它教你的是怎么让钱为你工作。* 现在，你要为自己工作了。",
+    "choices": [
+      {
+        "text": "用自己的积蓄做投资/创业",
+        "effects": [
+          {
+            "target": "money",
+            "value": -20,
+            "label": "自有资金"
+          },
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "投资实战"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "LP关系"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "为自己干"
+          }
+        ],
+        "nextEventId": "finance_career_crossroads"
+      },
+      {
+        "text": "找份节奏慢的工作",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "平衡"
+          },
+          {
+            "target": "money",
+            "value": 8,
+            "label": "稳定收入"
+          }
+        ],
+        "nextEventId": "job_offer"
+      },
+      {
+        "text": "自由职业，做财务顾问",
+        "effects": [
+          {
+            "target": "money",
+            "value": 10,
+            "label": "顾问收入"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "个人品牌"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "自由"
+          }
+        ],
+        "nextEventId": "lie_freelance_peak"
+      }
+    ]
+  }
+]

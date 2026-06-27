@@ -7,20 +7,37 @@
       {
         "text": "海投，扩大分母",
         "effects": [
-          { "target": "connections", "value": 5, "label": "曝光+1" },
-          { "target": "energy", "value": -10, "label": "投简历到眼花" }
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "曝光+1"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "投简历到眼花"
+          }
         ],
-        "nextEventId": "job_waiting"
+        "nextEventId": "__route_by_major__"
       },
       {
         "text": "精准投递，少而精",
         "effects": [
-          { "target": "skill", "value": 5, "label": "针对性准备" },
-          { "target": "mentalHealth", "value": -5, "label": "等待焦虑" }
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "针对性准备"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "等待焦虑"
+          }
         ],
-        "nextEventId": "job_waiting"
+        "nextEventId": "__route_by_major__"
       }
-    ]
+    ],
+    "noEncounters": true
   },
   {
     "id": "job_waiting",
@@ -30,19 +47,43 @@
     "choices": [
       {
         "text": "收到面试通知！",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "希望" },
-          { "target": "connections", "value": 5, "label": "面试机会" }
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "希望"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "面试机会"
+          }
         ],
         "nextEventId": "job_interview"
       },
       {
         "text": "继续石沉大海",
-        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
         "effects": [
-          { "target": "mentalHealth", "value": -15, "label": "自我怀疑" },
-          { "target": "energy", "value": -5, "label": "泄气" }
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "自我怀疑"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "泄气"
+          }
         ],
         "nextEventId": "job_despair"
       }
@@ -56,22 +97,44 @@
       {
         "text": "不行，继续投",
         "effects": [
-          { "target": "energy", "value": -5, "label": "疲劳" },
-          { "target": "connections", "value": 5, "label": "又投了50家" }
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "疲劳"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "又投了50家"
+          }
         ],
         "nextEventId": "job_interview"
       },
       {
         "text": "降低标准，先找个活干",
         "effects": [
-          { "target": "mentalHealth", "value": 5, "label": "务实" },
-          { "target": "money", "value": 5, "label": "小公司 offer" }
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "务实"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "小公司 offer"
+          }
         ],
         "nextEventId": "job_offer"
       },
       {
         "text": "要不……考公吧",
-        "effects": [{ "target": "mentalHealth", "value": 5, "label": "新方向" }],
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "新方向"
+          }
+        ],
         "nextEventId": "civil_intro"
       }
     ]
@@ -84,21 +147,66 @@
     "choices": [
       {
         "text": "超常发挥，对答如流",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "connections", "value": 10, "label": "面试官好感" },
-          { "target": "mentalHealth", "value": 10, "label": "自信恢复" }
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "面试官好感"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "自信恢复"
+          }
         ],
         "nextEventId": "job_offer"
       },
       {
         "text": "紧张到语无伦次",
-        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
         "effects": [
-          { "target": "mentalHealth", "value": -20, "label": "挫败感" },
-          { "target": "energy", "value": -10, "label": "疲惫" }
+          {
+            "target": "mentalHealth",
+            "value": -20,
+            "label": "挫败感"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "疲惫"
+          }
         ],
         "nextEventId": "job_reject"
+      },
+      {
+        "text": "编造一段不存在的实习经历——反正 HR 不会查那么细",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "简历镀金"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "撒谎的心虚"
+          },
+          {
+            "target": "skill",
+            "value": -3,
+            "label": "履历水分"
+          }
+        ],
+        "nextEventId": "job_offer"
       }
     ]
   },
@@ -120,20 +228,58 @@
       {
         "text": "直接接受，赶紧上班",
         "effects": [
-          { "target": "money", "value": 10, "label": "工资" },
-          { "target": "energy", "value": -10, "label": "准备入职" }
+          {
+            "target": "money",
+            "value": 10,
+            "label": "工资"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "准备入职"
+          }
         ],
         "nextEventId": "job_first_day"
       },
       {
         "text": "试着谈谈薪资",
         "effects": [
-          { "target": "connections", "value": 5, "label": "谈判经验" },
-          { "target": "mentalHealth", "value": -5, "label": "忐忑" }
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "谈判经验"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "忐忑"
+          }
+        ],
+        "nextEventId": "job_first_day"
+      },
+      {
+        "text": "拿这个 offer 去跟另一家公司抬价——虽然不道德但有用",
+        "effects": [
+          {
+            "target": "money",
+            "value": 12,
+            "label": "抬价成功"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "业内口碑受损"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "商业互骗"
+          }
         ],
         "nextEventId": "job_first_day"
       }
-    ]
+    ],
+    "noEncounters": true
   },
   {
     "id": "job_first_day",
@@ -143,28 +289,53 @@
       {
         "text": "主动跟同事社交",
         "effects": [
-          { "target": "connections", "value": 10, "label": "新同事" },
-          { "target": "energy", "value": -5, "label": "社交消耗" }
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "新同事"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "社交消耗"
+          }
         ],
         "nextEventId": "job_three_months"
       },
       {
         "text": "埋头干活，少说多做",
         "effects": [
-          { "target": "skill", "value": 10, "label": "业务熟练" },
-          { "target": "mentalHealth", "value": 5, "label": "安全感" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "业务熟练"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "安全感"
+          }
         ],
         "nextEventId": "job_three_months"
       },
       {
         "text": "第一天就摸鱼",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "爽" },
-          { "target": "skill", "value": -5, "label": "印象差" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "爽"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "印象差"
+          }
         ],
         "nextEventId": "job_three_months"
       }
-    ]
+    ],
+    "noEncounters": true
   },
   {
     "id": "job_three_months",
@@ -184,33 +355,102 @@
     "choices": [
       {
         "text": "转正成功，表现优异",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "money", "value": 10, "label": "加薪" },
-          { "target": "mentalHealth", "value": 5, "label": "成就感" },
-          { "target": "skill", "value": 5, "label": "业务提升" },
-          { "target": "energy", "value": 5, "label": "步入正轨" }
+          {
+            "target": "money",
+            "value": 10,
+            "label": "加薪"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "成就感"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "业务提升"
+          },
+          {
+            "target": "energy",
+            "value": 5,
+            "label": "步入正轨"
+          }
         ],
         "nextEventId": "job_one_year"
       },
       {
         "text": "勉强通过，需要改进",
-        "condition": { "type": "dice", "min": 2, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 2,
+          "max": 3
+        },
         "effects": [
-          { "target": "money", "value": 5, "label": "微调薪资" },
-          { "target": "mentalHealth", "value": -5, "label": "压力" },
-          { "target": "energy", "value": -10, "label": "加班改进" }
+          {
+            "target": "money",
+            "value": 5,
+            "label": "微调薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "压力"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "加班改进"
+          }
         ],
         "nextEventId": "job_one_year"
       },
       {
         "text": "转正失败",
-        "condition": { "type": "dice", "min": 1, "max": 1 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 1
+        },
         "effects": [
-          { "target": "mentalHealth", "value": -15, "label": "被辞退" },
-          { "target": "money", "value": -10, "label": "失业" }
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "被辞退"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "失业"
+          }
         ],
         "nextEventId": "job_reject"
+      },
+      {
+        "text": "在自己负责的部分留一个隐蔽的隐患——等同事接手时出丑",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "留了后门"
+          },
+          {
+            "target": "connections",
+            "value": -8,
+            "label": "同事察觉"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "职场阴暗面"
+          }
+        ],
+        "nextEventId": "job_one_year"
       }
     ]
   },
@@ -222,27 +462,84 @@
       {
         "text": "努力奋斗，争取升职",
         "effects": [
-          { "target": "skill", "value": 10, "label": "升职加薪" },
-          { "target": "money", "value": 12, "label": "涨薪" },
-          { "target": "energy", "value": -15, "label": "996" },
-          { "target": "mentalHealth", "value": -8, "label": "内卷" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "升职加薪"
+          },
+          {
+            "target": "money",
+            "value": 12,
+            "label": "涨薪"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "996"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "内卷"
+          }
         ],
         "nextEventId": "job_two_years"
       },
       {
         "text": "摸鱼养生，拒绝内卷",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "平衡生活" },
-          { "target": "money", "value": 5, "label": "够用" },
-          { "target": "skill", "value": -5, "label": "成长停滞" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "平衡生活"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "够用"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "成长停滞"
+          }
         ],
         "nextEventId": "job_two_years"
       },
       {
         "text": "跳槽，寻找新机会",
         "effects": [
-          { "target": "connections", "value": 10, "label": "猎头联系" },
-          { "target": "mentalHealth", "value": -5, "label": "不确定" }
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "猎头联系"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "不确定"
+          }
+        ],
+        "nextEventId": "job_two_years"
+      },
+      {
+        "text": "在周报里把同事做的事写成自己的——反正领导只看结果",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "领导赏识"
+          },
+          {
+            "target": "connections",
+            "value": -10,
+            "label": "同事恨你"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "你知道自己不是好人"
+          }
         ],
         "nextEventId": "job_two_years"
       }
@@ -256,18 +553,42 @@
       {
         "text": "继续深耕，积累核心竞争力",
         "effects": [
-          { "target": "skill", "value": 12, "label": "专业深耕" },
-          { "target": "money", "value": 8, "label": "调薪" },
-          { "target": "energy", "value": -10, "label": "持续输出" }
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "专业深耕"
+          },
+          {
+            "target": "money",
+            "value": 8,
+            "label": "调薪"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "持续输出"
+          }
         ],
         "nextEventId": "job_crisis"
       },
       {
         "text": "摸鱼同时搞点副业",
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "心态轻松" },
-          { "target": "money", "value": 5, "label": "副业小收入" },
-          { "target": "skill", "value": 5, "label": "新技能探索" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "心态轻松"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "副业小收入"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "新技能探索"
+          }
         ],
         "nextEventId": "job_crisis"
       }
@@ -281,22 +602,71 @@
     "choices": [
       {
         "text": "裁员风波中幸存了下来",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "mentalHealth", "value": 10, "label": "虚惊一场" },
-          { "target": "skill", "value": 10, "label": "危机中成长" }
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "虚惊一场"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "危机中成长"
+          }
         ],
         "nextEventId": "job_promoted"
       },
       {
         "text": "被列入\"优化\"名单",
-        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
         "effects": [
-          { "target": "mentalHealth", "value": -15, "label": "被裁" },
-          { "target": "money", "value": -15, "label": "收入中断" },
-          { "target": "connections", "value": -5, "label": "同事疏远" }
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "被裁"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "收入中断"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "同事疏远"
+          }
         ],
         "nextEventId": "job_layoff_scare"
+      },
+      {
+        "text": "私下向领导暗示是同事的失误导致项目延期——让他当替罪羊",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "保全自己"
+          },
+          {
+            "target": "connections",
+            "value": -12,
+            "label": "同事圈都知道"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "晚上睡不着"
+          }
+        ],
+        "nextEventId": "job_promoted"
       }
     ]
   },
@@ -318,17 +688,37 @@
       {
         "text": "好好干管理，往上爬",
         "effects": [
-          { "target": "connections", "value": 10, "label": "管理层人脉" },
-          { "target": "money", "value": 8, "label": "管理津贴" },
-          { "target": "skill", "value": 5, "label": "管理技能" }
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "管理层人脉"
+          },
+          {
+            "target": "money",
+            "value": 8,
+            "label": "管理津贴"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "管理技能"
+          }
         ],
         "nextEventId": "job_health_wakeup"
       },
       {
         "text": "更想回去写代码",
         "effects": [
-          { "target": "mentalHealth", "value": -5, "label": "不适" },
-          { "target": "skill", "value": 10, "label": "回归技术" }
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "不适"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "回归技术"
+          }
         ],
         "nextEventId": "job_health_wakeup"
       }
@@ -342,24 +732,50 @@
       {
         "text": "继续找同行业工作",
         "effects": [
-          { "target": "energy", "value": -10, "label": "海投" },
-          { "target": "mentalHealth", "value": -5, "label": "焦虑" }
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "海投"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "焦虑"
+          }
         ],
-        "nextEventId": "job_health_wakeup"
+        "nextEventId": "job_first_day"
       },
       {
         "text": "趁这个机会考研",
-        "effects": [{ "target": "skill", "value": 10, "label": "新方向" }],
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "新方向"
+          }
+        ],
         "nextEventId": "exam_intro"
       },
       {
         "text": "考公求稳",
-        "effects": [{ "target": "mentalHealth", "value": 5, "label": "务实" }],
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "务实"
+          }
+        ],
         "nextEventId": "civil_intro"
       },
       {
         "text": "先躺一下",
-        "effects": [{ "target": "mentalHealth", "value": 15, "label": "休息" }],
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "休息"
+          }
+        ],
         "nextEventId": "lie_intro"
       }
     ]
@@ -385,36 +801,76 @@
       {
         "text": "继续奋斗，升职加薪",
         "effects": [
-          { "target": "skill", "value": 10, "label": "坚定方向" },
-          { "target": "mentalHealth", "value": 5, "label": "看清了" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "坚定方向"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "看清了"
+          }
         ],
         "nextEventId": "job_five_years"
       },
       {
         "text": "搞副业，准备自由职业",
         "effects": [
-          { "target": "money", "value": 5, "label": "副业启动" },
-          { "target": "skill", "value": 5, "label": "多线发展" },
-          { "target": "connections", "value": 10, "label": "副业圈子" }
+          {
+            "target": "money",
+            "value": 5,
+            "label": "副业启动"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "多线发展"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "副业圈子"
+          }
         ],
         "nextEventId": "job_side_hustle"
       },
       {
         "text": "辞职考研，提升学历",
         "effects": [
-          { "target": "skill", "value": 5, "label": "备考" },
-          { "target": "money", "value": -10, "label": "无收入" }
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "备考"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "无收入"
+          }
         ],
         "nextEventId": "exam_intro"
       },
       {
         "text": "考公，追求稳定",
-        "effects": [{ "target": "mentalHealth", "value": 10, "label": "安全需求" }],
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "安全需求"
+          }
+        ],
         "nextEventId": "civil_intro"
       },
       {
         "text": "躺平休息一段时间",
-        "effects": [{ "target": "mentalHealth", "value": 15, "label": "放下" }],
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "放下"
+          }
+        ],
         "nextEventId": "lie_intro"
       }
     ]
@@ -427,20 +883,48 @@
     "choices": [
       {
         "text": "副业起飞，可以考虑全职了",
-        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
         "effects": [
-          { "target": "money", "value": 15, "label": "副业收入翻倍" },
-          { "target": "skill", "value": 10, "label": "多面手" },
-          { "target": "energy", "value": -15, "label": "累但充实" }
+          {
+            "target": "money",
+            "value": 15,
+            "label": "副业收入翻倍"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "多面手"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "累但充实"
+          }
         ],
         "nextEventId": "job_digital_nomad"
       },
       {
         "text": "副业不稳定，还是安心打工",
-        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
         "effects": [
-          { "target": "money", "value": 5, "label": "小额副业" },
-          { "target": "mentalHealth", "value": -5, "label": "不甘" }
+          {
+            "target": "money",
+            "value": 5,
+            "label": "小额副业"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "不甘"
+          }
         ],
         "nextEventId": "job_five_years"
       }
@@ -453,23 +937,48 @@
     "moment": {
       "templateId": "digital_nomad_moment",
       "text": "数字游民第一天：苍山洱海，远程办公，收入比上班少 30%，但快乐翻倍。",
-      "replyPool": ["羡慕，但不敢", "社保怎么办？？", "我也想，求经验", "下个月吃饭怎么办"]
+      "replyPool": [
+        "羡慕，但不敢",
+        "社保怎么办？？",
+        "我也想，求经验",
+        "下个月吃饭怎么办"
+      ]
     },
     "choices": [
       {
         "text": "坚持自由职业，扩大客户",
         "effects": [
-          { "target": "mentalHealth", "value": 12, "label": "自由真香" },
-          { "target": "money", "value": 12, "label": "接单稳定" },
-          { "target": "connections", "value": 10, "label": "自由职业圈" }
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "自由真香"
+          },
+          {
+            "target": "money",
+            "value": 12,
+            "label": "接单稳定"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "自由职业圈"
+          }
         ],
         "nextEventId": "ending_reached"
       },
       {
         "text": "钱不稳定，还是回公司吧",
         "effects": [
-          { "target": "money", "value": 15, "label": "稳定薪资" },
-          { "target": "mentalHealth", "value": -10, "label": "自由的代价" }
+          {
+            "target": "money",
+            "value": 15,
+            "label": "稳定薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "自由的代价"
+          }
         ],
         "nextEventId": "job_five_years"
       }
@@ -483,26 +992,58 @@
       {
         "text": "继续，已经习惯了",
         "effects": [
-          { "target": "money", "value": 12, "label": "五年积蓄" },
-          { "target": "skill", "value": 10, "label": "资深" },
-          { "target": "mentalHealth", "value": -10, "label": "麻木" }
+          {
+            "target": "money",
+            "value": 12,
+            "label": "五年积蓄"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "资深"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "麻木"
+          }
         ],
         "nextEventId": "job_late_career"
       },
       {
         "text": "该换一种活法了",
         "effects": [
-          { "target": "mentalHealth", "value": 15, "label": "醒悟" },
-          { "target": "connections", "value": 10, "label": "新圈子" }
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "醒悟"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "新圈子"
+          }
         ],
         "nextEventId": "lie_intro"
       },
       {
         "text": "创业，自己做老板",
         "effects": [
-          { "target": "skill", "value": 10, "label": "创业准备" },
-          { "target": "money", "value": -20, "label": "启动资金" },
-          { "target": "mentalHealth", "value": 10, "label": "激动" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "创业准备"
+          },
+          {
+            "target": "money",
+            "value": -20,
+            "label": "启动资金"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "激动"
+          }
         ],
         "nextEventId": "job_entrepreneur"
       }
@@ -516,31 +1057,79 @@
     "choices": [
       {
         "text": "拿到天使轮，公司上正轨",
-        "condition": { "type": "dice", "min": 5, "max": 6 },
+        "condition": {
+          "type": "dice",
+          "min": 5,
+          "max": 6
+        },
         "effects": [
-          { "target": "money", "value": 20, "label": "融资" },
-          { "target": "skill", "value": 15, "label": "创业者" },
-          { "target": "connections", "value": 12, "label": "商业人脉" }
+          {
+            "target": "money",
+            "value": 20,
+            "label": "融资"
+          },
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "创业者"
+          },
+          {
+            "target": "connections",
+            "value": 12,
+            "label": "商业人脉"
+          }
         ],
         "nextEventId": "ending_reached"
       },
       {
         "text": "创业维艰，勉强活着",
-        "condition": { "type": "dice", "min": 3, "max": 4 },
+        "condition": {
+          "type": "dice",
+          "min": 3,
+          "max": 4
+        },
         "effects": [
-          { "target": "money", "value": -10, "label": "烧钱" },
-          { "target": "mentalHealth", "value": -10, "label": "焦虑" },
-          { "target": "skill", "value": 10, "label": "学了很多" }
+          {
+            "target": "money",
+            "value": -10,
+            "label": "烧钱"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "焦虑"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "学了很多"
+          }
         ],
         "nextEventId": "ending_reached"
       },
       {
         "text": "创业失败，公司关门",
-        "condition": { "type": "dice", "min": 1, "max": 2 },
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 2
+        },
         "effects": [
-          { "target": "money", "value": -20, "label": "血本无归" },
-          { "target": "mentalHealth", "value": -15, "label": "失败打击" },
-          { "target": "connections", "value": 10, "label": "虽然失败了但认识了人" }
+          {
+            "target": "money",
+            "value": -20,
+            "label": "血本无归"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "失败打击"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "虽然失败了但认识了人"
+          }
         ],
         "nextEventId": "ending_reached"
       }
@@ -549,21 +1138,37 @@
   {
     "id": "job_late_career",
     "stage": "work",
-    "text": "你在工位上已经坐了快十年。办公室装修了好几轮，同事换了好几批，只有你还在。公司给你发了个\"十年服务奖\"——一个水晶奖杯和五百块购物卡。你抱着奖杯坐地铁回家，旁边的人在看招聘软件。",
+    "text": "在这个行业摸爬滚打了快十年。办公室装修了好几轮，同事换了好几批，只有你还在。公司给你发了个\"十年服务奖\"——一个水晶奖杯和五百块购物卡。你抱着奖杯坐地铁回家，旁边的人在看招聘软件。",
     "choices": [
       {
         "text": "够了，规划退休吧",
         "effects": [
-          { "target": "money", "value": 10, "label": "退休规划" },
-          { "target": "mentalHealth", "value": 20, "label": "看开了" }
+          {
+            "target": "money",
+            "value": 10,
+            "label": "退休规划"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 20,
+            "label": "看开了"
+          }
         ],
         "nextEventId": "ending_reached"
       },
       {
         "text": "还想再拼一把",
         "effects": [
-          { "target": "skill", "value": 10, "label": "转型学习" },
-          { "target": "energy", "value": -15, "label": "中年拼搏" }
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "转型学习"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "中年拼搏"
+          }
         ],
         "nextEventId": "ending_reached"
       }
@@ -577,19 +1182,39 @@
       {
         "text": "继续投，不信找不到",
         "effects": [
-          { "target": "mentalHealth", "value": -5, "label": "麻木" },
-          { "target": "connections", "value": 5, "label": "继续投" }
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "麻木"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "继续投"
+          }
         ],
         "nextEventId": "job_interview"
       },
       {
         "text": "回去考研吧",
-        "effects": [{ "target": "skill", "value": 5, "label": "转方向" }],
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "转方向"
+          }
+        ],
         "nextEventId": "exam_intro"
       },
       {
         "text": "考公，稳定才是真理",
-        "effects": [{ "target": "skill", "value": 5, "label": "转方向" }],
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "转方向"
+          }
+        ],
         "nextEventId": "civil_intro"
       }
     ]

@@ -1,0 +1,117 @@
+[
+  {
+    "id": "eng_civil_intro",
+    "stage": "graduation",
+    "text": "土木工程考公——这是你行业里听得最多的建议了。室友说：!土木的尽头是考公，因为工地没有尽头。! 你翻了翻职位表——住建局、交通局、规划局、自然资源局，你的专业几乎覆盖了所有基建相关岗位。这是土木少有的好消息：在体制内招考中，你的专业优势比 CS 还大。你想起大二去工地实习时项目经理说的话：*这个行业最好的出路，就是去管这个行业的人。*",
+    "choices": [
+      {
+        "text": "住建局/交通局，专业最对口",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "专业壁垒"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "建设系统"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有奔头"
+          }
+        ],
+        "nextEventId": "civil_study"
+      },
+      {
+        "text": "不限专业岗位，换个方向",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "远离工地"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "放弃专业优势"
+          }
+        ],
+        "nextEventId": "civil_study"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "eng_civil_work",
+    "stage": "firstJob",
+    "text": "你在住建局上班了。你的日常工作不再是画图纸、跑工地、算混凝土标号——而是审图纸、批资质、处理投诉。你发现自己以前在工地上受的苦，现在变成了你判断问题的基础：施工方报上来的工程量有没有水分，你一眼就能看出来；监理报告里的问题描述是不是避重就轻，你心里清楚。科长说：!你是局里少数真的去过工地的人——别丢了这份经验。! 你忽然觉得，那些年在工地上吃的灰，也不算白吃。",
+    "choices": [
+      {
+        "text": "深耕建设系统，走质检/规划路线",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "建设管理"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "行业资源"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "学以致用"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "心思在考证，准备挂靠",
+        "effects": [
+          {
+            "target": "money",
+            "value": 8,
+            "label": "一建挂靠"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "单位印象不好"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "多条路"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "承包方派人送来一个信封——'一点意思，希望以后的质检流程能快一点'（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": 12,
+            "label": "信封里的钱"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "心里不踏实"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "被人拿住了软肋"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      }
+    ]
+  }
+]

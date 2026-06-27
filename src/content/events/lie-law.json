@@ -1,0 +1,133 @@
+[
+  {
+    "id": "law_lie_intro",
+    "stage": "gap",
+    "text": "律所实习三个月，你的工资 3500，房租 2200，每天通勤 2 小时。带教律师的第 37 版修改意见弹出来的时候，你盯着微信对话框，打了四个字'好的收到'——然后把手机扔到了床上。你终于理解了法学生在网上说的那句话：*法学院教你的是公平正义，律所教你的是'好的收到'。* 你开始怀疑：考了法考、读了法硕、挤进律所——这一路到底是为了什么？你关掉手机，拿起了很久没翻过的《刑法》，翻到自己最喜欢的那一页。不是为了考试，只是想看看上面的批注，找到那个还相信'法律是信仰'的自己。",
+    "choices": [
+      {
+        "text": "接点法律咨询的私活",
+        "effects": [
+          {
+            "target": "money",
+            "value": 8,
+            "label": "咨询收入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "保持手感"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "潜在客户"
+          }
+        ],
+        "nextEventId": "lie_freelance"
+      },
+      {
+        "text": "什么都不想干，躺平",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "放空"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "没钱"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "法律生疏"
+          }
+        ],
+        "nextEventId": "lie_full_flat"
+      },
+      {
+        "text": "你在网上看了一个法律咨询平台，发现只要注册就能接单——不需要上传执业证。你试了一下，果然通过了。第一个客户问了你一个劳动仲裁的问题，你回答了。你答得不错，对方很满意。但你心里清楚：你没有律师执业证，这就是非法执业。被查到了就是行政处罚。（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": 8,
+            "label": "咨询费"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "同行知道就完了"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "非法执业的压力"
+          }
+        ],
+        "nextEventId": "law_lie_awakening"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "law_lie_awakening",
+    "stage": "gap",
+    "text": "你在躺平期间帮一个朋友写了份租房合同审查意见，朋友转手就发到了自己的校友群。结果好几个人加你微信，问你能不能帮忙看看合同。你没收钱，但你发现——你的法律思维是刻在骨子里的。那些法条、那些判例、那些逻辑训练，不是你花了几年学的东西——是你已经变成的样子。*也许你不是不想当法律人，你只是不想在那个特定的写字楼里当。*",
+    "choices": [
+      {
+        "text": "自己开个法律咨询工作室",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "独立执业"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "初期投入"
+          },
+          {
+            "target": "connections",
+            "value": 12,
+            "label": "客户积累"
+          }
+        ],
+        "nextEventId": "law_career_crossroads"
+      },
+      {
+        "text": "找公司法务的工作，节奏慢一点",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "企业法务"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "稳定薪资"
+          }
+        ],
+        "nextEventId": "law_job_offer"
+      },
+      {
+        "text": "考公进法检系统",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "稳定感"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "体制内"
+          }
+        ],
+        "nextEventId": "civil_intro"
+      }
+    ]
+  }
+]

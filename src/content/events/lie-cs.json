@@ -1,0 +1,143 @@
+[
+  {
+    "id": "cs_lie_intro",
+    "stage": "gap",
+    "text": "你被裁了——或者说，你终于被裁了。公司第三轮优化，你的组从 20 人缩到 5 人。N+1 到账那天，你坐在出租屋里打开了招聘软件——然后又关上了。你做了三年程序员，够了。GitHub 上你的开源项目有几百个 star，猎头偶尔还在 LinkedIn 上给你发消息。你知道自己随时能接到活，但你就是不想动。*程序员躺平的悖论就是：你躺着也能赚钱，但躺久了就再也起不来了。*",
+    "choices": [
+      {
+        "text": "接外包，半躺半干",
+        "effects": [
+          {
+            "target": "money",
+            "value": 10,
+            "label": "远程接单"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "自由"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "技术圈"
+          }
+        ],
+        "nextEventId": "lie_freelance"
+      },
+      {
+        "text": "彻底躺，什么都不想干",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "放空"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "坐吃山空"
+          },
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "技术荒废"
+          }
+        ],
+        "nextEventId": "lie_full_flat"
+      },
+      {
+        "text": "你在网上接了个活——有人出钱让你写一个能自动刷量的脚本。你知道这个东西大概率用来干见不得光的事（刷榜、刷评论、刷流量），但对方出的价够你躺三个月。你看着需求文档里写着的'隐蔽性要求'，内心挣扎了一下。（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": 12,
+            "label": "黑产外快"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "技术又精进了"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "你知道这是灰产"
+          }
+        ],
+        "nextEventId": "cs_lie_awakening"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "cs_lie_awakening",
+    "stage": "gap",
+    "text": "你躺了几个月，某天刷 GitHub 时发现你的一个旧项目被一个创业公司 Fork 了。创始人发来私信：!你的架构思路很有意思，要不要聊聊？! 你盯着屏幕，发现你的手比脑子先动了——你已经打开了 IDE。你忽然意识到：对于程序员来说，躺平从来不是'不能工作'，而是'不想再为别人工作'。也许你要的不是停下来，是用自己的方式走下去。",
+    "choices": [
+      {
+        "text": "加入创业公司做技术合伙人",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 15,
+            "label": "创业团队"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "架构能力"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "找到方向"
+          },
+          {
+            "target": "money",
+            "value": -10,
+            "label": "创业初期"
+          }
+        ],
+        "nextEventId": "job_entrepreneur"
+      },
+      {
+        "text": "继续做自由职业，接单价更高的活",
+        "effects": [
+          {
+            "target": "money",
+            "value": 15,
+            "label": "freelance收入"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "独立开发"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "自己的节奏"
+          }
+        ],
+        "nextEventId": "lie_freelance_peak"
+      },
+      {
+        "text": "老老实实回去上班",
+        "effects": [
+          {
+            "target": "money",
+            "value": 10,
+            "label": "重回职场"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "不甘"
+          }
+        ],
+        "nextEventId": "job_interview"
+      }
+    ]
+  }
+]

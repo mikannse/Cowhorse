@@ -18,7 +18,7 @@ const MILESTONE_LABELS: Record<string, string> = {
   civil_intro: '选择考公',
   lie_intro: '选择躺平',
   exam_pass: '考研上岸',
-  postgrad_start: '开始读研',
+  postgrad_welcome: '开始读研',
   job_offer: '拿到第一份工作',
   civil_pass: '考公上岸',
   lie_freelance: '自由职业',
