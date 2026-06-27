@@ -573,7 +573,7 @@
             "label": "重新学"
           }
         ],
-        "nextEventId": "job_intro"
+        "nextEventId": "job_hunt_return"
       },
       {
         "text": "彻底躺平，混到退休",
@@ -652,7 +652,7 @@
             "label": "经验"
           }
         ],
-        "nextEventId": "civil_study"
+        "nextEventId": "civil_return_study"
       },
       {
         "text": "找工作去",
@@ -663,7 +663,7 @@
             "label": "换赛道"
           }
         ],
-        "nextEventId": "job_intro"
+        "nextEventId": "job_hunt_return"
       },
       {
         "text": "考研吧，换个活法",
@@ -674,7 +674,7 @@
             "label": "转方向"
           }
         ],
-        "nextEventId": "exam_intro"
+        "nextEventId": "exam_return"
       }
     ],
     "noEncounters": true

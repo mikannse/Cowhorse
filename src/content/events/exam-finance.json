@@ -166,7 +166,7 @@
             "label": "拼命"
           }
         ],
-        "nextEventId": "exam_pass"
+        "nextEventId": "finance_postgrad_outcome"
       },
       {
         "text": "学业为主，不想那么卷",
@@ -187,7 +187,7 @@
             "label": "错过实习季"
           }
         ],
-        "nextEventId": "exam_pass"
+        "nextEventId": "finance_postgrad_outcome"
       }
     ]
   },
@@ -230,7 +230,7 @@
             "label": "高压"
           }
         ],
-        "nextEventId": "finance_job_first_day"
+        "nextEventId": "postgrad_job"
       },
       {
         "text": "去买方，做投资研究",
@@ -251,7 +251,7 @@
             "label": "节奏稍好"
           }
         ],
-        "nextEventId": "finance_job_first_day"
+        "nextEventId": "postgrad_job"
       },
       {
         "text": "去银行总行，稳定发展",
@@ -272,7 +272,7 @@
             "label": "体面薪资"
           }
         ],
-        "nextEventId": "finance_job_first_day"
+        "nextEventId": "postgrad_job"
       }
     ]
   },

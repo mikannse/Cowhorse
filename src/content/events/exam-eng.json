@@ -171,7 +171,7 @@
             "label": "工地+学业"
           }
         ],
-        "nextEventId": "exam_pass"
+        "nextEventId": "eng_postgrad_outcome"
       },
       {
         "text": "偷偷学别的，准备彻底转行",
@@ -197,7 +197,7 @@
             "label": "本专业荒废"
           }
         ],
-        "nextEventId": "exam_pass"
+        "nextEventId": "eng_postgrad_outcome"
       }
     ]
   },
@@ -277,7 +277,7 @@
             "label": "稳定收入"
           }
         ],
-        "nextEventId": "civil_intro"
+        "nextEventId": "civil_return"
       },
       {
         "text": "彻底转行，从头开始",

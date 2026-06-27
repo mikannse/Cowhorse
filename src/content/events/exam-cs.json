@@ -171,7 +171,7 @@
             "label": "双线作战"
           }
         ],
-        "nextEventId": "exam_pass"
+        "nextEventId": "cs_postgrad_outcome"
       },
       {
         "text": "只搞好论文，顺利毕业就行",
@@ -192,7 +192,7 @@
             "label": "错过实习"
           }
         ],
-        "nextEventId": "exam_pass"
+        "nextEventId": "cs_postgrad_outcome"
       },
       {
         "text": "退学去工作，学历不如三年经验",
@@ -213,7 +213,7 @@
             "label": "学位没了"
           }
         ],
-        "nextEventId": "job_interview"
+        "nextEventId": "postgrad_job"
       }
     ]
   },
@@ -256,7 +256,7 @@
             "label": "高压"
           }
         ],
-        "nextEventId": "job_first_day"
+        "nextEventId": "postgrad_job"
       },
       {
         "text": "去小厂，要生活不要命",
@@ -277,7 +277,7 @@
             "label": "全栈发展"
           }
         ],
-        "nextEventId": "job_first_day"
+        "nextEventId": "postgrad_job"
       },
       {
         "text": "读博，走学术路线",

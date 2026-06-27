@@ -150,7 +150,7 @@
             "label": "务实"
           }
         ],
-        "nextEventId": "civil_intro"
+        "nextEventId": "civil_return"
       }
     ]
   },
@@ -204,7 +204,7 @@
             "label": "不确定"
           }
         ],
-        "nextEventId": "law_job_waiting"
+        "nextEventId": "job_hunt_return"
       }
     ]
   },
@@ -478,7 +478,7 @@
             "label": "降薪"
           }
         ],
-        "nextEventId": "civil_intro"
+        "nextEventId": "civil_return"
       }
     ]
   },

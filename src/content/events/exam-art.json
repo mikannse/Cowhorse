@@ -171,7 +171,7 @@
             "label": "表达的快乐"
           }
         ],
-        "nextEventId": "exam_pass"
+        "nextEventId": "art_postgrad_outcome"
       },
       {
         "text": "被学术规范束缚，灵感枯竭",
@@ -192,7 +192,7 @@
             "label": "创作焦虑"
           }
         ],
-        "nextEventId": "exam_pass"
+        "nextEventId": "art_postgrad_outcome"
       }
     ]
   },
@@ -242,7 +242,7 @@
             "label": "够生活"
           }
         ],
-        "nextEventId": "ending_reached"
+        "nextEventId": "postgrad_job"
       },
       {
         "text": "考公，追求稳定",
@@ -263,7 +263,7 @@
             "label": "体制内"
           }
         ],
-        "nextEventId": "civil_intro"
+        "nextEventId": "civil_return"
       },
       {
         "text": "做内容创作，自由职业",

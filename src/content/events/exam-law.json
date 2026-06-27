@@ -171,7 +171,7 @@
             "label": "超负荷"
           }
         ],
-        "nextEventId": "exam_pass"
+        "nextEventId": "law_postgrad_outcome"
       },
       {
         "text": "学业实务两头顾不上",
@@ -192,7 +192,7 @@
             "label": "勉强维持"
           }
         ],
-        "nextEventId": "exam_pass"
+        "nextEventId": "law_postgrad_outcome"
       }
     ]
   },
@@ -235,7 +235,7 @@
             "label": "高压"
           }
         ],
-        "nextEventId": "law_first_case"
+        "nextEventId": "postgrad_job"
       },
       {
         "text": "去精品所或中型所，找平衡",
@@ -256,7 +256,7 @@
             "label": "稳定成长"
           }
         ],
-        "nextEventId": "law_first_case"
+        "nextEventId": "postgrad_job"
       },
       {
         "text": "考公检法，体制内稳定",
@@ -277,7 +277,7 @@
             "label": "降薪"
           }
         ],
-        "nextEventId": "civil_first_month"
+        "nextEventId": "postgrad_job"
       }
     ]
   },

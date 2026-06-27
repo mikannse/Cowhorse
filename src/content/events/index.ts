@@ -29,6 +29,7 @@ import lieMedJson from './lie-med.json';
 import lieEngJson from './lie-eng.json';
 import lieLawJson from './lie-law.json';
 import lieArtJson from './lie-art.json';
+import returnsJson from './returns.json';
 
 const undergrad = undergradJson as unknown as GameEvent[];
 const postgradExam = postgradExamJson as unknown as GameEvent[];
@@ -60,6 +61,7 @@ const lieMedEvents = lieMedJson as unknown as GameEvent[];
 const lieEngEvents = lieEngJson as unknown as GameEvent[];
 const lieLawEvents = lieLawJson as unknown as GameEvent[];
 const lieArtEvents = lieArtJson as unknown as GameEvent[];
+const returnEvents = returnsJson as unknown as GameEvent[];
 
 export const allEvents: GameEvent[] = [
   ...undergrad,
@@ -92,6 +94,7 @@ export const allEvents: GameEvent[] = [
   ...lieEngEvents,
   ...lieLawEvents,
   ...lieArtEvents,
+  ...returnEvents,
 ];
 
 export const eventsById = new Map(allEvents.map((event) => [event.id, event]));

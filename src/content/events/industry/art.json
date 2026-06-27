@@ -154,7 +154,7 @@
             "label": "继续无收入"
           }
         ],
-        "nextEventId": "art_job_waiting"
+        "nextEventId": "job_hunt_return"
       }
     ]
   },

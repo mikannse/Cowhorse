@@ -9,12 +9,13 @@ export const STORY_RETURN = '__return_to_story__';
  * Self-transitions (same → same) are always allowed and not listed here.
  */
 export const VALID_STAGE_TRANSITIONS: Record<Stage, Stage[]> = {
+  // 人生阶段只允许向前、横向或直接结局；禁止从工作/间隔期跳回学校/毕业剧情。
   undergrad: ['graduation', 'gap'],
-  graduation: ['firstJob', 'postgrad', 'gap', 'undergrad'],
-  firstJob: ['work', 'gap', 'graduation'],
-  postgrad: ['work', 'gap', 'graduation'],
-  gap: ['work', 'firstJob', 'postgrad', 'graduation'],
-  work: ['retirement', 'gap', 'graduation', 'postgrad', 'firstJob'],
+  graduation: ['firstJob', 'postgrad', 'gap'],
+  firstJob: ['work', 'gap'],
+  postgrad: ['work', 'gap'],
+  gap: ['work', 'firstJob', 'postgrad'],
+  work: ['retirement', 'gap', 'ending'],
   retirement: ['ending'],
   ending: [],
 };

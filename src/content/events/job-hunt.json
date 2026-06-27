@@ -754,7 +754,7 @@
             "label": "新方向"
           }
         ],
-        "nextEventId": "exam_intro"
+        "nextEventId": "exam_return"
       },
       {
         "text": "考公求稳",
@@ -765,7 +765,7 @@
             "label": "务实"
           }
         ],
-        "nextEventId": "civil_intro"
+        "nextEventId": "civil_return"
       },
       {
         "text": "先躺一下",
@@ -849,7 +849,7 @@
             "label": "无收入"
           }
         ],
-        "nextEventId": "exam_intro"
+        "nextEventId": "exam_return"
       },
       {
         "text": "考公，追求稳定",
@@ -860,7 +860,7 @@
             "label": "安全需求"
           }
         ],
-        "nextEventId": "civil_intro"
+        "nextEventId": "civil_return"
       },
       {
         "text": "躺平休息一段时间",
@@ -937,12 +937,7 @@
     "moment": {
       "templateId": "digital_nomad_moment",
       "text": "数字游民第一天：苍山洱海，远程办公，收入比上班少 30%，但快乐翻倍。",
-      "replyPool": [
-        "羡慕，但不敢",
-        "社保怎么办？？",
-        "我也想，求经验",
-        "下个月吃饭怎么办"
-      ]
+      "replyPool": ["羡慕，但不敢", "社保怎么办？？", "我也想，求经验", "下个月吃饭怎么办"]
     },
     "choices": [
       {
@@ -1193,7 +1188,7 @@
             "label": "继续投"
           }
         ],
-        "nextEventId": "job_interview"
+        "nextEventId": "job_return_interview"
       },
       {
         "text": "回去考研吧",
@@ -1204,7 +1199,7 @@
             "label": "转方向"
           }
         ],
-        "nextEventId": "exam_intro"
+        "nextEventId": "exam_return"
       },
       {
         "text": "考公，稳定才是真理",
@@ -1215,7 +1210,7 @@
             "label": "转方向"
           }
         ],
-        "nextEventId": "civil_intro"
+        "nextEventId": "civil_return"
       }
     ]
   }

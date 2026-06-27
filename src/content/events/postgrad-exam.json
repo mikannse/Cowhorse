@@ -213,12 +213,7 @@
     "moment": {
       "templateId": "exam_pass_moment",
       "text": "轻舟已过万重山（原来山后面还是山）",
-      "replyPool": [
-        "恭喜上岸！",
-        "二战的我酸了",
-        "研究生也卷，别高兴太早",
-        "大佬带带我"
-      ]
+      "replyPool": ["恭喜上岸！", "二战的我酸了", "研究生也卷，别高兴太早", "大佬带带我"]
     },
     "choices": [
       {
@@ -357,12 +352,7 @@
     "moment": {
       "templateId": "postgrad_pub_moment",
       "text": "第一篇论文录了，虽然只是 B 会，但至少没延毕（吧）。",
-      "replyPool": [
-        "牛逼！",
-        "求带名字",
-        "做学术的都是勇士",
-        "我还在写 literature review"
-      ]
+      "replyPool": ["牛逼！", "求带名字", "做学术的都是勇士", "我还在写 literature review"]
     },
     "choices": [
       {
@@ -693,7 +683,7 @@
             "label": "学术圈"
           }
         ],
-        "nextEventId": "ending_reached"
+        "nextEventId": "postgrad_job"
       },
       {
         "text": "退学去工业界",
@@ -714,7 +704,7 @@
             "label": "放弃学位"
           }
         ],
-        "nextEventId": "job_interview"
+        "nextEventId": "postgrad_job"
       },
       {
         "text": "转行，不搞了",
@@ -814,7 +804,7 @@
             "label": "面试焦虑"
           }
         ],
-        "nextEventId": "job_interview"
+        "nextEventId": "job_return_interview"
       },
       {
         "text": "找个轻松的工作，躺平养生",
@@ -830,7 +820,7 @@
             "label": "轻松"
           }
         ],
-        "nextEventId": "job_first_day"
+        "nextEventId": "job_hunt_return"
       },
       {
         "text": "考公，体制内更稳",
@@ -841,7 +831,7 @@
             "label": "新方向"
           }
         ],
-        "nextEventId": "civil_intro"
+        "nextEventId": "civil_return"
       }
     ]
   },

@@ -1,0 +1,190 @@
+[
+  {
+    "id": "job_hunt_return",
+    "stage": "gap",
+    "text": "你又打开招聘软件。这次的[已读不回]比上次更熟练——你知道哪些公司是机器人，哪些 HR 只是完成 KPI。你不再投八十家，只投十家，但每一封邮件都写得更认真。",
+    "choices": [
+      {
+        "text": "海投，扩大分母",
+        "effects": [
+          { "target": "connections", "value": 5, "label": "曝光+1" },
+          { "target": "energy", "value": -10, "label": "投简历到眼花" }
+        ],
+        "nextEventId": "job_return_waiting"
+      },
+      {
+        "text": "精准投递，少而精",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "针对性准备" },
+          { "target": "mentalHealth", "value": -5, "label": "等待焦虑" }
+        ],
+        "nextEventId": "job_return_waiting"
+      }
+    ]
+  },
+  {
+    "id": "job_return_waiting",
+    "stage": "gap",
+    "diceRoll": true,
+    "text": "一周过去了。你刷新邮箱的次数比上次少了一半——不是不焦虑，是学会了焦虑得不那么明显。",
+    "choices": [
+      {
+        "text": "收到面试通知",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "mentalHealth", "value": 15, "label": "希望" },
+          { "target": "connections", "value": 5, "label": "面试机会" }
+        ],
+        "nextEventId": "job_return_interview"
+      },
+      {
+        "text": "继续石沉大海",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": -15, "label": "自我怀疑" },
+          { "target": "energy", "value": -5, "label": "泄气" }
+        ],
+        "nextEventId": "job_return_despair"
+      }
+    ]
+  },
+  {
+    "id": "job_return_interview",
+    "stage": "gap",
+    "diceRoll": true,
+    "text": "面试官看着你的简历，问：!你中间这一年空窗期在做什么？! 你早就准备好了答案：*我在重新理解自己想要什么。* 真假参半，但至少说得出口。",
+    "choices": [
+      {
+        "text": "超常发挥，对答如流",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "connections", "value": 10, "label": "面试官好感" },
+          { "target": "mentalHealth", "value": 10, "label": "自信恢复" }
+        ],
+        "nextEventId": "job_return_offer"
+      },
+      {
+        "text": "紧张到语无伦次",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": -20, "label": "挫败感" },
+          { "target": "energy", "value": -10, "label": "疲惫" }
+        ],
+        "nextEventId": "job_return_despair"
+      }
+    ]
+  },
+  {
+    "id": "job_return_despair",
+    "stage": "gap",
+    "text": "又被拒了。这次你连炸鸡都不想点，只是躺在床上看天花板。你知道市场不好，但你还是忍不住想：*是不是我真的不行？*",
+    "choices": [
+      {
+        "text": "不行，继续投",
+        "effects": [
+          { "target": "energy", "value": -5, "label": "疲劳" },
+          { "target": "connections", "value": 5, "label": "又投了50家" }
+        ],
+        "nextEventId": "job_return_interview"
+      },
+      {
+        "text": "降低标准，先找个活干",
+        "effects": [
+          { "target": "mentalHealth", "value": 5, "label": "务实" },
+          { "target": "money", "value": 5, "label": "小公司 offer" }
+        ],
+        "nextEventId": "job_return_offer"
+      },
+      {
+        "text": "考公求稳",
+        "effects": [{ "target": "mentalHealth", "value": 5, "label": "新方向" }],
+        "nextEventId": "civil_return"
+      }
+    ]
+  },
+  {
+    "id": "job_return_offer",
+    "stage": "firstJob",
+    "text": "!明天来入职。! 你盯着这条消息，心情和第一次拿到 offer 时完全不一样。你知道这份工作不是终点，但至少是一个重新开始的支点。",
+    "choices": [
+      {
+        "text": "直接接受，赶紧上班",
+        "effects": [
+          { "target": "money", "value": 10, "label": "工资" },
+          { "target": "energy", "value": -10, "label": "准备入职" }
+        ],
+        "nextEventId": "job_first_day"
+      },
+      {
+        "text": "试着谈谈薪资",
+        "effects": [
+          { "target": "connections", "value": 5, "label": "谈判经验" },
+          { "target": "mentalHealth", "value": -5, "label": "忐忑" }
+        ],
+        "nextEventId": "job_first_day"
+      }
+    ]
+  },
+  {
+    "id": "exam_return",
+    "stage": "gap",
+    "text": "工作几年后，你又打开研招网。这次不是为了逃避就业，而是你真的想知道：*如果重来一次，我会不会选另一条路？* 备考的同时还要应付房租，比本科毕业时难多了。",
+    "choices": [
+      {
+        "text": "全力备考",
+        "effects": [
+          { "target": "skill", "value": 10, "label": "认清方向" },
+          { "target": "energy", "value": -10, "label": "在职备考" },
+          { "target": "money", "value": -10, "label": "辞职备考" }
+        ],
+        "nextEventId": "postgrad_welcome"
+      },
+      {
+        "text": "稳扎稳打",
+        "effects": [
+          { "target": "skill", "value": 5, "label": "稳" },
+          { "target": "mentalHealth", "value": 5, "label": "心态好" }
+        ],
+        "nextEventId": "postgrad_welcome"
+      }
+    ]
+  },
+  {
+    "id": "civil_return_study",
+    "stage": "gap",
+    "text": "你翻出了那本翻烂的行测题，书页边角的笔记还是去年的。这一次你不再幻想一次上岸，而是把备考当成一份没有工资的兼职。每天四小时，雷打不动。",
+    "diceRoll": true,
+    "choices": [
+      {
+        "text": "状态回升，正确率稳定",
+        "condition": { "type": "dice", "min": 4, "max": 6 },
+        "effects": [
+          { "target": "skill", "value": 15, "label": "行测提升" },
+          { "target": "mentalHealth", "value": 10, "label": "信心" }
+        ],
+        "nextEventId": "civil_pass"
+      },
+      {
+        "text": "再次落榜",
+        "condition": { "type": "dice", "min": 1, "max": 3 },
+        "effects": [
+          { "target": "mentalHealth", "value": -15, "label": "焦虑" },
+          { "target": "skill", "value": 5, "label": "硬着头皮学" }
+        ],
+        "nextEventId": "civil_fail"
+      }
+    ]
+  },
+  {
+    "id": "civil_return",
+    "stage": "gap",
+    "text": "工作几年后决定考公，你比应届生更清楚稳定意味着什么。行测的图形推理依然让你怀疑智商，但你已经学会了不怀疑自己的选择。",
+    "choices": [
+      {
+        "text": "看看我这个专业怎么考公",
+        "effects": [{ "target": "skill", "value": 5, "label": "了解考公" }],
+        "nextEventId": "civil_pass"
+      }
+    ]
+  }
+]

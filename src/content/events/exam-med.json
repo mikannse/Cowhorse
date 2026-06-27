@@ -176,7 +176,7 @@
             "label": "持续高压"
           }
         ],
-        "nextEventId": "exam_pass"
+        "nextEventId": "med_postgrad_outcome"
       },
       {
         "text": "规培太苦了，有点撑不住",
@@ -197,7 +197,7 @@
             "label": "持续消耗"
           }
         ],
-        "nextEventId": "exam_pass"
+        "nextEventId": "med_postgrad_outcome"
       }
     ]
   },

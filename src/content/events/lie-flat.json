@@ -25,12 +25,7 @@
     "moment": {
       "templateId": "lie_freelance_moment",
       "text": "自由职业第 30 天：收入不稳定，但闹钟终于被我删了。",
-      "replyPool": [
-        "羡慕自由",
-        "社保怎么办？",
-        "我也想做副业但没勇气",
-        "自由职业三个月后还是很爽"
-      ]
+      "replyPool": ["羡慕自由", "社保怎么办？", "我也想做副业但没勇气", "自由职业三个月后还是很爽"]
     },
     "choices": [
       {
@@ -63,7 +58,7 @@
             "label": "务实"
           }
         ],
-        "nextEventId": "job_interview"
+        "nextEventId": "job_hunt_return"
       }
     ]
   },
@@ -123,12 +118,7 @@
     "moment": {
       "templateId": "digital_nomad_life_moment",
       "text": "数字游民半年记：换了四个城市，收入波动像心跳，但爽是真的爽。",
-      "replyPool": [
-        "真·自由",
-        "你不考虑以后吗？",
-        "我为什么还在上班……",
-        "需要队友吗"
-      ]
+      "replyPool": ["真·自由", "你不考虑以后吗？", "我为什么还在上班……", "需要队友吗"]
     },
     "choices": [
       {
@@ -166,7 +156,7 @@
             "label": "自由没了"
           }
         ],
-        "nextEventId": "job_offer"
+        "nextEventId": "job_hunt_return"
       },
       {
         "text": "做内容创业，打造个人 IP",
@@ -307,7 +297,7 @@
             "label": "重新出发"
           }
         ],
-        "nextEventId": "job_intro"
+        "nextEventId": "job_hunt_return"
       }
     ]
   },
@@ -362,7 +352,7 @@
             "label": "清醒"
           }
         ],
-        "nextEventId": "job_intro"
+        "nextEventId": "job_hunt_return"
       },
       {
         "text": "回家啃老（不是长久之计）",
@@ -468,7 +458,7 @@
             "label": "稳定收入"
           }
         ],
-        "nextEventId": "job_intro"
+        "nextEventId": "job_hunt_return"
       },
       {
         "text": "考研，换个赛道",
@@ -479,7 +469,7 @@
             "label": "备考"
           }
         ],
-        "nextEventId": "exam_intro"
+        "nextEventId": "exam_return"
       }
     ]
   },

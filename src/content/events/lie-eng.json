@@ -110,7 +110,7 @@
             "label": "体制内"
           }
         ],
-        "nextEventId": "civil_intro"
+        "nextEventId": "civil_return"
       },
       {
         "text": "用工程管理经验转行做项目经理",
@@ -131,7 +131,7 @@
             "label": "新领域收入"
           }
         ],
-        "nextEventId": "job_interview"
+        "nextEventId": "job_return_interview"
       }
     ]
   }
