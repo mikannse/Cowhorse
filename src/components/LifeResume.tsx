@@ -52,10 +52,10 @@ export default function LifeResume({ onRenderComplete }: LifeResumeProps) {
       id="life-resume-poster"
       className="relative w-full aspect-[9/16] bg-background p-6 flex flex-col gap-5 overflow-hidden"
     >
-      {/* Memphis decorations */}
-      <div className="absolute top-8 right-6 w-12 h-12 rounded-full bg-sticker-pink/10 rotate-12" />
-      <div className="absolute bottom-24 left-4 w-16 h-4 bg-tape/40 rotate-[-6deg]" />
-      <div className="absolute top-1/3 left-2 w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-b-[28px] border-b-sticker-teal/10 rotate-12" />
+      {/* Memphis decorations — use hex with alpha to avoid html2canvas choking on Tailwind v4's color-mix(in oklab, ...) output. */}
+      <div className="absolute top-8 right-6 w-12 h-12 rounded-full bg-[#FF71CE1A] rotate-12" />
+      <div className="absolute bottom-24 left-4 w-16 h-4 bg-[#FDE68A66] rotate-[-6deg]" />
+      <div className="absolute top-1/3 left-2 w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-b-[28px] border-b-[#86CCCA1A] rotate-12" />
 
       <header className="relative z-10">
         <h2 className="text-title text-foreground">人生简历</h2>

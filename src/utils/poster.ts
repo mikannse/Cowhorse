@@ -1,4 +1,4 @@
-import html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas-pro';
 
 export async function renderPoster(): Promise<string> {
   const element = document.getElementById('life-resume-poster');
