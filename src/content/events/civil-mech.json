@@ -1,0 +1,117 @@
+[
+  {
+    "id": "mech_civil_intro",
+    "stage": "graduation",
+    "text": "传统工科考公。你翻出招考职位表——工信局、市场监督管理局（特种设备监察）、交通运输局、应急管理局。机械专业的对口岗位比想象中多——特种设备监察岗甚至写着'机械工程专业优先'。这是传统工科不多的优势之一：在体制内，工科生比文科生好考，因为报录比低。室友说：!机械最好的出路，就是去管机械。! 你想起在工厂实习时看到的那个质检员——他每天的工作就是拿着检查表在产线上走一圈，下班准时走。你觉得那种生活也不是不行。",
+    "choices": [
+      {
+        "text": "质监局/特设岗，专业最对口",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "专业匹配"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "体制内"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "岗位对口"
+          }
+        ],
+        "nextEventId": "civil_study"
+      },
+      {
+        "text": "不限专业岗位，换个方向",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "更多选择"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "放弃专业优势"
+          }
+        ],
+        "nextEventId": "civil_study"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "mech_civil_work",
+    "stage": "firstJob",
+    "text": "你考上了市监局特种设备监察科。你的日常工作是对全市的电梯、锅炉、压力容器进行安全检查。你在工厂三年积累的经验在这里发挥了巨大作用——你能一眼看出设备铭牌上的参数是否合规，能听出电梯运行的异响来自哪里。科长说：!你是科里第一个真正在工厂干过的——那些搞投诉处理的小年轻根本不知道什么是'工况'。! 你穿着制服站在一台老旧锅炉前面，想起自己在工厂流过的汗——现在它们变成了你的判断力。",
+    "choices": [
+      {
+        "text": "深耕特种设备安全监察",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "监察专业"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "行业资源"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "学以致用"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "心思在考证挂靠——评工程师职称",
+        "effects": [
+          {
+            "target": "money",
+            "value": 8,
+            "label": "挂靠收入"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "单位印象不好"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "职称晋升"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "一家被检查的企业偷偷递了一张购物卡——'一点心意，检查通融一下'（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": 10,
+            "label": "购物卡"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "不安全"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "被人记住了"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      }
+    ]
+  }
+]

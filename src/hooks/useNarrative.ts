@@ -40,6 +40,10 @@ function resolveMajorRoute(major: Major | null): string {
       return 'eng_job_waiting';
     case 'art':
       return 'art_job_waiting';
+    case 'sci':
+      return 'sci_job_waiting';
+    case 'mech':
+      return 'mech_job_waiting';
     default:
       return 'job_waiting';
   }
@@ -62,6 +66,10 @@ function resolveMajorExamRoute(major: Major | null): string {
       return 'eng_exam_intro';
     case 'art':
       return 'art_exam_intro';
+    case 'sci':
+      return 'sci_exam_intro';
+    case 'mech':
+      return 'mech_exam_intro';
     default:
       return 'exam_intro';
   }
@@ -84,6 +92,10 @@ function resolveMajorPostgradOutcome(major: Major | null): string {
       return 'law_postgrad_outcome';
     case 'art':
       return 'art_postgrad_outcome';
+    case 'sci':
+      return 'sci_postgrad_outcome';
+    case 'mech':
+      return 'mech_postgrad_outcome';
     default:
       return 'postgrad_graduation';
   }
@@ -103,6 +115,8 @@ function resolveMajorLieRoute(major: Major | null): string {
     case 'eng': return 'eng_lie_intro';
     case 'law': return 'law_lie_intro';
     case 'art': return 'art_lie_intro';
+    case 'sci': return 'sci_lie_intro';
+    case 'mech': return 'mech_lie_intro';
     default: return 'lie_intro';
   }
 }
@@ -121,6 +135,10 @@ function resolveMajorCivilRoute(major: Major | null): string {
       return 'law_civil_intro';
     case 'art':
       return 'art_civil_intro';
+    case 'sci':
+      return 'sci_civil_intro';
+    case 'mech':
+      return 'mech_civil_intro';
     default:
       return 'civil_intro';
   }

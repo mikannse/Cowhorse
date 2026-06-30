@@ -135,6 +135,50 @@
         ],
         "setMajor": "art",
         "nextEventId": "major_art"
+      },
+      {
+        "text": "🔬 数学/统计/物理",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "数理基础"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "纯理科焦虑"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "自闭学习"
+          }
+        ],
+        "setMajor": "sci",
+        "nextEventId": "major_sci"
+      },
+      {
+        "text": "⚙️ 机械/自动化/传统工科",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "工程能力"
+          },
+          {
+            "target": "energy",
+            "value": 5,
+            "label": "动手实践"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "行业薪资一般"
+          }
+        ],
+        "setMajor": "mech",
+        "nextEventId": "major_mech"
       }
     ],
     "noEncounters": true
@@ -497,6 +541,30 @@
     "id": "major_art",
     "stage": "undergrad",
     "text": "你选了文史哲/艺术。亲戚问：!这个专业以后干什么？! 你说不清楚。但你在图书馆看了一下午的《庄子》，觉得比任何职业规划课都有用。你知道这条路不好走，但你更知道——*不做自己喜欢的事，走什么路都累。*",
+    "choices": [
+      {
+        "text": "开始大学生活",
+        "effects": [],
+        "nextEventId": "undergrad_summary"
+      }
+    ]
+  },
+  {
+    "id": "major_sci",
+    "stage": "undergrad",
+    "text": "你选了数学/物理。开学第一周，高代老师就在黑板上写下一整页的同构定理，旁边物理系在讨论薛定谔方程。你在草稿纸上写了个大大的[为什么]——不是质疑公式，是质疑自己为什么要选这个专业。但后来你发现，学数学物理的人有一个共同点：他们不怕被难倒。",
+    "choices": [
+      {
+        "text": "开始大学生活",
+        "effects": [],
+        "nextEventId": "undergrad_summary"
+      }
+    ]
+  },
+  {
+    "id": "major_mech",
+    "stage": "undergrad",
+    "text": "你选了机械/自动化。开学第一周就去金工实习，车床铣床火花四溅。老师说：!你们这代人，连螺丝刀都没摸过就来学机械了。! 你不服气，但戴上护目镜的那一刻你承认他说得对。大二上自动控制原理，你发现这门课的核心是：让机器听你的话——而你连自己都控制不了。",
     "choices": [
       {
         "text": "开始大学生活",

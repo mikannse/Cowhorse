@@ -1,0 +1,117 @@
+[
+  {
+    "id": "sci_civil_intro",
+    "stage": "graduation",
+    "text": "理学考公。你翻了翻招考职位表——统计局、科技局、气象局、大数据管理中心。传统理工科对口岗位不少，但竞争也大。室友说：!你们学数学的考公有优势，行测的数量关系和逻辑推理对你们来说就是送分题。! 你打开一套行测真题，做了五道数量关系——全对。又做了五道逻辑——全对。然后你做了十道言语理解——错了七道。你发现了自己的边界。",
+    "choices": [
+      {
+        "text": "统计局/大数据岗，专业最对口",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "专业匹配"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "系统内"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "岗位对口"
+          }
+        ],
+        "nextEventId": "civil_study"
+      },
+      {
+        "text": "不限专业岗位，换个赛道",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "路更宽"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "放弃专业优势"
+          }
+        ],
+        "nextEventId": "civil_study"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "sci_civil_work",
+    "stage": "firstJob",
+    "text": "你入职了市统计局的数管中心。你的日常工作是用 SQL 处理全市的经济普查数据，出统计公报。你发现这里的 SQL 比你前公司的简单一百倍，但这里的流程复杂一百倍——每一个数字要经过三级审核，每一份报告要盖三个章。科长说：!你学数学的？好，这批数据的异常值检测你来做。! 你终于用上了知识——拉伊达准则、四分位距法。你忽然觉得，学了四年数学，终于在这里找到了一个需要你的地方。",
+    "choices": [
+      {
+        "text": "深耕数据治理和统计业务",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "统计业务"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "系统内人脉"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "专业对口"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "心思在搞副业——接数据分析私单",
+        "effects": [
+          {
+            "target": "money",
+            "value": 8,
+            "label": "外快"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "单位印象不好"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "技能不丢"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      },
+      {
+        "text": "一个企业主托人送来一份'咨询费'——'希望这次经济普查的数据，能'灵活处理'一下'（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": 12,
+            "label": "咨询费"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "踩红线了"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "被人拿住了"
+          }
+        ],
+        "nextEventId": "civil_routine"
+      }
+    ]
+  }
+]

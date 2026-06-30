@@ -12,21 +12,6 @@
     }
   },
   {
-    "id": "internet_myth",
-    "title": "互联网神话",
-    "description": "你一边搬砖一边做副业，没想到一条吐槽视频爆了。粉丝破万那天，你收到了前东家老板的面试邀请。命运就是这么荒诞。你在深夜回复评论：*我不是什么神话，我只是还没睡着的普通人。* 但这条评论又获得了三千赞。",
-    "rarity": "hidden",
-    "condition": {
-      "type": "and",
-      "conditions": [
-        { "type": "stage", "stage": "ending" },
-        { "type": "attribute", "attr": "connections", "operator": "gte", "value": 65 },
-        { "type": "attribute", "attr": "skill", "operator": "gte", "value": 60 },
-        { "type": "attribute", "attr": "mentalHealth", "operator": "gte", "value": 30 }
-      ]
-    }
-  },
-  {
     "id": "digital_nomad_free",
     "title": "数字游民自由",
     "description": "你没有办公室、没有工位、没有打卡机。你的办公室是咖啡馆、是洱海边、是清迈的共享空间。自由是有代价的——收入像海浪一样起伏，社保要自己交，父母永远搞不懂你在干什么。但某个下午，你坐在阳台上写完最后一封邮件，看着云从苍山那边飘过来，你忽然觉得：*这就是我要的生活。*",
@@ -97,6 +82,21 @@
     }
   },
   {
+    "id": "internet_myth",
+    "title": "互联网神话",
+    "description": "你一边搬砖一边做副业，没想到一条吐槽视频爆了。粉丝破万那天，你收到了前东家老板的面试邀请。命运就是这么荒诞。你在深夜回复评论：*我不是什么神话，我只是还没睡着的普通人。* 但这条评论又获得了三千赞。",
+    "rarity": "hidden",
+    "condition": {
+      "type": "and",
+      "conditions": [
+        { "type": "stage", "stage": "ending" },
+        { "type": "attribute", "attr": "connections", "operator": "gte", "value": 65 },
+        { "type": "attribute", "attr": "skill", "operator": "gte", "value": 60 },
+        { "type": "attribute", "attr": "mentalHealth", "operator": "gte", "value": 30 }
+      ]
+    }
+  },
+  {
     "id": "achiever",
     "title": "功成名就",
     "description": "你在大城市站稳了脚，薪水可观，简历光鲜。同学聚会上你是那个\"混得不错\"的人。只有你自己知道，你付出了什么代价。某个深夜你加完班，站在公司楼下等车，忽然想起大学时那个想当作家的自己。你掏出手机，在备忘录里写了一句话：*我得到了很多，除了我自己。* 然后你删掉了它。",
@@ -126,20 +126,6 @@
     }
   },
   {
-    "id": "ordinary_life",
-    "title": "普通人",
-    "description": "你没有大富大贵，也没有被生活碾碎。你按时上班、偶尔加班、周末睡个懒觉、每年存一点钱。你的生活不上社交媒体，不值得写成故事，但你知道这是一种难得的幸福。六十岁那年，你给自己买了张去海边的火车票。你坐在窗边，看着风景后退，觉得*这样也挺好*——这四个字，已经是很多人的终极答案。",
-    "rarity": "route",
-    "condition": {
-      "type": "and",
-      "conditions": [
-        { "type": "stage", "stage": "ending" },
-        { "type": "attribute", "attr": "mentalHealth", "operator": "gt", "value": 30 },
-        { "type": "attribute", "attr": "money", "operator": "gte", "value": 35 }
-      ]
-    }
-  },
-  {
     "id": "stable_retirement",
     "title": "平稳退休",
     "description": "你走过了很长的一段路。不是每一步都选对了，但也没有哪一步把你彻底击倒。你学会了在不确定中找确定：一份能养活自己的工作、几个能说废话的朋友、一个不用太大的房间、和偶尔能睡好的夜晚。退休那天你把工牌交了上去，心里没有狂喜，只有一种*终于完成了一件事*的平静。这很好。",
@@ -150,6 +136,20 @@
         { "type": "stage", "stage": "ending" },
         { "type": "attribute", "attr": "mentalHealth", "operator": "gt", "value": 40 },
         { "type": "attribute", "attr": "money", "operator": "gte", "value": 55 }
+      ]
+    }
+  },
+  {
+    "id": "ordinary_life",
+    "title": "普通人",
+    "description": "你没有大富大贵，也没有被生活碾碎。你按时上班、偶尔加班、周末睡个懒觉、每年存一点钱。你的生活不上社交媒体，不值得写成故事，但你知道这是一种难得的幸福。六十岁那年，你给自己买了张去海边的火车票。你坐在窗边，看着风景后退，觉得*这样也挺好*——这四个字，已经是很多人的终极答案。",
+    "rarity": "route",
+    "condition": {
+      "type": "and",
+      "conditions": [
+        { "type": "stage", "stage": "ending" },
+        { "type": "attribute", "attr": "mentalHealth", "operator": "gt", "value": 30 },
+        { "type": "attribute", "attr": "money", "operator": "gte", "value": 35 }
       ]
     }
   }

@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run validate:stages && tsc -b && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "biome check .",
     "lint:fix": "biome check . --write",
-    "format": "biome format . --write"
+    "format": "biome format . --write",
+    "validate:stages": "node scripts/validate-stage-transitions.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.41.0",

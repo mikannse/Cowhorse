@@ -1,0 +1,333 @@
+[
+  {
+    "id": "sci_job_waiting",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你打开招聘软件，输入自己的专业——系统自动推荐了三个方向：教培（数学/物理老师）、数据分析师、科研助理。你挨个点进去看，发现前两个都需要你重新学一套技能——教学技巧或 SQL/Python——而第三个需要你读博。你想起面试官最常问的一句话：!你学数学/物理的，能给我们带来什么?",
+    "choices": [
+      {
+        "text": "拿到数据分析岗的面试机会",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "SQL/统计"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "数据岗预期薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有方向了"
+          }
+        ],
+        "nextEventId": "sci_job_interview"
+      },
+      {
+        "text": "只有教培机构在招人",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "就业面窄"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "教培底薪"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "讲课能力"
+          }
+        ],
+        "nextEventId": "sci_job_interview"
+      }
+    ]
+  },
+  {
+    "id": "sci_job_interview",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "面试官是个看起来很累的数据总监。他翻了翻你的简历：!数学专业？好，我问你一个业务问题——如何用 A/B 测试判断一个推荐算法的改动是否有效？! 你大脑飞速运转，你学过假设检验、学过贝叶斯统计、学过实验设计——但你从没把这些跟\"推荐算法\"四个字联系在一起过。你开始意识到，四年学的不是知识，是一种思维。但面试官要的是 SQL。",
+    "choices": [
+      {
+        "text": "逻辑清晰，用专业回答征服面试官",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "统计思维"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "面试官认可"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "被看到了！"
+          }
+        ],
+        "nextEventId": "sci_job_offer"
+      },
+      {
+        "text": "紧张，答得不够好",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "挫败"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "知道差距了"
+          }
+        ],
+        "nextEventId": "sci_job_offer"
+      }
+    ]
+  },
+  {
+    "id": "sci_job_offer",
+    "stage": "firstJob",
+    "text": "你拿到了一个 offer——中型互联网公司的数据分析师。工资不算高，但比教培强。HR 说：!我们看重数学背景的人，逻辑好、学东西快。! 你签合同的时候想起导师说过：*学数学的人，去哪都不会被饿死——只是走的路跟别人不一样。*",
+    "moment": {
+      "templateId": "sci_offer_moment",
+      "text": "数据分析师 offer 到手！数学没白学（大概）。",
+      "replyPool": [
+        "恭喜转行成功",
+        "数据分析也很卷的",
+        "数学背景做数据确实有优势",
+        "我也想转行但不知道往哪转"
+      ]
+    },
+    "choices": [
+      {
+        "text": "入职，开启数据生涯",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "职场起点"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "第一份工资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "终于工作了"
+          }
+        ],
+        "nextEventId": "sci_first_project"
+      }
+    ]
+  },
+  {
+    "id": "sci_first_project",
+    "stage": "firstJob",
+    "diceRoll": true,
+    "text": "入职第一周，主管丢给你一份数据——3000 万条用户行为日志。!做一个用户流失预警模型，下周出初版。! 你打开 Jupyter Notebook，开始写 Python。你本科只学过一学期 C 语言，但三个月前你突击了 Python 和 Pandas。你发现一件事：数学的底子让你的逻辑推导能力远超同事，但你缺乏的是一线工程经验——怎么写可维护的代码、怎么做数据 pipeline。",
+    "choices": [
+      {
+        "text": "模型效果不错，主管刮目相看",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "数据实战"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "团队认可"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "试用期过关"
+          }
+        ],
+        "nextEventId": "sci_industry_crossroads"
+      },
+      {
+        "text": "模型没跑通，被 mentor 带教重做",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "工程能力补课"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "打击"
+          }
+        ],
+        "nextEventId": "sci_industry_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "sci_industry_crossroads",
+    "stage": "work",
+    "text": "做了两年数据分析，你已经能熟练写 SQL、搭看板、做 AB 实验。但你发现了一件事：在这个行业里，你的核心竞争力——数学——实际上很少被用到。95% 的时间在洗数据。你开始想，是继续在互联网做数据科学，还是回去做更'数学'的事——量化、算法、或者干脆读个 PhD。",
+    "choices": [
+      {
+        "text": "深耕数据科学，往算法方向走",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "机器学习"
+          },
+          {
+            "target": "money",
+            "value": 12,
+            "label": "算法薪资"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "卷"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "去量化/金融，发挥数学优势",
+        "effects": [
+          {
+            "target": "money",
+            "value": 20,
+            "label": "量化高薪"
+          },
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "数学模型"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "高压"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "回学校读博，追求学术理想",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "PhD之路"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "学术圈"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "清贫几年"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "encounter_sci_whistleblower",
+    "stage": "work",
+    "text": "你在做数据分析时发现了异常：公司的用户增长数据存在明显的人为修饰——运营部门为了完成 KPI，把一部分无效点击算成了有效互动。你拿着数据找到了主管。主管看了一眼说：!这个数据是 VP 签字通过的。! 你站在办公室里，手里拿着那叠打印出来的图表——数字不会说谎，但说谎的人管着数字。",
+    "choices": [
+      {
+        "text": "匿名举报给合规部门",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "良心平安"
+          },
+          {
+            "target": "connections",
+            "value": -12,
+            "label": "得罪领导"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "职业操守"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "当没看见",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "心里堵"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "保住工作"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "不得罪人"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ],
+    "condition": {
+      "type": "major",
+      "major": "sci"
+    }
+  }
+]

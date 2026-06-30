@@ -1,0 +1,138 @@
+[
+  {
+    "id": "sci_lie_intro",
+    "stage": "gap",
+    "text": "大四快毕业了你发现：投了 50 份简历，面试没几个。数据分析要经验，教培要教资，研究所要硕士。你学的偏微分方程组和泛函分析在企业招聘系统里甚至不知道怎么归类。你躺在床上看着天花板，忽然想起大二物理课上老师讲的那句话：*你们现在学的东西，二十年后可能才有用。* 你当时觉得浪漫，现在觉得讽刺。但你确实有一身本事——问题是没人需要。",
+    "choices": [
+      {
+        "text": "接数理家教/数学建模外包，先混着",
+        "effects": [
+          {
+            "target": "money",
+            "value": 5,
+            "label": "家教收入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有用感"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "本专业遗忘"
+          }
+        ],
+        "nextEventId": "lie_freelance"
+      },
+      {
+        "text": "彻底躺平，不想面对",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "不用面对了"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "积蓄减少"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "同学在卷"
+          }
+        ],
+        "nextEventId": "lie_full_flat"
+      },
+      {
+        "text": "朋友介绍了一个'数据标注'的兼职——说简单操作一下就能赚钱，但他含糊的措辞让你觉得不太对劲（有风险）",
+        "effects": [
+          {
+            "target": "money",
+            "value": 8,
+            "label": "标注兼职"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "灰色地带"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "学不到东西"
+          }
+        ],
+        "nextEventId": "sci_lie_awakening"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "sci_lie_awakening",
+    "stage": "gap",
+    "text": "一个偶然的机会，你帮一个做电商的朋友做了一套用户分层模型——用 RFM 模型和 K-means 聚类。朋友按照你的分层策略调整了广告投放，ROI 提升了 30%。他给你转了 5000 块钱。你看着银行到账短信，忽然意识到一件事：你不是没有用——你是没有找到对的应用场景。数学是这个世界上最有用的东西，只是大部分公司不知道。",
+    "choices": [
+      {
+        "text": "自学机器学习，转算法岗",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "ML入门"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "转型起薪"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "看到出路"
+          }
+        ],
+        "nextEventId": "sci_industry_crossroads"
+      },
+      {
+        "text": "考公，利用数学优势",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "稳定路线"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "体制内"
+          }
+        ],
+        "nextEventId": "civil_return"
+      },
+      {
+        "text": "考研->读博->走学术",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "深造"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "学术人脉"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "又回去了"
+          }
+        ],
+        "nextEventId": "postgrad_phd_life"
+      }
+    ]
+  }
+]

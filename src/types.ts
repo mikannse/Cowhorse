@@ -8,7 +8,7 @@ export interface Attributes {
   mentalHealth: number;
 }
 
-export type Major = 'cs' | 'finance' | 'med' | 'eng' | 'law' | 'art';
+export type Major = 'cs' | 'finance' | 'med' | 'eng' | 'law' | 'art' | 'sci' | 'mech';
 
 export type Stage =
   | 'undergrad'

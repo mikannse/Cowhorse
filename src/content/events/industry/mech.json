@@ -1,0 +1,344 @@
+[
+  {
+    "id": "mech_job_waiting",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你打开招聘软件搜索'机械工程'——出来的是：工艺工程师、设备工程师、质量工程师、售后技术支持。跟土木不一样，机械的岗位其实不少——但薪资你看了想笑。同学说：!传统工科的归宿就是制造业，制造业的归宿就是长三角珠三角的工厂。! 你不信，投了几家外企研发岗——发现人家要硕士起步，还要有项目经验。你看了看自己的简历：本科、零实习、唯一的项目是课程设计——一个减速箱。",
+    "choices": [
+      {
+        "text": "拿到一家制造业外企的面试通知",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "有戏"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "外企机会"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "面试准备"
+          }
+        ],
+        "nextEventId": "mech_job_interview"
+      },
+      {
+        "text": "只有几家小厂在招工艺员",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -8,
+            "label": "就业面窄"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "小公司"
+          }
+        ],
+        "nextEventId": "mech_job_interview"
+      }
+    ]
+  },
+  {
+    "id": "mech_job_interview",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "面试在一家汽车零部件工厂的会议室进行。面试官是技术总监，五十多岁，手上有机油的味道。他问了三个问题：\n1. 解释一下齿轮的啮合原理\n2. 你在学校用过什么软件？UG？SolidWorks？ANSYS？\n3. 能不能接受一线轮岗六个月？\n你回答了前两个，第三个你想了一下说可以。他点点头，在简历上写了什么。你看见他写的是[能吃苦]。",
+    "choices": [
+      {
+        "text": "技术底子好，面得不错",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "机械基础"
+          },
+          {
+            "target": "connections",
+            "value": 8,
+            "label": "技术总监认可"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "承诺轮岗"
+          }
+        ],
+        "nextEventId": "mech_job_offer"
+      },
+      {
+        "text": "紧张，部分问题没答上来",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "面得不好"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "知道差距了"
+          }
+        ],
+        "nextEventId": "mech_job_offer"
+      }
+    ]
+  },
+  {
+    "id": "mech_job_offer",
+    "stage": "firstJob",
+    "text": "offer 来了。汽车零部件外企，工艺工程师。薪资不高但福利还行——五险一金全额交、包三餐、宿舍两人间。HR 说：!我们培养体系很完善，三年可以做到主管工程师。! 你签了。不是因为工资，是因为你面试时看到工厂里的自动化产线——机械臂在精准地完成每一个动作——你觉得那画面很美。",
+    "moment": {
+      "templateId": "mech_offer_moment",
+      "text": "工艺工程师 offer 到手！外企，制造业，感觉还行。",
+      "replyPool": [
+        "外企不错！比去私企强",
+        "制造业搞头不大",
+        "先干着，攒经验跳",
+        "工艺工程师就是高级操作工"
+      ]
+    },
+    "choices": [
+      {
+        "text": "入职，开始工程师生涯",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "工程实战"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "第一份工资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有方向了"
+          }
+        ],
+        "nextEventId": "mech_first_project"
+      }
+    ]
+  },
+  {
+    "id": "mech_first_project",
+    "stage": "firstJob",
+    "diceRoll": true,
+    "text": "你被分到了一条发动机缸盖生产线上做工艺支持。师傅是个快退休的老师傅，他能用耳朵听出机床异响来自哪个轴承。你每天拿着秒表和游标卡尺在产线上测节拍、量尺寸、写工艺卡。你发现学校里学的公差配合和互换性理论在这里是每天用的基本功——但真正的问题从来不在图纸上，而在实际生产中：刀具磨损了、冷却液浓度不对、今天这批毛坯的材质有偏差。",
+    "choices": [
+      {
+        "text": "解决了产线一个瓶颈问题，被嘉奖",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "工艺优化"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "产线认可"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "绩效奖金"
+          }
+        ],
+        "nextEventId": "mech_career_crossroads"
+      },
+      {
+        "text": "出了个质量事故，被扣了绩效",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "教训深刻"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "自责"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "扣奖金"
+          }
+        ],
+        "nextEventId": "mech_career_crossroads"
+      }
+    ]
+  },
+  {
+    "id": "mech_career_crossroads",
+    "stage": "work",
+    "text": "三年了。你已经从工艺工程师升到了主管工程师，带两个人。工资涨了两次，但涨幅让你想起蜗牛爬行的速度。你看着新来的机械臂——它一个班能干的活等于你半个产线的人力。你开始理解什么叫'制造业升级'——机器在替人，但人没地方去。你站在工厂的天台上，远处是新盖的自动化产线，近处是更年轻的工程师在调试设备。你知道这个行业会好起来——但那是对懂自动化、懂电气、懂软件的人而言。",
+    "choices": [
+      {
+        "text": "学自动化/电气，升级为智能制造专家",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "自动化技能"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "升级涨薪"
+          },
+          {
+            "target": "energy",
+            "value": -12,
+            "label": "边工作边学"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "转型做技术销售/项目管理",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 12,
+            "label": "销售人脉"
+          },
+          {
+            "target": "money",
+            "value": 12,
+            "label": "销售提成"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "逃离产线"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "考公，进质监局/工信局",
+        "effects": [
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "体制内"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "稳定"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      },
+      {
+        "text": "辞职创业，做自动化改造方案",
+        "effects": [
+          {
+            "target": "money",
+            "value": 15,
+            "label": "创业机会"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "自己当老板"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "行业关系"
+          }
+        ],
+        "nextEventId": "ending_reached"
+      }
+    ]
+  },
+  {
+    "id": "encounter_mech_automation",
+    "stage": "work",
+    "text": "公司引进了最新的自动化产线——德国进口的五轴加工中心，一台机器的产能顶十个人。厂长在会上说：!不换思想就换人！! 你跟几个老工程师站在机器前面，年轻的技术员已经在用平板调试参数了。老工程师说：*我在这干了二十年，到头来发现自己还不如一台机器。* 晚上你加班查资料，发现网上有自动化编程的网课——只要两千块，三个月出师。你坐在更衣室里，手机屏幕的光照在你疲惫的脸上。",
+    "choices": [
+      {
+        "text": "报名学自动化编程，跟上时代",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "自动化编程"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "学费"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "看到出路"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      },
+      {
+        "text": "学不动了，就这么混着吧",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "忧虑但不动"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "技能落后"
+          }
+        ],
+        "nextEventId": "__return_to_story__"
+      }
+    ],
+    "condition": {
+      "type": "major",
+      "major": "mech"
+    }
+  }
+]

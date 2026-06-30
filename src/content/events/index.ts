@@ -30,6 +30,14 @@ import lieEngJson from './lie-eng.json';
 import lieLawJson from './lie-law.json';
 import lieArtJson from './lie-art.json';
 import returnsJson from './returns.json';
+import sciJson from './industry/sci.json';
+import mechJson from './industry/mech.json';
+import examSciJson from './exam-sci.json';
+import examMechJson from './exam-mech.json';
+import civilSciJson from './civil-sci.json';
+import civilMechJson from './civil-mech.json';
+import lieSciJson from './lie-sci.json';
+import lieMechJson from './lie-mech.json';
 
 const undergrad = undergradJson as unknown as GameEvent[];
 const postgradExam = postgradExamJson as unknown as GameEvent[];
@@ -43,6 +51,14 @@ const medEvents = medJson as unknown as GameEvent[];
 const engEvents = engJson as unknown as GameEvent[];
 const lawEvents = lawJson as unknown as GameEvent[];
 const artEvents = artJson as unknown as GameEvent[];
+const sciEvents = sciJson as unknown as GameEvent[];
+const mechEvents = mechJson as unknown as GameEvent[];
+const examSciEvents = examSciJson as unknown as GameEvent[];
+const examMechEvents = examMechJson as unknown as GameEvent[];
+const civilSciEvents = civilSciJson as unknown as GameEvent[];
+const civilMechEvents = civilMechJson as unknown as GameEvent[];
+const lieSciEvents = lieSciJson as unknown as GameEvent[];
+const lieMechEvents = lieMechJson as unknown as GameEvent[];
 const examCsEvents = examCsJson as unknown as GameEvent[];
 const examFinanceEvents = examFinanceJson as unknown as GameEvent[];
 const examMedEvents = examMedJson as unknown as GameEvent[];
@@ -94,6 +110,14 @@ export const allEvents: GameEvent[] = [
   ...lieEngEvents,
   ...lieLawEvents,
   ...lieArtEvents,
+  ...sciEvents,
+  ...mechEvents,
+  ...examSciEvents,
+  ...examMechEvents,
+  ...civilSciEvents,
+  ...civilMechEvents,
+  ...lieSciEvents,
+  ...lieMechEvents,
   ...returnEvents,
 ];
 

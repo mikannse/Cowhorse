@@ -1,0 +1,274 @@
+[
+  {
+    "id": "sci_exam_intro",
+    "stage": "graduation",
+    "text": "你翻开考研目录，数学、统计、物理——每个方向的考试科目都不一样。数学系考数分高代，物理系考量子力学电动力学，统计系考概率论数理统计。你发现理学考研有一个共同特点：专业课不难，难的是数学。室友说：!你数学都学了四年了还怕考研数学？! 你没说话——你知道学数学和考数学是两回事。就像爱情和结婚。",
+    "choices": [
+      {
+        "text": "考本专业，深造学术",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "专业深钻"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "刷题"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "学术焦虑"
+          }
+        ],
+        "nextEventId": "sci_exam_prep"
+      },
+      {
+        "text": "跨考统计/数据科学，就业导向",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "转行学习"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "转行圈"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "未来薪资预期"
+          }
+        ],
+        "nextEventId": "sci_exam_prep"
+      },
+      {
+        "text": "不考了，先找工作看看",
+        "effects": [
+          {
+            "target": "money",
+            "value": 5,
+            "label": "开始赚钱"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "解放"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "学历不够"
+          }
+        ],
+        "nextEventId": "sci_job_waiting"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "sci_exam_prep",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "图书馆五楼西南角是你的固定座位。面前摞着三本教材：《数学分析》《高等代数》《概率论》。你每天从早上八点坐到晚上十点，中间除了吃饭不说话。手机放在书包里，关机。旁边桌的人在刷政治，你连政治都还没开始。你算了算时间——如果每天学 12 个小时，你还差 300 个小时才能把专业课过完第一轮。你深吸一口气，翻开数分。第一个定理就让你想起来：你选了一条最难的路。",
+    "choices": [
+      {
+        "text": "数学底子好，复习在节奏上",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "数理扎实"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有底气"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "高强度复习"
+          }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "复习卡壳，怀疑人生",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "基础不牢"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "自我怀疑"
+          }
+        ],
+        "nextEventId": "exam_prep_normal"
+      }
+    ]
+  },
+  {
+    "id": "sci_postgrad_life",
+    "stage": "postgrad",
+    "diceRoll": true,
+    "text": "研究生的日常：跑模型、调参数、帮导师写本子。你选的导师是个年轻的副教授，正在冲青基。他对你说：!你数学底子好，帮我看一下这个算子的收敛性。! 你在图书馆泡了一周，查了三十篇论文，写满了一本草稿纸。最后发现——算子在三维空间里不收敛。你高高兴兴去告诉导师，导师沉默了一下说：*那换个算子试试。* 你回到工位，看着那一摞草稿纸，觉得自己像是一个在数学迷宫里跑了一圈又回到起点的人。",
+    "choices": [
+      {
+        "text": "研究有进展，发了一篇小论文",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "论文成果"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "学术圈"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "肝论文"
+          }
+        ],
+        "nextEventId": "sci_postgrad_outcome"
+      },
+      {
+        "text": "研究卡壳，天天怀疑自己读研的意义",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -15,
+            "label": "学术焦虑"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "死磕"
+          }
+        ],
+        "nextEventId": "sci_postgrad_outcome"
+      }
+    ]
+  },
+  {
+    "id": "sci_postgrad_outcome",
+    "stage": "postgrad",
+    "text": "硕士毕业了。你手里有一篇小论文和两年科研经历。你发现理科硕⼠的出路比本科宽了不少——你可以去算法岗做机器学习，可以去量化公司写模型，也可以继续读博做学术。但你发现一个不一样的自己：跟本科时的迷茫不同，你现在知道自己不想要什么了——不想要没有意义的数据洗牌、不想要为了发论文而发论文、不想要一辈子做螺丝钉。*知识不会给你答案，但它会让你问出更好的问题。*",
+    "moment": {
+      "templateId": "sci_grad_moment",
+      "text": "理硕毕业。数学没白学，但还没决定下一步去哪。",
+      "replyPool": [
+        "去大厂做算法吧",
+        "读博！学术需要你",
+        "量化很高薪但很卷",
+        "要不要来考公？统计局经常招数学的"
+      ]
+    },
+    "choices": [
+      {
+        "text": "去算法岗，发挥数学+编程优势",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "算法"
+          },
+          {
+            "target": "money",
+            "value": 15,
+            "label": "算法高薪"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有奔头"
+          }
+        ],
+        "nextEventId": "sci_industry_crossroads"
+      },
+      {
+        "text": "读博，走学术路线",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "PhD"
+          },
+          {
+            "target": "connections",
+            "value": 10,
+            "label": "学术圈"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "清贫博士"
+          }
+        ],
+        "nextEventId": "postgrad_phd_life"
+      },
+      {
+        "text": "考公，统计局/科技局",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "稳定"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "体制内"
+          }
+        ],
+        "nextEventId": "civil_return"
+      },
+      {
+        "text": "躺平，不想卷了",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "解脱"
+          },
+          {
+            "target": "money",
+            "value": -5,
+            "label": "没收入"
+          }
+        ],
+        "nextEventId": "lie_intro"
+      }
+    ]
+  }
+]

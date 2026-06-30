@@ -1,0 +1,143 @@
+[
+  {
+    "id": "mech_lie_intro",
+    "stage": "gap",
+    "text": "你毕业已经三个月了。制造业的秋招你没赶上，春招的岗位少得可怜。你在招聘软件上刷了三百遍——工艺工程师都要有经验，研发工程师都要硕士。你爸在电话里问：!你们大学生不是很好找工作吗？！ 你说不出话来。你住的合租屋里另外三个人一个做销售、一个做客服、一个在送外卖——他们都不是机械的。你发现自己学了一身本事——会画图、会算受力、懂材料、懂工艺——但这些本事在一张招聘启事上写不下。你想起毕业时导师说的那句话：*传统工科，大而不倒。* 你现在觉得，'不倒'和'活着'是两回事。",
+    "choices": [
+      {
+        "text": "找个机械相关的合同工先干着",
+        "effects": [
+          {
+            "target": "money",
+            "value": 5,
+            "label": "合同工收入"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "不丢专业"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有口饭吃"
+          }
+        ],
+        "nextEventId": "lie_freelance"
+      },
+      {
+        "text": "彻底躺平，先不想了",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "耳根清净"
+          },
+          {
+            "target": "money",
+            "value": -15,
+            "label": "积蓄减少"
+          },
+          {
+            "target": "connections",
+            "value": -5,
+            "label": "社交归零"
+          }
+        ],
+        "nextEventId": "lie_full_flat"
+      },
+      {
+        "text": "以前实习时认识的供应商老板找上门——'我这有批图纸，你帮我看看能不能优化一下，按项目结钱'（有风险：涉及原单位的保密图纸）",
+        "effects": [
+          {
+            "target": "money",
+            "value": 10,
+            "label": "私活收入"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -10,
+            "label": "心虚"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "专业不丢"
+          }
+        ],
+        "nextEventId": "mech_lie_awakening"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "mech_lie_awakening",
+    "stage": "gap",
+    "text": "你跟几个大学同学喝酒。他们有的在做销售，有的在送外卖，有的已经在跑滴滴。酒过三巡，有人说了句：!咱们学了四年机械，最后还不如去学个厨师。! 大家都笑了，但笑得很苦。你开车回家的时候路过一家工厂，门口挂着'招数控操作工，月薪 8000'的牌子。你停在路边看了很久。你想的不是工资——你想的是：这个社会不是不需要机械了，是需要'能修机器人'的机械。你跟土木不一样——土木是行业确实冷了，但机械是行业还在，只是需要的技能不一样了。你想了一路，到家的时候决定：学 PLC 和机器人编程。",
+    "choices": [
+      {
+        "text": "学 PLC/机器人，升级为自动化技术员",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "自动化技能"
+          },
+          {
+            "target": "money",
+            "value": 10,
+            "label": "升级薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "看到方向了"
+          }
+        ],
+        "nextEventId": "mech_career_crossroads"
+      },
+      {
+        "text": "考研->读研->换个赛道",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "深造"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "新圈子"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "又回去了"
+          }
+        ],
+        "nextEventId": "postgrad_phd_life"
+      },
+      {
+        "text": "考公，工业监察岗",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 10,
+            "label": "稳定"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "体制内"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "稳定收入"
+          }
+        ],
+        "nextEventId": "civil_return"
+      }
+    ]
+  }
+]

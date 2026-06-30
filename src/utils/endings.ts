@@ -23,7 +23,7 @@ export function evaluateEnding(state: GameStateSnapshot): ResolvedEnding {
       };
     }
   }
-  const fallback = endings.find((e) => e.id === 'stable_retirement');
+  const fallback = endings.find((e) => e.id === 'ordinary_life');
   if (fallback) {
     return {
       id: fallback.id,

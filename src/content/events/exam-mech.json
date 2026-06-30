@@ -1,0 +1,274 @@
+[
+  {
+    "id": "mech_exam_intro",
+    "stage": "graduation",
+    "text": "你翻开考研目录——机械工程、机械电子工程、车辆工程、仪器科学与技术。专业课是机械原理、机械设计、自动控制原理。室友说：!咱们专业考研不考数学？! 你说考。他说：!那跟没考一样，咱们本科四年不就是高数线代概率论的延续吗？! 你没反驳，但你知道——传统工科考研最大的坑不是专业课，是你不知道读完研出来是不是跟本科一样进工厂。隔壁宿舍的都在跨考计算机，你看着自己手上的图纸，第一次认真思考：*到底是喜欢这个专业，还是习惯了？*",
+    "choices": [
+      {
+        "text": "考本专业，深耕传统工科",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "专业深耕"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "备考"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -5,
+            "label": "行业焦虑"
+          }
+        ],
+        "nextEventId": "mech_exam_prep"
+      },
+      {
+        "text": "跨考计算机/自动化控制，双保险",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "跨考准备"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "技术圈"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "未来薪资预期"
+          }
+        ],
+        "nextEventId": "mech_exam_prep"
+      },
+      {
+        "text": "不考了，直接就业攒经验",
+        "effects": [
+          {
+            "target": "money",
+            "value": 5,
+            "label": "开始赚钱"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "不想再考了"
+          },
+          {
+            "target": "skill",
+            "value": -5,
+            "label": "学历劣势"
+          }
+        ],
+        "nextEventId": "mech_job_waiting"
+      }
+    ],
+    "noEncounters": true
+  },
+  {
+    "id": "mech_exam_prep",
+    "stage": "graduation",
+    "diceRoll": true,
+    "text": "你的考研复习在机房里进行。机械原理的齿轮传动、自控原理的根轨迹——你画图画到手腕疼。旁边工科楼在施工，电钻的声音让你想起大二的金工实习。你打开手机，朋友圈里学计算机的发着实习工位的照片——开放式办公室、零食下午茶、MacBook。你看着自己面前的全套机械制图工具，觉得像是两个时代的东西。但你继续画。因为你也不知道除了画图你还能干什么。",
+    "choices": [
+      {
+        "text": "专业课扎实，复习节奏好",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "机械原理突破"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "有底"
+          },
+          {
+            "target": "energy",
+            "value": -10,
+            "label": "画图累但充实"
+          }
+        ],
+        "nextEventId": "exam_study_hard"
+      },
+      {
+        "text": "复习困难，天天想转行",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "凑合复习"
+          },
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "天天想跑路"
+          }
+        ],
+        "nextEventId": "exam_prep_normal"
+      }
+    ]
+  },
+  {
+    "id": "mech_postgrad_life",
+    "stage": "postgrad",
+    "diceRoll": true,
+    "text": "研究生日常：做仿真、跑试验、帮导师做企业横向课题。你每天在实验室对着 ANSYS 和 MATLAB，算齿轮的接触应力、优化减速器的结构参数。进度取决于：你的模型能不能收敛。你发现读研跟本科最大的区别是——本科的考试有标准答案，研究生的课题没有。导师说：!你要学会在没有答案的问题里找到方向。! 你心想：*我连外卖都不知道吃什么，你还让我找研究方向。*",
+    "choices": [
+      {
+        "text": "仿真结果不错，发了一篇核心期刊",
+        "condition": {
+          "type": "dice",
+          "min": 4,
+          "max": 6
+        },
+        "effects": [
+          {
+            "target": "skill",
+            "value": 12,
+            "label": "仿真能力"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "导师认可"
+          },
+          {
+            "target": "energy",
+            "value": -15,
+            "label": "熬夜算模型"
+          }
+        ],
+        "nextEventId": "mech_postgrad_outcome"
+      },
+      {
+        "text": "试验翻车，模型算了一周发现参数给错了",
+        "condition": {
+          "type": "dice",
+          "min": 1,
+          "max": 3
+        },
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": -12,
+            "label": "想砸键盘"
+          },
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "血泪教训"
+          }
+        ],
+        "nextEventId": "mech_postgrad_outcome"
+      }
+    ]
+  },
+  {
+    "id": "mech_postgrad_outcome",
+    "stage": "postgrad",
+    "text": "硕士毕业了。你手里有一篇核心期刊和两年项目经验。制造业的大门终于对你打开了——研发岗、仿真工程师、结构工程师。你发现硕士学历在制造业还是很有用的——它不保证你高薪，但保证你有机会。但你站在同样的十字路口：继续干传统机械，还是转型自动化/机器人/智能装备？导师对你说：*你们这代人赶上了制造业升级的尾巴——是福是祸，看你自己会不会抓住。*",
+    "moment": {
+      "templateId": "mech_grad_moment",
+      "text": "机械硕士毕业。学历+1，仿真技能+1，对制造业的焦虑也+1。",
+      "replyPool": [
+        "去新能源吧，宁德时代在招人",
+        "转机器人赛道，缺口很大",
+        "继续读博吗？",
+        "考公吧，特设监察岗欢迎你"
+      ]
+    },
+    "choices": [
+      {
+        "text": "去新能源/机器人赛道，追风口",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 10,
+            "label": "新赛道技能"
+          },
+          {
+            "target": "money",
+            "value": 12,
+            "label": "新行业薪资"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "开启新篇章"
+          }
+        ],
+        "nextEventId": "mech_career_crossroads"
+      },
+      {
+        "text": "深耕传统制造业，做技术专家",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 15,
+            "label": "专业深度"
+          },
+          {
+            "target": "money",
+            "value": 5,
+            "label": "稳步涨薪"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "行业人脉"
+          }
+        ],
+        "nextEventId": "mech_career_crossroads"
+      },
+      {
+        "text": "考公，特设监察岗",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 12,
+            "label": "稳定"
+          },
+          {
+            "target": "connections",
+            "value": 5,
+            "label": "体制内"
+          }
+        ],
+        "nextEventId": "civil_return"
+      },
+      {
+        "text": "转行，做跟机械无关的事",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 15,
+            "label": "全新开始"
+          },
+          {
+            "target": "skill",
+            "value": -10,
+            "label": "七年白读了"
+          }
+        ],
+        "nextEventId": "lie_intro"
+      }
+    ]
+  }
+]
