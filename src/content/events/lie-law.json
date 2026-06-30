@@ -65,10 +65,49 @@
             "label": "非法执业的压力"
           }
         ],
-        "nextEventId": "law_lie_awakening"
+        "nextEventId": "law_lie_struggle"
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "law_lie_struggle",
+    "stage": "gap",
+    "text": "你翻出了司法考试的书，看了两页又合上了。你想起当年为了过法考复习到凌晨三点的日子，那些背过的法条现在唯一的作用是帮你判断租房合同有没有坑。*学法的人太会分析风险了——每一个选择都能列出一百种坏结果，然后什么都不想选。*",
+    "choices": [
+      {
+        "text": "想通了，还是要靠自己",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "想通了"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "重新振作"
+          }
+        ],
+        "nextEventId": "law_lie_awakening"
+      },
+      {
+        "text": "更迷茫了，但日子还得过",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 3,
+            "label": "接受现状"
+          },
+          {
+            "target": "money",
+            "value": -3,
+            "label": "摆烂消费"
+          }
+        ],
+        "nextEventId": "law_lie_awakening"
+      }
+    ]
   },
   {
     "id": "law_lie_awakening",

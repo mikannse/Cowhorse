@@ -23,7 +23,7 @@
             "label": "换条路"
           }
         ],
-        "nextEventId": "civil_study"
+        "nextEventId": "med_civil_prep"
       },
       {
         "text": "药监局/疾控中心，更加对口",
@@ -43,6 +43,45 @@
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "med_civil_prep",
+    "stage": "graduation",
+    "text": "你一边值夜班一边刷行测题，护士长说你疯了。但你知道医疗岗的竞争更大、分数线更高。手机里刷题 app 的提醒比患者呼叫铃还频繁。你在值班室贴了一张纸条：*考不上就继续夜班，考上就不用夜班。* 动力来了。",
+    "choices": [
+      {
+        "text": "全力以赴备考",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "认真备考"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "疲惫"
+          }
+        ],
+        "nextEventId": "med_civil_work"
+      },
+      {
+        "text": "佛系备考，专业也不能丢",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 3,
+            "label": "佛系复习"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "心态稳"
+          }
+        ],
+        "nextEventId": "med_civil_work"
+      }
+    ]
   },
   {
     "id": "med_civil_work",

@@ -18,7 +18,7 @@
             "label": "有方向"
           }
         ],
-        "nextEventId": "civil_study"
+        "nextEventId": "cs_civil_prep"
       },
       {
         "text": "不限专业的岗位，竞争小一点",
@@ -38,6 +38,45 @@
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "cs_civil_prep",
+    "stage": "graduation",
+    "text": "行测的图形推理和逻辑判断你上手很快，毕竟刷过 LeetCode 的人不怕这些。但言语理解让你抓狂——代码没有歧义，中文有。你发现行测的'排序题'跟 git log 有点像，顿时觉得亲切了一点。",
+    "choices": [
+      {
+        "text": "全力以赴备考",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "认真备考"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "疲惫"
+          }
+        ],
+        "nextEventId": "cs_civil_work"
+      },
+      {
+        "text": "佛系备考，专业也不能丢",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 3,
+            "label": "佛系复习"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "心态稳"
+          }
+        ],
+        "nextEventId": "cs_civil_work"
+      }
+    ]
   },
   {
     "id": "cs_civil_work",

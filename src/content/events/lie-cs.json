@@ -65,10 +65,49 @@
             "label": "你知道这是灰产"
           }
         ],
-        "nextEventId": "cs_lie_awakening"
+        "nextEventId": "cs_lie_struggle"
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "cs_lie_struggle",
+    "stage": "gap",
+    "text": "你躺了几天，GitHub 上的 Issue 还是没关，微信里前同事问你要不要接个私活。你回了个\"最近休息\"，然后继续刷短视频。但脑子里一直在想那个架构设计——如果你来重构，你会用不同的方案。*程序员躺平的悖论：脑子停不下来，身体不想动。*",
+    "choices": [
+      {
+        "text": "想通了，还是要靠自己",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "想通了"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "重新振作"
+          }
+        ],
+        "nextEventId": "cs_lie_awakening"
+      },
+      {
+        "text": "更迷茫了，但日子还得过",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 3,
+            "label": "接受现状"
+          },
+          {
+            "target": "money",
+            "value": -3,
+            "label": "摆烂消费"
+          }
+        ],
+        "nextEventId": "cs_lie_awakening"
+      }
+    ]
   },
   {
     "id": "cs_lie_awakening",

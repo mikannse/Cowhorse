@@ -26,20 +26,6 @@
     }
   },
   {
-    "id": "academic_success",
-    "title": "学术大佬",
-    "description": "你终于成为了别人口中的\"学霸\"。发表了顶会 paper，拿了国奖，导师说你很有前途。只有你知道，那些通宵的夜晚，眼泪滴在键盘上的声音。你曾经怀疑自己是不是选错了路，直到某天在会议室里，一个年轻学生站起来说：*老师，我是因为读了您的论文才决定做这个方向的。* 那一刻，你觉得一切都值了。",
-    "rarity": "route",
-    "condition": {
-      "type": "and",
-      "conditions": [
-        { "type": "stage", "stage": "ending" },
-        { "type": "visited", "eventId": "postgrad_publish" },
-        { "type": "attribute", "attr": "skill", "operator": "gte", "value": 60 }
-      ]
-    }
-  },
-  {
     "id": "civil_servant",
     "title": "编制护身符",
     "description": "你考上了。亲戚们都说稳定，只有你知道稳定的意思是：未来三十年，你都要在这个格子间里吃午饭。不过，至少午饭是稳定的。过年回家，爸妈终于可以放心地把你的微信推给每一个问你\"在干嘛\"的亲戚。你笑了笑，没告诉他们：*稳定也是一种勇敢。*",
@@ -78,6 +64,21 @@
         { "type": "stage", "stage": "ending" },
         { "type": "visited", "eventId": "lie_intro" },
         { "type": "attribute", "attr": "mentalHealth", "operator": "gte", "value": 50 }
+      ]
+    }
+  },
+  {
+    "id": "academic_success",
+    "title": "学术大佬",
+    "description": "你终于成为了别人口中的\"学霸\"。发表了顶会 paper，拿了国奖，导师说你很有前途。只有你知道，那些通宵的夜晚，眼泪滴在键盘上的声音。你曾经怀疑自己是不是选错了路，直到某天在会议室里，一个年轻学生站起来说：*老师，我是因为读了您的论文才决定做这个方向的。* 那一刻，你觉得一切都值了。",
+    "rarity": "route",
+    "condition": {
+      "type": "and",
+      "conditions": [
+        { "type": "stage", "stage": "ending" },
+        { "type": "visited", "eventId": "postgrad_publish" },
+        { "type": "visited", "eventId": "exam_intro" },
+        { "type": "attribute", "attr": "skill", "operator": "gte", "value": 60 }
       ]
     }
   },

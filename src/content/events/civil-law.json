@@ -23,7 +23,7 @@
             "label": "信念"
           }
         ],
-        "nextEventId": "civil_study"
+        "nextEventId": "law_civil_prep"
       },
       {
         "text": "司法局/纪委监委，也是好方向",
@@ -43,6 +43,45 @@
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "law_civil_prep",
+    "stage": "graduation",
+    "text": "申论对你来说意外地顺手——学了四年法律，写材料简直是降维打击。但行测的类比推理让你陷入法学思维的陷阱：'这题在民法里不是这样规定的……' 你意识到考试不需要那么严谨，但要调整思维方式还是很难。",
+    "choices": [
+      {
+        "text": "全力以赴备考",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "认真备考"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "疲惫"
+          }
+        ],
+        "nextEventId": "law_civil_work"
+      },
+      {
+        "text": "佛系备考，专业也不能丢",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 3,
+            "label": "佛系复习"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "心态稳"
+          }
+        ],
+        "nextEventId": "law_civil_work"
+      }
+    ]
   },
   {
     "id": "law_civil_work",

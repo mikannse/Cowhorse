@@ -65,10 +65,49 @@
             "label": "专业不丢"
           }
         ],
-        "nextEventId": "mech_lie_awakening"
+        "nextEventId": "mech_lie_struggle"
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "mech_lie_struggle",
+    "stage": "gap",
+    "text": "你在出租屋里试图 DIY 一个自动浇花装置，用 Arduino 和旧饮料瓶折腾了两天。做出来的时候你兴奋了十分钟，然后意识到：*我一个机械工程的毕业生，在出租屋里最大的成就就是这个？* 你看着那个装置浇花，花已经枯了。",
+    "choices": [
+      {
+        "text": "想通了，还是要靠自己",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "想通了"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "重新振作"
+          }
+        ],
+        "nextEventId": "mech_lie_awakening"
+      },
+      {
+        "text": "更迷茫了，但日子还得过",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 3,
+            "label": "接受现状"
+          },
+          {
+            "target": "money",
+            "value": -3,
+            "label": "摆烂消费"
+          }
+        ],
+        "nextEventId": "mech_lie_awakening"
+      }
+    ]
   },
   {
     "id": "mech_lie_awakening",

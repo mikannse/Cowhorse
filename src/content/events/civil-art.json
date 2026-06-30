@@ -23,7 +23,7 @@
             "label": "文化系统"
           }
         ],
-        "nextEventId": "civil_study"
+        "nextEventId": "art_civil_prep"
       },
       {
         "text": "党校/档案馆，清闲好发展",
@@ -48,6 +48,45 @@
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "art_civil_prep",
+    "stage": "graduation",
+    "text": "你学的是艺术设计——行测的数量关系对你来说是天书，但申论的写作你还能应付。朋友圈里同学都在晒作品集，你在晒行测的错题本。你开始在草稿纸上画思维导图——至少画得比别人好看。",
+    "choices": [
+      {
+        "text": "全力以赴备考",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "认真备考"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "疲惫"
+          }
+        ],
+        "nextEventId": "art_civil_work"
+      },
+      {
+        "text": "佛系备考，专业也不能丢",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 3,
+            "label": "佛系复习"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "心态稳"
+          }
+        ],
+        "nextEventId": "art_civil_work"
+      }
+    ]
   },
   {
     "id": "art_civil_work",

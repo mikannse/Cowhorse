@@ -65,10 +65,49 @@
             "label": "每天都怕警察上门"
           }
         ],
-        "nextEventId": "finance_lie_awakening"
+        "nextEventId": "finance_lie_struggle"
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "finance_lie_struggle",
+    "stage": "gap",
+    "text": "你算了一笔账：存款够躺多久。excel 表格打开又关上，因为每一版计算结果都让你更焦虑。你同学在投行月薪五万，你在计算怎么用三千块过一个月。*学金融的躺平，连算账都算得比别人痛苦。*",
+    "choices": [
+      {
+        "text": "想通了，还是要靠自己",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "想通了"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "重新振作"
+          }
+        ],
+        "nextEventId": "finance_lie_awakening"
+      },
+      {
+        "text": "更迷茫了，但日子还得过",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 3,
+            "label": "接受现状"
+          },
+          {
+            "target": "money",
+            "value": -3,
+            "label": "摆烂消费"
+          }
+        ],
+        "nextEventId": "finance_lie_awakening"
+      }
+    ]
   },
   {
     "id": "finance_lie_awakening",

@@ -65,10 +65,49 @@
             "label": "永远在替别人表达"
           }
         ],
-        "nextEventId": "art_lie_awakening"
+        "nextEventId": "art_lie_struggle"
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "art_lie_struggle",
+    "stage": "gap",
+    "text": "你躺了几天，打开小红书想找点\"躺平文学\"治愈自己，结果首页全是同龄人的作品集、展览邀约和获奖喜报。你默默关掉手机，盯着天花板发呆。*连躺平都躺得不安心，这就是艺术生的宿命吗？*",
+    "choices": [
+      {
+        "text": "想通了，还是要靠自己",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "想通了"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "重新振作"
+          }
+        ],
+        "nextEventId": "art_lie_awakening"
+      },
+      {
+        "text": "更迷茫了，但日子还得过",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 3,
+            "label": "接受现状"
+          },
+          {
+            "target": "money",
+            "value": -3,
+            "label": "摆烂消费"
+          }
+        ],
+        "nextEventId": "art_lie_awakening"
+      }
+    ]
   },
   {
     "id": "art_lie_awakening",

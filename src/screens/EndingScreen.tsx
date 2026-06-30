@@ -57,49 +57,54 @@ export default function EndingScreen() {
   }
 
   return (
-    <div className="flex-1 flex flex-col overflow-y-auto px-4 py-6">
-      <header className="text-center mb-4">
-        <h1 className="text-hero text-foreground">{ending.title}</h1>
-        <span className="inline-block mt-2 bg-tape text-foreground text-caption font-bold px-3 py-1 rounded rotate-[2deg]">
-          {ending.rarity === 'hidden'
-            ? '隐藏结局'
-            : ending.rarity === 'route'
-              ? '路线结局'
-              : '普通结局'}
-        </span>
-        <p className="text-body text-foreground mt-4 max-w-xs mx-auto">{ending.description}</p>
-      </header>
+    <div className="flex-1 flex flex-col overflow-hidden">
+      {/* Scrollable content area — poster + header */}
+      <div className="flex-1 overflow-y-auto px-4 pt-6 pb-2">
+        <header className="text-center mb-4">
+          <h1 className="text-hero text-foreground">{ending.title}</h1>
+          <span className="inline-block mt-2 bg-tape text-foreground text-caption font-bold px-3 py-1 rounded rotate-[2deg]">
+            {ending.rarity === 'hidden'
+              ? '隐藏结局'
+              : ending.rarity === 'route'
+                ? '路线结局'
+                : '普通结局'}
+          </span>
+          <p className="text-body text-foreground mt-4 max-w-xs mx-auto">{ending.description}</p>
+        </header>
 
-      <div className="w-full max-w-xs mx-auto mb-4">
-        <LifeResume onRenderComplete={() => {}} />
+        <div className="w-full max-w-xs mx-auto mb-2">
+          <LifeResume onRenderComplete={() => {}} />
+        </div>
+
+        {posterError && (
+          <p className="text-caption text-destructive text-center mb-2">{posterError}</p>
+        )}
       </div>
 
-      {posterError && (
-        <p className="text-caption text-destructive text-center mb-3">{posterError}</p>
-      )}
-
-      <div className="flex items-center justify-center gap-3 mb-4">
-        <button
-          type="button"
-          onClick={handleSave}
-          disabled={!posterDataUrl}
-          className="flex-1 max-w-[160px] py-3 px-4 bg-surface border-2 border-foreground rounded-lg text-label font-bold shadow-card disabled:opacity-50"
-        >
-          保存海报
-        </button>
-        <button
-          type="button"
-          onClick={handleShare}
-          disabled={!posterDataUrl}
-          className="flex-1 max-w-[160px] py-3 px-4 bg-accent text-on-primary rounded-lg text-label font-bold shadow-button disabled:opacity-50"
-        >
-          分享
+      {/* Fixed bottom area — action buttons never overlap poster */}
+      <div className="flex-shrink-0 px-4 pb-6 pt-3 flex flex-col items-center gap-3 border-t border-border bg-background">
+        <div className="flex items-center justify-center gap-3 w-full max-w-xs">
+          <button
+            type="button"
+            onClick={handleSave}
+            disabled={!posterDataUrl}
+            className="flex-1 max-w-[160px] py-3 px-4 bg-surface border-2 border-foreground rounded-lg text-label font-bold shadow-card disabled:opacity-50"
+          >
+            保存海报
+          </button>
+          <button
+            type="button"
+            onClick={handleShare}
+            disabled={!posterDataUrl}
+            className="flex-1 max-w-[160px] py-3 px-4 bg-accent text-on-primary rounded-lg text-label font-bold shadow-button disabled:opacity-50"
+          >
+            分享
+          </button>
+        </div>
+        <button type="button" onClick={handleReplay} className="btn-primary max-w-xs">
+          再玩一次
         </button>
       </div>
-
-      <button type="button" onClick={handleReplay} className="btn-primary max-w-xs mx-auto">
-        再玩一次
-      </button>
     </div>
   );
 }

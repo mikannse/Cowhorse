@@ -23,7 +23,7 @@
             "label": "放弃高薪"
           }
         ],
-        "nextEventId": "civil_study"
+        "nextEventId": "finance_civil_prep"
       },
       {
         "text": "考人行/金融监管局，更高平台",
@@ -48,6 +48,45 @@
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "finance_civil_prep",
+    "stage": "graduation",
+    "text": "行测的资料分析简直是为你量身定制，各种图表数据你一眼就能看出重点。但言语理解的主旨题你总是选错——金融人的思维是'看数据说话'，语文题要的是'感觉'。你在笔记上写了一行字：*放下理性，去感受出题人的意图。* 然后你自己笑了。",
+    "choices": [
+      {
+        "text": "全力以赴备考",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "认真备考"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "疲惫"
+          }
+        ],
+        "nextEventId": "finance_civil_work"
+      },
+      {
+        "text": "佛系备考，专业也不能丢",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 3,
+            "label": "佛系复习"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "心态稳"
+          }
+        ],
+        "nextEventId": "finance_civil_work"
+      }
+    ]
   },
   {
     "id": "finance_civil_work",

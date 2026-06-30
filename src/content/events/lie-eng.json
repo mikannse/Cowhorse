@@ -65,10 +65,49 @@
             "label": "行业内的名声"
           }
         ],
-        "nextEventId": "eng_lie_awakening"
+        "nextEventId": "eng_lie_struggle"
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "eng_lie_struggle",
+    "stage": "gap",
+    "text": "你开始看韩剧，发现没有字幕也能听懂七八成——英语专业的好处是学其他语言好像都容易一点。但这也让你焦虑：*我学了四年英语，最后就是用来理解韩剧台词的吗？* 你关掉视频，打开了招聘软件，又关上了。",
+    "choices": [
+      {
+        "text": "想通了，还是要靠自己",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "想通了"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "重新振作"
+          }
+        ],
+        "nextEventId": "eng_lie_awakening"
+      },
+      {
+        "text": "更迷茫了，但日子还得过",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 3,
+            "label": "接受现状"
+          },
+          {
+            "target": "money",
+            "value": -3,
+            "label": "摆烂消费"
+          }
+        ],
+        "nextEventId": "eng_lie_awakening"
+      }
+    ]
   },
   {
     "id": "eng_lie_awakening",

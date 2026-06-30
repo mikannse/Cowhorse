@@ -65,10 +65,49 @@
             "label": "专业荒废"
           }
         ],
-        "nextEventId": "med_lie_awakening"
+        "nextEventId": "med_lie_struggle"
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "med_lie_struggle",
+    "stage": "gap",
+    "text": "你的医学知识在躺平期间唯一的用处是给自己诊断：失眠、焦虑、颈椎反弓。你给自己开了个处方——\"休息\"，但医嘱自己很难执行。手机里医院的群还在响，同事在问谁能顶个夜班。你假装没看见。",
+    "choices": [
+      {
+        "text": "想通了，还是要靠自己",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "想通了"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "重新振作"
+          }
+        ],
+        "nextEventId": "med_lie_awakening"
+      },
+      {
+        "text": "更迷茫了，但日子还得过",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 3,
+            "label": "接受现状"
+          },
+          {
+            "target": "money",
+            "value": -3,
+            "label": "摆烂消费"
+          }
+        ],
+        "nextEventId": "med_lie_awakening"
+      }
+    ]
   },
   {
     "id": "med_lie_awakening",

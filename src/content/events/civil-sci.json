@@ -23,7 +23,7 @@
             "label": "岗位对口"
           }
         ],
-        "nextEventId": "civil_study"
+        "nextEventId": "sci_civil_prep"
       },
       {
         "text": "不限专业岗位，换个赛道",
@@ -43,6 +43,45 @@
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "sci_civil_prep",
+    "stage": "graduation",
+    "text": "行测的数量关系和逻辑判断对你来说就是小菜一碟，毕竟数学证明题比这难多了。但常识判断让你崩溃——'以下哪个不是长征系列火箭？' 你是搞基础科学的，不是搞航天工程的！你第一次体会到文科生的痛苦。",
+    "choices": [
+      {
+        "text": "全力以赴备考",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "认真备考"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "疲惫"
+          }
+        ],
+        "nextEventId": "sci_civil_work"
+      },
+      {
+        "text": "佛系备考，专业也不能丢",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 3,
+            "label": "佛系复习"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "心态稳"
+          }
+        ],
+        "nextEventId": "sci_civil_work"
+      }
+    ]
   },
   {
     "id": "sci_civil_work",

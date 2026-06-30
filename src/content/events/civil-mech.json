@@ -23,7 +23,7 @@
             "label": "岗位对口"
           }
         ],
-        "nextEventId": "civil_study"
+        "nextEventId": "mech_civil_prep"
       },
       {
         "text": "不限专业岗位，换个方向",
@@ -43,6 +43,45 @@
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "mech_civil_prep",
+    "stage": "graduation",
+    "text": "行测的图形推理你做得不错——机械制图的训练让你对空间图形很敏感。但申论的大作文让你头疼：画图可以精确到毫米，写文章怎么全是'酌情给分'？你在草稿纸上先画了个思维导图的框架，然后发现已经过去半小时了。",
+    "choices": [
+      {
+        "text": "全力以赴备考",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 8,
+            "label": "认真备考"
+          },
+          {
+            "target": "energy",
+            "value": -5,
+            "label": "疲惫"
+          }
+        ],
+        "nextEventId": "mech_civil_work"
+      },
+      {
+        "text": "佛系备考，专业也不能丢",
+        "effects": [
+          {
+            "target": "skill",
+            "value": 3,
+            "label": "佛系复习"
+          },
+          {
+            "target": "mentalHealth",
+            "value": 5,
+            "label": "心态稳"
+          }
+        ],
+        "nextEventId": "mech_civil_work"
+      }
+    ]
   },
   {
     "id": "mech_civil_work",

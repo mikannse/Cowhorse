@@ -65,10 +65,49 @@
             "label": "学不到东西"
           }
         ],
-        "nextEventId": "sci_lie_awakening"
+        "nextEventId": "sci_lie_struggle"
       }
     ],
     "noEncounters": true
+  },
+  {
+    "id": "sci_lie_struggle",
+    "stage": "gap",
+    "text": "你躺平的第三天开始看科普视频，从量子力学看到进化论。知识进了脑子，但焦虑也进来了——视频里的科学家们那么热爱自己的工作，而你连简历都不想打开。*学基础科学的人最大的问题：什么都想搞明白，但搞明白了又怎么样呢？*",
+    "choices": [
+      {
+        "text": "想通了，还是要靠自己",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 8,
+            "label": "想通了"
+          },
+          {
+            "target": "skill",
+            "value": 5,
+            "label": "重新振作"
+          }
+        ],
+        "nextEventId": "sci_lie_awakening"
+      },
+      {
+        "text": "更迷茫了，但日子还得过",
+        "effects": [
+          {
+            "target": "mentalHealth",
+            "value": 3,
+            "label": "接受现状"
+          },
+          {
+            "target": "money",
+            "value": -3,
+            "label": "摆烂消费"
+          }
+        ],
+        "nextEventId": "sci_lie_awakening"
+      }
+    ]
   },
   {
     "id": "sci_lie_awakening",
